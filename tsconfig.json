@@ -1,0 +1,10 @@
+{
+    "compilerOptions":{
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "jsx":"react",
+        "allowJs":true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+    }
+}
