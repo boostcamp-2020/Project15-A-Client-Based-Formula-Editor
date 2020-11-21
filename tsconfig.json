@@ -4,6 +4,7 @@
         "noImplicitAny": true,
         "jsx":"react",
         "allowJs":true,
+        "checkJs":true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
     }
