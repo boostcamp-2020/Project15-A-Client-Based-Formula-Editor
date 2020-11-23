@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addStyles, EditableMathField, StaticMathField } from 'react-mathquill';
+import Header from '@src/components/header';
 
 addStyles();
 
@@ -10,6 +11,7 @@ const EditableMathExample: React.FC = () => {
   const [sum, setSum] = useState('\\sum_{}^{}{}');
   return (
     <div>
+      <Header />
       <EditableMathField
         latex={latex}
         onChange={(mathField) => {
