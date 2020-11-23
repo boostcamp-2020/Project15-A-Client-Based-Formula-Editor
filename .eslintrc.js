@@ -2,11 +2,11 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react-hooks'],
   extends: [
-    'airbnb', // or airbnb-base
+    'airbnb',
     'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended', // 설치 한경우
-    'plugin:import/errors', // 설치한 경우
-    'plugin:import/warnings', // 설치한 경우
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
@@ -20,6 +20,7 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-inferrable-types': 0,
   },
 
   settings: {

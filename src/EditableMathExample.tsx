@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { addStyles, EditableMathField, StaticMathField } from 'react-mathquill';
 
 addStyles();
+
 const EditableMathExample: React.FC = () => {
   const [latex, setLatex] = useState('\\sqrt{}');
   const [multiply, setMultiply] = useState('\\frac{}{}');
