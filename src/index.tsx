@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EditableMathExample from '@src/EditableMathExample';
+import App from '@src/App';
 
-ReactDOM.render(<EditableMathExample />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
