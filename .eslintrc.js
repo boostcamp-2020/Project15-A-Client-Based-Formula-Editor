@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-inferrable-types': 0,
+    'import/prefer-default-export': 'off',
   },
 
   settings: {
