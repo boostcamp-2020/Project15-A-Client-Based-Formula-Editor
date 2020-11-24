@@ -7,12 +7,7 @@ interface ButtonProps {
   width: string;
   height: string;
 }
-const ToolBarButton: React.FC<ButtonProps> = ({
-  Svg,
-  width,
-  height,
-  color,
-}: ButtonProps) => {
+const ToolBarButton = ({ Svg, width, height, color }: ButtonProps) => {
   return (
     <>
       <S.CustomButton color={color} width={width} height={height}>

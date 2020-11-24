@@ -3,7 +3,7 @@ import SVGIcon from '@src/utils/svg/logo.svg';
 import Button from '@src/components/common/Button';
 import colors from '@src/utils/colors';
 
-const Header: React.FC = () => {
+const Header = () => {
   return (
     <>
       <SVGIcon />

@@ -6,7 +6,7 @@ import { GlobalStyle } from '@src/utils/global-style';
 
 addStyles();
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <GlobalStyle />

@@ -3,7 +3,7 @@ import colors from '@src/utils/colors';
 import DECLINEICON from '@src/utils/svg/decline-text.svg';
 import ToolBarButton from '@src/components/common/toolbarbutton';
 
-const ToolBar: React.FC = () => {
+const ToolBar = () => {
   return (
     <>
       <ToolBarButton
