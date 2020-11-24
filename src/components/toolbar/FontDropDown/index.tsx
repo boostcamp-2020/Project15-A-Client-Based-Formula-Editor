@@ -16,21 +16,31 @@ const DropDownContent = styled.div`
 `;
 
 export default function FontDropDown() {
+  const [selectedFontSize, setSelectedFontSize] = useState(15);
+
+  const changeFontSize = (size: number) => {
+    setSelectedFontSize(size);
+  };
+
+  const fonts = [11, 13, 15, 16, 19, 24, 28, 30, 34, 38];
+
+  const fontList: JSX.Element[] = fonts.map(
+    (font): JSX.Element => {
+      return (
+        <FontContent
+          key={font}
+          fontSize={font}
+          changeFontSize={changeFontSize}
+          selectedFontSize={selectedFontSize}
+        />
+      );
+    }
+  );
+
   return (
     <DropDown>
       <FontButton />
-      <DropDownContent>
-        <FontContent fontSize={11} />
-        <FontContent fontSize={13} />
-        <FontContent fontSize={15} />
-        <FontContent fontSize={16} />
-        <FontContent fontSize={19} />
-        <FontContent fontSize={24} />
-        <FontContent fontSize={28} />
-        <FontContent fontSize={30} />
-        <FontContent fontSize={34} />
-        <FontContent fontSize={38} />
-      </DropDownContent>
+      <DropDownContent>{fontList}</DropDownContent>
     </DropDown>
   );
 }
