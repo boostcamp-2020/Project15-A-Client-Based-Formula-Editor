@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Content = styled.div`
+const Content = styled.div<{ isSelected: boolean }>`
   display: flex;
   align-items: center;
   .number {
@@ -9,7 +9,7 @@ const Content = styled.div`
     font-size: 13px;
   }
   .svg {
-    visibility: hidden;
+    visibility: ${(props) => (props.isSelected ? 'visible' : 'hidden')};
     margin-left: auto;
     margin-top: 5px;
   }
@@ -20,11 +20,26 @@ const Content = styled.div`
 
 interface Props {
   fontSize: number;
+  changeFontSize: (size: number) => void;
+  selectedFontSize: number;
 }
 
-export default function FontContent({ fontSize }: Props) {
+export default function FontContent({
+  fontSize,
+  changeFontSize,
+  selectedFontSize,
+}: Props) {
+  const onClickHandler = () => {
+    changeFontSize(fontSize);
+  };
+
+  let isSelected = false;
+  if (fontSize === selectedFontSize) {
+    isSelected = true;
+  }
+
   return (
-    <Content>
+    <Content onClick={onClickHandler} isSelected={isSelected}>
       <div className="number">{fontSize}</div>
       <div className="svg">
         <svg
