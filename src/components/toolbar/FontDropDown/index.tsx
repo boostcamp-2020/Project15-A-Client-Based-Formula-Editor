@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import FontButton from '@src/components/toolbar/FontDropDown/FontButton.tsx';
-import FontContent from '@src/components/toolbar/FontDropDown/FontContent.tsx';
+import FontContent from './FontContent';
+import FontButton from './FontButton';
 
 const DropDown = styled.div`
   width: 100px;
