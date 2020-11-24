@@ -12,7 +12,12 @@ module.exports = {
   ],
   rules: {
     'import/no-unresolved': 'off',
-    'prettier/prettier': 1,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
