@@ -1,25 +1,19 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-
 import FontContent from './FontContent';
 import FontButton from './FontButton';
-
-const DropDown = styled.div`
-  width: 100px;
-`;
-
-const DropDownContent = styled.div`
-  width: 100px;
-  border: 1px solid;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-`;
+import * as S from './style';
 
 export default function FontDropDown() {
   const [selectedFontSize, setSelectedFontSize] = useState(15);
+  const [dropDown, setDropDown] = useState('open');
 
   const changeFontSize = (size: number) => {
     setSelectedFontSize(size);
+  };
+
+  const changeStatus = () => {
+    if (dropDown === 'open') setDropDown('close');
+    else setDropDown('open');
   };
 
   const fonts = [11, 13, 15, 16, 19, 24, 28, 30, 34, 38];
@@ -38,9 +32,13 @@ export default function FontDropDown() {
   );
 
   return (
-    <DropDown>
-      <FontButton />
-      <DropDownContent>{fontList}</DropDownContent>
-    </DropDown>
+    <S.DropDown>
+      <FontButton
+        changeStatus={changeStatus}
+        dropDown={dropDown}
+        selectedFontSize={selectedFontSize}
+      />
+      <S.DropDownContent dropDown={dropDown}>{fontList}</S.DropDownContent>
+    </S.DropDown>
   );
 }
