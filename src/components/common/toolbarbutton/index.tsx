@@ -6,11 +6,17 @@ interface ButtonProps {
   Svg: string;
   width: string;
   height: string;
+  onClick: () => void;
 }
-const ToolBarButton = ({ Svg, width, height, color }: ButtonProps) => {
+const ToolBarButton = ({ Svg, width, height, color, onClick }: ButtonProps) => {
   return (
     <>
-      <S.CustomButton color={color} width={width} height={height}>
+      <S.CustomButton
+        color={color}
+        width={width}
+        height={height}
+        onClick={onClick}
+      >
         <Svg />
       </S.CustomButton>
     </>
