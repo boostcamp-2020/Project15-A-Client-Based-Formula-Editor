@@ -7,10 +7,11 @@ interface ButtonProps {
   value: string;
 }
 
-export default function Button({ color, value }: ButtonProps) {
+const Button = ({ color, value }: ButtonProps) => {
   return (
     <>
       <S.CustomButton color={color}>{value}</S.CustomButton>
     </>
   );
-}
+};
+export default Button;
