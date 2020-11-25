@@ -28,7 +28,7 @@ const ToolBar = () => {
         height="30"
         onClick={onClickDeclineHandler}
       />
-      {isDropdownShow ? <DropDown click="drawer" /> : ''}
+      {isDropdownShow && <DropDown click="drawer" />}
 
       <ToolBarButton
         color={colors.mainGreen}
