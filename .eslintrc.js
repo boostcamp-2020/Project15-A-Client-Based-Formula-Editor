@@ -12,7 +12,12 @@ module.exports = {
   ],
   rules: {
     'import/no-unresolved': 'off',
-    'prettier/prettier': 1,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
@@ -21,6 +26,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-inferrable-types': 0,
+    'import/prefer-default-export': 'off',
   },
 
   settings: {

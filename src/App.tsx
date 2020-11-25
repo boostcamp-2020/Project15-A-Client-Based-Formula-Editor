@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addStyles, EditableMathField, StaticMathField } from 'react-mathquill';
+import Header from '@src/components/header';
 
 addStyles();
 
@@ -13,6 +14,9 @@ const App: React.FC = () => {
           setSum(mathField.latex());
         }}
       />
+  return (
+    <div>
+      <Header />
     </div>
   );
 };
