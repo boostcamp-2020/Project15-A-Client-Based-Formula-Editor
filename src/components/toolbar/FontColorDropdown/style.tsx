@@ -18,7 +18,7 @@ export const DropdownButton = styled.div`
   flex-direction: column;
   width: 30px;
   cursor: pointer;
-
+  
   ${ColorBlind}{
     width: 100%;
   }
@@ -29,11 +29,16 @@ export const RowContainer = styled.div`
   width: 100%;
 `;
 export const ColorBox = styled.div`
-  margin-right:0.3rem;
-  width: 1rem;
-  height: 1rem;
-  background-color: ${(props)=>props.color};
-  cursor: pointer;
+width: 1rem;
+height: 1rem;
+background-color: ${(props)=>props.color};
+cursor: pointer;
+& + &{
+  margin-left:0.3rem;
+}
+&:hover{
+  border: solid 1px black;
+}
 `;
 export const DropdownContainer = styled.div`
   width: fit-content;
