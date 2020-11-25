@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 65 83">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_5" data-name="사각형 5" width="65" height="83" fill="none"/>
+    </clipPath>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 50 49">
+      <image width="50" height="49" xlink:href="data:image/png;base64,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"/>
+    </pattern>
+  </defs>
+  <g id="그룹_6" data-name="그룹 6" transform="translate(0 49)">
+    <g id="그룹_5" data-name="그룹 5" transform="translate(0 -49)">
+      <g id="그룹_4" data-name="그룹 4" clip-path="url(#clip-path)">
+        <rect id="사각형_4" data-name="사각형 4" width="65" height="83" fill="url(#pattern)"/>
+      </g>
+    </g>
+  </g>
+</svg>
