@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@src/store/modules';
+import { toggle, changeFontSize } from '@src/store/modules/font-dropdown';
 import FontContent from './FontContent';
 import FontButton from './FontButton';
 import * as S from './style';
 
 export default function FontDropDown() {
-  const [selectedFontSize, setSelectedFontSize] = useState(15);
-  const [dropDown, setDropDown] = useState('open');
+  const { dropDown, selectedFontSize } = useSelector(
+    (state: RootState) => state.fontDropDownReducer
+  );
 
-  const changeFontSize = (size: number) => {
-    setSelectedFontSize(size);
+  const dispatch = useDispatch();
+
+  const handleToggle = () => {
+    dispatch(toggle());
   };
 
-  const changeStatus = () => {
-    if (dropDown === 'open') setDropDown('close');
-    else setDropDown('open');
+  const handleChagneFontSize = (size: number) => {
+    dispatch(changeFontSize(size));
   };
 
   const fonts = [11, 13, 15, 16, 19, 24, 28, 30, 34, 38];
@@ -24,7 +29,7 @@ export default function FontDropDown() {
         <FontContent
           key={font}
           fontSize={font}
-          changeFontSize={changeFontSize}
+          changeFontSize={handleChagneFontSize}
           selectedFontSize={selectedFontSize}
         />
       );
@@ -34,7 +39,7 @@ export default function FontDropDown() {
   return (
     <S.DropDown>
       <FontButton
-        changeStatus={changeStatus}
+        changeStatus={handleToggle}
         dropDown={dropDown}
         selectedFontSize={selectedFontSize}
       />
