@@ -5,7 +5,7 @@ import DRAWER from '@src/utils/svg/drawer.svg';
 import ToolBarButton from '@src/components/common/toolbarbutton';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
-import { ChangeDropdownDrawer } from '@src/store/modules/drawerDropdown';
+import { dropdown } from '@src/store/modules/drawerDropdown';
 import DropDown from '@src/components/common/dropdown';
 
 const ToolBar = () => {
@@ -14,7 +14,7 @@ const ToolBar = () => {
   );
   const dispatch = useDispatch();
   const onClickDrawerHandler = () => {
-    dispatch(ChangeDropdownDrawer(!isDropdownShow));
+    dispatch(dropdown(!isDropdownShow));
   };
   const onClickDeclineHandler = () => {
     console.log('decline click');
