@@ -40,8 +40,13 @@
   "dependencies": {
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
+    "@types/react-redux": "^7.1.11",
+    "@types/redux-actions": "^2.6.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-mathquill": "^1.0.1"
+    "react-mathquill": "^1.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5"
   }
 }

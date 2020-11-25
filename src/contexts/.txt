@@ -1,1 +1,0 @@
-각 페이지별로 contexts와 reducer를 관리하는 디렉터리
