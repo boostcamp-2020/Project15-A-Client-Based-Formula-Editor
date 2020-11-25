@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
@@ -20,15 +19,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: { minimize: false },
-          },
-        ],
-      },
-      {
         test: /\.jsx?$/,
         use: ['babel-loader'],
         exclude: '/node_modules',
@@ -43,6 +33,10 @@ module.exports = {
         use: 'ts-loader',
         exclude: '/node_modules/',
       },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   devServer: {
@@ -54,7 +48,6 @@ module.exports = {
       template: './public/index.html', // public/index.html 파일을 읽는다.
       filename: 'index.html', // output으로 출력할 파일은 index.html 이다.
     }),
-    new UglifyJsPlugin(), // 로더로 처리된 자바스크립트 결과물을 난독화하는 프로그램
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: ['build'],
     }),
