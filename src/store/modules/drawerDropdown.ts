@@ -1,28 +1,26 @@
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 
-// 액션 타입을 정의해줍니다.
 const DROPDOWN_STATE = 'DROPDOWN_STATE';
+// IState를 설정한다.
 export interface IState {
   isDropdownShow: boolean;
   isClick: boolean;
 }
+// 액션 타입을 정의해줍니다.
 export interface ChangeDropdownState {
   type: typeof DROPDOWN_STATE;
   isDropdownShow: boolean;
 }
-export type ChangeDropdownStateActionType = ChangeDropdownState;
 
+// action의 리턴값 설정
 export const ChangeDropdownDrawer = (
   isDropdownShow: boolean
-): ChangeDropdownStateActionType => {
+): ChangeDropdownState => {
   return {
     type: DROPDOWN_STATE,
     isDropdownShow,
   };
 };
-
-// 액션 생성 함수를 만듭니다.
-export const drawerDropdown = createAction(DROPDOWN_STATE);
 
 // 모듈의 초기 상태를 정의합니다.
 const initialState: IState = {
@@ -33,11 +31,12 @@ const initialState: IState = {
 // 두번째 파라미터는 초기 상태입니다.
 export const drawerDropdownHandler = handleActions(
   {
-    [DROPDOWN_STATE]: (state = initialState): IState => {
-      return { ...state, isDropdownShow: !state.isDropdownShow };
+    [DROPDOWN_STATE]: (state = initialState, action: any): IState => {
+      return {
+        ...state,
+        isDropdownShow: !state.isDropdownShow,
+      };
     },
-    // action 객체를 참조하지 않으니까 이렇게 생략을 할 수도 있겠죠?
-    // state 부분에서 비구조화 할당도 해주어서 코드를 더욱 간소화시켰습니다.
   },
   initialState
 );

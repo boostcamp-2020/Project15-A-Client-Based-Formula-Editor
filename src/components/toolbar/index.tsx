@@ -14,7 +14,7 @@ const ToolBar = () => {
   );
   const dispatch = useDispatch();
   const onClickDrawerHandler = () => {
-    dispatch(ChangeDropdownDrawer(false));
+    dispatch(ChangeDropdownDrawer(!isDropdownShow));
   };
   const onClickDeclineHandler = () => {
     console.log('decline click');
