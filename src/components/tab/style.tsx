@@ -3,8 +3,8 @@ import colors from '@src/utils/colors';
 
 export const TabContainer = styled.ul`
   display: flex;
-  width: 32rem;
-  height: 3rem;
+  width: 100%;
+  height: 100%;
   overflow: auto;
 `;
 
@@ -14,10 +14,10 @@ export const TabItem = styled.li<{
   title: string;
 }>`
   width: ${(props) => {
-    if (props.title === '+') return '3.5rem';
-    return '6.5rem';
+    if (props.title === '+') return '2.5rem';
+    return '5.5rem';
   }};
-  height: 2rem;
+  height: 1.3rem;
   flex: 0, 1, auto;
   list-style: none;
   border-radius: 0 0 2px 2px;
@@ -54,6 +54,6 @@ export const TabItem = styled.li<{
   }
   &: hover {
     background-color: #cccccc;
-    height: 2.5rem;
+    height: 1.7rem;
   }
 `;

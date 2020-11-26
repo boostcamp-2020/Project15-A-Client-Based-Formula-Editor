@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import { addStyles, EditableMathField, StaticMathField } from 'react-mathquill';
-import Header from '@src/components/header';
+import React from 'react';
 import { GlobalStyle } from '@src/utils/global-style';
-import Toolbar from '@src/components/toolbar';
 import Tab from '@src/components/tab';
 import Mathquill from '@src/components/mathquill';
-
-addStyles();
+import * as StyleComponent from './style';
 
 const App = () => {
   return (
-    <div>
-      <Mathquill />
+    <>
       <GlobalStyle />
-      <Header />
-      <Toolbar />
-      <Tab />
-    </div>
+      <StyleComponent.Wrap>
+        <StyleComponent.Header />
+        <StyleComponent.Content>
+          <StyleComponent.Aside />
+          <StyleComponent.Main>
+            <StyleComponent.ToolBar />
+            <StyleComponent.MoveArea>
+              <StyleComponent.LeftArea>
+                <StyleComponent.TextArea>
+                  <Mathquill />
+                </StyleComponent.TextArea>
+                <StyleComponent.LaTeX>LaTeX 영역</StyleComponent.LaTeX>
+                <StyleComponent.Tab>
+                  <Tab />
+                </StyleComponent.Tab>
+              </StyleComponent.LeftArea>
+              <StyleComponent.RightArea />
+            </StyleComponent.MoveArea>
+          </StyleComponent.Main>
+        </StyleComponent.Content>
+      </StyleComponent.Wrap>
+    </>
   );
 };
 
