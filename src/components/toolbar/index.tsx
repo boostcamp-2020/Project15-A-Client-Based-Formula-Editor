@@ -46,14 +46,14 @@ const ToolBar = () => {
     console.log('forward');
   };
   const buttonAttributes = [
-    { Svg: DECLINEICON, onClick: onClickDeclineHandler },
-    { Svg: DRAWER, onClick: onClickDrawerHandler },
-    { Svg: BACKGROUND, onClick: onClickBackgroundHandler },
+    { Svg: DECLINEICON, onClick: onClickDeclineHandler, id: 1 },
+    { Svg: DRAWER, onClick: onClickDrawerHandler, id: 2 },
+    { Svg: BACKGROUND, onClick: onClickBackgroundHandler, id: 3 },
   ];
   const buttonOptions = [
-    { Svg: BACK, onClick: onClickBackHandler },
-    { Svg: FORWORD, onClick: onClickForwardHandler },
-    { Svg: CLEAR, onClick: onClickClearHandler },
+    { Svg: BACK, onClick: onClickBackHandler, id: 1 },
+    { Svg: FORWORD, onClick: onClickForwardHandler, id: 2 },
+    { Svg: CLEAR, onClick: onClickClearHandler, id: 3 },
   ];
   return (
     <StyledComponent.ToolbarContainer>
@@ -63,7 +63,7 @@ const ToolBar = () => {
         {buttonAttributes.map((value) => {
           return (
             <ToolBarButton
-              key={value.toString()}
+              key={value.id}
               color={colors.mainGreen}
               Svg={value.Svg}
               onClick={value.onClick}
@@ -75,7 +75,7 @@ const ToolBar = () => {
         {buttonOptions.map((value) => {
           return (
             <ToolBarButton
-              key={value.toString()}
+              key={value.id}
               color={colors.mainGreen}
               Svg={value.Svg}
               onClick={value.onClick}
