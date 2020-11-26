@@ -6,11 +6,7 @@ export interface IState {
   isDropdownShow: boolean;
   isClick: boolean;
 }
-// 액션 타입을 정의해줍니다.
-export interface ChangeDropdownState {
-  type: typeof DROPDOWN_STATE;
-  isDropdownShow: boolean;
-}
+
 export const dropdown = createAction(DROPDOWN_STATE);
 // action의 리턴값 설정
 

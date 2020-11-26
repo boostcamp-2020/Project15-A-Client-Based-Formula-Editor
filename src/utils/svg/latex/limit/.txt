@@ -1,0 +1,16 @@
+극한 수식
+로그 : \log _{ }\combi{ }
+로그 : \log \combi{ }
+자연로그 : \ln \combi{ }
+극한 : \lim _{ }^{ }\combi{ }
+극한 : \lim _{\combi{ }\to \combi{ }}^{ }\combi{ }
+최소값 : \min _{ }^{ }\combi{ }
+최대값 : \max _{ }^{ }\combi{ }
+
+극한 템플릿
+극한 및 로그 템플릿1 : a^{\log _bx}
+극한 및 로그 템플릿2 : \lim _{n\to \infty }^{ }\combi{ }
+극한 및 로그 템플릿3 : \lim _{n\to \infty }^{ }\left(a_n\pm b_n\right)
+극한 및 로그 템플릿4 : \lim _{\righttriangle x\to 0}^{ }\frac{\righttriangle y}{\righttriangle x}
+극한 및 로그 템플릿5 : \lim _{n\to \infty }^{ }\left(1+\frac{1}{n}\right)^n
+극한 및 로그 템플릿6 : \lim _{n\to \infty }^{ }\sum _{k=1}^n\combi{ }

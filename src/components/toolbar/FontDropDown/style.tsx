@@ -15,17 +15,22 @@ export const DropDownContent = styled.div<{ dropDown: string }>`
 
 export const DropButton = styled.div`
   cursor: pointer;
-  width: 60px;
+  width: 120px;
+  height: 61px;
+  margin-top: -1px;
   border: 1px solid ${colors.borderGrey};
   display: flex;
   align-items: center;
+  padding-left: 12px;
   .number {
     padding: 7px;
-    font-size: 13px;
+    font-size: 26px;
+    background-color: ${colors.containerBackground};
   }
   svg {
-    margin-top: 2px;
+    background-color: ${colors.containerBackground};
   }
+  background-color: ${colors.mainGreen};
 `;
 
 export const Content = styled.div<{ isSelected: boolean }>`

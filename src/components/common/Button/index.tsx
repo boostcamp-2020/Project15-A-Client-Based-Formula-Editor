@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import * as S from './style';
+import * as StyleComponent from './style';
 
 interface ButtonProps {
   color: string;
@@ -10,7 +10,9 @@ interface ButtonProps {
 const Button = ({ color, value }: ButtonProps) => {
   return (
     <>
-      <S.CustomButton color={color}>{value}</S.CustomButton>
+      <StyleComponent.CustomButton color={color}>
+        {value}
+      </StyleComponent.CustomButton>
     </>
   );
 };

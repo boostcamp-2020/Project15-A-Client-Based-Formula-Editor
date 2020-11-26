@@ -2,17 +2,17 @@ import React from 'react';
 import SVGIcon from '@src/utils/svg/logo.svg';
 import Button from '@src/components/common/Button';
 import colors from '@src/utils/colors';
-import { HeaderContainer, ButtonContainer } from './style';
+import * as StyleComponent from './style';
 
 const Header = () => {
   return (
-    <HeaderContainer>
+    <StyleComponent.HeaderContainer>
       <SVGIcon />
-      <ButtonContainer>
+      <StyleComponent.ButtonContainer>
         <Button color={colors.imageSave} value="이미지 저장" />
         <Button color={colors.exportSave} value="export" />
-      </ButtonContainer>
-    </HeaderContainer>
+      </StyleComponent.ButtonContainer>
+    </StyleComponent.HeaderContainer>
   );
 };
 
