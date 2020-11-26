@@ -5,7 +5,7 @@ import { changeTab, addTab } from '@src/store/modules/tab';
 import TabList from './TabList';
 import * as StyleComponent from './style';
 
-export default function Tab() {
+const Tab = () => {
   const { selectedTabId, tabList } = useSelector(
     (state: RootState) => state.tabReducer
   );
@@ -47,4 +47,5 @@ export default function Tab() {
   );
 
   return <StyleComponent.TabContainer>{list}</StyleComponent.TabContainer>;
-}
+};
+export default Tab;

@@ -4,7 +4,7 @@ import Tab from '@src/components/tab';
 import Mathquill from '@src/components/mathquill';
 import ToolBar from '@src/components/toolbar';
 import Header from '@src/components/header';
-import * as StyleComponent from './style';
+import * as StyleComponent from '@src/style';
 
 const App = () => {
   return (

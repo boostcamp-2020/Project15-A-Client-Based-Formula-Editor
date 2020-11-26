@@ -4,7 +4,7 @@ import * as StyleComponent from './style';
 
 addStyles();
 
-export default function EditableMathExample() {
+const EditableMathExample = () => {
   const [latex, setLatex] = useState('kkkk');
 
   return (
@@ -17,4 +17,6 @@ export default function EditableMathExample() {
       />
     </StyleComponent.MathField>
   );
-}
+};
+
+export default EditableMathExample;

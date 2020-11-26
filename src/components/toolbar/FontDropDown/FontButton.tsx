@@ -9,11 +9,7 @@ interface Props {
   selectedFontSize: number;
 }
 
-export default function FontButton({
-  changeStatus,
-  dropDown,
-  selectedFontSize,
-}: Props) {
+const FontButton = ({ changeStatus, dropDown, selectedFontSize }: Props) => {
   const onClickHandler = () => {
     changeStatus();
   };
@@ -24,4 +20,5 @@ export default function FontButton({
       {dropDown === 'open' ? <FoldIcon /> : <OpenIcon />}
     </StyledComponent.DropButton>
   );
-}
+};
+export default FontButton;
