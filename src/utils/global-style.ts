@@ -1,11 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
-import colors from '@src/utils/colors';
 
 export const GlobalStyle = createGlobalStyle`
-${reset}
-*{
-  box-sizing:border-box;
-  background-color:${colors.borderGrey};
-}
+  ${reset}
+  html{
+    height: 100%;
+  }
+  body {
+    height: 100%;
+  }
+  #root {
+    height: 100%;
+  }
 `;
