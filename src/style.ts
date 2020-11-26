@@ -7,9 +7,11 @@ export const Wrap = styled.div`
 `;
 
 export const Header = styled.div`
-  height: 4.5rem;
+  height: 3.5rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   background-color: white;
+  display: flex;
+  border-bottom: 1px solid #d6d6d6;
 `;
 
 export const Content = styled.div`
