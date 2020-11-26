@@ -8,3 +8,8 @@ export const InputSectionContainer = styled.div`
   margin-top: 10px;
   border: 1px solid ${colors.borderGrey};
 `;
+export const InputTopSelectionSectionContainer = styled.div`
+  width: 100%;
+  height: 44%;
+  border-bottom: 1px solid ${colors.borderGrey};
+`;
