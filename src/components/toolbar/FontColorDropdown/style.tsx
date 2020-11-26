@@ -8,9 +8,11 @@ export interface Props {
 export const FontColorDropdown = styled.div``;
 
 export const ColorBlind = styled.div<Props>`
-  width: 0.5rem;
-  margin-top: -2px;
+  position: absolute;
+  width: 2px;
+  margin-top: -15px;
   height: 2px;
+  z-index: 1;
   background-color: ${(props) =>
     props.active ? colors.fontGreen : props.color || colors.black};
 `;
@@ -21,7 +23,8 @@ export const DropdownButton = styled.div`
     background-color: ${colors.mainGreen};
   }
   ${ColorBlind} {
-    width: 100%;
+    width: 2%;
+    margin-left: 10px;
   }
 `;
 

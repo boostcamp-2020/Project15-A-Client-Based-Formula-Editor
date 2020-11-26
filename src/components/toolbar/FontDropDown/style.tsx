@@ -6,17 +6,18 @@ export const DropDown = styled.div`
 `;
 
 export const DropDownContent = styled.div<{ dropDown: string }>`
+  position: absolute;
   width: 100px;
   border: 1px solid ${colors.borderGrey};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 1;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
 `;
 
 export const DropButton = styled.div`
   cursor: pointer;
   width: 120px;
-  height: 61px;
+  height: 60px;
   margin-top: -1px;
   border: 1px solid ${colors.borderGrey};
   display: flex;
@@ -24,7 +25,7 @@ export const DropButton = styled.div`
   padding-left: 12px;
   .number {
     padding: 7px;
-    font-size: 26px;
+    font-size: 27px;
     background-color: ${colors.containerBackground};
   }
   svg {
