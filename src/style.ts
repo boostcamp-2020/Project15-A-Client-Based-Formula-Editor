@@ -68,5 +68,5 @@ export const LaTeX = styled.div`
 export const Tab = styled.div`
   background-color: #8e8f92;
   width: 100%;
-  height: 6rem;
+  height: 2.3rem;
 `;
