@@ -3,10 +3,15 @@ import { fontColorDropdownHandler, State } from './fontColorDropdown';
 import { drawerDropdownHandler, IState } from './drawerDropdown';
 import { fontDropDownReducer, FontDropDownState } from './font-dropdown';
 import { tabReducer, TabState } from './tab';
+import {
+  BackgroundDropdownHandler,
+  BackgroundState,
+} from './backgroundDropdown';
 
 export interface rootState {
   drawerDropdownHandler: IState;
   fontColorDropdownHandler: State;
+  BackgroundDropdownHandler: BackgroundState;
 }
 export interface RootState {
   fontDropDownReducer: FontDropDownState;
@@ -17,4 +22,5 @@ export default combineReducers({
   fontDropDownReducer,
   fontColorDropdownHandler,
   tabReducer,
+  BackgroundDropdownHandler,
 });

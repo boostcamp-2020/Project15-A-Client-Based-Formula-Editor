@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckIcon from '@src/utils/svg/font-check.svg';
-import * as S from './style';
+import * as StyledComponent from './style';
 
 interface Props {
   fontSize: number;
@@ -23,9 +23,9 @@ export default function FontContent({
   }
 
   return (
-    <S.Content onClick={onClickHandler} isSelected={isSelected}>
+    <StyledComponent.Content onClick={onClickHandler} isSelected={isSelected}>
       <div className="number">{fontSize}</div>
       <CheckIcon />
-    </S.Content>
+    </StyledComponent.Content>
   );
 }
