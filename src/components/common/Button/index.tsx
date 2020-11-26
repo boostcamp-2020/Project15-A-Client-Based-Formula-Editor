@@ -9,11 +9,9 @@ interface ButtonProps {
 
 const Button = ({ color, value }: ButtonProps) => {
   return (
-    <>
-      <StyleComponent.CustomButton color={color}>
-        {value}
-      </StyleComponent.CustomButton>
-    </>
+    <StyleComponent.CustomButton color={color}>
+      {value}
+    </StyleComponent.CustomButton>
   );
 };
 export default Button;
