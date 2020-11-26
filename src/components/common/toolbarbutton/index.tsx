@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './style';
+import * as StyleComponent from './style';
 
 interface ButtonProps {
   color: string;
@@ -11,14 +11,14 @@ interface ButtonProps {
 const ToolBarButton = ({ Svg, width, height, color, onClick }: ButtonProps) => {
   return (
     <>
-      <S.CustomButton
+      <StyleComponent.CustomButton
         color={color}
         width={width}
         height={height}
         onClick={onClick}
       >
         <Svg />
-      </S.CustomButton>
+      </StyleComponent.CustomButton>
     </>
   );
 };
