@@ -1,5 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from '@src/utils/global-style';
+import Tab from '@src/components/tab';
+import Mathquill from '@src/components/mathquill';
 import * as StyleComponent from './style';
 
 const App = () => {
@@ -14,9 +16,13 @@ const App = () => {
             <StyleComponent.ToolBar />
             <StyleComponent.MoveArea>
               <StyleComponent.LeftArea>
-                <StyleComponent.TextArea>textarea 영역</StyleComponent.TextArea>
+                <StyleComponent.TextArea>
+                  <Mathquill />
+                </StyleComponent.TextArea>
                 <StyleComponent.LaTeX>LaTeX 영역</StyleComponent.LaTeX>
-                <StyleComponent.Tab>Tab 영역</StyleComponent.Tab>
+                <StyleComponent.Tab>
+                  <Tab />
+                </StyleComponent.Tab>
               </StyleComponent.LeftArea>
               <StyleComponent.RightArea />
             </StyleComponent.MoveArea>
