@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '@src/components/common/title';
 import * as StyledComponent from './style';
 
-const InputSecionContainer = () => {
+const InputSelectionSectionContainer = () => {
   return (
     <>
       <StyledComponent.InputSectionContainer>
@@ -12,4 +12,4 @@ const InputSecionContainer = () => {
   );
 };
 
-export default InputSecionContainer;
+export default InputSelectionSectionContainer;

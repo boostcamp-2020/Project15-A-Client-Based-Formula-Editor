@@ -5,6 +5,8 @@ import Mathquill from '@src/components/mathquill';
 import ToolBar from '@src/components/toolbar';
 import Header from '@src/components/header';
 import InputSectionContainer from '@src/components/leftsection/inputSelectionSection';
+import MathSectionContainer from '@src/components/leftsection/mathSection';
+import TemplateContainer from '@src/components/leftsection/templateSection';
 import * as StyleComponent from './style';
 
 const MainPage = () => {
@@ -18,6 +20,8 @@ const MainPage = () => {
         <StyleComponent.Content>
           <StyleComponent.Aside>
             <InputSectionContainer />
+            <MathSectionContainer />
+            <TemplateContainer />
           </StyleComponent.Aside>
           <StyleComponent.Main>
             <StyleComponent.ToolBar>

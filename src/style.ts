@@ -19,7 +19,7 @@ export const Content = styled.div`
 
 export const Aside = styled.div`
   display: flex;
-  flex: none;
+  flex-direction: column;
   width: 30rem;
   background-color: #e3ede7;
 `;
