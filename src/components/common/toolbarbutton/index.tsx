@@ -4,19 +4,12 @@ import * as StyleComponent from './style';
 interface ButtonProps {
   color: string;
   Svg: string;
-  width: string;
-  height: string;
   onClick: () => void;
 }
-const ToolBarButton = ({ Svg, width, height, color, onClick }: ButtonProps) => {
+const ToolBarButton = ({ Svg, color, onClick }: ButtonProps) => {
   return (
     <>
-      <StyleComponent.CustomButton
-        color={color}
-        width={width}
-        height={height}
-        onClick={onClick}
-      >
+      <StyleComponent.CustomButton color={color} onClick={onClick}>
         <Svg />
       </StyleComponent.CustomButton>
     </>
