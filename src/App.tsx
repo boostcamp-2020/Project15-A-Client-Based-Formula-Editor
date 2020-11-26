@@ -5,6 +5,7 @@ import FontDropDown from '@src/components/toolbar/FontDropDown';
 import FontColorDropdown from '@src/components/toolbar/FontColorDropdown';
 import { GlobalStyle } from '@src/utils/global-style';
 import Toolbar from '@src/components/toolbar';
+import Tab from '@src/components/tab';
 
 addStyles();
 
@@ -15,7 +16,8 @@ const App = () => {
       <Header />
       <Toolbar />
       <FontDropDown />
-      <FontColorDropdown/>
+      <FontColorDropdown />
+      <Tab />
     </div>
   );
 };
