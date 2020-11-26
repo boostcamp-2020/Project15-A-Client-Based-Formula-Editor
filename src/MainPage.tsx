@@ -4,9 +4,10 @@ import Tab from '@src/components/tab';
 import Mathquill from '@src/components/mathquill';
 import ToolBar from '@src/components/toolbar';
 import Header from '@src/components/header';
-import * as StyleComponent from '@src/style';
+import InputSectionContainer from '@src/components/leftsection/inputSelectionSection';
+import * as StyleComponent from './style';
 
-const App = () => {
+const MainPage = () => {
   return (
     <>
       <GlobalStyle />
@@ -15,7 +16,9 @@ const App = () => {
           <Header />
         </StyleComponent.Header>
         <StyleComponent.Content>
-          <StyleComponent.Aside />
+          <StyleComponent.Aside>
+            <InputSectionContainer />
+          </StyleComponent.Aside>
           <StyleComponent.Main>
             <StyleComponent.ToolBar>
               <ToolBar />
@@ -39,4 +42,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default MainPage;
