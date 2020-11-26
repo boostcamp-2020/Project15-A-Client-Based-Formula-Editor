@@ -10,7 +10,7 @@ const Header = () => {
       <SVGIcon />
       <StyleComponent.ButtonContainer>
         <Button color={colors.imageSave} value="이미지 저장" />
-        <Button color={colors.exportSave} value="export" />
+        <Button color={colors.exportSave} value="Export" />
       </StyleComponent.ButtonContainer>
     </StyleComponent.HeaderContainer>
   );
