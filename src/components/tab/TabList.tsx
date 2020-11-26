@@ -9,13 +9,13 @@ interface Props {
   handleAddTab: () => void;
 }
 
-export default function TabList({
+const TabList = ({
   tabId,
   selectedTabId,
   tabTitle,
   handleChangeTab,
   handleAddTab,
-}: Props) {
+}: Props) => {
   const onClickHandler = () => {
     if (tabTitle === '+') handleAddTab();
     else handleChangeTab(tabId);
@@ -32,4 +32,5 @@ export default function TabList({
       <input defaultValue="TAB1" />
     </StyleComponent.TabItem>
   );
-}
+};
+export default TabList;

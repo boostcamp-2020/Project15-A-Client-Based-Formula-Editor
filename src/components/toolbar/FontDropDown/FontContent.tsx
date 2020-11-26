@@ -8,11 +8,7 @@ interface Props {
   selectedFontSize: number;
 }
 
-export default function FontContent({
-  fontSize,
-  changeFontSize,
-  selectedFontSize,
-}: Props) {
+const FontContent = ({ fontSize, changeFontSize, selectedFontSize }: Props) => {
   const onClickHandler = () => {
     changeFontSize(fontSize);
   };
@@ -28,4 +24,6 @@ export default function FontContent({
       <CheckIcon />
     </StyledComponent.Content>
   );
-}
+};
+
+export default FontContent;
