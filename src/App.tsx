@@ -15,7 +15,7 @@ const App = () => {
       <Header />
       <Toolbar />
       <FontDropDown />
-      <FontColorDropdown/>
+      <FontColorDropdown />
     </div>
   );
 };
