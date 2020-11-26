@@ -9,17 +9,17 @@ export const FontColorDropdown = styled.div``;
 
 export const ColorBlind = styled.div<Props>`
   width: 0.5rem;
+  margin-top: -2px;
   height: 2px;
   background-color: ${(props) =>
     props.active ? colors.fontGreen : props.color || colors.black};
 `;
 
 export const DropdownButton = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 30px;
   cursor: pointer;
-
+  & svg {
+    background-color: ${colors.mainGreen};
+  }
   ${ColorBlind} {
     width: 100%;
   }
