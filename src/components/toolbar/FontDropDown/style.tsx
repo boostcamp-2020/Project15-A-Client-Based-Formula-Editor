@@ -9,7 +9,7 @@ export const DropDownContent = styled.div<{ dropDown: string }>`
   width: 100px;
   border: 1px solid ${colors.borderGrey};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 10;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
 `;
 

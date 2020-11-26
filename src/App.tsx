@@ -2,6 +2,8 @@ import React from 'react';
 import { GlobalStyle } from '@src/utils/global-style';
 import Tab from '@src/components/tab';
 import Mathquill from '@src/components/mathquill';
+import ToolBar from '@src/components/toolbar';
+import Header from '@src/components/header';
 import * as StyleComponent from './style';
 
 const App = () => {
@@ -9,11 +11,15 @@ const App = () => {
     <>
       <GlobalStyle />
       <StyleComponent.Wrap>
-        <StyleComponent.Header />
+        <StyleComponent.Header>
+          <Header />
+        </StyleComponent.Header>
         <StyleComponent.Content>
           <StyleComponent.Aside />
           <StyleComponent.Main>
-            <StyleComponent.ToolBar />
+            <StyleComponent.ToolBar>
+              <ToolBar />
+            </StyleComponent.ToolBar>
             <StyleComponent.MoveArea>
               <StyleComponent.LeftArea>
                 <StyleComponent.TextArea>
