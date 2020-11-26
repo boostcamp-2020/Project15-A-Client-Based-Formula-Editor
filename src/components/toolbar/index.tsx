@@ -63,7 +63,7 @@ const ToolBar = () => {
         {buttonAttributes.map((value) => {
           return (
             <ToolBarButton
-              key={`button-${value}`}
+              key={value.toString()}
               color={colors.mainGreen}
               Svg={value.Svg}
               onClick={value.onClick}
@@ -75,7 +75,7 @@ const ToolBar = () => {
         {buttonOptions.map((value) => {
           return (
             <ToolBarButton
-              key={`button-${value}`}
+              key={value.toString()}
               color={colors.mainGreen}
               Svg={value.Svg}
               onClick={value.onClick}
