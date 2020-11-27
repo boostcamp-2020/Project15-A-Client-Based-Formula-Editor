@@ -2,36 +2,38 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const DropDown = styled.div`
-  width: 100px;
+  width: 65px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 `;
 
 export const DropDownContent = styled.div<{ dropDown: string }>`
-  position: absolute;
   width: 100px;
   border: 1px solid ${colors.borderGrey};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
   z-index: 1;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
 `;
 
 export const DropButton = styled.div`
   cursor: pointer;
-  width: 120px;
-  height: 60px;
-  margin-top: -1px;
+  width: 100%;
+  height: 100%;
   border: 1px solid ${colors.borderGrey};
   display: flex;
   align-items: center;
-  padding-left: 12px;
+  background-color: white;
+  margin-bottom: 20px;
   .number {
     padding: 7px;
-    font-size: 27px;
-    background-color: ${colors.containerBackground};
+    font-size: 13px;
   }
   svg {
-    background-color: ${colors.containerBackground};
+    margin-top: 2px;
   }
-  background-color: ${colors.mainGreen};
 `;
 
 export const Content = styled.div<{ isSelected: boolean }>`

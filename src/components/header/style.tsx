@@ -3,24 +3,22 @@ import colors from '@src/utils/colors';
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 80px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-
-  background-color: ${colors.containerBackground};
+  align-items: center;
   & svg {
     cursor: pointer;
-    background-color: ${colors.containerBackground};
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 10%;
+    width: 3.75rem;
+    height: 3.5rem;
+    margin-left: 0.3rem;
   }
 `;
 
 export const ButtonContainer = styled.div`
-  margin-right: 200px;
-  margin-top: -5px;
-  width: 300px;
-  height: 30px;
+  width: 250px;
+  height: 35px;
   background-color: ${colors.containerBackground};
+  display: flex;
+  align-items: center;
 `;

@@ -1,11 +1,11 @@
 import React from 'react';
 import colors from '@src/utils/colors';
 import DECLINEICON from '@src/utils/svg/decline-text.svg';
-import DRAWER from '@src/utils/svg/drawer.svg';
+import DRAWER from '@src/utils/svg/new-drawer.svg';
 import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
-import CLEAR from '@src/utils/svg/clear.svg';
-import BACK from '@src/utils/svg/back.svg';
-import FORWORD from '@src/utils/svg/forward.svg';
+import CLEAR from '@src/utils/svg/new-clear.svg';
+import BACK from '@src/utils/svg/new-back.svg';
+import FORWORD from '@src/utils/svg/new-forward.svg';
 import ToolBarButton from '@src/components/common/toolbarbutton';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
