@@ -34,7 +34,7 @@ export const Main = styled.div`
 
 export const ToolBar = styled.div`
   background-color: #10df99;
-  height: 3.5rem;
+  height: 3.3rem;
   flex: none;
 `;
 
