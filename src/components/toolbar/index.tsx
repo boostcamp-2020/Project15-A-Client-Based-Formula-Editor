@@ -6,7 +6,7 @@ import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
 import CLEAR from '@src/utils/svg/new-clear.svg';
 import BACK from '@src/utils/svg/new-back.svg';
 import FORWORD from '@src/utils/svg/new-forward.svg';
-import ToolBarButton from '@src/components/common/toolbarbutton';
+import ToolBarButton from '@src/components/Common/ToolbarButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
 import { dropdown } from '@src/store/modules/drawerDropdown';
@@ -14,9 +14,9 @@ import {
   backgroundDropdown,
   BackgroundState,
 } from '@src/store/modules/backgroundDropdown';
-import DropDown from '@src/components/common/dropdown';
-import FontDropDown from '@src/components/toolbar/FontDropDown';
-import FontColorDropdown from '@src/components/toolbar/FontColorDropdown';
+import DropDown from '@src/components/Common/DropDown';
+import FontDropDown from '@src/components/Toolbar/FontDropDown';
+import FontColorDropdown from '@src/components/Toolbar/FontColorDropdown';
 import * as StyledComponent from './style';
 
 const ToolBar = () => {

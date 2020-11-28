@@ -19,9 +19,6 @@ export const ColorBlind = styled.div<Props>`
 
 export const DropdownButton = styled.div`
   cursor: pointer;
-  & svg {
-    background-color: ${colors.mainGreen};
-  }
   ${ColorBlind} {
     width: 2%;
     margin-left: 10px;

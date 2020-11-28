@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '@src/components/common/title';
+import Title from '@src/components/Common/Title';
 import * as StyledComponent from './style';
 
 const MathSectionContainer = () => {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { GlobalStyle } from '@src/utils/global-style';
-import Tab from '@src/components/tab';
-import Mathquill from '@src/components/mathquill';
-import ToolBar from '@src/components/toolbar';
-import Header from '@src/components/header';
-import InputSectionContainer from '@src/components/leftsection/inputSelectionSection';
-import MathSectionContainer from '@src/components/leftsection/mathSection';
-import TemplateContainer from '@src/components/leftsection/templateSection';
+import Tab from '@src/components/Tab';
+import Mathquill from '@src/components/MathQuill';
+import ToolBar from '@src/components/Toolbar';
+import Header from '@src/components/Header';
+import InputSectionContainer from '@src/components/LeftSection/InputSelectionSection';
+import MathSectionContainer from '@src/components/LeftSection/MathSection';
+import TemplateContainer from '@src/components/LeftSection/TemplateSection';
 import * as StyleComponent from './style';
 
 const MainPage = () => {

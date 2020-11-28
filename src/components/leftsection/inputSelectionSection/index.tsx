@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '@src/components/common/title';
+import Title from '@src/components/Common/Title';
 import MULTIPLY from '@src/utils/svg/leftsection/inputselection/multiply.svg';
 import * as StyledComponent from './style';
 
