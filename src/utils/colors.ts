@@ -12,7 +12,7 @@ const colors: colorType = {
   exportSave: '#B4F6E0',
   fontGreen: '#00c73c',
   black: '#333',
-  borderGrey: '#e0e0e0',
+  borderGrey: '#d0d0d0',
   containerBackground: '#fff',
   mainGreen: '#10DF99',
 };
