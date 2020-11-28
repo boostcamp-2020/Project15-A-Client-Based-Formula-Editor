@@ -36,6 +36,7 @@ export const ToolBar = styled.div`
   background-color: #10df99;
   height: 3.3rem;
   flex: none;
+  position: relative;
 `;
 
 export const MoveArea = styled.div`
