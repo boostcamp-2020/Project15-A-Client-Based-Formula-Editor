@@ -41,21 +41,28 @@ export const ToolBar = styled.div`
 export const MoveArea = styled.div`
   display: flex;
   height: 100%;
+
+  & div {
+    transition: all 1s;
+  }
 `;
 
 export const LeftArea = styled.div`
-  flex: auto;
+  flex: 2;
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const RightArea = styled.div`
-  width: fit-content;
+interface Props {
+  show: boolean;
+}
+
+export const RightArea = styled.div<Props>`
   flex: 1;
+  flex-grow: ${(props) => (props.show ? '1' : '0')};
   background-color: #e3ede7;
 `;
-
 export const TextArea = styled.div`
   background-color: #e1e0de;
   width: 100%;
