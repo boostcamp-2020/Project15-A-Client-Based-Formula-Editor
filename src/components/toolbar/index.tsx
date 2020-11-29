@@ -17,6 +17,7 @@ import {
 import DropDown from '@src/components/common/dropdown';
 import FontDropDown from '@src/components/toolbar/FontDropDown';
 import FontColorDropdown from '@src/components/toolbar/FontColorDropdown';
+import GraphButton from '@src/components/toolbar/GraphButton';
 import * as StyledComponent from './style';
 
 const ToolBar = () => {
@@ -71,6 +72,8 @@ const ToolBar = () => {
           );
         })}
       </div>
+
+      <GraphButton />
       <div className="options">
         {buttonOptions.map((value) => {
           return (
