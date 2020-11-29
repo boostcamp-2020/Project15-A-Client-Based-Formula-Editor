@@ -1,42 +1,25 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
+import { RoundButton } from '@src/components/common/RoundButton/style';
 
-export const DropDown = styled.div`
-  width: 65px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
+export const DropButton = styled(RoundButton)`
+  margin-left: 0.62rem;
 `;
 
 export const DropDownContent = styled.div<{ dropDown: string }>`
-  width: 100px;
+  width: 6.25rem;
   border: 1px solid ${colors.borderGrey};
+  border-radius: 12px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: white;
   z-index: 1;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
-`;
-
-export const DropButton = styled.div`
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  border: 1px solid ${colors.borderGrey};
-  display: flex;
-  align-items: center;
-  background-color: white;
-  margin-bottom: 20px;
-  .number {
-    padding: 7px;
-    font-size: 13px;
-  }
-  svg {
-    margin-top: 2px;
-  }
+  position: absolute;
+  top: 3.75rem;
 `;
 
 export const Content = styled.div<{ isSelected: boolean }>`
+  border-radius: 12px;
   display: flex;
   align-items: center;
   .number {
