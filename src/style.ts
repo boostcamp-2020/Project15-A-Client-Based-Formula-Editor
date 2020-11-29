@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '@src/utils/colors';
 
 export const Wrap = styled.div`
   display: flex;
@@ -33,8 +34,8 @@ export const Main = styled.div`
 `;
 
 export const ToolBar = styled.div`
-  background-color: #10df99;
-  height: 3.3rem;
+  background-color: ${colors.mainGreen};
+  height: 3rem;
   flex: none;
   position: relative;
 `;
@@ -69,7 +70,7 @@ export const LaTeX = styled.div`
 `;
 
 export const Tab = styled.div`
-  background-color: #8e8f92;
+  background-color: ${colors.grey};
   width: 100%;
   height: 2.3rem;
 `;
