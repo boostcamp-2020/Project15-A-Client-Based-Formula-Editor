@@ -13,12 +13,12 @@ const FontColorButton = ({ onClick, isActive, fontColor }: Props) => {
     <StyleComponent.DropdownButton onClick={onClick}>
       {isActive ? (
         <>
-          <FontColorActiveIcon />
+          <div className="title">A</div>
           <StyleComponent.ColorBlind active />
         </>
       ) : (
         <>
-          <FontColorIcon />
+          <div className="title">A</div>
           <StyleComponent.ColorBlind color={fontColor} />
         </>
       )}
