@@ -10,6 +10,7 @@ interface colorType {
   lightGrey: string;
   grey: string;
   darkGrey: string;
+  backgroundGrey: string;
 }
 const colors: colorType = {
   imageSave: '#D0D0D0',
@@ -22,6 +23,7 @@ const colors: colorType = {
   lightGrey: '#D2D6D7',
   grey: '#777A88',
   darkGrey: '#464653',
+  backgroundGrey: '#e6ece8',
   white: '#fff',
 };
 export default colors;

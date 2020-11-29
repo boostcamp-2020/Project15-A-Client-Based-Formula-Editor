@@ -24,7 +24,7 @@ export const Aside = styled.div`
   display: flex;
   flex-direction: column;
   width: 30rem;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 
 export const Main = styled.div`
@@ -54,7 +54,7 @@ export const LeftArea = styled.div`
 
 export const RightArea = styled.div`
   width: 25rem;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 
 export const TextArea = styled.div`
