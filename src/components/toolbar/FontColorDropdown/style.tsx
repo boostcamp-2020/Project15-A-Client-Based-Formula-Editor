@@ -12,7 +12,7 @@ export const ColorBlind = styled.div<Props>`
   position: absolute;
   width: 0.9rem;
   height: 0.2rem;
-  top: 1.87rem;
+  top: 1.5rem;
   z-index: 1;
   background-color: ${(props) =>
     props.active ? colors.fontGreen : props.color || colors.black};
