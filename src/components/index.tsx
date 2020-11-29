@@ -6,7 +6,9 @@ import Header from '@src/components/header';
 import InputSectionContainer from '@src/components/leftsection/inputSelectionSection';
 import MathSectionContainer from '@src/components/leftsection/mathSection';
 import TemplateContainer from '@src/components/leftsection/templateSection';
-import Graph from '@src/components/graph';
+import { rootState } from '@src/store/modules';
+import { useSelector } from 'react-redux';
+
 import * as StyleComponent from './style';
 
 export const HeaderSection = () => {
@@ -28,6 +30,7 @@ export const Aside = () => {
 };
 
 export const Section = () => {
+  const { visible } = useSelector((state: rootState) => state.graphHandler);
   return (
     <StyleComponent.Main>
       <StyleComponent.ToolBar>
@@ -35,7 +38,7 @@ export const Section = () => {
       </StyleComponent.ToolBar>
       <StyleComponent.MoveArea>
         <MainSection />
-        <SubSection />
+        <SubSection visible={visible} />
       </StyleComponent.MoveArea>
     </StyleComponent.Main>
   );
@@ -55,10 +58,13 @@ export const MainSection = () => {
   );
 };
 
-export const SubSection = () => {
+interface Props {
+  visible: boolean;
+}
+export const SubSection = ({ visible }: Props) => {
   return (
-    <StyleComponent.RightArea>
-      <Graph />
+    <StyleComponent.RightArea show={visible}>
+      {/* <Graph /> */}
     </StyleComponent.RightArea>
   );
 };
