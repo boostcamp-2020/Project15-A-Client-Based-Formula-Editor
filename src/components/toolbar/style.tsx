@@ -6,8 +6,10 @@ export const ToolbarContainer = styled.div`
   height: 100%;
   width: 100%;
   .attributes {
+    width: 250px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .options {
     display: flex;

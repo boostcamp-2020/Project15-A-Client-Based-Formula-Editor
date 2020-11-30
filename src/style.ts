@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '@src/utils/colors';
 
 export const Wrap = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ export const Aside = styled.div`
   display: flex;
   flex-direction: column;
   width: 30rem;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 
 export const Main = styled.div`
@@ -33,9 +34,10 @@ export const Main = styled.div`
 `;
 
 export const ToolBar = styled.div`
-  background-color: #10df99;
-  height: 3.3rem;
+  background-color: ${colors.mainGreen};
+  height: 3rem;
   flex: none;
+  position: relative;
 `;
 
 export const MoveArea = styled.div`
@@ -52,7 +54,7 @@ export const LeftArea = styled.div`
 
 export const RightArea = styled.div`
   width: 25rem;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 
 export const TextArea = styled.div`
@@ -68,7 +70,7 @@ export const LaTeX = styled.div`
 `;
 
 export const Tab = styled.div`
-  background-color: #8e8f92;
+  background-color: ${colors.grey};
   width: 100%;
   height: 2.3rem;
 `;

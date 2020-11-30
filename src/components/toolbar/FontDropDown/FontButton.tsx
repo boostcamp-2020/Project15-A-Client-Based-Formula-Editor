@@ -1,6 +1,4 @@
 import React from 'react';
-import FoldIcon from '@src/utils/svg/font-fold.svg';
-import OpenIcon from '@src/utils/svg/font-open.svg';
 import * as StyledComponent from './style';
 
 interface Props {
@@ -16,8 +14,7 @@ const FontButton = ({ changeStatus, dropDown, selectedFontSize }: Props) => {
 
   return (
     <StyledComponent.DropButton onClick={onClickHandler}>
-      <div className="number">{selectedFontSize}</div>
-      {dropDown === 'open' ? <FoldIcon /> : <OpenIcon />}
+      <div className="title">{selectedFontSize}</div>
     </StyledComponent.DropButton>
   );
 };

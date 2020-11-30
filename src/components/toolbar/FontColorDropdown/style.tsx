@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
+import { RoundButton } from '@src/components/common/RoundButton/style';
 
 export interface Props {
   active?: boolean;
@@ -9,23 +10,18 @@ export const FontColorDropdown = styled.div``;
 
 export const ColorBlind = styled.div<Props>`
   position: absolute;
-  width: 2px;
-  margin-top: -15px;
-  height: 2px;
+  width: 0.9rem;
+  height: 0.2rem;
+  top: 1.5rem;
   z-index: 1;
   background-color: ${(props) =>
     props.active ? colors.fontGreen : props.color || colors.black};
 `;
 
-export const DropdownButton = styled.div`
-  cursor: pointer;
-  & svg {
-    background-color: ${colors.mainGreen};
-  }
-  ${ColorBlind} {
-    width: 2%;
-    margin-left: 10px;
-  }
+export const DropdownButton = styled(RoundButton)`
+  position: relative;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const RowContainer = styled.div`
@@ -49,6 +45,7 @@ export const DropdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: 3.75rem;
   border: solid 1px ${colors.borderGrey};
   z-index: 10;
 `;

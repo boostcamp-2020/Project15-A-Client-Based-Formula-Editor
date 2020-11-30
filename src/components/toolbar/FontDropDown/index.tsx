@@ -37,13 +37,13 @@ export default function FontDropDown() {
   );
 
   return (
-    <S.DropDown>
+    <>
       <FontButton
         changeStatus={handleToggle}
         dropDown={dropDown}
         selectedFontSize={selectedFontSize}
       />
       <S.DropDownContent dropDown={dropDown}>{fontList}</S.DropDownContent>
-    </S.DropDown>
+    </>
   );
 }

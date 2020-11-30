@@ -1,6 +1,5 @@
 import React from 'react';
 import colors from '@src/utils/colors';
-import DECLINEICON from '@src/utils/svg/decline-text.svg';
 import DRAWER from '@src/utils/svg/new-drawer.svg';
 import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
 import CLEAR from '@src/utils/svg/new-clear.svg';
@@ -17,6 +16,7 @@ import {
 import DropDown from '@src/components/common/dropdown';
 import FontDropDown from '@src/components/toolbar/FontDropDown';
 import FontColorDropdown from '@src/components/toolbar/FontColorDropdown';
+import { RoundButton } from '@src/components/common/RoundButton/style';
 import GraphButton from '@src/components/toolbar/GraphButton';
 import * as StyledComponent from './style';
 
@@ -47,9 +47,8 @@ const ToolBar = () => {
     console.log('forward');
   };
   const buttonAttributes = [
-    { Svg: DECLINEICON, onClick: onClickDeclineHandler, id: 1 },
-    { Svg: DRAWER, onClick: onClickDrawerHandler, id: 2 },
-    { Svg: BACKGROUND, onClick: onClickBackgroundHandler, id: 3 },
+    { Svg: DRAWER, onClick: onClickDrawerHandler, id: 1 },
+    { Svg: BACKGROUND, onClick: onClickBackgroundHandler, id: 2 },
   ];
   const buttonOptions = [
     { Svg: BACK, onClick: onClickBackHandler, id: 1 },
@@ -61,16 +60,15 @@ const ToolBar = () => {
       <div className="attributes">
         <FontDropDown />
         <FontColorDropdown />
-        {buttonAttributes.map((value) => {
-          return (
-            <ToolBarButton
-              key={value.id}
-              color={colors.mainGreen}
-              Svg={value.Svg}
-              onClick={value.onClick}
-            />
-          );
-        })}
+        <RoundButton>
+          <div className="title">F</div>
+        </RoundButton>
+        <RoundButton onClick={buttonAttributes[0].onClick}>
+          <DRAWER />
+        </RoundButton>
+        <RoundButton onClick={buttonAttributes[1].onClick}>
+          <BACKGROUND />
+        </RoundButton>
       </div>
 
       <GraphButton />

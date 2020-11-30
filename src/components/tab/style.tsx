@@ -20,11 +20,11 @@ export const TabItem = styled.li<{
   height: 1.3rem;
   flex: 0, 1, auto;
   list-style: none;
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 10px 10px;
   transition: all 0.2s ease-in-out;
   background-color: ${(props) => {
-    if (props.selectedTabId === props.tabId) return '#7B7B7B';
-    return '#e6e6e6';
+    if (props.selectedTabId === props.tabId) return colors.grey;
+    return colors.lightGrey;
   }};
   color: ${(props) => {
     if (props.selectedTabId === props.tabId) return 'white';
@@ -53,7 +53,6 @@ export const TabItem = styled.li<{
     text-align: center;
   }
   &: hover {
-    background-color: #cccccc;
     height: 1.7rem;
   }
 `;

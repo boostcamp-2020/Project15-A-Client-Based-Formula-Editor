@@ -4,14 +4,15 @@ import colors from '@src/utils/colors';
 export const CustomButton = styled.button`
   width: 100px;
   height: 100%;
-  background-color: ${colors.containerBackground};
-  border: 1px solid #d0d0d0;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.lightGrey};
   border-radius: 3px;
-  margin-right: 30px;
+  margin-right: 1.87rem;
   color: ${(props) => props.color};
   cursor: pointer;
-  font-weight: normal;
-  &:hover {
-    color: #10df99;
+  font-weight: bold;
+  outline: none;
+  &: hover {
+    color: ${colors.mainGreen};
   }
 `;
