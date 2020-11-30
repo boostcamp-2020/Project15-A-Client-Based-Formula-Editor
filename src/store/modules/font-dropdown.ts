@@ -14,7 +14,7 @@ export interface FontDropDownState {
 }
 
 const initialState = {
-  dropDown: 'open',
+  dropDown: 'close',
   selectedFontSize: 15,
 };
 

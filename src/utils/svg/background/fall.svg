@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 72 72">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_8" data-name="사각형 8" width="72" height="72" transform="translate(0 -72)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_13" data-name="그룹 13" transform="translate(0 72)">
+    <g id="그룹_12" data-name="그룹 12">
+      <g id="그룹_11" data-name="그룹 11" clip-path="url(#clip-path)">
+        <image id="사각형_7" data-name="사각형 7" width="72" height="72" transform="translate(0 -72)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAA3lJREFUeAHtmslrFEEUh+NCNBqViAdFJSiICx4iKO7owfUigvHgSVQ8CPEqbuDB/8CoUVQEDwqCCoLgzYMooiIqiRcDnhSEuMd9/X4wDUNj1VS6Z4bu6ffgIz1drzr1fqmq96Y6TU1mpoApYAqYAqaAKWAKmAKmgClgCpgCpoApYAo0lAIjMhDNVMYwD9rgI/yCwttwFNgBffC3jEGuL8AMKKy1EPl1kDD3YC9sgE7oBomkmbQRCmkXifo37HFEryX3AL5Ah8Mn5PYknBbBcpgDIyHztoYRauYcrDBSBfcSblfwize3cmM/PILypavr93AJVkBm7TIjewXNASPswkeBaQMPsa04vQb1uQX6I2yG9bATemAA1H4VlBQyZ5oV5wNH1Y6fgtkd4H+45HuXnws8/qNoOwBavs8hc8lAKfwohJhmmQRSQD5TNpTfOQjdZ5bgq9nUC+MgM9bPSLYHjqYdPwXum0HTaP8KN2CoNd1q+ugPdhxyadEeNNcz+rO0DcJ0j4+v6RiNP2CmzymLbSFZTPvJJzidIgAJq1l0KMUz6t41tA5ay8i0BFU6pLH7dNbm/l8L3dTKO8/mw5TyG1W61qxZBdp0/8AWeAwui9L/U5dD4P2H+G1z+SYRSGpPdD0w5X2l3ytwBF5UeFZrqf1DBb9KzVqmzkyWRKBlPLDaM0hL5Q30wzcIsXclJwX3PaSDw2cC9yVSw5n2Hgmb9kutVoRzD9KxQ17tDgNXDTQ/RQDKYotBdVRDmmqksSki66ZvLuugFDEHd12JZ64r6eBIEzgupI82+V5wZrAEz819lzFEsA+U9YK+zQ/zhFyrgtDzK2vS1MxTJ8NS6AQVpNdgF0SlApdDN9UlSqONQqITxSLMIG3EA6AiVNdmpoApYAqYAqZAQRTwpfkQCepZTH5mQH2gQ7Xc2FtGWs9CUscbPVC37095mkHjEUaHY/qKoHfv60D/BWIWU0BvM3SGo5lk5lBA4mi5tTjaq3Y7r0euN1FgNESvfqomSPxBWRVoFgOt+eyIi5GnzzpqOeUZsJaY0r0OwAppJ4n6JyhrxS3apE/EG4r0WXXOE5BIZ0CvoTeBZo4ymF5JK+0X2vTGUzNJSykqRpW5NHNyUygy1pqb3nvpv1Rlz0AimZkCpoApYAqYAqaAKWAKmAKmgClgCpgCpoApYAokU+AfHnblWgdcOA8AAAAASUVORK5CYII="/>
+      </g>
+    </g>
+  </g>
+</svg>
