@@ -1,6 +1,6 @@
 import React from 'react';
-import Drawer from '@src/components/toolbar/DrawerDropDown';
-import Background from '@src/components/toolbar/BackgroundDropdown';
+import Drawer from '@src/components/Toolbar/DrawerDropDown';
+import Background from '@src/components/Toolbar/BackgroundDropdown';
 import { DropdownDiv, DropdownContent } from './style';
 
 interface DropDownProps {

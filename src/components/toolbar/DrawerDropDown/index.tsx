@@ -1,5 +1,5 @@
 import React from 'react';
-import ERASE from '@src/utils/svg/erase.svg';
+import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
