@@ -69,9 +69,9 @@ const ToolBar = () => {
         <RoundButton onClick={buttonAttributes[1].onClick}>
           <BACKGROUND />
         </RoundButton>
+        <GraphButton />
       </div>
 
-      <GraphButton />
       <div className="options">
         {buttonOptions.map((value) => {
           return (
