@@ -11,7 +11,7 @@ export const MathField = styled.div<MathFieldProp>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ${colors.white};
   .mq-editable-field {
     border: none;
   }
