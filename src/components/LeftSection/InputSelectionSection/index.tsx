@@ -1,8 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Title from '@src/components/Common/Title';
+
 import { InputLatexContent } from '@src/constants/InputSection';
 import InputTopSelectionSvg from './InputTopSelectionSvg';
+
 import * as StyledComponent from './style';
 
 const InputSelectionSectionContainer = () => {
