@@ -4,15 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
 import Button from './Button';
 
-const Graph = () => {
-  const { visible } = useSelector((state: rootState) => state.graphHandler);
+const AlignButton = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    dispatch(GraphAction.clickButton());
+    console.log('?');
   };
 
   return <Button onClick={onClickHandler} />;
 };
 
-export default Graph;
+export default AlignButton;

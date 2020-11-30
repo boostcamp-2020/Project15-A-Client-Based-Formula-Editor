@@ -15,6 +15,7 @@ import FontDropDown from '@src/components/Toolbar/FontDropDown';
 import FontColorDropdown from '@src/components/Toolbar/FontColorDropdown';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import GraphButton from '@src/components/Toolbar/GraphButton';
+import AlignButton from '@src/components/Toolbar/AlignButton';
 import { decline } from '@src/store/modules/fontDecline';
 import * as StyledComponent from './style';
 
@@ -60,6 +61,7 @@ const ToolBar = () => {
       <div className="attributes">
         <FontDropDown />
         <FontColorDropdown />
+        <AlignButton />
         <RoundButton onClick={buttonAttributes[2].onClick}>
           <div className="title">F</div>
         </RoundButton>
