@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_20" data-name="사각형 20" width="40" height="40" transform="translate(0 -40)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_31" data-name="그룹 31" transform="translate(0 40)">
+    <g id="그룹_30" data-name="그룹 30">
+      <g id="그룹_29" data-name="그룹 29" clip-path="url(#clip-path)">
+        <image id="사각형_19" data-name="사각형 19" width="40" height="40" transform="translate(0 -40)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAa5JREFUeAHtmWFOwkAQhVG8iCcBT+I5+KHBwEW8CcRrSXDGuBibbt+2TLHdfJNMoH3T2dmvD0jDYkFAAAIQgAAEIAABCEAAAv0J3PW4ZG21K8u3Hte0la7tpGdXHEz0nFVsbdpzwMSpj/fKpddMIh7+cYqceyNuQti27sM6VdoIQOLGAghAgoCQcRCABAEh4yAACQJCxkEAEgSEjIMAJAgIGQcJQBFP88+2hmdXvJvoOSTG7t85U4SDHm2FJ8tlJl3zmqExdv/OuSIclBZYpTeN13PjeOjh2P1b54pwUGvjWk4CSNxJAAFIEBAyDgKQICBkHAQgQUDIOAhAgoCQa3TQq+35JNJriiLyWaxowRsU+U333GXWevnRM/Lf0zUCSjvMucQBFUeNH7HizZcUAkhQAhCABAEh4yAACQJCxkEAEgSEjIMAJAgIGQcBSBAQcuTD6qdYqylPrb453/dxBKCjddq3dv896TUpplaf5rr6dWsdov5nv3qYWzXgS1qQBhCABAEhD3GQfw/NPTeCy0Xu8yt2uFw1/zcf898CO4AABCAAAQhAAAIQgMCUCXwBjaliSsMkal4AAAAASUVORK5CYII="/>
+      </g>
+    </g>
+  </g>
+</svg>
