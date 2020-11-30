@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
-import { RoundButton } from '@src/components/common/RoundButton/style';
+import { RoundButton } from '@src/components/Common/RoundButton/style';
 
 export interface Props {
   active?: boolean;

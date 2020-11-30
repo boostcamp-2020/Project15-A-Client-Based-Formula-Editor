@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckIcon from '@src/utils/svg/font-check.svg';
+import CheckIcon from '@src/utils/svg/toolbar/font-check.svg';
 import * as StyledComponent from './style';
 
 interface Props {

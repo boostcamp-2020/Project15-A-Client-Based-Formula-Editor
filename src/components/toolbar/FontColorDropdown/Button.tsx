@@ -1,6 +1,6 @@
 import React from 'react';
-import FontColorIcon from '@src/utils/svg/font-color.svg';
-import FontColorActiveIcon from '@src/utils/svg/font-color-active.svg';
+import FontColorIcon from '@src/utils/svg/toolbar/font-color.svg';
+import FontColorActiveIcon from '@src/utils/svg/toolbar/font-color-active.svg';
 import * as StyleComponent from './style';
 
 interface Props {

@@ -1,5 +1,5 @@
 import React from 'react';
-import GraphIcon from '@src/utils/svg/graph.svg';
+import GraphIcon from '@src/utils/svg/toolbar/graph.svg';
 import * as StyledComponent from './style';
 
 interface Props {

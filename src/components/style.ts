@@ -1,10 +1,5 @@
 import styled from 'styled-components';
-
-export const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
+import colors from '@src/utils/colors';
 
 export const Header = styled.div`
   height: 3.5rem;
@@ -14,16 +9,11 @@ export const Header = styled.div`
   border-bottom: 1px solid #d6d6d6;
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
 export const Aside = styled.div`
   display: flex;
   flex-direction: column;
   width: 30rem;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 
 export const Main = styled.div`
@@ -33,9 +23,10 @@ export const Main = styled.div`
 `;
 
 export const ToolBar = styled.div`
-  background-color: #10df99;
-  height: 3.3rem;
+  background-color: ${colors.mainGreen};
+  height: 3rem;
   flex: none;
+  position: relative;
 `;
 
 export const MoveArea = styled.div`
@@ -63,7 +54,7 @@ export const RightArea = styled.div<Props>`
   width: ${(props) => (props.show ? '100%' : '0%')};
   flex-grow: ${(props) => (props.show ? '1' : '0')};
   overflow: hidden;
-  background-color: #e3ede7;
+  background-color: ${colors.backgroundGrey};
 `;
 export const TextArea = styled.div`
   background-color: #e1e0de;
@@ -78,7 +69,7 @@ export const LaTeX = styled.div`
 `;
 
 export const Tab = styled.div`
-  background-color: #8e8f92;
+  background-color: ${colors.grey};
   width: 100%;
   height: 2.3rem;
 `;
