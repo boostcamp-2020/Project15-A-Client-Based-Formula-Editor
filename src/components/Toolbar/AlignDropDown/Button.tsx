@@ -3,9 +3,11 @@ import AlignCenter from '@src/utils/svg/toolbar/align-center.svg';
 import * as StyledComponent from './style';
 
 interface Props {
+  isAlign: boolean;
   onClick: () => void;
+  fontAlign: string;
 }
-const AlignButton = ({ onClick }: Props) => {
+const AlignButton = ({ isAlign, onClick, fontAlign }: Props) => {
   return (
     <StyledComponent.ButtonContainer onClick={onClick}>
       <AlignCenter />
