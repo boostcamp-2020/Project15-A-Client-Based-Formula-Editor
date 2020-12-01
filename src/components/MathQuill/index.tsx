@@ -27,16 +27,8 @@ const EditableMathExample = () => {
 
   const isActive = canDrop && isOver;
 
-  let backgroundColor = 'white';
-
-  if (isActive) {
-    backgroundColor = 'darkgreen';
-  } else if (canDrop) {
-    backgroundColor = 'darkkhaki';
-  }
-
   return (
-    <StyleComponent.MathField backgroundColor={backgroundColor}>
+    <StyleComponent.MathField isActive={isActive} canDrop={canDrop}>
       <EditableMathField
         latex={latex}
         onChange={(mathField) => {
