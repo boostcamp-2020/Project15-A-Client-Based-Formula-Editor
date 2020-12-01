@@ -4,6 +4,8 @@ import colors from '@src/utils/colors';
 interface MathFieldProp {
   isDecline: boolean;
   fontAlign: string;
+  isActive: boolean; 
+  canDrop: boolean;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -12,7 +14,9 @@ export const MathField = styled.div<MathFieldProp>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.white};
+  background-color: ${(props) =>
+    // eslint-disable-next-line no-nested-ternary
+    props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
 
   .mq-editable-field {
     border: none;
