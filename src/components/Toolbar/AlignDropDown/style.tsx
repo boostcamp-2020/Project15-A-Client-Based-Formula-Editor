@@ -22,12 +22,12 @@ export const RowContainer = styled.div`
 `;
 
 export const ColorBox = styled.div`
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: ${colors.white};
   cursor: pointer;
-  & + & {
-    margin-left: 0.3rem;
-  }
   &:hover {
     border: solid 1px black;
   }
