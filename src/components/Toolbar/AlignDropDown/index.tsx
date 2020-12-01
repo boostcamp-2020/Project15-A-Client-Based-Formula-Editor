@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
+import * as fontAlignHandler from '@src/store/modules/fontAlign';
 import Button from './Button';
 import AlignContent from './AlignContent';
 import * as StyledComponent from './style';
@@ -12,21 +13,10 @@ const AlignButton = () => {
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    console.log('?');
+    dispatch(fontAlignHandler.changeDropdownState());
   };
   const onChangeAlignHandler = () => {};
-  const aligns = ['left', 'center', 'right'];
-  const AlignList: JSX.Element[] = aligns.map(
-    (align): JSX.Element => {
-      return (
-        <AlignContent
-          key={`align_${align}`}
-          align={align}
-          changeAlign={onChangeAlignHandler}
-        />
-      );
-    }
-  );
+
   return (
     <StyledComponent.AlignDropdown>
       <Button
@@ -34,7 +24,9 @@ const AlignButton = () => {
         isAlign={isAlign}
         fontAlign={fontAlign}
       />
-      <div>{AlignList}</div>
+      {isAlign && (
+        <AlignContent align={fontAlign} changeAlign={onChangeAlignHandler} />
+      )}
     </StyledComponent.AlignDropdown>
   );
 };
