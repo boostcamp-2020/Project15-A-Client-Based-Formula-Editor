@@ -11,7 +11,7 @@ export const InputSectionContainer = styled.div`
 
 export const InputTopSelectionSectionContainer = styled.div`
   width: 100%;
-  height: 44%;
+  height: 48%;
   border-bottom: 1px solid ${colors.borderGrey};
 `;
 

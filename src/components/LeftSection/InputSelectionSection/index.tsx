@@ -1,10 +1,6 @@
 import React from 'react';
 import Title from '@src/components/Common/Title';
-import {
-  InputLatexTopContent,
-  InputLatexBottomContent,
-} from '@src/constants/InputSection';
-import InputTopSelectionSvg from './InputTopSelectionSvg';
+import InputTopSelectionSection from '@src/components/LeftSection/InputSelectionSection/InputTopSelectionSection';
 import * as StyledComponent from './style';
 import { Box } from './Box';
 
@@ -13,23 +9,8 @@ const InputSelectionSectionContainer = () => {
     <>
       <StyledComponent.InputSectionContainer>
         <Title title="입력 선택" />
-        <Box name="Glass" latex="\frac{ }{ }" />
-        <StyledComponent.InputTopSelectionSectionContainer>
-          <StyledComponent.InputLatexContainer>
-            {InputLatexTopContent.map((value, index) => (
-              <StyledComponent.InputLatexContent key={index}>
-                <InputTopSelectionSvg Svg={value.svg} />
-              </StyledComponent.InputLatexContent>
-            ))}
-          </StyledComponent.InputLatexContainer>
-          <StyledComponent.InputLatexContainer>
-            {InputLatexBottomContent.map((value, index) => (
-              <StyledComponent.InputLatexContent key={index}>
-                <InputTopSelectionSvg Svg={value.svg} />
-              </StyledComponent.InputLatexContent>
-            ))}
-          </StyledComponent.InputLatexContainer>
-        </StyledComponent.InputTopSelectionSectionContainer>
+        {/* <Box name="Glass" latex="\frac{ }{ }" /> */}
+        <InputTopSelectionSection />
       </StyledComponent.InputSectionContainer>
     </>
   );
