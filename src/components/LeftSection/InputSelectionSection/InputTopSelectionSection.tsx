@@ -3,8 +3,8 @@ import {
   InputLatexTopContent,
   InputLatexBottomContent,
 } from '@src/constants/InputSection';
+import Svg from '@src/components/Common/Svg';
 import * as StyledComponent from './style';
-import InputTopSelectionSvg from './InputTopSelectionSvg';
 
 const InputTopSelectionSection = () => {
   return (
@@ -13,14 +13,14 @@ const InputTopSelectionSection = () => {
         <StyledComponent.InputLatexContainer>
           {InputLatexTopContent.map((value, index) => (
             <StyledComponent.InputLatexContent key={index}>
-              <InputTopSelectionSvg Svg={value.svg} />
+              <Svg Svg={value.svg} />
             </StyledComponent.InputLatexContent>
           ))}
         </StyledComponent.InputLatexContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexBottomContent.map((value, index) => (
             <StyledComponent.InputLatexContent key={index}>
-              <InputTopSelectionSvg Svg={value.svg} />
+              <Svg Svg={value.svg} />
             </StyledComponent.InputLatexContent>
           ))}
         </StyledComponent.InputLatexContainer>
