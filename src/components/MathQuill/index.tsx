@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { rootState } from '@src/store/modules';
 import { useDispatch } from 'react-redux';
 import { mathQuill } from '@src/store/modules/mathQuill';
 import { addStyles, EditableMathField } from 'react-mathquill';
@@ -9,7 +11,10 @@ addStyles();
 
 const EditableMathExample = () => {
   const [latex, setLatex] = useState('kkkk');
-
+  const { isDecline } = useSelector((state: rootState) => state.declineHandler);
+  const { fontAlign } = useSelector(
+    (state: rootState) => state.fontAlignHandler
+  );
   const dispatch = useDispatch();
 
   const handleMathQuill = (mathquill: any) => {
@@ -28,7 +33,7 @@ const EditableMathExample = () => {
   const isActive = canDrop && isOver;
 
   return (
-    <StyleComponent.MathField isActive={isActive} canDrop={canDrop}>
+    <StyleComponent.MathField isActive={isActive} canDrop={canDrop} isDecline={isDecline} fontAlign={fontAlign}>
       <EditableMathField
         latex={latex}
         onChange={(mathField) => {

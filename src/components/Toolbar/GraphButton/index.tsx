@@ -12,11 +12,7 @@ const Graph = () => {
     dispatch(GraphAction.clickButton());
   };
 
-  return (
-    <>
-      <Button onClick={onClickHandler} />
-    </>
-  );
+  return <Button onClick={onClickHandler} />;
 };
 
 export default Graph;
