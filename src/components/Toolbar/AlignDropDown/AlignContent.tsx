@@ -7,7 +7,6 @@ import SvgSection from '@src/components/Common/Svg';
 import * as StyleComponent from './style';
 
 interface AlignContentProps {
-  align: string;
   changeAlign: (align: string) => void;
 }
 const aligns = [
@@ -27,7 +26,7 @@ const aligns = [
     Svg: AlignRight,
   },
 ];
-const AlignContent = ({ align, changeAlign }: AlignContentProps) => {
+const AlignContent = ({ changeAlign }: AlignContentProps) => {
   return (
     <StyleComponent.DropdownContainer>
       <StyleComponent.RowContainer>

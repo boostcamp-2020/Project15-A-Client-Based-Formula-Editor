@@ -22,9 +22,7 @@ const AlignButton = () => {
   return (
     <StyledComponent.AlignDropdown>
       <Button onClick={onClickHandler} fontAlign={fontAlign} />
-      {isAlign && (
-        <AlignContent align={fontAlign} changeAlign={onChangeAlignHandler} />
-      )}
+      {isAlign && <AlignContent changeAlign={onChangeAlignHandler} />}
     </StyledComponent.AlignDropdown>
   );
 };
