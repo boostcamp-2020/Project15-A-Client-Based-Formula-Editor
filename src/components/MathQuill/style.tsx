@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
-export const MathField = styled.div`
+interface MathFieldProp {
+  isDecline: boolean;
+}
+
+export const MathField = styled.div<MathFieldProp>`
   width: 100%;
   height: 100%;
   display: flex;
@@ -18,5 +22,9 @@ export const MathField = styled.div`
     display: flex;
     flex-wrap: wrap;
     border: none;
+  }
+  .mq-root-block var,
+  span {
+    font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
 `;

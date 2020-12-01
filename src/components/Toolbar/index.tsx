@@ -9,15 +9,13 @@ import ToolBarButton from '@src/components/Common/ToolbarButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '@src/store/modules';
 import { dropdown } from '@src/store/modules/drawerDropdown';
-import {
-  backgroundDropdown,
-  BackgroundState,
-} from '@src/store/modules/backgroundDropdown';
+import { backgroundDropdown } from '@src/store/modules/backgroundDropdown';
 import DropDown from '@src/components/Common/DropDown';
 import FontDropDown from '@src/components/Toolbar/FontDropDown';
 import FontColorDropdown from '@src/components/Toolbar/FontColorDropdown';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import GraphButton from '@src/components/Toolbar/GraphButton';
+import { decline } from '@src/store/modules/fontDecline';
 import * as StyledComponent from './style';
 
 const ToolBar = () => {
@@ -27,12 +25,13 @@ const ToolBar = () => {
   const { isBackgroundDropdownShow } = useSelector(
     (state: rootState) => state.BackgroundDropdownHandler
   );
+  const { isDecline } = useSelector((state: rootState) => state.declineHandler);
   const dispatch = useDispatch();
   const onClickDrawerHandler = () => {
     dispatch(dropdown(!isDropdownShow));
   };
   const onClickDeclineHandler = () => {
-    console.log('decline');
+    dispatch(decline({ isDecline: !isDecline, fontDecline: 'normal' }));
   };
   const onClickBackgroundHandler = () => {
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
@@ -49,6 +48,7 @@ const ToolBar = () => {
   const buttonAttributes = [
     { Svg: DRAWER, onClick: onClickDrawerHandler, id: 1 },
     { Svg: BACKGROUND, onClick: onClickBackgroundHandler, id: 2 },
+    { Svg: '', onClick: onClickDeclineHandler, id: 2 },
   ];
   const buttonOptions = [
     { Svg: BACK, onClick: onClickBackHandler, id: 1 },
@@ -60,7 +60,7 @@ const ToolBar = () => {
       <div className="attributes">
         <FontDropDown />
         <FontColorDropdown />
-        <RoundButton>
+        <RoundButton onClick={buttonAttributes[2].onClick}>
           <div className="title">F</div>
         </RoundButton>
         <RoundButton onClick={buttonAttributes[0].onClick}>

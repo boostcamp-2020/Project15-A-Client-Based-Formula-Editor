@@ -8,12 +8,14 @@ import {
   BackgroundState,
 } from './backgroundDropdown';
 import { graphHandler, GraphState } from './graph';
+import { declineHandler, DeclineState } from './fontDecline';
 
 export interface rootState {
   drawerDropdownHandler: IState;
   fontColorDropdownHandler: State;
   BackgroundDropdownHandler: BackgroundState;
   graphHandler: GraphState;
+  declineHandler: DeclineState;
 }
 export interface RootState {
   fontDropDownReducer: FontDropDownState;
@@ -26,4 +28,5 @@ export default combineReducers({
   tabReducer,
   BackgroundDropdownHandler,
   graphHandler,
+  declineHandler,
 });
