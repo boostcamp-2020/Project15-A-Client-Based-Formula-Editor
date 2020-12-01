@@ -3,12 +3,14 @@ import Title from '@src/components/Common/Title';
 import { InputLatexContent } from '@src/constants/InputSection';
 import InputTopSelectionSvg from './InputTopSelectionSvg';
 import * as StyledComponent from './style';
+import { Box } from './Box';
 
 const InputSelectionSectionContainer = () => {
   return (
     <>
       <StyledComponent.InputSectionContainer>
         <Title title="입력 선택" />
+        <Box name="Glass" />
         <StyledComponent.InputTopSelectionSectionContainer>
           <StyledComponent.InputLatexContainer>
             {InputLatexContent.map((value, index) => (
