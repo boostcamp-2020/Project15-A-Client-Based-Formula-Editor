@@ -10,6 +10,12 @@ import LIMIT from '@src/utils/svg/leftsection/inputsection/limit.svg';
 import OPERATOR from '@src/utils/svg/leftsection/inputsection/operator.svg';
 import MATRIX from '@src/utils/svg/leftsection/inputsection/matrix.svg';
 import INPUTDRAW from '@src/utils/svg/leftsection/inputsection/inputdraw.svg';
+import ARROW from '@src/utils/svg/leftsection/inputsection/arrow.svg';
+import INQUALITY from '@src/utils/svg/leftsection/inputsection/inequality.svg';
+import NOTOPERATOR from '@src/utils/svg/leftsection/inputsection/notoperator.svg';
+import FIGURE from '@src/utils/svg/leftsection/inputsection/figure.svg';
+import UNIT from '@src/utils/svg/leftsection/inputsection/unit.svg';
+import SPECIALSYMBOL from '@src/utils/svg/leftsection/inputsection/specialsymbol.svg';
 
 export interface InputLatex {
   name: string;
@@ -82,8 +88,33 @@ export const InputLatexBottomContent: InputLatex[] = [
 ];
 export const InputLatexMathTopContent: InputLatex[] = [
   {
-    name: 'sin',
-    svg: SIN,
-    latex: 'sin ^{ }',
+    name: 'arrow',
+    svg: ARROW,
+    latex: 'gets',
+  },
+  {
+    name: 'inequality',
+    svg: INQUALITY,
+    latex: '<',
+  },
+  {
+    name: 'notoperator',
+    svg: NOTOPERATOR,
+    latex: '\nless ',
+  },
+  {
+    name: 'figure',
+    svg: FIGURE,
+    latex: '\rightangle ',
+  },
+  {
+    name: 'unit',
+    svg: UNIT,
+    latex: 'cmx ',
+  },
+  {
+    name: 'specialsymbol',
+    svg: SPECIALSYMBOL,
+    latex: '①',
   },
 ];
