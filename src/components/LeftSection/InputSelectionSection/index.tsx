@@ -10,7 +10,7 @@ const InputSelectionSectionContainer = () => {
     <>
       <StyledComponent.InputSectionContainer>
         <Title title="입력 선택" />
-        <Box name="Glass" />
+        <Box name="Glass" latex="\frac{ }{ }" />
         <StyledComponent.InputTopSelectionSectionContainer>
           <StyledComponent.InputLatexContainer>
             {InputLatexContent.map((value, index) => (
