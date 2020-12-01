@@ -20,15 +20,3 @@ export const InputLatexContainer = styled.div`
   width: 100%;
   margin-left: 10px;
 `;
-
-export const InputLatexContent = styled.div`
-  width: 60px;
-  height: 60px;
-  padding-left: 10px;
-  padding-top: 10px;
-  &:hover {
-    border: 1px solid ${colors.mainGreen};
-    cursor: pointer;
-  }
-  border: 1px solid ${colors.borderGrey};
-`;

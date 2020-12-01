@@ -4,6 +4,7 @@ import {
   InputLatexBottomContent,
 } from '@src/constants/InputSection';
 import Svg from '@src/components/Common/Svg';
+import { InputLatexContent } from '@src/components/Common/LatexContent/style';
 import * as StyledComponent from './style';
 
 const InputTopSelectionSection = () => {
@@ -12,16 +13,16 @@ const InputTopSelectionSection = () => {
       <StyledComponent.InputTopSelectionSectionContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexTopContent.map((value, index) => (
-            <StyledComponent.InputLatexContent key={index}>
+            <InputLatexContent key={index} width="60" height="60">
               <Svg Svg={value.svg} />
-            </StyledComponent.InputLatexContent>
+            </InputLatexContent>
           ))}
         </StyledComponent.InputLatexContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexBottomContent.map((value, index) => (
-            <StyledComponent.InputLatexContent key={index}>
+            <InputLatexContent key={index} width="60" height="60">
               <Svg Svg={value.svg} />
-            </StyledComponent.InputLatexContent>
+            </InputLatexContent>
           ))}
         </StyledComponent.InputLatexContainer>
       </StyledComponent.InputTopSelectionSectionContainer>

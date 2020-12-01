@@ -80,3 +80,10 @@ export const InputLatexBottomContent: InputLatex[] = [
     latex: '\begin{matrix}&\\&end{matrix}',
   },
 ];
+export const InputLatexMathTopContent: InputLatex[] = [
+  {
+    name: 'sin',
+    svg: SIN,
+    latex: 'sin ^{ }',
+  },
+];
