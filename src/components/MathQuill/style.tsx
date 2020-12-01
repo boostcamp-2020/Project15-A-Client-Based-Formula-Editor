@@ -3,6 +3,7 @@ import colors from '@src/utils/colors';
 
 interface MathFieldProp {
   isDecline: boolean;
+  fontAlign: string;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -11,7 +12,8 @@ export const MathField = styled.div<MathFieldProp>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ${colors.white};
+
   .mq-editable-field {
     border: none;
   }
@@ -19,12 +21,14 @@ export const MathField = styled.div<MathFieldProp>`
     box-shadow: none;
   }
   .mq-editable-field > .mq-root-block {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     border: none;
+    width: 1000px;
   }
   .mq-root-block var,
   span {
+    text-align: ${(props) => props.fontAlign};
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
 `;
