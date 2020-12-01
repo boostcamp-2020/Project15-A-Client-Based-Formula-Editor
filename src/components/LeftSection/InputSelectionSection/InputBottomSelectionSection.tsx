@@ -7,15 +7,18 @@ import * as StyledComponent from './style';
 const InputBottomSelectionSection = () => {
   return (
     <>
-      <StyledComponent.InputTopSelectionSectionContainer>
+      <StyledComponent.InputBottomSelectionSectionContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexMathTopContent.map((value, index) => (
-            <InputLatexContent key={index} width="30" height="30">
+            <InputLatexContent key={`dab${index}`} width="40" height="40">
               <Svg Svg={value.svg} />
             </InputLatexContent>
           ))}
+          <InputLatexContent width="107" height="40">
+            <StyledComponent.Dictionary>수식 사전</StyledComponent.Dictionary>
+          </InputLatexContent>
         </StyledComponent.InputLatexContainer>
-      </StyledComponent.InputTopSelectionSectionContainer>
+      </StyledComponent.InputBottomSelectionSectionContainer>
     </>
   );
 };
