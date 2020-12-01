@@ -9,8 +9,11 @@ addStyles();
 const EditableMathExample = () => {
   const [latex, setLatex] = useState('kkkk');
   const { isDecline } = useSelector((state: rootState) => state.declineHandler);
+  const { fontAlign } = useSelector(
+    (state: rootState) => state.fontAlignHandler
+  );
   return (
-    <StyleComponent.MathField isDecline={isDecline}>
+    <StyleComponent.MathField isDecline={isDecline} fontAlign={fontAlign}>
       <EditableMathField
         latex={latex}
         onChange={(mathField) => {

@@ -33,7 +33,10 @@ const AlignContent = ({ align, changeAlign }: AlignContentProps) => {
       <StyleComponent.RowContainer>
         {aligns.map((position) => {
           return (
-            <StyleComponent.ColorBox key={`align-${position.id}`}>
+            <StyleComponent.ColorBox
+              key={`align-${position.id}`}
+              onClick={() => changeAlign(position.position)}
+            >
               <SvgSection Svg={position.Svg} />
             </StyleComponent.ColorBox>
           );

@@ -16,15 +16,12 @@ const AlignButton = () => {
   const onClickHandler = () => {
     dispatch(fontAlignHandler.changeDropdownState());
   };
-  const onChangeAlignHandler = () => {};
-
+  const onChangeAlignHandler = (position: string) => {
+    dispatch(fontAlignHandler.changeFontAlign(position));
+  };
   return (
     <StyledComponent.AlignDropdown>
-      <Button
-        onClick={onClickHandler}
-        isAlign={isAlign}
-        fontAlign={fontAlign}
-      />
+      <Button onClick={onClickHandler} fontAlign={fontAlign} />
       {isAlign && (
         <AlignContent align={fontAlign} changeAlign={onChangeAlignHandler} />
       )}
