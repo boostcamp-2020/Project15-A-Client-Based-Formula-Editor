@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { mathQuill } from '@src/store/modules/mathQuill';
 import { addStyles, EditableMathField } from 'react-mathquill';
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from './ItemTypes';
 import * as StyleComponent from './style';
 
 addStyles();
 
-const EditableMathExample: React.FC = () => {
+const EditableMathExample = () => {
   const [latex, setLatex] = useState('kkkk');
 
+  const dispatch = useDispatch();
+
+  const handleMathQuill = (mathquill: any) => {
+    dispatch(mathQuill(mathquill));
+  };
+
   const [{ canDrop, isOver }, drop] = useDrop({
-    accept: ItemTypes.BOX,
+    accept: 'box',
     drop: () => ({ name: 'Dustbin' }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -19,7 +26,9 @@ const EditableMathExample: React.FC = () => {
   });
 
   const isActive = canDrop && isOver;
-  let backgroundColor = '#222';
+
+  let backgroundColor = 'white';
+
   if (isActive) {
     backgroundColor = 'darkgreen';
   } else if (canDrop) {
@@ -32,6 +41,9 @@ const EditableMathExample: React.FC = () => {
         latex={latex}
         onChange={(mathField) => {
           setLatex(mathField.latex());
+        }}
+        mathquillDidMount={(mathField) => {
+          handleMathQuill(mathField);
         }}
       />
     </StyleComponent.MathField>
