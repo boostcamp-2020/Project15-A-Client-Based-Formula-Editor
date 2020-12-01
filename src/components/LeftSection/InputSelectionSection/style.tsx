@@ -18,7 +18,6 @@ export const InputTopSelectionSectionContainer = styled.div`
 `;
 export const InputBottomSelectionSectionContainer = styled.div`
   width: 100%;
-  margin-top: 3px;
 `;
 export const InputLatexContainer = styled.div`
   display: flex;
