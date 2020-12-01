@@ -1,25 +1,46 @@
 import React from 'react';
 import DropDown from '@src/components/Common/DropDown';
+import AlignLeft from '@src/utils/svg/toolbar/align-left.svg';
+import AlignCenter from '@src/utils/svg/toolbar/align-center.svg';
+import AlignRight from '@src/utils/svg/toolbar/align-right.svg';
+import SvgSection from '@src/components/Common/Svg';
+import * as StyleComponent from './style';
 
 interface AlignContentProps {
   align: string;
   changeAlign: (align: string) => void;
 }
-
+const aligns = [
+  {
+    position: 'left',
+    id: 0,
+    Svg: AlignLeft,
+  },
+  {
+    position: 'center',
+    id: 1,
+    Svg: AlignCenter,
+  },
+  {
+    position: 'right',
+    id: 2,
+    Svg: AlignRight,
+  },
+];
 const AlignContent = ({ align, changeAlign }: AlignContentProps) => {
-  const aligns = ['left', 'center', 'right'];
-  const AlignList: JSX.Element[] = aligns.map(
-    (ali): JSX.Element => {
-      return (
-        <AlignContent
-          key={`align_${ali}`}
-          align={ali}
-          changeAlign={changeAlign}
-        />
-      );
-    }
+  return (
+    <StyleComponent.DropdownContainer>
+      <StyleComponent.RowContainer>
+        {aligns.map((position) => {
+          return (
+            <StyleComponent.ColorBox key={`align-${position.id}`}>
+              <SvgSection Svg={position.Svg} />
+            </StyleComponent.ColorBox>
+          );
+        })}
+      </StyleComponent.RowContainer>
+    </StyleComponent.DropdownContainer>
   );
-  return <DropDown click={align} />;
 };
 
 export default AlignContent;
