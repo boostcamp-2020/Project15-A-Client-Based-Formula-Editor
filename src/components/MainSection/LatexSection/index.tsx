@@ -2,12 +2,17 @@ import React from 'react';
 import Handle from './Handle';
 import * as StyleComponent from './style';
 
-export default function LaTeXSection() {
+interface Props {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+export default function LaTeXSection({ value, onChange }: Props) {
   return (
     <>
       <Handle />
       <StyleComponent.Content>
-        <textarea />
+        <textarea value={value} onChange={onChange} />
       </StyleComponent.Content>
     </>
   );
