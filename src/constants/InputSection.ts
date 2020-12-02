@@ -10,6 +10,18 @@ import LIMIT from '@src/utils/svg/leftsection/inputsection/limit.svg';
 import OPERATOR from '@src/utils/svg/leftsection/inputsection/operator.svg';
 import MATRIX from '@src/utils/svg/leftsection/inputsection/matrix.svg';
 import INPUTDRAW from '@src/utils/svg/leftsection/inputsection/inputdraw.svg';
+import ARROW from '@src/utils/svg/leftsection/inputsection/arrow.svg';
+import INQUALITY from '@src/utils/svg/leftsection/inputsection/inequality.svg';
+import NOTOPERATOR from '@src/utils/svg/leftsection/inputsection/notoperator.svg';
+import FIGURE from '@src/utils/svg/leftsection/inputsection/figure.svg';
+import UNIT from '@src/utils/svg/leftsection/inputsection/unit.svg';
+import SPECIALSYMBOL from '@src/utils/svg/leftsection/inputsection/specialsymbol.svg';
+import PLUS from '@src/utils/svg/leftsection/inputsection/plus.svg';
+import MINUS from '@src/utils/svg/leftsection/inputsection/minus.svg';
+import MULTIPLE from '@src/utils/svg/leftsection/inputsection/multiple.svg';
+import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
+import GREECE from '@src/utils/svg/leftsection/inputsection/greece.svg';
+import FONT from '@src/utils/svg/leftsection/inputsection/font.svg';
 
 export interface InputLatex {
   name: string;
@@ -78,5 +90,69 @@ export const InputLatexBottomContent: InputLatex[] = [
     name: 'inputdraw',
     svg: INPUTDRAW,
     latex: '\begin{matrix}&\\&end{matrix}',
+  },
+];
+export const InputLatexMathTopContent: InputLatex[] = [
+  {
+    name: 'arrow',
+    svg: ARROW,
+    latex: 'gets',
+  },
+  {
+    name: 'inequality',
+    svg: INQUALITY,
+    latex: '<',
+  },
+  {
+    name: 'notoperator',
+    svg: NOTOPERATOR,
+    latex: '\nless ',
+  },
+  {
+    name: 'figure',
+    svg: FIGURE,
+    latex: '\rightangle ',
+  },
+  {
+    name: 'unit',
+    svg: UNIT,
+    latex: 'cmx ',
+  },
+  {
+    name: 'specialsymbol',
+    svg: SPECIALSYMBOL,
+    latex: '①',
+  },
+];
+export const InputLatexMathBottomContent: InputLatex[] = [
+  {
+    name: 'plus',
+    svg: PLUS,
+    latex: '+',
+  },
+  {
+    name: 'minus',
+    svg: MINUS,
+    latex: '-',
+  },
+  {
+    name: 'multiple',
+    svg: MULTIPLE,
+    latex: '\times ',
+  },
+  {
+    name: 'division',
+    svg: DIVISION,
+    latex: 'div ',
+  },
+  {
+    name: 'greece',
+    svg: GREECE,
+    latex: 'alpha ',
+  },
+  {
+    name: 'font',
+    svg: FONT,
+    latex: 'E ',
   },
 ];
