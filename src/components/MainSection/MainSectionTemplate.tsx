@@ -5,13 +5,21 @@ interface Props {
   mathQuill: JSX.Element;
   latex: JSX.Element;
   tab: JSX.Element;
+  resizing: any;
+  height: number;
 }
 
-const MainSectionTemplate = ({ mathQuill, latex, tab }: Props) => {
+const MainSectionTemplate = ({
+  mathQuill,
+  latex,
+  tab,
+  resizing,
+  height,
+}: Props) => {
   return (
-    <StyleComponent.MainSectionTemplate>
+    <StyleComponent.MainSectionTemplate ref={resizing}>
       <StyleComponent.TextArea>{mathQuill}</StyleComponent.TextArea>
-      <StyleComponent.LaTeX>{latex}</StyleComponent.LaTeX>
+      <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>
       <StyleComponent.Tab>{tab}</StyleComponent.Tab>
     </StyleComponent.MainSectionTemplate>
   );
