@@ -1,11 +1,10 @@
 import React from 'react';
-import Tab from '@src/components/Tab';
-import Mathquill from '@src/components/MathQuill';
 import ToolBar from '@src/components/Toolbar';
 import Header from '@src/components/Header';
 import InputSectionContainer from '@src/components/LeftSection/InputSelectionSection';
 import MathSectionContainer from '@src/components/LeftSection/MathSection';
 import TemplateContainer from '@src/components/LeftSection/TemplateSection';
+import MainSection from '@src/components/MainSection/MainSection';
 import { rootState } from '@src/store/modules';
 import { useSelector } from 'react-redux';
 
@@ -41,20 +40,6 @@ export const Section = () => {
         <SubSection visible={visible} />
       </StyleComponent.MoveArea>
     </StyleComponent.Main>
-  );
-};
-
-export const MainSection = () => {
-  return (
-    <StyleComponent.LeftArea>
-      <StyleComponent.TextArea>
-        <Mathquill />
-      </StyleComponent.TextArea>
-      <StyleComponent.LaTeX>LaTeX 영역</StyleComponent.LaTeX>
-      <StyleComponent.Tab>
-        <Tab />
-      </StyleComponent.Tab>
-    </StyleComponent.LeftArea>
   );
 };
 
