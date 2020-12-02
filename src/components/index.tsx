@@ -8,6 +8,7 @@ import MainSection from '@src/components/MainSection/MainSection';
 import { rootState } from '@src/store/modules';
 import { useSelector } from 'react-redux';
 
+import { mathQuill, change } from '@src/store/modules/mathQuill';
 import * as StyleComponent from './style';
 
 export const HeaderSection = () => {
