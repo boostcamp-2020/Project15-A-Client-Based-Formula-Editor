@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import MainSectionTemplate from './MainSectionTemplate';
-import MathQuill from './MathQuill/index';
-import Latex from './LatexSection/index';
-import Tab from './Tab/index';
+import MathQuill from './MathQuill';
+import Latex from './LatexSection';
+import Tab from './Tab';
 
 const MainSection = () => {
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'box',
-    drop: () => ({ name: 'Dustbin' }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
   });
 
-  const [, resizeDrop] = useDrop({
+  const [height, setHeight] = useState(300);
+  const maxHeight = 800;
+  const minHeight = 100;
+
+  const [, resizing] = useDrop({
     accept: 'resize',
     hover(item, monitor) {
-      const test = 1;
+      const dy = Math.abs(monitor.getDifferenceFromInitialOffset().y / 10);
+      console.log(dy);
     },
   });
 
@@ -29,6 +33,8 @@ const MainSection = () => {
       mathQuill={<MathQuill isActive={isActive} canDrop={canDrop} />}
       latex={<Latex />}
       tab={<Tab />}
+      resizing={resizing}
+      height={height}
     />
   );
 };
