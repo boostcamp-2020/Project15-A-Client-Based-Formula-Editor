@@ -7,13 +7,14 @@ import { useDrop } from 'react-dnd';
 import * as StyleComponent from './style';
 
 addStyles();
-
-const EditableMathExample = () => {
+interface mathquillProps {
+  latex: string;
+}
+const EditableMathExample = ({ latex }: mathquillProps) => {
   const { isDecline } = useSelector((state: rootState) => state.declineHandler);
   const { fontAlign } = useSelector(
     (state: rootState) => state.fontAlignHandler
   );
-  const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
   const dispatch = useDispatch();
 
   const handleMathQuill = (mathquill: any) => {
