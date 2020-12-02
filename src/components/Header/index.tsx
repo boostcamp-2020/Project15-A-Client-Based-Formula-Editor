@@ -3,7 +3,6 @@ import SVGIcon from '@src/utils/svg/header/logo.svg';
 import Button from '@src/components/Common/Button';
 import colors from '@src/utils/colors';
 import html2canvas from 'html2canvas';
-import { image } from 'html2canvas/dist/types/css/types/image';
 import HeaderTitle from './HeaderTitle';
 import * as StyleComponent from './style';
 
