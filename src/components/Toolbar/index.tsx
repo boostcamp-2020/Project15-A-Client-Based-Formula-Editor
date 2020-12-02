@@ -7,7 +7,7 @@ import BACK from '@src/utils/svg/toolbar/back.svg';
 import FORWORD from '@src/utils/svg/toolbar/forward.svg';
 import ToolBarButton from '@src/components/Common/ToolbarButton';
 import { useDispatch, useSelector } from 'react-redux';
-import { rootState } from '@src/store/modules';
+import { RootState, rootState } from '@src/store/modules';
 import { dropdown } from '@src/store/modules/drawerDropdown';
 import { backgroundDropdown } from '@src/store/modules/backgroundDropdown';
 import DropDown from '@src/components/Common/DropDown';
@@ -17,6 +17,8 @@ import { RoundButton } from '@src/components/Common/RoundButton/style';
 import GraphButton from '@src/components/Toolbar/GraphButton';
 import AlignButton from '@src/components/Toolbar/AlignDropDown';
 import { decline } from '@src/store/modules/fontDecline';
+import { clear } from '@src/store/modules/mathQuill';
+
 import * as StyledComponent from './style';
 
 const ToolBar = () => {
@@ -27,6 +29,10 @@ const ToolBar = () => {
     (state: rootState) => state.BackgroundDropdownHandler
   );
   const { isDecline } = useSelector((state: rootState) => state.declineHandler);
+  const { mathQuiiFunc } = useSelector(
+    (state: RootState) => state.mathQuillReducer
+  );
+
   const dispatch = useDispatch();
   const onClickDrawerHandler = () => {
     dispatch(dropdown(!isDropdownShow));
@@ -39,6 +45,7 @@ const ToolBar = () => {
   };
   const onClickClearHandler = () => {
     console.log('clear');
+    dispatch(clear());
   };
   const onClickBackHandler = () => {
     console.log('back');

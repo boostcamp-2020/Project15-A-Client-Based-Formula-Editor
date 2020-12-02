@@ -6,9 +6,10 @@ import Header from '@src/components/Header';
 import InputSectionContainer from '@src/components/LeftSection/InputSelectionSection';
 import MathSectionContainer from '@src/components/LeftSection/MathSection';
 import TemplateContainer from '@src/components/LeftSection/TemplateSection';
-import { rootState } from '@src/store/modules';
-import { useSelector } from 'react-redux';
+import { rootState, RootState } from '@src/store/modules';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { mathQuill, change } from '@src/store/modules/mathQuill';
 import * as StyleComponent from './style';
 
 export const HeaderSection = () => {
@@ -45,12 +46,20 @@ export const Section = () => {
 };
 
 export const MainSection = () => {
+  const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
+  const dispatch = useDispatch();
+  const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch(change(e.target.value));
+  };
   return (
     <StyleComponent.LeftArea>
       <StyleComponent.TextArea>
-        <Mathquill />
+        <Mathquill latex={latex} />
       </StyleComponent.TextArea>
-      <StyleComponent.LaTeX>LaTeX 영역</StyleComponent.LaTeX>
+      <StyleComponent.LaTeX>
+        <div>LaTex영역</div>
+        <StyleComponent.LaTeXArea value={latex} onChange={changeHandler} />
+      </StyleComponent.LaTeX>
       <StyleComponent.Tab>
         <Tab />
       </StyleComponent.Tab>
