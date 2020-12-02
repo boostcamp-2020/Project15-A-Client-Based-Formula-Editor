@@ -11,24 +11,19 @@ export const InputSectionContainer = styled.div`
 
 export const InputTopSelectionSectionContainer = styled.div`
   width: 100%;
-  height: 44%;
+  height: 48%;
   border-bottom: 1px solid ${colors.borderGrey};
+  padding-top: 3px;
+  padding-bottom: 5px;
 `;
-
+export const InputBottomSelectionSectionContainer = styled.div`
+  width: 100%;
+`;
 export const InputLatexContainer = styled.div`
   display: flex;
   width: 100%;
   margin-left: 10px;
 `;
-
-export const InputLatexContent = styled.div`
-  width: 60px;
-  height: 60px;
-  padding-left: 10px;
-  padding-top: 10px;
-  &:hover {
-    border: 1px solid ${colors.mainGreen};
-    cursor: pointer;
-  }
-  border: 1px solid ${colors.borderGrey};
+export const Dictionary = styled.p`
+  padding: 10px 20px;
 `;
