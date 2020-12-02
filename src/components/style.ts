@@ -56,28 +56,3 @@ export const RightArea = styled.div<Props>`
   overflow: hidden;
   background-color: ${colors.backgroundGrey};
 `;
-export const TextArea = styled.div`
-  background-color: #e1e0de;
-  width: 100%;
-  height: 100%;
-`;
-
-export const LaTeX = styled.div`
-  background-color: #c9c9c9;
-  width: 100%;
-  height: 19rem;
-`;
-
-export const Tab = styled.div`
-  background-color: ${colors.grey};
-  width: 100%;
-  height: 2.3rem;
-`;
-
-export const LaTeXArea = styled.textarea`
-  min-width: 98%;
-  min-height: 90%;
-  resize: none;
-  border: none;
-  background-color: transparent;
-`;
