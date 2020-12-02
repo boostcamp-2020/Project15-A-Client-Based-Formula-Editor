@@ -5,7 +5,7 @@ import InputSectionContainer from '@src/components/LeftSection/InputSelectionSec
 import MathSectionContainer from '@src/components/LeftSection/MathSection';
 import TemplateContainer from '@src/components/LeftSection/TemplateSection';
 import MainSection from '@src/components/MainSection/MainSection';
-import { rootState } from '@src/store/modules';
+import { RootState } from '@src/store/modules';
 import { useSelector } from 'react-redux';
 import * as StyleComponent from './style';
 
@@ -28,7 +28,7 @@ export const Aside = () => {
 };
 
 export const Section = () => {
-  const { visible } = useSelector((state: rootState) => state.graphHandler);
+  const { visible } = useSelector((state: RootState) => state.graphHandler);
   return (
     <StyleComponent.Main>
       <StyleComponent.ToolBar>

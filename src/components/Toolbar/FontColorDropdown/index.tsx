@@ -1,5 +1,5 @@
 import React from 'react';
-import { rootState } from '@src/store/modules';
+import { RootState } from '@src/store/modules';
 import * as FontColorDropdownAction from '@src/store/modules/fontColorDropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import FontColorButton from './Button';
@@ -8,7 +8,7 @@ import * as StyleComponent from './style';
 
 const FontColorDropdown = () => {
   const { isActive, fontColor } = useSelector(
-    (state: rootState) => state.fontColorDropdownHandler
+    (state: RootState) => state.fontColorDropdownHandler
   );
   const dispatch = useDispatch();
 
