@@ -11,7 +11,10 @@ export const Handle = styled.div`
 export const Content = styled.div`
   display: flex;
   textarea {
-    width: 100%;
-    padding: 30px;
+    min-width: 98%;
+    min-height: 90%;
+    resize: none;
+    border: none;
+    background-color: transparent;
   }
 `;
