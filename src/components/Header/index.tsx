@@ -3,14 +3,17 @@ import SVGIcon from '@src/utils/svg/header/logo.svg';
 import Button from '@src/components/Common/Button';
 import colors from '@src/utils/colors';
 import html2canvas from 'html2canvas';
+import { RootState } from '@src/store/modules';
+import { useSelector, useDispatch } from 'react-redux';
 import HeaderTitle from './HeaderTitle';
 import * as StyleComponent from './style';
 
 const Header = () => {
+  const { mathQuillContainer } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const onClickImageSaveHandler = async () => {
-    const mathquillSection = document.querySelector(
-      '.kkOleo'
-    ) as HTMLCanvasElement;
+    const mathquillSection = mathQuillContainer.current;
     const canvas = await html2canvas(mathquillSection);
     const imageUrl = canvas.toDataURL('image/gif');
     const aTag = document.createElement('a');
