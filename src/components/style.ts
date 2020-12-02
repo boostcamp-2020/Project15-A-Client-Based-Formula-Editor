@@ -73,3 +73,11 @@ export const Tab = styled.div`
   width: 100%;
   height: 2.3rem;
 `;
+
+export const LaTeXArea = styled.textarea`
+  min-width: 98%;
+  min-height: 90%;
+  resize: none;
+  border: none;
+  background-color: transparent;
+`;
