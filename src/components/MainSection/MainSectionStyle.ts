@@ -14,10 +14,10 @@ export const TextArea = styled.div`
   height: 100%;
 `;
 
-export const LaTeX = styled.div`
+export const LaTeX = styled.div<{ height: number }>`
   background-color: #c9c9c9;
   width: 100%;
-  height: 300px;
+  height: ${(props) => props.height}px;
   display: flex;
   flex-direction: column;
   overflow: auto;
