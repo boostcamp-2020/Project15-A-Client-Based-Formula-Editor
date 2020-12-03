@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { useDrag } from 'react-dnd';
 
@@ -24,24 +24,15 @@ export const Box = ({ name, latex }: BoxProps) => {
   );
 
   const handleClientOffset = (x: number, y: number) => {
-    mathQuiiFunc.dropEmbedded(x, y, {
-      htmlString: `<span>3</span>`,
-      text() {
-        return 'custom_embed';
-      },
-      latex() {
-        return '\\sqrt';
-      },
-    });
+    mathQuiiFunc.clickAt(x, y);
+    mathQuiiFunc.write(latex);
   };
 
   const [{ isDragging }, drag] = useDrag({
     item: { name, type: 'box' },
     end: (item, monitor) => {
-      console.log(item.name);
-      const offset = monitor.getClientOffset();
-      console.log(offset.x, offset.y);
-      handleClientOffset(offset.x, offset.y);
+      const clientOffset = monitor.getClientOffset();
+      handleClientOffset(clientOffset.x, clientOffset.y);
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),

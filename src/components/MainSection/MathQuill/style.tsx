@@ -4,7 +4,7 @@ import colors from '@src/utils/colors';
 interface MathFieldProp {
   isDecline: boolean;
   fontAlign: string;
-  isActive: boolean; 
+  isActive: boolean;
   canDrop: boolean;
 }
 
