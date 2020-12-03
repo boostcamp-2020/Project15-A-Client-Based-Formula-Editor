@@ -80,7 +80,7 @@ export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'operator',
     svg: OPERATOR,
-    latex: '+=',
+    latex: '\\triangleq',
   },
   {
     name: 'matrix',
@@ -98,7 +98,7 @@ export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'arrow',
     svg: ARROW,
-    latex: 'gets',
+    latex: '\\gets',
   },
   {
     name: 'inequality',
@@ -108,17 +108,17 @@ export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'notoperator',
     svg: NOTOPERATOR,
-    latex: '\nless ',
+    latex: '\\nless ',
   },
   {
     name: 'figure',
     svg: FIGURE,
-    latex: '\rightangle ',
+    latex: '\\lfloor',
   },
   {
     name: 'unit',
     svg: UNIT,
-    latex: 'cmx ',
+    latex: '\\mx',
   },
   {
     name: 'specialsymbol',
@@ -140,21 +140,21 @@ export const InputLatexMathBottomContent: InputLatex[] = [
   {
     name: 'multiple',
     svg: MULTIPLE,
-    latex: '\times ',
+    latex: '\\times ',
   },
   {
     name: 'division',
     svg: DIVISION,
-    latex: 'div ',
+    latex: '\\div ',
   },
   {
     name: 'greece',
     svg: GREECE,
-    latex: 'alpha ',
+    latex: '\\alpha ',
   },
   {
     name: 'font',
     svg: FONT,
-    latex: 'E ',
+    latex: '\\epsilon',
   },
 ];
