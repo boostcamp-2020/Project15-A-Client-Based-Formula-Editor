@@ -7,4 +7,11 @@ export const TemplateSectionContainer = styled.div`
   height: 25%;
   margin-top: 14px;
   border: 1px solid ${colors.borderGrey};
+  overflow: hidden;
+`;
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  height: 80%;
+  overflow: auto;
 `;
