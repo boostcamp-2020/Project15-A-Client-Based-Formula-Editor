@@ -30,7 +30,7 @@ const Tab = () => {
       }
     );
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
-  }, 30000);
+  }, 10000);
 
   const handleChangeTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
@@ -98,6 +98,8 @@ const Tab = () => {
     if (storedData !== null) {
       dispatch(updateTab(storedData));
       dispatch(change(storedData[0].latex));
+    } else {
+      window.localStorage.setItem('tab', JSON.stringify(tabList));
     }
   }, []);
 
