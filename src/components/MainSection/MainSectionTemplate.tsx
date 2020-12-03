@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import * as StyleComponent from './MainSectionStyle';
 
 interface Props {
+  mainSectionRef: MutableRefObject<HTMLDivElement>;
   mathQuill: JSX.Element;
   latex: JSX.Element;
   tab: JSX.Element;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const MainSectionTemplate = ({
+  mainSectionRef,
   mathQuill,
   latex,
   tab,
@@ -18,7 +20,9 @@ const MainSectionTemplate = ({
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
-      <StyleComponent.TextArea>{mathQuill}</StyleComponent.TextArea>
+      <StyleComponent.TextArea ref={mainSectionRef}>
+        {mathQuill}
+      </StyleComponent.TextArea>
       <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>
       <StyleComponent.Tab>{tab}</StyleComponent.Tab>
     </StyleComponent.MainSectionTemplate>
