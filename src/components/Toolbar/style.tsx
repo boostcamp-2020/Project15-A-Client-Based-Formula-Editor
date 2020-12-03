@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const ToolbarContainer = styled.div`
+  border-bottom: 1px solid #d6d6d6;
   display: flex;
   height: 100%;
   width: 100%;
