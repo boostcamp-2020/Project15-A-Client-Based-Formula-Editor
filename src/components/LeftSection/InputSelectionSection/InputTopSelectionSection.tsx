@@ -3,8 +3,7 @@ import {
   InputLatexTopContent,
   InputLatexBottomContent,
 } from '@src/constants/InputSection';
-import Svg from '@src/components/Common/Svg';
-import { InputLatexContent } from '@src/components/Common/LatexContent/style';
+import { LatexContent } from '@src/components/Common/LatexContent';
 import * as StyledComponent from './style';
 
 const InputTopSelectionSection = () => {
@@ -13,16 +12,28 @@ const InputTopSelectionSection = () => {
       <StyledComponent.InputTopSelectionSectionContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexTopContent.map((value, index) => (
-            <InputLatexContent key={index} width="60" height="60">
-              <Svg Svg={value.svg} />
-            </InputLatexContent>
+            <LatexContent
+              // eslint-disable-next-line react/no-array-index-key
+              key={`dab${index}`}
+              svg={value.svg}
+              latex={value.latex}
+              name={value.name}
+              width="60"
+              height="60"
+            />
           ))}
         </StyledComponent.InputLatexContainer>
         <StyledComponent.InputLatexContainer>
           {InputLatexBottomContent.map((value, index) => (
-            <InputLatexContent key={index} width="60" height="60">
-              <Svg Svg={value.svg} />
-            </InputLatexContent>
+            <LatexContent
+              // eslint-disable-next-line react/no-array-index-key
+              key={`dab${index}`}
+              svg={value.svg}
+              latex={value.latex}
+              name={value.name}
+              width="60"
+              height="60"
+            />
           ))}
         </StyledComponent.InputLatexContainer>
       </StyledComponent.InputTopSelectionSectionContainer>
