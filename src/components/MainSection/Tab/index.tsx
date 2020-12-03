@@ -1,22 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
-import { changeTab, addTab } from '@src/store/modules/tab';
+import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
+import { change } from '@src/store/modules/mathQuill';
 import TabList from './TabList';
 import * as StyleComponent from './style';
 
 const Tab = () => {
-  const { selectedTabId, tabList } = useSelector(
+  const { lastId, selectedTabId, tabList } = useSelector(
     (state: RootState) => state.tabReducer
   );
 
   const dispatch = useDispatch();
+  let storedData;
 
   const handleChangeTab = (tabId: number) => {
+    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    const selectedTabData = storedData.filter(
+      (tab: { id: number; title: string; latex: string }) => tab.id === tabId
+    )[0];
+
     dispatch(changeTab(tabId));
+    dispatch(change(selectedTabData.latex));
   };
 
   const handleAddTab = () => {
+    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    // eslint-disable-next-line no-unused-expressions
+    const newStoreData = storedData.concat({
+      id: lastId + 1,
+      title: `TAB${lastId + 1}`,
+      latex: 'blank',
+    });
+
+    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+
     dispatch(addTab());
   };
 
@@ -45,6 +63,12 @@ const Tab = () => {
       handleAddTab={handleAddTab}
     />
   );
+
+  useEffect(() => {
+    console.log('Successful import from local storage!');
+    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    if (storedData !== null) dispatch(updateTab(storedData));
+  }, []);
 
   return <StyleComponent.TabContainer>{list}</StyleComponent.TabContainer>;
 };
