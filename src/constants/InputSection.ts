@@ -32,7 +32,7 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'multiply',
     svg: MULTPLY,
-    latex: '\frac{ }{ }',
+    latex: '\\frac{ }{ }',
   },
   {
     name: 'root',
@@ -42,7 +42,8 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'pow',
     svg: POW,
-    latex: '\\combi{ }^{ }',
+
+    latex: '^{ }',
   },
   {
     name: 'integral',
@@ -57,39 +58,40 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'galho',
     svg: GLOHO,
-    latex: 'left{combi{ }\right}',
+    latex: '\\left\\{\\right\\}',
   },
 ];
 export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'sin',
     svg: SIN,
-    latex: 'sin ^{ }',
+    latex: '\\sin ^{ }',
   },
   {
     name: 'decoration',
     svg: DECORATION,
-    latex: 'ddot{ }',
+    latex: '\\dot{ }\\dot{ }',
   },
   {
     name: 'limit',
     svg: LIMIT,
-    latex: 'lim _{ }^{ }combi{ }',
+    latex: '\\lim _{ }^{ }',
   },
   {
     name: 'operator',
     svg: OPERATOR,
-    latex: 'deltaequal ',
+    latex: '+=',
   },
   {
     name: 'matrix',
     svg: MATRIX,
-    latex: '\begin{matrix}&\\&end{matrix}',
+    latex: '\\left[\\begin{matrix}3&4\\1&2\\\\end{matrix}\\right]',
   },
   {
     name: 'inputdraw',
     svg: INPUTDRAW,
-    latex: '\begin{matrix}&\\&end{matrix}',
+    latex:
+      '\\begin{grid}\\cell{0000}&\\cell{0000}\\\\cell{0000}&\\cell{0000}\\end{grid}',
   },
 ];
 export const InputLatexMathTopContent: InputLatex[] = [
