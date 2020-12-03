@@ -29,13 +29,9 @@ const Header = () => {
   };
 
   const onClickExportHandler = () => {
-    alert('html css가 복사가 완료되었습니다.');
-    const input = document.createElement('input');
-
     const style = window.getComputedStyle(
       document.querySelector('.mq-root-block')
     ) as any;
-    input.setAttribute('value', JSON.stringify(style));
     saveAsFile(mathQuiiFunc.html(), 'html.txt');
     saveAsFile(JSON.stringify(style), 'css.txt');
   };
