@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { mathQuill, change } from '@src/store/modules/mathQuill';
-import { addStyles, EditableMathField } from 'react-mathquill';
+import { addStyles, EditableMathField, MathField } from 'react-mathquill';
 import * as StyleComponent from './style';
 
 addStyles();
@@ -24,6 +24,9 @@ const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
     dispatch(mathQuill(mathquill));
   };
 
+  const changeHandler = (mathField: MathField) => {
+    dispatch(change(mathField.latex()));
+  };
   return (
     <StyleComponent.MathField
       isActive={isActive}
@@ -33,9 +36,7 @@ const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
     >
       <EditableMathField
         latex={latex}
-        onChange={(mathField) => {
-          dispatch(change(mathField.latex()));
-        }}
+        onChange={changeHandler}
         mathquillDidMount={(mathField) => {
           handleMathQuill(mathField);
         }}

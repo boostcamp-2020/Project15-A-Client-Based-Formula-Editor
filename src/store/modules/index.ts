@@ -11,6 +11,7 @@ import {
 import { graphHandler, GraphState } from './graph';
 import { declineHandler, DeclineState } from './fontDecline';
 import { fontAlignHandler, AlignState } from './fontAlign';
+import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
 
 export interface RootState {
   fontDropDownReducer: FontDropDownState;
@@ -22,6 +23,7 @@ export interface RootState {
   graphHandler: GraphState;
   declineHandler: DeclineState;
   fontAlignHandler: AlignState;
+  getMathQuillReducer: MathQuillContainerState;
 }
 export default combineReducers({
   drawerDropdownHandler,
@@ -33,4 +35,5 @@ export default combineReducers({
   declineHandler,
   fontAlignHandler,
   mathQuillReducer,
+  getMathQuillReducer,
 });

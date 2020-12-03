@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
+import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
 import MainSectionTemplate from './MainSectionTemplate';
 import MathQuill from './MathQuill';
 import Latex from './LatexSection';
@@ -14,11 +15,12 @@ let curPercent: number = 25;
 
 const MainSection = () => {
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
+
   const dispatch = useDispatch();
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
-
+  const mainSectionRef = useRef<HTMLDivElement>(null);
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'box',
     collect: (monitor) => ({
@@ -60,8 +62,13 @@ const MainSection = () => {
 
   const isActive = canDrop && isOver;
 
+  useEffect(() => {
+    dispatch(getMathQuillContainer(mainSectionRef));
+  }, []);
+
   return (
     <MainSectionTemplate
+      mainSectionRef={mainSectionRef}
       mathQuill={
         <MathQuill isActive={isActive} canDrop={canDrop} latex={latex} />
       }
