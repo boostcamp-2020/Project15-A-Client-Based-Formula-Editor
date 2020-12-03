@@ -9,6 +9,10 @@ import MathQuill from './MathQuill';
 import Latex from './LatexSection';
 import Tab from './Tab';
 
+let curPosY: number = 0;
+let totalLength: number = 0;
+let curPercent: number = 25;
+
 const MainSection = () => {
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
 
@@ -25,15 +29,34 @@ const MainSection = () => {
     }),
   });
 
-  const [height, setHeight] = useState(300);
-  const maxHeight = 800;
-  const minHeight = 100;
+  const heightInfo = { initial: 25 };
+  const [height, setHeight] = useState(heightInfo.initial);
 
   const [, resizing] = useDrop({
     accept: 'resize',
+    collect: (monitor) => ({
+      canResizing: monitor.isOver(),
+      endResizing: monitor.canDrop(),
+    }),
+    drop() {
+      curPosY = 0;
+      totalLength = 0;
+      curPercent = height;
+    },
     hover(item, monitor) {
-      const dy = Math.abs(monitor.getDifferenceFromInitialOffset().y / 10);
-      console.log(dy);
+      const dy = monitor.getDifferenceFromInitialOffset().y;
+      if (curPosY === 0) {
+        curPosY = monitor.getClientOffset().y - 105;
+      }
+
+      if (totalLength === 0) {
+        const test = (curPosY / (100 - curPercent)) * 100;
+        totalLength = test;
+      }
+
+      const tmp = Math.round(100 - ((curPosY + dy) / totalLength) * 100);
+
+      if (dy % 15 === 0 && tmp !== height) setHeight(tmp);
     },
   });
 

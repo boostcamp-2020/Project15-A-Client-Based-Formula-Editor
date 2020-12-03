@@ -20,7 +20,7 @@ const MainSectionTemplate = ({
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
-      <StyleComponent.TextArea ref={mainSectionRef}>
+      <StyleComponent.TextArea height={height} ref={mainSectionRef}>
         {mathQuill}
       </StyleComponent.TextArea>
       <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>

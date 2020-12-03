@@ -12,7 +12,7 @@ export const Header = styled.div`
 export const Aside = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  width: 27rem;
   background-color: ${colors.backgroundGrey};
 `;
 
