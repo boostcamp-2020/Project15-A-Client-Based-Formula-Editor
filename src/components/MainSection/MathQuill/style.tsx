@@ -19,6 +19,7 @@ export const MathField = styled.div<MathFieldProp>`
     props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
 
   .mq-editable-field {
+    width: 100%;
     border: none;
   }
   .mq-focused {
@@ -28,7 +29,6 @@ export const MathField = styled.div<MathFieldProp>`
     display: inline-block;
     flex-wrap: wrap;
     border: none;
-    width: 1000px;
   }
   .mq-root-block var,
   span {
