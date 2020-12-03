@@ -85,7 +85,7 @@ export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'matrix',
     svg: MATRIX,
-    latex: '\\left[\\begin{matrix}3&4\\1&2\\\\end{matrix}\\right]',
+    latex: '\\begin{pmatrix}  &  \\  &  \\end{pmatrix}',
   },
   {
     name: 'inputdraw',
@@ -118,7 +118,7 @@ export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'unit',
     svg: UNIT,
-    latex: '\\mx',
+    latex: '㎠',
   },
   {
     name: 'specialsymbol',
