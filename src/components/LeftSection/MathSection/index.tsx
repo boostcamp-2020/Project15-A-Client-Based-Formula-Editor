@@ -1,11 +1,10 @@
 import React from 'react';
 import Title from '@src/components/Common/Title';
 import MULTPLY from '@src/utils/svg/leftsection/inputsection/multiply.svg';
-import Svg from '@src/components/Common/Svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { insert } from '@src/store/modules/mathQuill';
 import { RootState } from '@src/store/modules';
-import { MathField } from '@src/components/MainSection/MathQuill/style';
+import { LatexContent } from '@src/components/Common/LatexContent';
 import * as StyledComponent from './style';
 
 const math = [
@@ -30,12 +29,15 @@ const MathSectionContainer = () => {
       <StyledComponent.MathSectionContainer>
         <Title title="수식" />
         {math.map((data) => (
-          <StyledComponent.Button
+          <LatexContent
+            latex={data.latex}
             key={data.name}
+            svg={data.svg}
+            width="60"
+            height="60"
+            name={data.name}
             onClick={() => onClickHandler(data.latex)}
-          >
-            <Svg Svg={data.svg} />
-          </StyledComponent.Button>
+          />
         ))}
       </StyledComponent.MathSectionContainer>
     </>

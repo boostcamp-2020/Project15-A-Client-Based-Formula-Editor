@@ -32,7 +32,7 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'multiply',
     svg: MULTPLY,
-    latex: '\frac{ }{ }',
+    latex: '\\frac{ }{ }',
   },
   {
     name: 'root',
