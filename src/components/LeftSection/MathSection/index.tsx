@@ -9,7 +9,7 @@ import * as StyledComponent from './style';
 
 const MathSectionContainer = () => {
   // 임시로 변수 지정. 추후 props로 inputselected 받아와서 변경하도록 할예정
-  const math = mathSVG.sqrt;
+  const math = mathSVG.combi;
   const dispatch = useDispatch();
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
