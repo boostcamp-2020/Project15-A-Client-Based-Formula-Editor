@@ -1,9 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 
 const GET_MATHQUILL_CONTAINER = ' GET_MATHQUILL_CONTAINER';
-
 export const getMathQuillContainer = createAction(GET_MATHQUILL_CONTAINER);
-
 export interface MathQuillContainerState {
   mathQuillContainer: any;
 }

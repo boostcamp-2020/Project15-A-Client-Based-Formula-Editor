@@ -5,12 +5,16 @@ import colors from '@src/utils/colors';
 import html2canvas from 'html2canvas';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
+import saveAsFile from '@src/utils/savefile';
 import HeaderTitle from './HeaderTitle';
 import * as StyleComponent from './style';
 
 const Header = () => {
   const { mathQuillContainer } = useSelector(
     (state: RootState) => state.getMathQuillReducer
+  );
+  const { mathQuiiFunc } = useSelector(
+    (state: RootState) => state.mathQuillReducer
   );
   const onClickImageSaveHandler = async () => {
     const mathquillSection = mathQuillContainer.current;
@@ -23,8 +27,17 @@ const Header = () => {
     aTag.click();
     document.body.removeChild(aTag);
   };
+
   const onClickExportHandler = () => {
-    console.log('export ');
+    alert('html css가 복사가 완료되었습니다.');
+    const input = document.createElement('input');
+
+    const style = window.getComputedStyle(
+      document.querySelector('.mq-root-block')
+    ) as any;
+    input.setAttribute('value', JSON.stringify(style));
+    saveAsFile(mathQuiiFunc.html(), 'html.txt');
+    saveAsFile(JSON.stringify(style), 'css.txt');
   };
   return (
     <StyleComponent.HeaderContainer>
