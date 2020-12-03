@@ -1,4 +1,4 @@
-import COLON_EQUAL from './conlon-equal.svg';
+import COLON_EQUAL from './colon-equal.svg';
 import DEF_EQUAL from './def-equal.svg';
 import DELTA_EQUAL from './delta-equal.svg';
 import EQUAL from './equal.svg';

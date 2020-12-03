@@ -1,5 +1,5 @@
 import ACUTE from './acute.svg';
-import BAR from './.bbar.svg';
+import BAR from './bar.svg';
 import BBAR from './bbar.svg';
 import BOXED from './boxed.svg';
 import BREVE from './breve.svg';
