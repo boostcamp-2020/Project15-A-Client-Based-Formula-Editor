@@ -18,7 +18,9 @@ const MainSectionTemplate = ({
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
-      <StyleComponent.TextArea>{mathQuill}</StyleComponent.TextArea>
+      <StyleComponent.TextArea height={height}>
+        {mathQuill}
+      </StyleComponent.TextArea>
       <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>
       <StyleComponent.Tab>{tab}</StyleComponent.Tab>
     </StyleComponent.MainSectionTemplate>

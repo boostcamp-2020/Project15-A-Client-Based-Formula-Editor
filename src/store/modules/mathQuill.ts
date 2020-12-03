@@ -19,7 +19,8 @@ export interface MathQuillState {
 }
 
 const initialState = {
-  latex: '',
+  latex: 'Hello',
+  mathQuiiFunc: 0,
 };
 
 export const mathQuillReducer = handleActions(

@@ -20,10 +20,10 @@ const colors: colorType = {
   borderGrey: '#e0e0e0',
   containerBackground: '#fff',
   mainGreen: '#41D3BD',
-  lightGrey: '#D2D6D7',
-  grey: '#777A88',
+  lightGrey: '#C7C7C7',
+  grey: '#818181',
   darkGrey: '#464653',
-  backgroundGrey: '#e6ece8',
+  backgroundGrey: '#e3e3e4',
   white: '#fff',
 };
 export default colors;
