@@ -11,9 +11,17 @@ interface Props {
   svg: any;
   width: string;
   height: string;
+  onClick?: () => void;
 }
 
-export const LatexContent = ({ latex, name, svg, width, height }: Props) => {
+export const LatexContent = ({
+  latex,
+  name,
+  svg,
+  width,
+  height,
+  onClick,
+}: Props) => {
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
@@ -42,6 +50,7 @@ export const LatexContent = ({ latex, name, svg, width, height }: Props) => {
         width={width}
         height={height}
         opacity={opacity}
+        onClick={onClick}
       >
         <Svg Svg={svg} />
       </StyleComponent.InputLatexContent>
