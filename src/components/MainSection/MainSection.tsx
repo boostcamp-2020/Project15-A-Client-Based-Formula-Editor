@@ -21,6 +21,7 @@ const MainSection = () => {
     dispatch(change(e.target.value));
   };
   const mainSectionRef = useRef<HTMLDivElement>(null);
+
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'box',
     collect: (monitor) => ({

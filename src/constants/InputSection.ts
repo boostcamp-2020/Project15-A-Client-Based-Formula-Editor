@@ -42,7 +42,8 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'pow',
     svg: POW,
-    latex: '\\combi{ }^{ }',
+
+    latex: '^{ }',
   },
   {
     name: 'integral',
@@ -57,46 +58,47 @@ export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'galho',
     svg: GLOHO,
-    latex: 'left{combi{ }\right}',
+    latex: '\\left\\{\\right\\}',
   },
 ];
 export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'sin',
     svg: SIN,
-    latex: 'sin ^{ }',
+    latex: '\\sin ^{ }',
   },
   {
     name: 'decoration',
     svg: DECORATION,
-    latex: 'ddot{ }',
+    latex: '\\dot{ }\\dot{ }',
   },
   {
     name: 'limit',
     svg: LIMIT,
-    latex: 'lim _{ }^{ }combi{ }',
+    latex: '\\lim _{ }^{ }',
   },
   {
     name: 'operator',
     svg: OPERATOR,
-    latex: 'deltaequal ',
+    latex: '\\triangleq',
   },
   {
     name: 'matrix',
     svg: MATRIX,
-    latex: '\begin{matrix}&\\&end{matrix}',
+    latex: '\\begin{pmatrix}  &  \\  &  \\end{pmatrix}',
   },
   {
     name: 'inputdraw',
     svg: INPUTDRAW,
-    latex: '\begin{matrix}&\\&end{matrix}',
+    latex:
+      '\\begin{grid}\\cell{0000}&\\cell{0000}\\\\cell{0000}&\\cell{0000}\\end{grid}',
   },
 ];
 export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'arrow',
     svg: ARROW,
-    latex: 'gets',
+    latex: '\\gets',
   },
   {
     name: 'inequality',
@@ -106,17 +108,17 @@ export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'notoperator',
     svg: NOTOPERATOR,
-    latex: '\nless ',
+    latex: '\\nless ',
   },
   {
     name: 'figure',
     svg: FIGURE,
-    latex: '\rightangle ',
+    latex: '\\lfloor',
   },
   {
     name: 'unit',
     svg: UNIT,
-    latex: 'cmx ',
+    latex: '㎠',
   },
   {
     name: 'specialsymbol',
@@ -138,21 +140,21 @@ export const InputLatexMathBottomContent: InputLatex[] = [
   {
     name: 'multiple',
     svg: MULTIPLE,
-    latex: '\times ',
+    latex: '\\times ',
   },
   {
     name: 'division',
     svg: DIVISION,
-    latex: 'div ',
+    latex: '\\div ',
   },
   {
     name: 'greece',
     svg: GREECE,
-    latex: 'alpha ',
+    latex: '\\alpha ',
   },
   {
     name: 'font',
     svg: FONT,
-    latex: 'E ',
+    latex: '\\epsilon',
   },
 ];

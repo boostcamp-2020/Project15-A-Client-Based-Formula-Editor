@@ -1,36 +1,47 @@
-// import React from 'react';
-// import {
-//   InputLatexMathTopContent,
-//   InputLatexMathBottomContent,
-// } from '@src/constants/InputSection';
-// import Svg from '@src/components/Common/Svg';
-// import { InputLatexContent } from '@src/components/Common/LatexContent/style';
-// import * as StyledComponent from './style';
+/* eslint-disable react/no-array-index-key */
+import React from 'react';
+import {
+  InputLatexMathTopContent,
+  InputLatexMathBottomContent,
+} from '@src/constants/InputSection';
+import { LatexContent } from '@src/components/Common/LatexContent';
 
-// const InputBottomSelectionSection = () => {
-//   return (
-//     <>
-//       <StyledComponent.InputBottomSelectionSectionContainer>
-//         <StyledComponent.InputLatexContainer>
-//           {InputLatexMathTopContent.map((value, index) => (
-//             <InputLatexContent key={`dab${index}`} width="40" height="40">
-//               <Svg Svg={value.svg} />
-//             </InputLatexContent>
-//           ))}
-//           <InputLatexContent width="107" height="40">
-//             <StyledComponent.Dictionary>수식 사전</StyledComponent.Dictionary>
-//           </InputLatexContent>
-//         </StyledComponent.InputLatexContainer>
-//         <StyledComponent.InputLatexContainer>
-//           {InputLatexMathBottomContent.map((value, index) => (
-//             <InputLatexContent key={`dab${index}`} width="40" height="40">
-//               <Svg Svg={value.svg} />
-//             </InputLatexContent>
-//           ))}
-//         </StyledComponent.InputLatexContainer>
-//       </StyledComponent.InputBottomSelectionSectionContainer>
-//     </>
-//   );
-// };
+import * as StyledComponent from './style';
 
-// export default InputBottomSelectionSection;
+const InputBottomSelectionSection = () => {
+  return (
+    <>
+      <StyledComponent.InputBottomSelectionSectionContainer>
+        <StyledComponent.InputLatexContainer>
+          {InputLatexMathTopContent.map((value, index) => (
+            <LatexContent
+              key={`latex-dab${index}`}
+              svg={value.svg}
+              latex={value.latex}
+              name={value.name}
+              width="40"
+              height="40"
+            />
+          ))}
+          <StyledComponent.InputLatexContent width="102" height="40">
+            <StyledComponent.Dictionary>수식 사전</StyledComponent.Dictionary>
+          </StyledComponent.InputLatexContent>
+        </StyledComponent.InputLatexContainer>
+        <StyledComponent.InputLatexContainer>
+          {InputLatexMathBottomContent.map((value, index) => (
+            <LatexContent
+              key={`latex-${index}`}
+              width="40"
+              height="40"
+              svg={value.svg}
+              name={value.name}
+              latex={value.latex}
+            />
+          ))}
+        </StyledComponent.InputLatexContainer>
+      </StyledComponent.InputBottomSelectionSectionContainer>
+    </>
+  );
+};
+
+export default InputBottomSelectionSection;
