@@ -69,7 +69,7 @@ const ToolBar = () => {
         <FontColorDropdown />
         <AlignButton />
         <RoundButton onClick={buttonAttributes[2].onClick}>
-          <div className="title">F</div>
+          <div className="title">f</div>
         </RoundButton>
         <RoundButton onClick={buttonAttributes[0].onClick}>
           <DRAWER />
