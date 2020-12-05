@@ -36,11 +36,19 @@ const Header = () => {
       <SVGIcon />
       <HeaderTitle />
       <StyleComponent.ButtonContainer>
-        <Button
-          color={colors.lightGrey}
-          value="이미지 저장"
-          onClick={onClickImageSaveHandler}
-        />
+        {click === false ? (
+          <Button
+            color={colors.lightGrey}
+            value="저장 모드"
+            onClick={onClickImageSaveHandler}
+          />
+        ) : (
+          <Button
+            color={colors.lightGrey}
+            value="일반 모드"
+            onClick={onClickImageSaveHandler}
+          />
+        )}
         <Button
           color={colors.lightGrey}
           value="Export"
