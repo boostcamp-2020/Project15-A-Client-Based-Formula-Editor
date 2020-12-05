@@ -22,7 +22,7 @@ const Header = () => {
     const mathquillSection = mathQuillContainer.current;
     const canvas = await html2canvas(mathquillSection);
     dispatch(setCropContainer(true));
-    console.log(click);
+
     const imageUrl = canvas.toDataURL('image/gif');
     const aTag = document.createElement('a');
     document.body.appendChild(aTag);
