@@ -7,10 +7,13 @@ import colors from '@src/utils/colors';
 import { Modal, CropSaveButton } from './MainSectionStyle';
 
 const CropSection = () => {
-  const [url, setUrl] = useState('');
   const [cropData, setCrop] = useState({});
   const [imageRef, setImageRef] = useState();
-  const [cropUrl, setCropUrl] = useState('');
+  const [inputs, setInputs] = useState({
+    url: '',
+    cropUrl: '',
+  });
+  const { url, cropUrl } = inputs;
   const ref = useRef();
   const { mathQuillContainer } = useSelector(
     (state: RootState) => state.getMathQuillReducer
@@ -49,7 +52,10 @@ const CropSection = () => {
   const makeClientCrop = async (crop: any) => {
     if (imageRef && crop.width && crop.height) {
       const croppedImageUrl = (await getCroppedImg(imageRef, crop)) as string;
-      setCropUrl(croppedImageUrl);
+      setInputs({
+        ...inputs,
+        cropUrl: croppedImageUrl,
+      });
     }
   };
 
@@ -72,7 +78,10 @@ const CropSection = () => {
       const src = mathQuillContainer.current;
       const canvas = await html2canvas(src);
       imageUrl = canvas.toDataURL('image/gif');
-      setUrl(imageUrl);
+      setInputs({
+        ...inputs,
+        url: imageUrl,
+      });
       setCrop({ width: 30, height: 30, unit: 'px' });
     };
     getHtml();
