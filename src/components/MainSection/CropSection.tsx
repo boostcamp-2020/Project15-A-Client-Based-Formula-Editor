@@ -4,6 +4,7 @@ import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import html2canvas from 'html2canvas';
 import colors from '@src/utils/colors';
+import saveAsFile from '@src/utils/savefile';
 import { Modal, CropSaveButton } from './MainSectionStyle';
 
 const CropSection = () => {
@@ -66,12 +67,7 @@ const CropSection = () => {
     setImageRef(image);
   };
   const onClickSaveHandler = () => {
-    const aTag = document.createElement('a');
-    document.body.appendChild(aTag);
-    aTag.download = '수식 저장.gif';
-    aTag.href = cropUrl;
-    aTag.click();
-    document.body.removeChild(aTag);
+    saveAsFile(cropUrl, '수식 저장.gif');
   };
   useEffect(() => {
     const getHtml = async () => {
