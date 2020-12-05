@@ -3,7 +3,6 @@ import ReactCrop from 'react-image-crop';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import html2canvas from 'html2canvas';
-import colors from '@src/utils/colors';
 import saveAsFile from '@src/utils/savefile';
 import { Modal, CropSaveButton } from './MainSectionStyle';
 
