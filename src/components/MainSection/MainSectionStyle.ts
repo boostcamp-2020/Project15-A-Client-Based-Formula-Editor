@@ -42,3 +42,18 @@ export const Modal = styled.div<Props>`
   height: 13%; /* Full height */
   background-color: rgba(255, 255, 255, 0.1); /* Black w/ opacity */
 `;
+
+export const CropSaveButton = styled.div`
+  width: 100px;
+  height: 33px;
+  background-color: ${colors.borderGrey};
+  &:hover {
+    cursor: pointer;
+    color: ${colors.mainGreen};
+  }
+  display: flex;
+  padding-top: 15px;
+  margin-left: 50%;
+  margin-top: -50px;
+  justify-content: center;
+`;

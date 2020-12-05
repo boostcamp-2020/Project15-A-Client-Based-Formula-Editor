@@ -23,13 +23,13 @@ const Header = () => {
     const canvas = await html2canvas(mathquillSection);
     dispatch(setCropContainer(true));
 
-    const imageUrl = canvas.toDataURL('image/gif');
-    const aTag = document.createElement('a');
-    document.body.appendChild(aTag);
-    aTag.download = '수식 저장.gif';
-    aTag.href = imageUrl;
-    aTag.click();
-    document.body.removeChild(aTag);
+    // const imageUrl = canvas.toDataURL('image/gif');
+    // const aTag = document.createElement('a');
+    // document.body.appendChild(aTag);
+    // aTag.download = '수식 저장.gif';
+    // aTag.href = imageUrl;
+    // aTag.click();
+    // document.body.removeChild(aTag);
   };
 
   const onClickExportHandler = () => {
