@@ -5,6 +5,7 @@ import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
 import { change } from '@src/store/modules/mathQuill';
 import useInterval from '@src/hooks/useInterval';
 import TabList from './TabList';
+import PlusTab from './PlusTab';
 import * as StyleComponent from './style';
 
 const Tab = () => {
@@ -66,6 +67,19 @@ const Tab = () => {
     dispatch(addTab());
   };
 
+  const handleDeleteTab = (tabId: number) => {
+    storedData = JSON.parse(window.localStorage.getItem('tab'));
+
+    newStoreData = storedData.filter(
+      (data: { id: number; title: string; latex: string }) => data.id !== tabId
+    );
+
+    dispatch(changeTab(newStoreData[0].id));
+    dispatch(change(newStoreData[0].latex));
+    dispatch(updateTab(newStoreData));
+    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+  };
+
   const list: JSX.Element[] = tabList.map(
     (tab): JSX.Element => {
       return (
@@ -75,27 +89,19 @@ const Tab = () => {
           selectedTabId={selectedTabId}
           tabTitle={tab.title}
           handleChangeTab={handleChangeTab}
-          handleAddTab={handleAddTab}
+          handleDeleteTab={handleDeleteTab}
         />
       );
     }
   );
 
-  list.push(
-    <TabList
-      key={0}
-      tabId={0}
-      selectedTabId={selectedTabId}
-      tabTitle="+"
-      handleChangeTab={handleChangeTab}
-      handleAddTab={handleAddTab}
-    />
-  );
+  list.push(<PlusTab handleAddTab={handleAddTab} />);
 
   useEffect(() => {
     console.log('Successful import from local storage!');
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     if (storedData !== null) {
+      dispatch(changeTab(storedData[0].id));
       dispatch(updateTab(storedData));
       dispatch(change(storedData[0].latex));
     } else {
