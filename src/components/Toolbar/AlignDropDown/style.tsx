@@ -13,6 +13,9 @@ export const DropdownContainer = styled.div`
   border: solid 1px ${colors.borderGrey};
   z-index: 1;
   top: 3.75rem;
+  padding: 12px;
+  background-color: ${colors.white};
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 `;
 
 export const AlignDropdown = styled.div``;
@@ -23,13 +26,12 @@ export const RowContainer = styled.div`
 `;
 
 export const ColorBox = styled.div`
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  justify-content: center;
-  background-color: ${colors.white};
   cursor: pointer;
+  & + & {
+    margin-left: 0.3rem;
+  }
   &:hover {
-    border: solid 1px black;
+    border-radius: 4px;
+    background-color: ${colors.hoverGrey};
   }
 `;

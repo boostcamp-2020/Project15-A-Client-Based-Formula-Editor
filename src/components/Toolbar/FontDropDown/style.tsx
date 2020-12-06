@@ -4,16 +4,16 @@ import colors from '@src/utils/colors';
 export const DropDownContent = styled.div<{ dropDown: string }>`
   width: 6.25rem;
   border: 1px solid ${colors.borderGrey};
-  border-radius: 12px;
   background-color: white;
   z-index: 1;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
   position: absolute;
   top: 3.75rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 `;
 
 export const Content = styled.div<{ isSelected: boolean }>`
-  border-radius: 12px;
   display: flex;
   align-items: center;
   .number {
@@ -27,6 +27,6 @@ export const Content = styled.div<{ isSelected: boolean }>`
     margin-top: 5px;
   }
   &: hover {
-    background-color: #f1f1f1;
+    background-color: ${colors.hoverGrey};
   }
 `;
