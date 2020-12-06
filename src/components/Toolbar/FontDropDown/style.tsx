@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
-import { RoundButton } from '@src/components/Common/RoundButton/style';
-
-export const DropButton = styled(RoundButton)`
-  margin-left: 0.62rem;
-`;
 
 export const DropDownContent = styled.div<{ dropDown: string }>`
   width: 6.25rem;
