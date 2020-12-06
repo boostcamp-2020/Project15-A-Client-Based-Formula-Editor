@@ -5,7 +5,6 @@ export const DropDownContent = styled.div<{ dropDown: string }>`
   width: 6.25rem;
   border: 1px solid ${colors.borderGrey};
   border-radius: 12px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: white;
   z-index: 1;
   display: ${(props) => (props.dropDown === 'open' ? 'block' : 'none')};
