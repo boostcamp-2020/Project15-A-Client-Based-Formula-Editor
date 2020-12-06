@@ -70,14 +70,19 @@ const Tab = () => {
   const handleDeleteTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
 
-    newStoreData = storedData.filter(
-      (data: { id: number; title: string; latex: string }) => data.id !== tabId
-    );
+    if (storedData.length === 1) {
+      alert('This is the last tab!');
+    } else {
+      newStoreData = storedData.filter(
+        (data: { id: number; title: string; latex: string }) =>
+          data.id !== tabId
+      );
 
-    dispatch(changeTab(newStoreData[0].id));
-    dispatch(change(newStoreData[0].latex));
-    dispatch(updateTab(newStoreData));
-    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+      dispatch(changeTab(newStoreData[0].id));
+      dispatch(change(newStoreData[0].latex));
+      dispatch(updateTab(newStoreData));
+      window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+    }
   };
 
   const list: JSX.Element[] = tabList.map(
