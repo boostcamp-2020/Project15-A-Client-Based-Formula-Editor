@@ -1,19 +1,21 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/ban-types */
+import React, { useEffect } from 'react';
 import Title from '@src/components/Common/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import { insert } from '@src/store/modules/mathQuill';
 import { RootState } from '@src/store/modules';
 import { LatexContent } from '@src/components/Common/LatexContent';
+import mathSection from '@src/constants/mathSection';
 import * as mathSVG from '@src/constants/mathSection';
 import * as StyledComponent from './style';
 
 const MathSectionContainer = () => {
-  // 임시로 변수 지정. 추후 props로 inputselected 받아와서 변경하도록 할예정
-  const math = mathSVG.combi;
   const dispatch = useDispatch();
-  const { mathQuiiFunc } = useSelector(
+  const { mathQuiiFunc, name } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
+  const math = mathSection.filter((id) => id.name === name);
+  const mathArray = math.length > 0 ? math[0].value : mathSVG.mathFraction;
   const onClickHandler = (value: string) => {
     mathQuiiFunc.write(value);
     dispatch(insert(value));
@@ -22,7 +24,7 @@ const MathSectionContainer = () => {
     <StyledComponent.MathSectionContainer>
       <Title title="수식" />
       <StyledComponent.ButtonContainer>
-        {math.map((data) => (
+        {mathArray.map((data) => (
           <LatexContent
             latex={data.latex}
             key={data.name}
