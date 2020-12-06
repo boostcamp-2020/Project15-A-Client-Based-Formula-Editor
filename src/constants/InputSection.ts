@@ -30,19 +30,18 @@ export interface InputLatex {
 }
 export const InputLatexTopContent: InputLatex[] = [
   {
-    name: 'multiply',
+    name: 'mathFraction',
     svg: MULTPLY,
     latex: '\\frac{ }{ }',
   },
   {
-    name: 'root',
+    name: 'sqrt',
     svg: ROOT,
     latex: '\\sqrt{ }',
   },
   {
-    name: 'pow',
+    name: 'combi',
     svg: POW,
-
     latex: '^{ }',
   },
   {
