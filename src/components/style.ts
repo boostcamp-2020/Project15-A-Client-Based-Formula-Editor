@@ -22,13 +22,6 @@ export const Main = styled.div`
   flex: 1;
 `;
 
-export const ToolBar = styled.div`
-  background-color: ${colors.mainGreen};
-  height: 3rem;
-  flex: none;
-  position: relative;
-`;
-
 export const MoveArea = styled.div`
   display: flex;
   height: 100%;

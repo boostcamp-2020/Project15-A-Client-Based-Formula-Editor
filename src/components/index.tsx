@@ -1,5 +1,5 @@
 import React from 'react';
-import ToolBar from '@src/components/Toolbar';
+import ToolBar from '@src/components/Toolbar/ToolBar';
 import Header from '@src/components/Header';
 import InputSectionContainer from '@src/components/LeftSection/InputSelectionSection';
 import MathSectionContainer from '@src/components/LeftSection/MathSection';
@@ -31,9 +31,7 @@ export const Section = () => {
   const { visible } = useSelector((state: RootState) => state.graphHandler);
   return (
     <StyleComponent.Main>
-      <StyleComponent.ToolBar>
-        <ToolBar />
-      </StyleComponent.ToolBar>
+      <ToolBar />
       <StyleComponent.MoveArea>
         <MainSection />
         <SubSection visible={visible} />
