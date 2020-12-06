@@ -15,7 +15,7 @@ const ItalicButton = () => {
 
   return (
     <RoundButton onClick={onClickDeclineHandler}>
-      <div className="title">f</div>
+      <div className="italic">I</div>
     </RoundButton>
   );
 };
