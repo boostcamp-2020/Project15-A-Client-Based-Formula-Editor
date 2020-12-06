@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  InputLatexTopContent,
-  InputLatexBottomContent,
-} from '@src/constants/InputSection';
+import { InputLatexTopContent } from '@src/constants/InputSection';
 import { LatexContent } from '@src/components/Common/LatexContent';
 import * as StyledComponent from './style';
 
 const InputTopSelectionSection = () => {
+  const onClickHandler = (value: string) => {};
   return (
     <>
       <StyledComponent.InputTopSelectionSectionContainer>
@@ -18,21 +16,9 @@ const InputTopSelectionSection = () => {
               svg={value.svg}
               latex={value.latex}
               name={value.name}
-              width="60"
-              height="60"
-            />
-          ))}
-        </StyledComponent.InputLatexContainer>
-        <StyledComponent.InputLatexContainer>
-          {InputLatexBottomContent.map((value, index) => (
-            <LatexContent
-              // eslint-disable-next-line react/no-array-index-key
-              key={`dab${index}`}
-              svg={value.svg}
-              latex={value.latex}
-              name={value.name}
-              width="60"
-              height="60"
+              width="57"
+              height="57"
+              onClick={() => onClickHandler(value.latex)}
             />
           ))}
         </StyledComponent.InputLatexContainer>

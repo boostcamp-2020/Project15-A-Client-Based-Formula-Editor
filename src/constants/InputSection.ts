@@ -60,8 +60,6 @@ export const InputLatexTopContent: InputLatex[] = [
     svg: GLOHO,
     latex: '\\left\\{\\right\\}',
   },
-];
-export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'sin',
     svg: SIN,
@@ -94,6 +92,7 @@ export const InputLatexBottomContent: InputLatex[] = [
       '\\begin{grid}\\cell{0000}&\\cell{0000}\\\\cell{0000}&\\cell{0000}\\end{grid}',
   },
 ];
+
 export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'arrow',
@@ -125,8 +124,6 @@ export const InputLatexMathTopContent: InputLatex[] = [
     svg: SPECIALSYMBOL,
     latex: '①',
   },
-];
-export const InputLatexMathBottomContent: InputLatex[] = [
   {
     name: 'plus',
     svg: PLUS,
