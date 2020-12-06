@@ -4,18 +4,13 @@ import colors from '@src/utils/colors';
 export const Handle = styled.div`
   display: flex;
   cursor: n-resize;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: ${colors.backgroundGrey};
   font-weight: bold;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
   align-items: center;
   margin-left: 6px;
-  .x-button {
-    margin-left: auto;
-    margin-right: 6px;
-    cursor: pointer;
-  }
 `;
 
 export const Content = styled.div`
