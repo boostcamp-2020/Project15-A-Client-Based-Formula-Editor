@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const DrawerContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  z-index: 1;
+  position: absolute;
+  top: 3.75rem;
   & svg {
     margin-top: 10px;
   }

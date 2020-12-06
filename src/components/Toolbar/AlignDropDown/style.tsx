@@ -11,7 +11,8 @@ export const DropdownContainer = styled.div`
   display: flex;
   position: absolute;
   border: solid 1px ${colors.borderGrey};
-  z-index: 2;
+  z-index: 1;
+  top: 3.75rem;
 `;
 
 export const AlignDropdown = styled.div``;
