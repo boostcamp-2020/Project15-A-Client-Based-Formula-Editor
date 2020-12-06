@@ -19,8 +19,16 @@ export interface TabState {
   tabList: { id: number; title: string; latex: string }[];
 }
 
+const getLastId = () => {
+  const storedData = JSON.parse(window.localStorage.getItem('tab'));
+  if (storedData) {
+    return storedData[storedData.length - 1].id;
+  }
+  return 1;
+};
+
 const initialState = {
-  lastId: 1,
+  lastId: getLastId(),
   selectedTabId: 1,
   tabList: [{ id: 1, title: 'TAB1', latex: 'blank' }],
 };
@@ -44,7 +52,6 @@ export const tabReducer = handleActions(
     [UPDATE_TAB]: (state, action: Action) => {
       return {
         ...state,
-        lastId: action.payload.length,
         tabList: action.payload,
       };
     },
