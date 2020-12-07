@@ -2,6 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 
 const DROPDOWN_STATE = 'DROPDOWN_STATE' as const;
 const LATEX_STATE = 'LATEX_STATE' as const;
+const DRAWING_STATE = 'DRAWING_STATE' as const;
 // IState를 설정한다.
 export interface IState {
   isDropdownShow: boolean;
@@ -11,6 +12,7 @@ export interface IState {
 
 export const dropdown = createAction(DROPDOWN_STATE);
 export const changeLatex = createAction(LATEX_STATE);
+export const drawing = createAction(DRAWING_STATE);
 // action의 리턴값 설정
 
 // 모듈의 초기 상태를 정의합니다.
@@ -34,6 +36,12 @@ export const drawerDropdownHandler = handleActions(
       return {
         ...state,
         latexContainer: action.payload,
+      };
+    },
+    [DRAWING_STATE]: (state = initialState, action: any): IState => {
+      return {
+        ...state,
+        isClick: !state.isClick,
       };
     },
   },
