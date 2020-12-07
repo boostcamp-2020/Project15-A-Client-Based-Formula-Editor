@@ -3,4 +3,7 @@ const setColor = (e: EventTarget) => {
   const colorVal = e1.getAttribute('color');
   return colorVal;
 };
+export const moveHandler = () => {
+  console.log('?');
+};
 export default setColor;
