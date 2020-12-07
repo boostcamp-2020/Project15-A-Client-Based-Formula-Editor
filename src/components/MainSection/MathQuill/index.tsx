@@ -18,6 +18,9 @@ const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
   const { fontAlign } = useSelector(
     (state: RootState) => state.fontAlignHandler
   );
+  const { selectedFontSize } = useSelector(
+    (state: RootState) => state.fontDropDownReducer
+  );
   const dispatch = useDispatch();
 
   const handleMathQuill = (mathquill: any) => {
@@ -33,6 +36,7 @@ const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
       canDrop={canDrop}
       isDecline={isDecline}
       fontAlign={fontAlign}
+      fontSize={selectedFontSize}
     >
       <EditableMathField
         latex={latex}

@@ -6,6 +6,7 @@ interface MathFieldProp {
   fontAlign: string;
   isActive: boolean;
   canDrop: boolean;
+  fontSize: number;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -17,7 +18,7 @@ export const MathField = styled.div<MathFieldProp>`
   background-color: ${(props) =>
     // eslint-disable-next-line no-nested-ternary
     props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
-
+  font-size: ${(props) => props.fontSize}px;
   .mq-editable-field {
     width: 100%;
     border: none;
