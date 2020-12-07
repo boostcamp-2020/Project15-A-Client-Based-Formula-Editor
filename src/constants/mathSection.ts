@@ -45,22 +45,22 @@ export const combi: InputMath[] = [
   {
     name: 'combi3',
     svg: SVG.combi.COMBI_RIGHT,
-    latex: '_{ }^{ }',
+    latex: '{ }_{ }^{ }',
   },
   {
     name: 'combi4',
     svg: SVG.combi.COMBI_LEFT,
-    latex: '\\combi{\\ }_{ }^{ }\\combi{ }',
+    latex: '_{  }^{  }{  }',
   },
   {
     name: 'combi5',
     svg: SVG.combi.COMBI_DOWN_BOTH,
-    latex: '\\combi{\\ }_{ }\\combi{ }_{ }',
+    latex: '{ _{  }{\\  }_{  } }',
   },
   {
     name: 'combi6',
     svg: SVG.combi.COMBI_ALL,
-    latex: '\\combi{\\ }_{ }^{ }combi{ }_{ }^{ }',
+    latex: '_{ }^{ }{\\ }_{ }^{ }',
   },
 ];
 
@@ -78,12 +78,12 @@ export const integral: InputMath[] = [
   {
     name: 'integral3',
     svg: SVG.integral.DOUBLE_INTEGRAL,
-    latex: '\\iint _{\\ }^{\\ }',
+    latex: '\\iint {  } ',
   },
   {
     name: 'integral4',
     svg: SVG.integral.DOUBLE_INTEGRAL_2,
-    latex: '\\iint _{ }^{ }',
+    latex: '\\iint _{  }^{  }{  } ',
   },
   {
     name: 'integral5',
@@ -189,67 +189,67 @@ export const bracket: InputMath[] = [
   {
     name: 'bracket1',
     svg: SVG.bracket.PARENTHESES,
-    latex: '\\left(\\combi{ }\\right)',
+    latex: '\\left( \\right)',
   },
   {
     name: 'bracket2',
     svg: SVG.bracket.SQUARE_BRACKET,
-    latex: '\\left[\\combi{ }\\right]',
+    latex: '\\left[\\right]',
   },
   {
     name: 'bracket3',
     svg: SVG.bracket.CURLY_BRACKET,
-    latex: '\\left{\\combi{ }\\right}',
+    latex: '\\left{\\right}',
   },
   {
     name: 'bracket4',
     svg: SVG.bracket.ANGLE_BRACKET,
-    latex: '\\left<\\combi{ }\\right>',
+    latex: '\\left<\\right>',
   },
   {
     name: 'bracket5',
     svg: SVG.bracket.LOWER_BOUND,
-    latex: '\\left\\lfloor \\combi{ }\\right\\rfloor',
+    latex: '\\left\\lfloor \\right\\rfloor',
   },
   {
     name: 'bracket6',
     svg: SVG.bracket.UPPER_BOUND,
-    latex: '\\left\\lceil \\combi{ }\\right\\rceil',
+    latex: '\\left\\lceil \\right\\rceil',
   },
   {
     name: 'bracket7',
     svg: SVG.bracket.ABSOLUTE,
-    latex: '\\left|\\combi{ }\\right|',
+    latex: '\\left|\\right|',
   },
   {
     name: 'bracket8',
     svg: SVG.bracket.ABSOLUTE_2,
-    latex: '\\left|\\left|\\combi{ }\\right|\\right|',
+    latex: '\\left|\\left|\\right|\\right|',
   },
   {
     name: 'bracket9',
     svg: SVG.bracket.ABSOLUTE_3,
-    latex: '[[\\combi{ }]]',
+    latex: '[[]]',
   },
   {
     name: 'bracket10',
     svg: SVG.bracket.SEPARATED_PARENTHESES,
-    latex: '\\left(\\combi{ }|\\combi{ }\\right)',
+    latex: '\\left(|\\right)',
   },
   {
     name: 'bracket11',
     svg: SVG.bracket.DELIMITED_BRACES,
-    latex: '\\left\\{\\combi{ }|\\combi{ }\\right\\}',
+    latex: '\\left\\{|\\right\\}',
   },
   {
     name: 'bracket12',
     svg: SVG.bracket.DELIMITED_ANGLE_BRACKET,
-    latex: '<\\combi{ }|\\combi{ }>',
+    latex: '<|>',
   },
   {
     name: 'bracket13',
     svg: SVG.bracket.DELIMITED_ANGLE_BRACKET_2,
-    latex: '<\\combi{ }|\\combi{ }|\\combi{ }>',
+    latex: '<||>',
   },
 ];
 
@@ -275,9 +275,9 @@ export const trigonometric: InputMath[] = [
     latex: 'f^{ }\\left(x\\right)',
   },
   {
-    name: 'fx2',
+    name: 'gx2',
     svg: SVG.trigonometric.G_FUNC_2,
-    latex: 'f^{ }\\left(x\\right)',
+    latex: 'g^{ }\\left(x\\right)',
   },
   {
     name: 'hx2',
@@ -315,32 +315,32 @@ export const trigonometric: InputMath[] = [
     latex: '\\cot',
   },
   {
-    name: 'sin',
+    name: 'sin2',
     svg: SVG.trigonometric.SIN_2,
     latex: '\\sin ^{ }',
   },
   {
-    name: 'cos',
+    name: 'cos2',
     svg: SVG.trigonometric.COS_2,
     latex: '\\cos ^{ }',
   },
   {
-    name: 'tan',
+    name: 'tan2',
     svg: SVG.trigonometric.TAN_2,
     latex: '\\tan ^{ }',
   },
   {
-    name: 'csc',
+    name: 'csc2',
     svg: SVG.trigonometric.CSC_2,
     latex: '\\csc ^{ }',
   },
   {
-    name: 'sec',
+    name: 'sec2',
     svg: SVG.trigonometric.SEC_2,
     latex: '\\sec ^{ }',
   },
   {
-    name: 'cot',
+    name: 'cot2',
     svg: SVG.trigonometric.COT_2,
     latex: '\\cot ^{ }',
   },
@@ -448,7 +448,7 @@ export const deco: InputMath[] = [
     latex: '\\overrightharpoonup{ }',
   },
   {
-    name: 'overline',
+    name: 'overline_2',
     svg: SVG.deco.OVERLINE,
     latex: '\\overline{ }',
   },
@@ -464,45 +464,45 @@ export const deco: InputMath[] = [
   },
 ];
 
-export const lim: InputMath[] = [
+export const limit: InputMath[] = [
   {
     name: 'log',
     svg: SVG.limit.LOG,
-    latex: '\\log _{ }\\combi{ }',
+    latex: '\\log _{ } ',
   },
   {
     name: 'log2',
     svg: SVG.limit.LOG_2,
-    latex: '\\log \\combi{ }',
+    latex: '\\log ',
   },
   {
     name: 'ln',
     svg: SVG.limit.LN,
-    latex: '\\ln \\combi{ }',
+    latex: '\\ln ',
   },
   {
     name: 'limit',
     svg: SVG.limit.LIM,
-    latex: '\\lim _{ }^{ }\\combi{ }',
+    latex: '\\lim _{ }^{ }',
   },
   {
     name: 'limit2',
     svg: SVG.limit.LIM_2,
-    latex: '\\lim _{\\combi{ }\\to \\combi{ }}^{ }\\combi{ }',
+    latex: '\\lim _{\\to }^{ }',
   },
   {
     name: 'min',
     svg: SVG.limit.MIN,
-    latex: '\\min _{ }^{ }\\combi{ }',
+    latex: '\\min _{ }^{ }',
   },
   {
     name: 'max',
     svg: SVG.limit.MAX,
-    latex: '\\max _{ }^{ }\\combi{ }',
+    latex: '\\max _{ }^{ }',
   },
 ];
 
-export const symbol: InputMath[] = [
+export const operator: InputMath[] = [
   {
     name: 'colon',
     svg: SVG.symbol.COLON_EQUAL,
@@ -609,22 +609,22 @@ export const symbol: InputMath[] = [
     latex: '\\xleftrightarrow { }{\\ }',
   },
   {
-    name: 'xleftrightarrow2',
+    name: 'xleftrightarrow3',
     svg: SVG.symbol.X_LEFT_RIGHT_ARROW_3,
     latex: '\\xleftrightarrow { }{ }',
   },
   {
-    name: 'xleftrightarrow2',
+    name: 'xleftrightarrow4',
     svg: SVG.symbol.X_LEFT_RIGHT_ARROW_4,
     latex: '\\Xleftrightarrow {\\ }{ }',
   },
   {
-    name: 'xleftrightarrow2',
+    name: 'xleftrightarrow5',
     svg: SVG.symbol.X_LEFT_RIGHT_ARROW_5,
     latex: '\\Xleftrightarrow { }{\\ }',
   },
   {
-    name: 'xleftrightarrow2',
+    name: 'xleftrightarrow6',
     svg: SVG.symbol.X_LEFT_RIGHT_ARROW_6,
     latex: '\\Xleftrightarrow { }{ }',
   },
@@ -709,6 +709,29 @@ const mathSection = [
     name: 'sigma',
     value: sigma,
   },
+  {
+    name: 'limit',
+    value: limit,
+  },
+  {
+    name: 'sin',
+    value: trigonometric,
+  },
+  {
+    name: 'bracket',
+    value: bracket,
+  },
+  {
+    name: 'decoration',
+    value: deco,
+  },
+  {
+    name: 'operator',
+    value: operator,
+  },
+  {
+    name: 'matrix',
+    value: matrix,
+  },
 ];
 export default mathSection;
-

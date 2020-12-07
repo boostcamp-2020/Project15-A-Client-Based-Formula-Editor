@@ -55,7 +55,7 @@ export const InputLatexTopContent: InputLatex[] = [
     latex: '\\sum _{ }^{ }',
   },
   {
-    name: 'galho',
+    name: 'bracket',
     svg: GLOHO,
     latex: '\\left\\{\\right\\}',
   },

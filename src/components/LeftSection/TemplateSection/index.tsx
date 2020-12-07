@@ -28,17 +28,25 @@ const TemplateSectionContainer = () => {
       <StyledComponent.TemplateSectionContainer>
         <Title title="템플릿" />
         <StyledComponent.ButtonContainer>
-          {templateArray.map((data) => (
-            <LatexContent
-              latex={data.latex}
-              key={data.name}
-              svg={data.svg}
-              width="80"
-              height="80"
-              name={data.name}
-              onClick={() => onClickHandler(data.latex)}
-            />
-          ))}
+          {templateArray.map((data) => {
+            console.log(data.name);
+            return (
+              <LatexContent
+                latex={data.latex}
+                key={data.name}
+                svg={data.svg}
+                width={
+                  data.name.indexOf('integral') !== -1 ||
+                  data.name.indexOf('limit') !== -1
+                    ? '160'
+                    : '80'
+                }
+                height="80"
+                name={data.name}
+                onClick={() => onClickHandler(data.latex)}
+              />
+            );
+          })}
         </StyledComponent.ButtonContainer>
       </StyledComponent.TemplateSectionContainer>
     </>

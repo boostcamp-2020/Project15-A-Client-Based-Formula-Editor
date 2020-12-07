@@ -14,4 +14,5 @@ export const ButtonContainer = styled.div`
   flex-wrap: wrap;
   height: 80%;
   overflow: auto;
+  align-content: flex-start;
 `;
