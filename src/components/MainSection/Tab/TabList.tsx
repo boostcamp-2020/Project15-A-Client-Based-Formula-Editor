@@ -1,4 +1,7 @@
 import React from 'react';
+import SvgButton from '@src/components/Common/SvgButton';
+import XIcon from '@src/utils/svg/tab/x_icon.svg';
+import colors from '@src/utils/colors';
 import * as StyleComponent from './style';
 
 interface Props {
@@ -6,7 +9,7 @@ interface Props {
   selectedTabId: number;
   tabTitle: string;
   handleChangeTab: (tabId: number) => void;
-  handleAddTab: () => void;
+  handleDeleteTab: (tabId: number) => void;
 }
 
 const TabList = ({
@@ -14,11 +17,14 @@ const TabList = ({
   selectedTabId,
   tabTitle,
   handleChangeTab,
-  handleAddTab,
+  handleDeleteTab,
 }: Props) => {
   const onClickHandler = () => {
-    if (tabTitle === '+') handleAddTab();
-    else handleChangeTab(tabId);
+    handleChangeTab(tabId);
+  };
+
+  const deleteHandler = () => {
+    handleDeleteTab(tabId);
   };
 
   return (
@@ -26,11 +32,18 @@ const TabList = ({
       tabId={tabId}
       selectedTabId={selectedTabId}
       title={tabTitle}
-      onClick={onClickHandler}
     >
-      <div className="title">{tabTitle}</div>
+      <StyleComponent.Title onClick={onClickHandler}>
+        {tabTitle}
+      </StyleComponent.Title>
       <input defaultValue="TAB1" />
+      <SvgButton
+        svgColor={colors.darkGrey}
+        Svg={XIcon}
+        onClick={deleteHandler}
+      />
     </StyleComponent.TabItem>
   );
 };
+
 export default TabList;

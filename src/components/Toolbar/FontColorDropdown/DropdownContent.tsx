@@ -8,7 +8,6 @@ const colorList = ['black', 'red', 'blue', 'green', 'yellow', 'white'];
 const DropdownContent = ({ onClick }: Props) => {
   return (
     <StyleComponent.DropdownContainer>
-      <StyleComponent.RowContainer>글자 색상</StyleComponent.RowContainer>
       <StyleComponent.RowContainer>
         {colorList.map((color) => {
           return (

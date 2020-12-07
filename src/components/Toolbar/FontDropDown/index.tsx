@@ -40,7 +40,6 @@ export default function FontDropDown() {
     <>
       <FontButton
         changeStatus={handleToggle}
-        dropDown={dropDown}
         selectedFontSize={selectedFontSize}
       />
       <S.DropDownContent dropDown={dropDown}>{fontList}</S.DropDownContent>
