@@ -1,8 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 55 50">
-  <g id="그룹_8" data-name="그룹 8" transform="translate(0 50)">
-    <path id="패스_2" data-name="패스 2" d="M8.667-49.5H46.333A8.167,8.167,0,0,1,54.5-41.333V-.5H.5V-41.333A8.167,8.167,0,0,1,8.667-49.5Z" fill="#f5f7fa"/>
-    <g id="그룹_7" data-name="그룹 7" transform="translate(0.5 -49.5)">
-      <path id="패스_3" data-name="패스 3" d="M8.167,0H45.833A8.167,8.167,0,0,1,54,8.167V49H0V8.167A8.167,8.167,0,0,1,8.167,0Z" fill="#f5f7fa" stroke="#fcfcfd" stroke-miterlimit="8" stroke-width="1"/>
-    </g>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" width="23px" height="23px"><path d="M928 895H554.51l386.745-384a64 64 0 000-90.51l-240-240a64 64 0 00-90.51 0l-528 525.255a64 64 0 000 90.51l144 144A64 64 0 00272 959h656a32 32 0 000-64zM128 751l264-264 240 240-168 168H272z"/></svg>
+

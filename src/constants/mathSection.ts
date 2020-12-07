@@ -687,3 +687,28 @@ export const matrix: InputMath[] = [
     latex: '\\begin{vmatrix}&\\\\&\\end{vmatrix}',
   },
 ];
+
+const mathSection = [
+  {
+    name: 'mathFraction',
+    value: mathFraction,
+  },
+  {
+    name: 'sqrt',
+    value: sqrt,
+  },
+  {
+    name: 'combi',
+    value: combi,
+  },
+  {
+    name: 'integral',
+    value: integral,
+  },
+  {
+    name: 'sigma',
+    value: sigma,
+  },
+];
+export default mathSection;
+
