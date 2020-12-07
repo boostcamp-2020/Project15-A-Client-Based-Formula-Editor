@@ -8,6 +8,7 @@ interface colorType {
   grey: string;
   darkGrey: string;
   backgroundGrey: string;
+  hoverGrey: string;
 }
 const colors: colorType = {
   fontGreen: '#00c73c',
@@ -19,5 +20,6 @@ const colors: colorType = {
   darkGrey: '#464653',
   backgroundGrey: '#e3e3e4',
   white: '#fff',
+  hoverGrey: '#f1f1f1',
 };
 export default colors;

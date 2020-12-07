@@ -16,10 +16,18 @@ export const RoundButton = styled.div`
     font-weight: bold;
     color: ${colors.black};
   }
+  .italic {
+    margin: auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1 rem;
+    font-weight: bold;
+    color: ${colors.black};
+    font-style: italic;
+  }
   svg {
     margin: auto;
   }
   &:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #f1f3f4;
   }
 `;

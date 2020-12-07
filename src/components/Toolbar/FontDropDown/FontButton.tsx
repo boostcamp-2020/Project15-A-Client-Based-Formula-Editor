@@ -1,21 +1,20 @@
 import React from 'react';
-import * as StyledComponent from './style';
+import { RoundButton } from '@src/components/Common/RoundButton/style';
 
 interface Props {
   changeStatus: () => void;
-  dropDown: string;
   selectedFontSize: number;
 }
 
-const FontButton = ({ changeStatus, dropDown, selectedFontSize }: Props) => {
+const FontButton = ({ changeStatus, selectedFontSize }: Props) => {
   const onClickHandler = () => {
     changeStatus();
   };
 
   return (
-    <StyledComponent.DropButton onClick={onClickHandler}>
+    <RoundButton onClick={onClickHandler}>
       <div className="title">{selectedFontSize}</div>
-    </StyledComponent.DropButton>
+    </RoundButton>
   );
 };
 export default FontButton;

@@ -29,15 +29,17 @@ export const RowContainer = styled.div`
   width: 100%;
 `;
 export const ColorBox = styled.div`
-  width: 1rem;
-  height: 1rem;
+  border: 1px solid ${colors.borderGrey};
+  border-radius: 4px;
+  width: 1.2rem;
+  height: 1.2rem;
   background-color: ${(props) => props.color};
   cursor: pointer;
   & + & {
     margin-left: 0.3rem;
   }
   &:hover {
-    border: solid 1px black;
+    border: solid 1px ${colors.black};
   }
 `;
 export const DropdownContainer = styled.div`
@@ -47,5 +49,8 @@ export const DropdownContainer = styled.div`
   position: absolute;
   top: 3.75rem;
   border: solid 1px ${colors.borderGrey};
-  z-index: 10;
+  z-index: 1;
+  padding: 12px;
+  background-color: ${colors.white};
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 `;
