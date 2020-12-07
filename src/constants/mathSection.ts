@@ -35,17 +35,17 @@ export const combi: InputMath[] = [
   {
     name: 'combi1',
     svg: SVG.combi.COMBI,
-    latex: 'combi{ }^{ }',
+    latex: '^{ }',
   },
   {
     name: 'combi2',
     svg: SVG.combi.COMBI_DOWN,
-    latex: 'combi{ }_{ }',
+    latex: '{ }_{ }',
   },
   {
     name: 'combi3',
     svg: SVG.combi.COMBI_RIGHT,
-    latex: '\\combi{ }_{ }^{ }',
+    latex: '_{ }^{ }',
   },
   {
     name: 'combi4',
@@ -184,6 +184,510 @@ export const sigma: InputMath[] = [
     latex: ' \\bigwedge _{ }^{ }',
   },
 ];
+
+export const bracket: InputMath[] = [
+  {
+    name: 'bracket1',
+    svg: SVG.bracket.PARENTHESES,
+    latex: '\\left(\\combi{ }\\right)',
+  },
+  {
+    name: 'bracket2',
+    svg: SVG.bracket.SQUARE_BRACKET,
+    latex: '\\left[\\combi{ }\\right]',
+  },
+  {
+    name: 'bracket3',
+    svg: SVG.bracket.CURLY_BRACKET,
+    latex: '\\left{\\combi{ }\\right}',
+  },
+  {
+    name: 'bracket4',
+    svg: SVG.bracket.ANGLE_BRACKET,
+    latex: '\\left<\\combi{ }\\right>',
+  },
+  {
+    name: 'bracket5',
+    svg: SVG.bracket.LOWER_BOUND,
+    latex: '\\left\\lfloor \\combi{ }\\right\\rfloor',
+  },
+  {
+    name: 'bracket6',
+    svg: SVG.bracket.UPPER_BOUND,
+    latex: '\\left\\lceil \\combi{ }\\right\\rceil',
+  },
+  {
+    name: 'bracket7',
+    svg: SVG.bracket.ABSOLUTE,
+    latex: '\\left|\\combi{ }\\right|',
+  },
+  {
+    name: 'bracket8',
+    svg: SVG.bracket.ABSOLUTE_2,
+    latex: '\\left|\\left|\\combi{ }\\right|\\right|',
+  },
+  {
+    name: 'bracket9',
+    svg: SVG.bracket.ABSOLUTE_3,
+    latex: '[[\\combi{ }]]',
+  },
+  {
+    name: 'bracket10',
+    svg: SVG.bracket.SEPARATED_PARENTHESES,
+    latex: '\\left(\\combi{ }|\\combi{ }\\right)',
+  },
+  {
+    name: 'bracket11',
+    svg: SVG.bracket.DELIMITED_BRACES,
+    latex: '\\left\\{\\combi{ }|\\combi{ }\\right\\}',
+  },
+  {
+    name: 'bracket12',
+    svg: SVG.bracket.DELIMITED_ANGLE_BRACKET,
+    latex: '<\\combi{ }|\\combi{ }>',
+  },
+  {
+    name: 'bracket13',
+    svg: SVG.bracket.DELIMITED_ANGLE_BRACKET_2,
+    latex: '<\\combi{ }|\\combi{ }|\\combi{ }>',
+  },
+];
+
+export const trigonometric: InputMath[] = [
+  {
+    name: 'fx',
+    svg: SVG.trigonometric.F_FUNC,
+    latex: 'f(x)',
+  },
+  {
+    name: 'gx',
+    svg: SVG.trigonometric.G_FUNC,
+    latex: 'g(x)',
+  },
+  {
+    name: 'hx',
+    svg: SVG.trigonometric.H_FUNC,
+    latex: 'h(x)',
+  },
+  {
+    name: 'fx2',
+    svg: SVG.trigonometric.F_FUNC_2,
+    latex: 'f^{ }\\left(x\\right)',
+  },
+  {
+    name: 'fx2',
+    svg: SVG.trigonometric.G_FUNC_2,
+    latex: 'f^{ }\\left(x\\right)',
+  },
+  {
+    name: 'hx2',
+    svg: SVG.trigonometric.H_FUNC_2,
+    latex: 'h^{ }\\left(x\\right)',
+  },
+  {
+    name: 'sin',
+    svg: SVG.trigonometric.SIN,
+    latex: '\\sin',
+  },
+  {
+    name: 'cos',
+    svg: SVG.trigonometric.COS,
+    latex: '\\cos',
+  },
+  {
+    name: 'tan',
+    svg: SVG.trigonometric.TAN,
+    latex: '\\tan',
+  },
+  {
+    name: 'csc',
+    svg: SVG.trigonometric.CSC,
+    latex: '\\csc',
+  },
+  {
+    name: 'sec',
+    svg: SVG.trigonometric.SEC,
+    latex: '\\sec',
+  },
+  {
+    name: 'cot',
+    svg: SVG.trigonometric.COT,
+    latex: '\\cot',
+  },
+  {
+    name: 'sin',
+    svg: SVG.trigonometric.SIN_2,
+    latex: '\\sin ^{ }',
+  },
+  {
+    name: 'cos',
+    svg: SVG.trigonometric.COS_2,
+    latex: '\\cos ^{ }',
+  },
+  {
+    name: 'tan',
+    svg: SVG.trigonometric.TAN_2,
+    latex: '\\tan ^{ }',
+  },
+  {
+    name: 'csc',
+    svg: SVG.trigonometric.CSC_2,
+    latex: '\\csc ^{ }',
+  },
+  {
+    name: 'sec',
+    svg: SVG.trigonometric.SEC_2,
+    latex: '\\sec ^{ }',
+  },
+  {
+    name: 'cot',
+    svg: SVG.trigonometric.COT_2,
+    latex: '\\cot ^{ }',
+  },
+];
+
+export const deco: InputMath[] = [
+  {
+    name: 'dot',
+    svg: SVG.deco.DOT,
+    latex: '\\dot{ }',
+  },
+  {
+    name: 'dot2',
+    svg: SVG.deco.DOUBLE_DOT,
+    latex: '\\ddot{ }',
+  },
+  {
+    name: 'dot3',
+    svg: SVG.deco.TRIPLE_DOT,
+    latex: '\\dddot{ }',
+  },
+  {
+    name: 'hat',
+    svg: SVG.deco.HAT,
+    latex: '\\hat{ }',
+  },
+  {
+    name: 'check',
+    svg: SVG.deco.CHECK,
+    latex: '\\check{ }',
+  },
+  {
+    name: 'acute',
+    svg: SVG.deco.ACUTE,
+    latex: '\\acute{ }',
+  },
+  {
+    name: 'grave',
+    svg: SVG.deco.GRAVE,
+    latex: '\\grave{ }',
+  },
+  {
+    name: 'breve',
+    svg: SVG.deco.BREVE,
+    latex: '\\breve{ }',
+  },
+  {
+    name: 'tilde',
+    svg: SVG.deco.TILDE,
+    latex: '\\tilde{ }',
+  },
+  {
+    name: 'overline',
+    svg: SVG.deco.OVERLINE,
+    latex: '\\overline{ }',
+  },
+  {
+    name: 'bbar',
+    svg: SVG.deco.BBAR,
+    latex: '\\bbar{ }',
+  },
+  {
+    name: 'overbrace',
+    svg: SVG.deco.OVERBRACE,
+    latex: '\\overbrace{ }{\\ }',
+  },
+  {
+    name: 'underbrace',
+    svg: SVG.deco.UNDERBRACE,
+    latex: '\\underbrace{\\ }{ }',
+  },
+  {
+    name: 'overbrace2',
+    svg: SVG.deco.OVERBRACE2,
+    latex: '\\overbrace{ }{ }',
+  },
+  {
+    name: 'underbrace2',
+    svg: SVG.deco.UNDERBRACE2,
+    latex: '\\underbrace{ }{ }',
+  },
+  {
+    name: 'overleftarrow',
+    svg: SVG.deco.OVERLEFTARROW,
+    latex: '\\overleftarrow{ }',
+  },
+  {
+    name: 'overrightarrow',
+    svg: SVG.deco.OVERRIGHTARROW,
+    latex: '\\overrightarrow{ }',
+  },
+  {
+    name: 'overleftrightarrow',
+    svg: SVG.deco.OVERLEFTRIGHTAAROW,
+    latex: '\\overleftrightarrow{ }',
+  },
+  {
+    name: 'overleftharpoonup',
+    svg: SVG.deco.OVERLEFTHARPOONUP,
+    latex: '\\overleftharpoonup{ }',
+  },
+  {
+    name: 'overrightharpoonup',
+    svg: SVG.deco.OVERRIGHTHARPOONUP,
+    latex: '\\overrightharpoonup{ }',
+  },
+  {
+    name: 'overline',
+    svg: SVG.deco.OVERLINE,
+    latex: '\\overline{ }',
+  },
+  {
+    name: 'underline',
+    svg: SVG.deco.UNDERLINE,
+    latex: '\\underline { }',
+  },
+  {
+    name: 'boxed',
+    svg: SVG.deco.BOXED,
+    latex: '\\boxed{ }',
+  },
+];
+
+export const lim: InputMath[] = [
+  {
+    name: 'log',
+    svg: SVG.limit.LOG,
+    latex: '\\log _{ }\\combi{ }',
+  },
+  {
+    name: 'log2',
+    svg: SVG.limit.LOG_2,
+    latex: '\\log \\combi{ }',
+  },
+  {
+    name: 'ln',
+    svg: SVG.limit.LN,
+    latex: '\\ln \\combi{ }',
+  },
+  {
+    name: 'limit',
+    svg: SVG.limit.LIM,
+    latex: '\\lim _{ }^{ }\\combi{ }',
+  },
+  {
+    name: 'limit2',
+    svg: SVG.limit.LIM_2,
+    latex: '\\lim _{\\combi{ }\\to \\combi{ }}^{ }\\combi{ }',
+  },
+  {
+    name: 'min',
+    svg: SVG.limit.MIN,
+    latex: '\\min _{ }^{ }\\combi{ }',
+  },
+  {
+    name: 'max',
+    svg: SVG.limit.MAX,
+    latex: '\\max _{ }^{ }\\combi{ }',
+  },
+];
+
+export const symbol: InputMath[] = [
+  {
+    name: 'colon',
+    svg: SVG.symbol.COLON_EQUAL,
+    latex: ':=',
+  },
+  {
+    name: 'equal',
+    svg: SVG.symbol.EQUAL,
+    latex: '==',
+  },
+  {
+    name: 'plusequal',
+    svg: SVG.symbol.PLUS_EQUAL,
+    latex: '+=',
+  },
+  {
+    name: 'minusqual',
+    svg: SVG.symbol.MINUS_EQUAL,
+    latex: '-=',
+  },
+  {
+    name: 'defequal',
+    svg: SVG.symbol.DEF_EQUAL,
+    latex: '\\defequal',
+  },
+  {
+    name: 'mequal',
+    svg: SVG.symbol.M_EQUAL,
+    latex: '\\mequal',
+  },
+  {
+    name: 'deltaequal',
+    svg: SVG.symbol.DELTA_EQUAL,
+    latex: '\\deltaequal',
+  },
+  {
+    name: 'xleftarrow',
+    svg: SVG.symbol.X_LEFT_ARROW,
+    latex: '\\xleftarrow {\\ }{ }',
+  },
+  {
+    name: 'xrightarrow',
+    svg: SVG.symbol.X_RIGHT_ARROW,
+    latex: '\\xrightarrow {\\ }{ }',
+  },
+  {
+    name: 'xleftarrow2',
+    svg: SVG.symbol.X_LEFT_ARROW_2,
+    latex: '\\xleftarrow { }{\\ }',
+  },
+  {
+    name: 'xrightarrow2',
+    svg: SVG.symbol.X_RIGHT_ARROW_2,
+    latex: '\\xrightarrow { }{\\ }',
+  },
+  {
+    name: 'xleftarrow3',
+    svg: SVG.symbol.X_LEFT_ARROW_3,
+    latex: '\\xleftarrow { }{ }',
+  },
+  {
+    name: 'xrightarrow3',
+    svg: SVG.symbol.X_RIGHT_ARROW_3,
+    latex: '\\xrightarrow { }{ }',
+  },
+  {
+    name: 'xleftarrow4',
+    svg: SVG.symbol.X_LEFT_ARROW_4,
+    latex: '\\Xleftarrow {\\ }{ }',
+  },
+  {
+    name: 'xrightarrow4',
+    svg: SVG.symbol.X_RIGHT_ARROW_4,
+    latex: '\\Xrightarrow {\\ }{ }',
+  },
+  {
+    name: 'xleftarrow5',
+    svg: SVG.symbol.X_LEFT_ARROW_5,
+    latex: '\\Xleftarrow { }{\\ }',
+  },
+  {
+    name: 'xrightarrow5',
+    svg: SVG.symbol.X_RIGHT_ARROW_5,
+    latex: '\\Xrightarrow {\\ }{ }',
+  },
+  {
+    name: 'xleftarrow6',
+    svg: SVG.symbol.X_LEFT_ARROW_6,
+    latex: '\\Xleftarrow { }{ }',
+  },
+  {
+    name: 'xrightarrow6',
+    svg: SVG.symbol.X_RIGHT_ARROW_6,
+    latex: '\\Xrightarrow { }{ }',
+  },
+  {
+    name: 'xleftrightarrow',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW,
+    latex: '\\xleftrightarrow {\\ }{ }',
+  },
+  {
+    name: 'xleftrightarrow2',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW_2,
+    latex: '\\xleftrightarrow { }{\\ }',
+  },
+  {
+    name: 'xleftrightarrow2',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW_3,
+    latex: '\\xleftrightarrow { }{ }',
+  },
+  {
+    name: 'xleftrightarrow2',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW_4,
+    latex: '\\Xleftrightarrow {\\ }{ }',
+  },
+  {
+    name: 'xleftrightarrow2',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW_5,
+    latex: '\\Xleftrightarrow { }{\\ }',
+  },
+  {
+    name: 'xleftrightarrow2',
+    svg: SVG.symbol.X_LEFT_RIGHT_ARROW_6,
+    latex: '\\Xleftrightarrow { }{ }',
+  },
+];
+
+export const matrix: InputMath[] = [
+  {
+    name: 'matrix',
+    svg: SVG.matrix.MATRIX_2X1,
+    latex: '\\begin{matrix}&\\end{matrix}',
+  },
+  {
+    name: 'matrix2',
+    svg: SVG.matrix.MATRIX_1X2,
+    latex: '\\begin{matrix}\\end{matrix}',
+  },
+  {
+    name: 'matrix3',
+    svg: SVG.matrix.MATRIX_2X2,
+    latex: '\\begin{matrix}&\\\\&\\end{matrix}',
+  },
+  {
+    name: 'matrix4',
+    svg: SVG.matrix.MATRIX_3X2,
+    latex: '\\begin{matrix}&&\\\\&&\\end{matrix}',
+  },
+  {
+    name: 'matrix5',
+    svg: SVG.matrix.MATRIX_2X3,
+    latex: '\\begin{matrix}&\\\\&\\\\&\\end{matrix}',
+  },
+  {
+    name: 'matrix6',
+    svg: SVG.matrix.MATRIX_3X3,
+    latex: '\\begin{matrix}&&\\\\&&\\\\&&\\end{matrix}',
+  },
+  {
+    name: 'case',
+    svg: SVG.matrix.CASES,
+    latex: '\\begin{cases}\\\\\\end{cases}',
+  },
+  {
+    name: 'case2',
+    svg: SVG.matrix.CASES_2,
+    latex: '\\begin{cases}\\\\\\\\\\end{cases}',
+  },
+  {
+    name: 'pmatrix',
+    svg: SVG.matrix.PMATRIX,
+    latex: '\\begin{pmatrix}&\\\\&\\end{pmatrix}',
+  },
+  {
+    name: 'bmatrix',
+    svg: SVG.matrix.BMATRIX,
+    latex: '\\begin{bmatrix}&\\\\&\\end{bmatrix}',
+  },
+  {
+    name: 'vmatrix',
+    svg: SVG.matrix.VMATRIX,
+    latex: '\\begin{vmatrix}&\\\\&\\end{vmatrix}',
+  },
+];
+
 const mathSection = [
   {
     name: 'mathFraction',
@@ -207,3 +711,4 @@ const mathSection = [
   },
 ];
 export default mathSection;
+

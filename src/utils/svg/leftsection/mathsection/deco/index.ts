@@ -10,6 +10,7 @@ import GRAVE from './grave.svg';
 import HAT from './hat.svg';
 import OVERLEFTARROW from './over-left-arrow.svg';
 import OVERLEFTHARPOONUP from './over-left-harpoon-up.svg';
+import OVERLEFTRIGHTAAROW from './over-left-right-arrow.svg';
 import OVERRIGHTARROW from './over-right-arrow.svg';
 import OVERRIGHTHARPOONUP from './over-right-harpoon-up.svg';
 import OVERBRACE from './overbrace.svg';
@@ -34,6 +35,7 @@ const deco = {
   HAT,
   OVERLEFTARROW,
   OVERLEFTHARPOONUP,
+  OVERLEFTRIGHTAAROW,
   OVERRIGHTARROW,
   OVERRIGHTHARPOONUP,
   OVERBRACE,
