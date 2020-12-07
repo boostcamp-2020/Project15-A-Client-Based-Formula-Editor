@@ -36,18 +36,18 @@ export const InputLatexContainer = styled.div`
   height: 100%;
   flex-wrap: wrap;
 `;
-export const Dictionary = styled.p`
-  padding: 10px 20px;
-`;
+export const Dictionary = styled.p``;
 interface InputLatexContentProps {
   width: string;
   height: string;
 }
 export const InputLatexContent = styled.div<InputLatexContentProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   border: 1px solid ${colors.borderGrey};
-  padding-top: 10px;
   &:hover {
     cursor: pointer;
     border: 1px solid ${colors.mainGreen};
