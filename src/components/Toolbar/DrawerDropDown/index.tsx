@@ -5,12 +5,14 @@ import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import { dropdown } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
+import setColors from '@src/utils/setColor';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
   const color = ['black', 'yellow', 'red', 'green'];
-  const onClickHandler = () => {
-    console.log('?');
+  const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+    const colors = setColors(e.target);
+    console.log(colors);
   };
   const DrawerItem = color.map(
     (value): JSX.Element => {

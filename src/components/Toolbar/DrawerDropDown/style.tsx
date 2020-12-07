@@ -24,4 +24,7 @@ export const DrawerDiv = styled.div`
   & + & {
     margin-left: 0.3rem;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
