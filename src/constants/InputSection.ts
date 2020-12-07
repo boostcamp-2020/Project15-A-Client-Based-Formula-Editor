@@ -30,19 +30,18 @@ export interface InputLatex {
 }
 export const InputLatexTopContent: InputLatex[] = [
   {
-    name: 'multiply',
+    name: 'mathFraction',
     svg: MULTPLY,
     latex: '\\frac{ }{ }',
   },
   {
-    name: 'root',
+    name: 'sqrt',
     svg: ROOT,
     latex: '\\sqrt{ }',
   },
   {
-    name: 'pow',
+    name: 'combi',
     svg: POW,
-
     latex: '^{ }',
   },
   {
@@ -60,8 +59,6 @@ export const InputLatexTopContent: InputLatex[] = [
     svg: GLOHO,
     latex: '\\left\\{\\right\\}',
   },
-];
-export const InputLatexBottomContent: InputLatex[] = [
   {
     name: 'sin',
     svg: SIN,
@@ -94,6 +91,7 @@ export const InputLatexBottomContent: InputLatex[] = [
       '\\begin{grid}\\cell{0000}&\\cell{0000}\\\\cell{0000}&\\cell{0000}\\end{grid}',
   },
 ];
+
 export const InputLatexMathTopContent: InputLatex[] = [
   {
     name: 'arrow',
@@ -125,8 +123,6 @@ export const InputLatexMathTopContent: InputLatex[] = [
     svg: SPECIALSYMBOL,
     latex: '①',
   },
-];
-export const InputLatexMathBottomContent: InputLatex[] = [
   {
     name: 'plus',
     svg: PLUS,

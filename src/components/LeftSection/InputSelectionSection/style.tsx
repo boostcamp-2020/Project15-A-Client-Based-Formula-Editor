@@ -24,6 +24,7 @@ export const InputLatexContainer = styled.div`
   display: flex;
   width: 100%;
   margin-left: 10px;
+  flex-wrap: wrap;
 `;
 export const Dictionary = styled.p`
   padding: 10px 20px;

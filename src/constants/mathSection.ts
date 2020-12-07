@@ -184,3 +184,26 @@ export const sigma: InputMath[] = [
     latex: ' \\bigwedge _{ }^{ }',
   },
 ];
+const mathSection = [
+  {
+    name: 'mathFraction',
+    value: mathFraction,
+  },
+  {
+    name: 'sqrt',
+    value: sqrt,
+  },
+  {
+    name: 'combi',
+    value: combi,
+  },
+  {
+    name: 'integral',
+    value: integral,
+  },
+  {
+    name: 'sigma',
+    value: sigma,
+  },
+];
+export default mathSection;

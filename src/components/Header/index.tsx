@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SVGIcon from '@src/utils/svg/header/logo.svg';
 import Button from '@src/components/Common/Button';
 import colors from '@src/utils/colors';
-import html2canvas from 'html2canvas';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import saveAsFile from '@src/utils/savefile';
@@ -11,7 +10,7 @@ import HeaderTitle from './HeaderTitle';
 import * as StyleComponent from './style';
 
 const Header = () => {
-  const { mathQuillContainer, click } = useSelector(
+  const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
   const { mathQuiiFunc } = useSelector(
@@ -19,8 +18,6 @@ const Header = () => {
   );
   const dispatch = useDispatch();
   const onClickImageSaveHandler = async () => {
-    const mathquillSection = mathQuillContainer.current;
-    const canvas = await html2canvas(mathquillSection);
     dispatch(setCropContainer(true));
   };
 

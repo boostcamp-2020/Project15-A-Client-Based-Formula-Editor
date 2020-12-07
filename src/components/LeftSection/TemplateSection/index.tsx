@@ -5,15 +5,20 @@ import { RootState } from '@src/store/modules';
 import { LatexContent } from '@src/components/Common/LatexContent';
 import * as templateSVG from '@src/constants/templateSection';
 import { insert } from '@src/store/modules/mathQuill';
+import templateSection from '@src/constants/templateSection';
 import * as StyledComponent from './style';
 
 const TemplateSectionContainer = () => {
   // 임시로 변수 지정. 추후 props로 inputselected 받아와서 변경하도록 할예정
-  const template = templateSVG.combi;
-  const dispatch = useDispatch();
-  const { mathQuiiFunc } = useSelector(
+  const { mathQuiiFunc, name } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
+  const dispatch = useDispatch();
+
+  const template = templateSection.filter((id) => id.name === name);
+  const templateArray =
+    template.length > 0 ? template[0].value : templateSVG.fraction;
+
   const onClickHandler = (value: string) => {
     mathQuiiFunc.write(value);
     dispatch(insert(value));
@@ -23,7 +28,7 @@ const TemplateSectionContainer = () => {
       <StyledComponent.TemplateSectionContainer>
         <Title title="템플릿" />
         <StyledComponent.ButtonContainer>
-          {template.map((data) => (
+          {templateArray.map((data) => (
             <LatexContent
               latex={data.latex}
               key={data.name}
