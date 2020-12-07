@@ -5,25 +5,35 @@ export const InputSectionContainer = styled.div`
   background-color: ${colors.white};
   width: 97%;
   height: 40%;
-  margin-top: 10px;
+  margin-top: 4px;
   border: 1px solid ${colors.borderGrey};
+  border: 2px solid;
 `;
 
 export const InputTopSelectionSectionContainer = styled.div`
   width: 100%;
-  height: 46%;
-  padding-bottom: 5px;
-  margin-left: -10px;
+  height: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  overflow: auto;
 `;
 export const InputBottomSelectionSectionContainer = styled.div`
+  border: 2px solid;
   width: 100%;
-  margin-top: 10px;
-  margin-left: -10px;
+  height: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  overflow: auto;
 `;
 export const InputLatexContainer = styled.div`
+  border: 2px solid yellow;
   display: flex;
-  width: 100%;
-  margin-left: 10px;
+  width: 97%;
+  height: 100%;
   flex-wrap: wrap;
 `;
 export const Dictionary = styled.p`
