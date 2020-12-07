@@ -1,9 +1,7 @@
 import React from 'react';
 import ToolBar from '@src/components/Toolbar/ToolBar';
 import Header from '@src/components/Header';
-import InputSectionContainer from '@src/components/LeftSection/InputSelectionSection';
-import MathSectionContainer from '@src/components/LeftSection/MathSection';
-import TemplateContainer from '@src/components/LeftSection/TemplateSection';
+import LeftSection from '@src/components/LeftSection/LeftSection';
 import MainSection from '@src/components/MainSection/MainSection';
 import { RootState } from '@src/store/modules';
 import { useSelector } from 'react-redux';
@@ -18,13 +16,7 @@ export const HeaderSection = () => {
 };
 
 export const Aside = () => {
-  return (
-    <StyleComponent.Aside>
-      <InputSectionContainer />
-      <MathSectionContainer />
-      <TemplateContainer />
-    </StyleComponent.Aside>
-  );
+  return <LeftSection />;
 };
 
 export const Section = () => {
