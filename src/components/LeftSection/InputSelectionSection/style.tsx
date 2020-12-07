@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const InputSectionContainer = styled.div`
-  background-color: ${colors.containerBackground};
+  background-color: ${colors.white};
   width: 97%;
   height: 40%;
   margin-top: 10px;
@@ -24,6 +24,7 @@ export const InputLatexContainer = styled.div`
   display: flex;
   width: 100%;
   margin-left: 10px;
+  flex-wrap: wrap;
 `;
 export const Dictionary = styled.p`
   padding: 10px 20px;

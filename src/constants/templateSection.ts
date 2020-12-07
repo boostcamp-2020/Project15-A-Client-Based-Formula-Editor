@@ -63,3 +63,19 @@ export const combi: InputMath[] = [
     latex: '\\frac{\\combi{ }^{ }}{\\combi{ }^{ }}',
   },
 ];
+const templateSection = [
+  {
+    name: 'mathFraction',
+    value: fraction,
+  },
+  {
+    name: 'sqrt',
+    value: sqrt,
+  },
+  {
+    name: 'combi',
+    value: combi,
+  },
+];
+
+export default templateSection;

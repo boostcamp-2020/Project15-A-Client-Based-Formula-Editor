@@ -18,7 +18,7 @@ export const ButtonContainer = styled.div`
   margin-left: auto;
   width: 250px;
   height: 35px;
-  background-color: ${colors.containerBackground};
+  background-color: ${colors.white};
   display: flex;
   align-items: center;
 `;
