@@ -5,12 +5,7 @@ const setColor = (e: EventTarget, context: any) => {
   context.fillStyle = colorVal;
   return [colorVal, context];
 };
-export const moveHandler = (
-  e: any,
-  context: any,
-  isClick: boolean,
-  inputRef: any
-) => {
+export const moveHandler = (e: any, context: any, inputRef: any) => {
   if (!context) return;
   if (!inputRef) return;
   const fillSize = inputRef.value;

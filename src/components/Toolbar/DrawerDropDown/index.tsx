@@ -6,11 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import {
-  dropdown,
-  changeLatex,
-  drawing,
-} from '@src/store/modules/drawerDropdown';
+import { dropdown, changeLatex } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { moveHandler } from '@src/utils/setColor';
 import html2canvas from 'html2canvas';
@@ -76,18 +72,18 @@ const Drawer = () => {
   useEffect(() => {
     document.addEventListener('mousedown', mouseDownHandler, true);
     document.addEventListener('mousemove', (e) => {
-      moveHandler(e, contextValue, clicks, ref.current);
+      moveHandler(e, contextValue, ref.current);
     });
     return () => {
       document.removeEventListener('mousemove', (e) => {
-        moveHandler(e, contextValue, clicks, ref.current);
+        moveHandler(e, contextValue, ref.current);
       });
       document.removeEventListener('mousedown', mouseDownHandler, true);
     };
   }, [mouseDownHandler]);
 
   useEffect(() => {
-    const moveMouseUpHandler = (e: any) => {
+    const moveMouseUpHandler = () => {
       (contextValue as any).fillStyle = 'transparent';
     };
 
