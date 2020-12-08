@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useRef, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
@@ -78,9 +79,14 @@ const MainSection = () => {
     <>
       <MainSectionTemplate
         mainSectionRef={mainSectionRef}
-        mathQuill={
-          <MathQuill isActive={isActive} canDrop={canDrop} latex={latex} />
-        }
+        mathQuill={(
+          <MathQuill
+            isBackgroundDropdownShow={isBackgroundDropdownShow}
+            isActive={isActive}
+            canDrop={canDrop}
+            latex={latex}
+          />
+        )}
         canvas={isBackgroundDropdownShow && <Canvas />}
         isBackground={isBackgroundDropdownShow}
         latex={<Latex value={latex} onChange={changeHandler} />}
