@@ -21,7 +21,9 @@ const Background = () => {
   const onClickBackgroundHandler = () => {
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
   };
-
+  const onClickWinterHandler = () => {
+    console.log('?');
+  };
   return (
     <div>
       <RoundButton onClick={onClickBackgroundHandler}>
@@ -32,7 +34,10 @@ const Background = () => {
           <SPRING />
           <SUMMER />
           <FALL />
-          <WINTER />
+          <RoundButton onClick={onClickWinterHandler}>
+            <WINTER />
+          </RoundButton>
+
           <BLACKBOARD />
         </StyleComponent.BackgroundContainer>
       )}
