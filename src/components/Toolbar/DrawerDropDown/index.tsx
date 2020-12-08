@@ -27,11 +27,11 @@ const Drawer = () => {
     (state: RootState) => state.getMathQuillReducer
   );
   const onClickHandler = async (e: React.MouseEvent<HTMLElement>) => {
-    const canvas = mathQuillContainer.current.children[0];
-    const contexts = canvas.getContext('2d');
-    const [colors, context] = setColors(e.target, contexts);
-    setContext(context);
-    setColor(colors);
+    // const canvas = mathQuillContainer.current.children[0];
+    // const contexts = canvas.getContext('2d');
+    // const [colors, context] = setColors(e.target, contexts);
+    // setContext(context);
+    // setColor(colors);
   };
 
   const DrawerItem = color.map(
@@ -69,29 +69,29 @@ const Drawer = () => {
   const mouseUpHandler = () => {
     setClick(false);
   };
-  useEffect(() => {
-    document.addEventListener('mousedown', mouseDownHandler, true);
-    document.addEventListener('mousemove', (e) => {
-      moveHandler(e, contextValue, ref.current);
-    });
-    return () => {
-      document.removeEventListener('mousemove', (e) => {
-        moveHandler(e, contextValue, ref.current);
-      });
-      document.removeEventListener('mousedown', mouseDownHandler, true);
-    };
-  }, [mouseDownHandler]);
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', mouseDownHandler, true);
+  //   document.addEventListener('mousemove', (e) => {
+  //     moveHandler(e, contextValue, ref.current);
+  //   });
+  //   return () => {
+  //     document.removeEventListener('mousemove', (e) => {
+  //       moveHandler(e, contextValue, ref.current);
+  //     });
+  //     document.removeEventListener('mousedown', mouseDownHandler, true);
+  //   };
+  // }, [mouseDownHandler]);
 
-  useEffect(() => {
-    const moveMouseUpHandler = () => {
-      (contextValue as any).fillStyle = 'transparent';
-    };
+  // useEffect(() => {
+  //   const moveMouseUpHandler = () => {
+  //     (contextValue as any).fillStyle = 'transparent';
+  //   };
 
-    document.addEventListener('mouseup', moveMouseUpHandler);
-    return () => {
-      document.removeEventListener('mouseup', moveMouseUpHandler);
-    };
-  }, [mouseUpHandler]);
+  //   document.addEventListener('mouseup', moveMouseUpHandler);
+  //   return () => {
+  //     document.removeEventListener('mouseup', moveMouseUpHandler);
+  //   };
+  // }, [mouseUpHandler]);
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>
