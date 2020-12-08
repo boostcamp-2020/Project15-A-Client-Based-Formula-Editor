@@ -14,20 +14,18 @@ const InputTopSelectionSection = () => {
   return (
     <>
       <StyledComponent.InputTopSelectionSectionContainer>
-        <StyledComponent.InputLatexContainer>
-          {InputLatexTopContent.map((value, index) => (
-            <LatexContent
-              // eslint-disable-next-line react/no-array-index-key
-              key={`dab${index}`}
-              svg={value.svg}
-              latex={value.latex}
-              name={value.name}
-              width="60"
-              height="60"
-              onClick={() => onClickHandler(value.name)}
-            />
-          ))}
-        </StyledComponent.InputLatexContainer>
+        {InputLatexTopContent.map((value, index) => (
+          <LatexContent
+            // eslint-disable-next-line react/no-array-index-key
+            key={`dab${index}`}
+            svg={value.svg}
+            latex={value.latex}
+            name={value.name}
+            width="65"
+            height="68"
+            onClick={() => onClickHandler(value.name)}
+          />
+        ))}
       </StyledComponent.InputTopSelectionSectionContainer>
     </>
   );

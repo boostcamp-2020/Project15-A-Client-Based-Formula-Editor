@@ -18,7 +18,12 @@ export const MathField = styled.div<MathFieldProp>`
   justify-content: center;
   background-color: ${(props) =>
     // eslint-disable-next-line no-nested-ternary
-    props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
+    props.isActive
+      ? colors.dragEffect
+      : props.canDrop
+      ? colors.dragEffect
+      : 'white'};
+
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.fontColor};
   transition: all 0.3s;

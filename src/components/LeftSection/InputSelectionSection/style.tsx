@@ -4,42 +4,61 @@ import colors from '@src/utils/colors';
 export const InputSectionContainer = styled.div`
   background-color: ${colors.white};
   width: 97%;
-  height: 40%;
-  margin-top: 10px;
+  height: 280px;
+  margin-top: 4px;
   border: 1px solid ${colors.borderGrey};
+  .dashed {
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-top: 1px dashed ${colors.lightGrey};
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 `;
 
 export const InputTopSelectionSectionContainer = styled.div`
   width: 100%;
-  height: 46%;
-  padding-bottom: 5px;
-  margin-left: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow: auto;
 `;
+
 export const InputBottomSelectionSectionContainer = styled.div`
   width: 100%;
-  margin-top: 10px;
-  margin-left: -10px;
-`;
-export const InputLatexContainer = styled.div`
   display: flex;
-  width: 100%;
-  margin-left: 10px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  overflow: auto;
 `;
+
 export const Dictionary = styled.p``;
+
 interface InputLatexContentProps {
   width: string;
   height: string;
 }
+
 export const InputLatexContent = styled.div<InputLatexContentProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  border: 1px solid ${colors.borderGrey};
+  border: 1px dashed ${colors.borderGrey};
+  cursor: 'move';
+  transition-duration: 0.4s;
   &:hover {
-    cursor: pointer;
-    border: 1px solid ${colors.mainGreen};
+    background-color: ${colors.lightGrey};
   }
 `;
