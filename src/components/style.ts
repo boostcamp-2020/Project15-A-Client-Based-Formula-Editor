@@ -25,7 +25,7 @@ export const MoveArea = styled.div`
   display: flex;
   height: 100%;
 
-  & div {
+  & > div {
     transition: all 1s;
   }
 `;

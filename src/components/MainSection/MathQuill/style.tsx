@@ -21,7 +21,7 @@ export const MathField = styled.div<MathFieldProp>`
     props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.fontColor};
-
+  transition: all 0.3s;
   .mq-editable-field {
     width: 100%;
     border: none;

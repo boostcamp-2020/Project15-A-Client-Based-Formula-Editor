@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
 import { change } from '@src/store/modules/mathQuill';
+import { changeColor } from '@src/store/modules/fontColorDropdown';
+import { changeFontSize } from '@src/store/modules/font-dropdown';
+import { changeFontAlign } from '@src/store/modules/fontAlign';
+import { decline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
 import TabList from './TabList';
 import PlusTab from './PlusTab';
@@ -13,6 +17,18 @@ const Tab = () => {
     (state: RootState) => state.tabReducer
   );
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
+  const { fontColor } = useSelector(
+    (state: RootState) => state.fontColorDropdownHandler
+  );
+  const { selectedFontSize: fontSize } = useSelector(
+    (state: RootState) => state.fontDropDownReducer
+  );
+  const { fontAlign } = useSelector(
+    (state: RootState) => state.fontAlignHandler
+  );
+  const { isDecline: fontDecline } = useSelector(
+    (state: RootState) => state.declineHandler
+  );
 
   const dispatch = useDispatch();
 
@@ -23,9 +39,24 @@ const Tab = () => {
     console.log('자동저장되었습니다.');
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     newStoreData = storedData.map(
-      (data: { id: number; title: string; latex: string }) => {
+      (data: {
+        id: number;
+        title: string;
+        latex: string;
+        fontColor: string;
+        fontSize: number;
+        fontDecline: boolean;
+        fontAlign: string;
+      }) => {
         if (data.id === selectedTabId) {
-          return { ...data, latex };
+          return {
+            ...data,
+            latex,
+            fontColor,
+            fontSize,
+            fontDecline,
+            fontAlign,
+          };
         }
         return data;
       }
@@ -36,20 +67,47 @@ const Tab = () => {
   const handleChangeTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     const selectedTabData = storedData.filter(
-      (tab: { id: number; title: string; latex: string }) => tab.id === tabId
+      (tab: {
+        id: number;
+        title: string;
+        latex: string;
+        fontColor: string;
+        fontSize: number;
+        fontDecline: boolean;
+        fontAlign: string;
+      }) => tab.id === tabId
     )[0];
 
     newStoreData = storedData.map(
-      (data: { id: number; title: string; latex: string }) => {
+      (data: {
+        id: number;
+        title: string;
+        latex: string;
+        fontColor: string;
+        fontSize: number;
+        fontDecline: boolean;
+        fontAlign: string;
+      }) => {
         if (data.id === selectedTabId) {
-          return { ...data, latex };
+          return {
+            ...data,
+            latex,
+            fontColor,
+            fontSize,
+            fontDecline,
+            fontAlign,
+          };
         }
         return data;
       }
     );
 
     dispatch(changeTab(tabId));
+    dispatch(changeColor(selectedTabData.fontColor));
+    dispatch(changeFontSize(selectedTabData.fontSize));
     dispatch(change(selectedTabData.latex));
+    dispatch(changeFontAlign(selectedTabData.fontAlign));
+    dispatch(decline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
   };
@@ -61,6 +119,10 @@ const Tab = () => {
       id: lastId + 1,
       title: `TAB${lastId + 1}`,
       latex: 'blank',
+      fontColor: 'black',
+      fontSize: '15',
+      fontAlign: 'center',
+      fontDecline: true,
     });
 
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -74,12 +136,23 @@ const Tab = () => {
       alert('This is the last tab!');
     } else {
       newStoreData = storedData.filter(
-        (data: { id: number; title: string; latex: string }) =>
-          data.id !== tabId
+        (data: {
+          id: number;
+          title: string;
+          latex: string;
+          fontColor: string;
+          fontSize: number;
+          fontDecline: boolean;
+          fontAlign: string;
+        }) => data.id !== tabId
       );
 
       dispatch(changeTab(newStoreData[0].id));
+      dispatch(changeColor(newStoreData[0].fontColor));
+      dispatch(changeFontSize(newStoreData[0].fontSize));
       dispatch(change(newStoreData[0].latex));
+      dispatch(changeFontAlign(newStoreData[0].fontAlign));
+      dispatch(decline(newStoreData[0].fontDecline));
       dispatch(updateTab(newStoreData));
       window.localStorage.setItem('tab', JSON.stringify(newStoreData));
     }
@@ -108,6 +181,10 @@ const Tab = () => {
     if (storedData !== null) {
       dispatch(changeTab(storedData[0].id));
       dispatch(updateTab(storedData));
+      dispatch(changeColor(storedData[0].fontColor));
+      dispatch(changeFontSize(storedData[0].fontSize));
+      dispatch(changeFontAlign(storedData[0].fontAlign));
+      dispatch(decline(storedData[0].fontDecline));
       dispatch(change(storedData[0].latex));
     } else {
       window.localStorage.setItem('tab', JSON.stringify(tabList));
