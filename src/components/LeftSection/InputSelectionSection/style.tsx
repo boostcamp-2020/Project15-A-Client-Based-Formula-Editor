@@ -43,6 +43,7 @@ export const InputBottomSelectionSectionContainer = styled.div`
 `;
 
 export const Dictionary = styled.p``;
+
 interface InputLatexContentProps {
   width: string;
   height: string;
@@ -54,9 +55,10 @@ export const InputLatexContent = styled.div<InputLatexContentProps>`
   align-items: center;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  border: 1px solid ${colors.borderGrey};
+  border: 1px dashed ${colors.borderGrey};
+  cursor: 'move';
+  transition-duration: 0.4s;
   &:hover {
-    cursor: pointer;
-    border: 1px solid ${colors.mainGreen};
+    background-color: ${colors.lightGrey};
   }
 `;
