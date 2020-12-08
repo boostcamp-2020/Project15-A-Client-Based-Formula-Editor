@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable consistent-return */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
@@ -14,7 +14,6 @@ import {
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { moveHandler } from '@src/utils/setColor';
 import html2canvas from 'html2canvas';
-import SvgButton from '@src/components/Common/SvgButton';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -23,8 +22,10 @@ const Drawer = () => {
     (state: RootState) => state.drawerDropdownHandler
   );
   const [contextValue, setContext] = useState();
+  const [clicks, setClick] = useState(true);
+  const [colorValue, setColor] = useState('');
   const dispatch = useDispatch();
-  const color = ['black', 'yellow', 'red', 'green'];
+  const color = ['black', 'yellow', 'red', 'green', 'white'];
 
   const { mathQuillContainer } = useSelector(
     (state: RootState) => state.getMathQuillReducer
@@ -34,6 +35,7 @@ const Drawer = () => {
     const contexts = canvas.getContext('2d');
     const [colors, context] = setColors(e.target, contexts);
     setContext(context);
+    setColor(colors);
   };
 
   const DrawerItem = color.map(
@@ -48,7 +50,6 @@ const Drawer = () => {
     }
   );
   const onClickClearHandler = () => {
-    const canvas = mathQuillContainer.current.children[0];
     (contextValue as any).fillStyle = '#ffffff';
   };
   const onClickDrawerHandler = async () => {
@@ -65,19 +66,36 @@ const Drawer = () => {
       src.removeChild(src.childNodes[0]);
     }
   };
+  const mouseDownHandler = () => {
+    (contextValue as any).fillStyle = colorValue;
+    setClick(true);
+  };
+  const mouseUpHandler = () => {
+    setClick(false);
+  };
   useEffect(() => {
-    window.addEventListener('mousemove', (e) => {
-      moveHandler(e, contextValue, isClick, ref.current);
+    document.addEventListener('mousedown', mouseDownHandler, true);
+    document.addEventListener('mousemove', (e) => {
+      moveHandler(e, contextValue, clicks, ref.current);
     });
-    if (!isClick) {
-      window.removeEventListener('mousemove', (e) => {
-        moveHandler(e, contextValue, isClick, ref.current);
+    return () => {
+      document.removeEventListener('mousemove', (e) => {
+        moveHandler(e, contextValue, clicks, ref.current);
       });
-    }
-    window.addEventListener('mouseup', (e) => {
-      dispatch(drawing(!isClick));
-    });
-  }, [contextValue]);
+      document.removeEventListener('mousedown', mouseDownHandler, true);
+    };
+  }, [mouseDownHandler]);
+
+  useEffect(() => {
+    const moveMouseUpHandler = (e: any) => {
+      (contextValue as any).fillStyle = 'transparent';
+    };
+
+    document.addEventListener('mouseup', moveMouseUpHandler);
+    return () => {
+      document.removeEventListener('mouseup', moveMouseUpHandler);
+    };
+  }, [mouseUpHandler]);
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>
