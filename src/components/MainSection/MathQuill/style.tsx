@@ -6,6 +6,8 @@ interface MathFieldProp {
   fontAlign: string;
   isActive: boolean;
   canDrop: boolean;
+  fontSize: number;
+  fontColor: string;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -22,6 +24,9 @@ export const MathField = styled.div<MathFieldProp>`
       ? colors.dragEffect
       : 'white'};
 
+  font-size: ${(props) => props.fontSize}px;
+  color: ${(props) => props.fontColor};
+  transition: all 0.3s;
   .mq-editable-field {
     width: 100%;
     border: none;
@@ -38,5 +43,9 @@ export const MathField = styled.div<MathFieldProp>`
   span {
     text-align: ${(props) => props.fontAlign};
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
+  }
+  .mq-empty {
+    background-color: ${colors.white};
+    border: 0.5px dotted ${colors.grey};
   }
 `;
