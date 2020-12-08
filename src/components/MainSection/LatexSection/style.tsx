@@ -3,7 +3,7 @@ import colors from '@src/utils/colors';
 
 export const Handle = styled.div`
   display: flex;
-  cursor: n-resize;
+  cursor: row-resize;
   padding-top: 10px;
   padding-bottom: 10px;
   color: ${colors.backgroundGrey};
