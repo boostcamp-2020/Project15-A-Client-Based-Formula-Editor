@@ -1,18 +1,16 @@
 import React from 'react';
 import LeftSectionTemplate from './LeftSectionTemplate';
 import InputSelectionSection from './InputSelectionSection';
-import MathSection from './MathSection';
 import ResizingBar from './ResizingBar';
 import TempArea from './TempArea';
-import TemplateSection from './TemplateSection';
+import SplitArea from './SplitArea';
 
 const LeftSection = () => {
   return (
     <>
       <LeftSectionTemplate
         InputSectionContainer={<InputSelectionSection />}
-        MathSectionContainer={<MathSection />}
-        TemplateContainer={<TemplateSection />}
+        SplitArea={<SplitArea />}
         ResizingBar={<ResizingBar />}
         TempArea={<TempArea />}
       />
