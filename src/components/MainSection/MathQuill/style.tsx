@@ -35,4 +35,8 @@ export const MathField = styled.div<MathFieldProp>`
     text-align: ${(props) => props.fontAlign};
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
+  .mq-empty {
+    background-color: ${colors.white};
+    border: 0.5px dotted ${colors.grey};
+  }
 `;
