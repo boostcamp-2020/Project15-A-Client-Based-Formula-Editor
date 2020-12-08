@@ -8,13 +8,13 @@ export const MainSectionTemplate = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
+  position: relative;
   & > div {
     transition: height 0.25s;
   }
 `;
 
-export const TextArea = styled.div<{ height: number }>`
+export const TextArea = styled.div<{ height: number; isBackground: boolean }>`
   background-color: #e1e0de;
   width: 100%;
   height: ${(props) => 100 - props.height}%;

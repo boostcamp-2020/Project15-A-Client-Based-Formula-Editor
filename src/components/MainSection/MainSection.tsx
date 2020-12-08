@@ -4,6 +4,7 @@ import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
 import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
+import Canvas from '@src/components/Common/Canvas';
 import CropSection from './CropSection';
 import MainSectionTemplate from './MainSectionTemplate';
 import MathQuill from './MathQuill';
@@ -18,6 +19,9 @@ const MainSection = () => {
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
+  );
+  const { isBackgroundDropdownShow } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
   );
   const dispatch = useDispatch();
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -77,6 +81,8 @@ const MainSection = () => {
         mathQuill={
           <MathQuill isActive={isActive} canDrop={canDrop} latex={latex} />
         }
+        canvas={isBackgroundDropdownShow && <Canvas />}
+        isBackground={isBackgroundDropdownShow}
         latex={<Latex value={latex} onChange={changeHandler} />}
         tab={<Tab />}
         resizing={resizing}

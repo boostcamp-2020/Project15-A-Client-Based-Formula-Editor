@@ -8,6 +8,8 @@ interface Props {
   tab: JSX.Element;
   resizing: any;
   height: number;
+  canvas: JSX.Element;
+  isBackground: any;
 }
 
 const MainSectionTemplate = ({
@@ -17,11 +19,18 @@ const MainSectionTemplate = ({
   tab,
   resizing,
   height,
+  canvas,
+  isBackground,
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
-      <StyleComponent.TextArea height={height} ref={mainSectionRef}>
+      <StyleComponent.TextArea
+        isBackground={isBackground}
+        height={height}
+        ref={mainSectionRef}
+      >
         {mathQuill}
+        {canvas}
       </StyleComponent.TextArea>
       <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>
       <StyleComponent.Tab>{tab}</StyleComponent.Tab>
