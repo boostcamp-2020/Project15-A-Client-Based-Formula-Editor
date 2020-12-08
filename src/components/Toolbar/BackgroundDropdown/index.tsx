@@ -9,10 +9,12 @@ import BLACKBOARD from '@src/utils/svg/background/blackboard.svg';
 import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import { backgroundDropdown } from '@src/store/modules/backgroundDropdown';
+import { drawing } from '@src/store/modules/drawerDropdown';
+import { drawingSnow } from '@src/utils/backgroundAnimation';
 import * as StyleComponent from './style';
 
 const Background = () => {
-  const { isBackgroundDropdownShow } = useSelector(
+  const { isBackgroundDropdownShow, backgroundCanvas } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
 
@@ -22,7 +24,9 @@ const Background = () => {
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
   };
   const onClickWinterHandler = () => {
-    console.log('?');
+    const canvas = backgroundCanvas.current;
+    const context = canvas.getContext('2d');
+    drawingSnow(context, canvas.width, canvas.height);
   };
   return (
     <div>
