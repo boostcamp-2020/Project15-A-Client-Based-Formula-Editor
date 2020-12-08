@@ -16,7 +16,11 @@ export const MathField = styled.div<MathFieldProp>`
   justify-content: center;
   background-color: ${(props) =>
     // eslint-disable-next-line no-nested-ternary
-    props.isActive ? 'darkgreen' : props.canDrop ? 'darkkhaki' : 'white'};
+    props.isActive
+      ? colors.dragEffect
+      : props.canDrop
+      ? colors.dragEffect
+      : 'white'};
 
   .mq-editable-field {
     width: 100%;
