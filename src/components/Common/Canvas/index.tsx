@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import * as StyledComponent from './style';
 
-const Canvas = () => {
-  return <StyledComponent.CanvasContainer />;
+const Canvas = ({ backgroundCanvas }: any) => {
+  return <StyledComponent.CanvasContainer ref={backgroundCanvas} />;
 };
 export default Canvas;
