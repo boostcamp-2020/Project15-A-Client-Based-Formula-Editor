@@ -8,6 +8,10 @@ export const MainSectionTemplate = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  & > div {
+    transition: height 0.25s;
+  }
 `;
 
 export const TextArea = styled.div<{ height: number }>`
