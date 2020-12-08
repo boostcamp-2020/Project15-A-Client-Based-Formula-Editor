@@ -26,7 +26,7 @@ export const fontDropDownReducer = handleActions(
     },
 
     [CHANGE_FONT_SIZE]: (state, action: Action) => {
-      return { ...state, selectedFontSize: action.payload };
+      return { ...state, dropDown: 'close', selectedFontSize: action.payload };
     },
   },
   initialState
