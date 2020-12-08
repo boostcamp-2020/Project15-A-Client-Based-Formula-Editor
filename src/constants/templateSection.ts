@@ -22,7 +22,7 @@ export const sqrt: InputMath[] = [
   {
     name: 'sqrt1',
     svg: SVG.sqrt.SQRT,
-    latex: 'sqrt{\frac{ }{ }}',
+    latex: '\\sqrt{\\frac{ }{ }}',
   },
   {
     name: 'sqrt2',
@@ -50,17 +50,40 @@ export const combi: InputMath[] = [
   {
     name: 'combi4',
     svg: SVG.combi.COMBI_4,
-    latex: 'left(\\frac{ }{ }\\right)^2',
+    latex: '\\left(\\frac{ }{ }\\right)^2',
   },
   {
     name: 'combi5',
     svg: SVG.combi.COMBI_5,
-    latex: '\\frac{1}{\\combi{ }^{ }}',
+    latex: '\\frac{1}{^{ }}',
   },
   {
     name: 'combi6',
     svg: SVG.combi.COMBI_6,
-    latex: '\\frac{\\combi{ }^{ }}{\\combi{ }^{ }}',
+    latex: '\\frac{^{ }}{^{ }}',
+  },
+];
+
+export const integral: InputMath[] = [
+  {
+    name: 'integral1',
+    svg: SVG.integral.INTEGRAL,
+    latex: '\\frac{dy}{dx}',
+  },
+  {
+    name: 'integral2',
+    svg: SVG.integral.INTEGRAL_2,
+    latex: '\\frac{\\triangle y}{\\triangle x}',
+  },
+  {
+    name: 'integral3',
+    svg: SVG.integral.INTEGRAL_3,
+    latex: '\\int _{\\ }^{\\ }f\\left(x\\right)dx',
+  },
+  {
+    name: 'integral4',
+    svg: SVG.integral.INTEGRAL_4,
+    latex: '\\frac{d}{dx}\\int _a^sf\\left(t\\right)dt',
   },
 ];
 const templateSection = [
@@ -76,6 +99,38 @@ const templateSection = [
     name: 'combi',
     value: combi,
   },
+  {
+    name: 'integral',
+    value: integral,
+  },
+  // {
+  //   name: 'sigma',
+  //   value: sigma,
+  // },
+  // {
+  //   name: 'limit',
+  //   value: limit,
+  // },
+  // {
+  //   name: 'sin',
+  //   value: trigonometric,
+  // },
+  // {
+  //   name: 'bracket',
+  //   value: bracket,
+  // },
+  // {
+  //   name: 'decoration',
+  //   value: deco,
+  // },
+  // {
+  //   name: 'operator',
+  //   value: operator,
+  // },
+  // {
+  //   name: 'matrix',
+  //   value: matrix,
+  // },
 ];
 
 export default templateSection;

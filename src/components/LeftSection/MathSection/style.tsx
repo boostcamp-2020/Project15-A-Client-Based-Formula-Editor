@@ -4,7 +4,7 @@ import colors from '@src/utils/colors';
 export const MathSectionContainer = styled.div`
   background-color: ${colors.white};
   width: 97%;
-  height: 25%;
+  height: 200px;
   margin-top: 14px;
   border: 1px solid ${colors.borderGrey};
   overflow: hidden;
@@ -14,4 +14,5 @@ export const ButtonContainer = styled.div`
   height: 80%;
   flex-wrap: wrap;
   overflow: auto;
+  align-content: flex-start;
 `;

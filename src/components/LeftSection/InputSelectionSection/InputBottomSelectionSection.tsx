@@ -20,7 +20,7 @@ const InputBottomSelectionSection = () => {
               height="40"
             />
           ))}
-          <StyledComponent.InputLatexContent width="102" height="40">
+          <StyledComponent.InputLatexContent width="84" height="40">
             <StyledComponent.Dictionary>수식 사전</StyledComponent.Dictionary>
           </StyledComponent.InputLatexContent>
         </StyledComponent.InputLatexContainer>
