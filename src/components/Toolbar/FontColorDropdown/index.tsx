@@ -14,7 +14,6 @@ const FontColorDropdown = () => {
 
   const changeFontColor = (color: string) => {
     dispatch(FontColorDropdownAction.changeColor(color));
-    dispatch(FontColorDropdownAction.changeDropdownState());
   };
   const onClickHandler = () => {
     dispatch(FontColorDropdownAction.changeDropdownState());

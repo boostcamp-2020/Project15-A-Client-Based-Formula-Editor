@@ -22,7 +22,7 @@ const initialState: AlignState = {
 export const fontAlignHandler = handleActions(
   {
     [CHANGE_FONTALIGN]: (state: AlignState = initialState, action: any) => {
-      return { ...state, fontAlign: action.payload };
+      return { ...state, isAlign: false, fontAlign: action.payload };
     },
     [CHANGE_FONTALIGN_STATE]: (state: AlignState) => {
       return { ...state, isAlign: !state.isAlign };

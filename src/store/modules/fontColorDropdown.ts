@@ -19,7 +19,7 @@ const initialState: State = {
 export const fontColorDropdownHandler = handleActions(
   {
     [CHANGE_COLOR]: (state: State = initialState, action: any) => {
-      return { ...state, fontColor: action.payload };
+      return { ...state, isActive: false, fontColor: action.payload };
     },
     [CHANGE_DROPDOWN_STATE]: (state: State) => {
       return { ...state, isActive: !state.isActive };
