@@ -6,6 +6,6 @@ export const CanvasContainer = styled.canvas`
   height: 100%;
   left: 0;
   top: 0;
-  background-color: yellow;
+  background-color: #ffffff;
   z-index: -1;
 `;
