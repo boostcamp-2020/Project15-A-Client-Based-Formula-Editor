@@ -21,8 +21,8 @@ const InputTopSelectionSection = () => {
             svg={value.svg}
             latex={value.latex}
             name={value.name}
-            width="60"
-            height="60"
+            width="65"
+            height="68"
             onClick={() => onClickHandler(value.name)}
           />
         ))}

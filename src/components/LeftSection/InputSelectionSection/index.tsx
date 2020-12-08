@@ -6,13 +6,13 @@ import * as StyledComponent from './style';
 
 const InputSelectionSectionContainer = () => {
   return (
-    <>
-      <StyledComponent.InputSectionContainer>
+    <StyledComponent.InputSectionContainer>
+      <StyledComponent.FlexContainer>
         <Title title="입력 선택" />
         <InputTopSelectionSection />
-        <InputBottomSelectionSection />
-      </StyledComponent.InputSectionContainer>
-    </>
+      </StyledComponent.FlexContainer>
+      <InputBottomSelectionSection />
+    </StyledComponent.InputSectionContainer>
   );
 };
 export default InputSelectionSectionContainer;

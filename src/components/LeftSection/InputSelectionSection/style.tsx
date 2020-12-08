@@ -4,43 +4,50 @@ import colors from '@src/utils/colors';
 export const InputSectionContainer = styled.div`
   background-color: ${colors.white};
   width: 97%;
-  height: 40%;
+  height: 280px;
   margin-top: 4px;
   border: 1px solid ${colors.borderGrey};
-  border: 2px solid;
+  .dashed {
+    margin: 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-top: 1px dashed ${colors.lightGrey};
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 `;
 
 export const InputTopSelectionSectionContainer = styled.div`
   width: 100%;
-  height: 55%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
+  justify-content: flex-start;
+  align-content: flex-start;
   overflow: auto;
 `;
+
 export const InputBottomSelectionSectionContainer = styled.div`
-  border: 2px solid;
   width: 100%;
-  height: 45%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
+  justify-content: flex-start;
+  align-content: flex-start;
   overflow: auto;
 `;
-export const InputLatexContainer = styled.div`
-  border: 2px solid yellow;
-  display: flex;
-  width: 97%;
-  height: 100%;
-  flex-wrap: wrap;
-`;
+
 export const Dictionary = styled.p``;
 interface InputLatexContentProps {
   width: string;
   height: string;
 }
+
 export const InputLatexContent = styled.div<InputLatexContentProps>`
   display: flex;
   justify-content: center;
