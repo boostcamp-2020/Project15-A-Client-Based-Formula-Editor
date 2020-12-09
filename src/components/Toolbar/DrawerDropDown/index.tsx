@@ -1,9 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown, closeDropdown, changeLatex } from '@src/store/modules/drawerDropdown';
+import {
+  dropdown,
+  closeDropdown,
+  changeLatex,
+} from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import outsideClick from '@src/hooks/useOutSideClick';
 import setColors, { moveHandler } from '@src/utils/setColor';
@@ -44,13 +48,7 @@ const Drawer = () => {
     }
   );
 
-  const dispatch = useDispatch();
-
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
-  );
-  const onClickDrawerHandler = () => {
-
+  const onClickDrawerHandler = async () => {
     dispatch(dropdown(!isDropdownShow));
     const src = mathQuillContainer.current;
 
@@ -64,7 +62,9 @@ const Drawer = () => {
       src.removeChild(src.childNodes[0]);
     }
   };
-
+  const onClickClearHandler = () => {
+    console.log('tmp');
+  };
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>
@@ -73,10 +73,9 @@ const Drawer = () => {
       {isDropdownShow && (
         <StyleComponent.DrawerContainer>
           {DrawerItem}
-          <button onClick={onClickClearHandler}>
+          <button type="button" onClick={onClickClearHandler}>
             <ERASE />
           </button>
-
           <input type="range" ref={ref} min="1" max="5" />
         </StyleComponent.DrawerContainer>
       )}
