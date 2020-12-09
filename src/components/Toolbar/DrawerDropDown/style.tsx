@@ -15,6 +15,13 @@ export const DrawerContainer = styled.div`
   svg {
     margin-left: 0.3rem;
   }
+  button {
+    border: none;
+    background-color: ${colors.white};
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 export const DrawerDiv = styled.div`
   border-radius: 4px;
@@ -23,5 +30,8 @@ export const DrawerDiv = styled.div`
   background-color: ${(props) => props.color};
   & + & {
     margin-left: 0.3rem;
+  }
+  &:hover {
+    cursor: pointer;
   }
 `;
