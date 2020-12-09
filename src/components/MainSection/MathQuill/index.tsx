@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { mathQuill, change } from '@src/store/modules/mathQuill';
@@ -11,9 +11,15 @@ interface Props {
   isActive: boolean;
   canDrop: boolean;
   latex: string;
+  dragndrop: any;
 }
 
-const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
+const EditableMathExample = ({
+  isActive,
+  canDrop,
+  latex,
+  dragndrop,
+}: Props) => {
   const { isDecline } = useSelector((state: RootState) => state.declineHandler);
   const { fontAlign } = useSelector(
     (state: RootState) => state.fontAlignHandler
@@ -41,6 +47,7 @@ const EditableMathExample = ({ isActive, canDrop, latex }: Props) => {
       fontAlign={fontAlign}
       fontSize={selectedFontSize}
       fontColor={fontColor}
+      ref={dragndrop}
     >
       <EditableMathField
         latex={latex}

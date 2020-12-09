@@ -15,7 +15,7 @@ export const InputLatexContent = styled.div<LatexProps>`
   justify-content: center;
   align-items: center;
   border: 1px dashed ${colors.borderGrey};
-  cursor: 'move';
+  cursor: pointer;
   transition-duration: 0.4s;
   &:hover {
     background-color: ${colors.lightGrey};
