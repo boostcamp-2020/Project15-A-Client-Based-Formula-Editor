@@ -2,8 +2,9 @@ import { createAction, handleActions } from 'redux-actions';
 // action_type
 
 const CHANGE_DROPDOWN = 'CHANGE_DROPDOWN_STATE';
-
+const CLOSE = 'backgroundDropdown/CLOSE';
 export const backgroundDropdown = createAction(CHANGE_DROPDOWN);
+export const closeDropdown = createAction(CLOSE);
 
 export interface BackgroundState {
   isBackgroundDropdownShow: boolean;
@@ -19,6 +20,9 @@ export const BackgroundDropdownHandler = handleActions(
         ...state,
         isBackgroundDropdownShow: !state.isBackgroundDropdownShow,
       };
+    },
+    [CLOSE]: (state: BackgroundState) => {
+      return { ...state, isBackgroundDropdownShow: false };
     },
   },
   initialState

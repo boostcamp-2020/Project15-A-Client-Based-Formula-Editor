@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown } from '@src/store/modules/drawerDropdown';
+import { dropdown, closeDropdown } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
+import outsideClick from '@src/hooks/useOutSideClick';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -29,11 +30,9 @@ const Drawer = () => {
   const { isDropdownShow } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
   );
-
   const onClickDrawerHandler = () => {
     dispatch(dropdown(!isDropdownShow));
   };
-
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>
