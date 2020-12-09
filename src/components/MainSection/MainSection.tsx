@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// eslint-disable-next-line react/jsx-wrap-multilines
 import React, { useState, useRef, useEffect} from 'react';
 import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
@@ -107,7 +108,16 @@ const MainSection = () => {
             dragndrop={drop}
           />
         )}
-      canvas={isBackgroundDropdownShow && <Canvas backgroundCanvas={backgroundCanvas} />}
+        canvas={isBackgroundDropdownShow && (
+          <Canvas backgroundCanvas={backgroundCanvas} />
+        )}
+        isBackground={isBackgroundDropdownShow}
+        latex={<Latex value={latex} onChange={changeHandler} />}
+        tab={<Tab />}
+        resizing={resizing}
+        height={height}
+      />
+    
       {click && <CropSection />}
     </>
   );
