@@ -1,13 +1,11 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable consistent-return */
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown, changeLatex } from '@src/store/modules/drawerDropdown';
+import { dropdown, closeDropdown, changeLatex } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
+import outsideClick from '@src/hooks/useOutSideClick';
 import setColors, { moveHandler } from '@src/utils/setColor';
 import html2canvas from 'html2canvas';
 import * as StyleComponent from './style';
@@ -45,10 +43,14 @@ const Drawer = () => {
       );
     }
   );
-  const onClickClearHandler = () => {
-    (contextValue as any).fillStyle = '#ffffff';
-  };
-  const onClickDrawerHandler = async () => {
+
+  const dispatch = useDispatch();
+
+  const { isDropdownShow } = useSelector(
+    (state: RootState) => state.drawerDropdownHandler
+  );
+  const onClickDrawerHandler = () => {
+
     dispatch(dropdown(!isDropdownShow));
     const src = mathQuillContainer.current;
 
@@ -62,36 +64,7 @@ const Drawer = () => {
       src.removeChild(src.childNodes[0]);
     }
   };
-  const mouseDownHandler = () => {
-    (contextValue as any).fillStyle = colorValue;
-    setClick(true);
-  };
-  const mouseUpHandler = () => {
-    setClick(false);
-  };
-  // useEffect(() => {
-  //   document.addEventListener('mousedown', mouseDownHandler, true);
-  //   document.addEventListener('mousemove', (e) => {
-  //     moveHandler(e, contextValue, ref.current);
-  //   });
-  //   return () => {
-  //     document.removeEventListener('mousemove', (e) => {
-  //       moveHandler(e, contextValue, ref.current);
-  //     });
-  //     document.removeEventListener('mousedown', mouseDownHandler, true);
-  //   };
-  // }, [mouseDownHandler]);
 
-  // useEffect(() => {
-  //   const moveMouseUpHandler = () => {
-  //     (contextValue as any).fillStyle = 'transparent';
-  //   };
-
-  //   document.addEventListener('mouseup', moveMouseUpHandler);
-  //   return () => {
-  //     document.removeEventListener('mouseup', moveMouseUpHandler);
-  //   };
-  // }, [mouseUpHandler]);
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>
