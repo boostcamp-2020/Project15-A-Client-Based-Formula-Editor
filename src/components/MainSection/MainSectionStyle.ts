@@ -9,9 +9,6 @@ export const MainSectionTemplate = styled.div`
   flex-direction: column;
   width: 100%;
   position: relative;
-  & > div {
-    transition: height 0.25s;
-  }
 `;
 
 export const TextArea = styled.div<{ height: number; isBackground: boolean }>`
