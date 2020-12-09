@@ -80,6 +80,5 @@ export const drawingSnow = (
 };
 
 export const deleteWinterAnimation = () => {
-  console.log(animationId);
   cancelAnimationFrame(animationId);
 };
