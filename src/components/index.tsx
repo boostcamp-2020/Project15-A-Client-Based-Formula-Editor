@@ -3,6 +3,7 @@ import ToolBar from '@src/components/Toolbar/ToolBar';
 import Header from '@src/components/Header';
 import LeftSection from '@src/components/LeftSection/LeftSection';
 import MainSection from '@src/components/MainSection/MainSection';
+import SubSection from '@src/components/SubSection';
 import { RootState } from '@src/store/modules';
 import { useSelector } from 'react-redux';
 import * as StyleComponent from './style';
@@ -29,16 +30,5 @@ export const Section = () => {
         <SubSection visible={visible} />
       </StyleComponent.MoveArea>
     </StyleComponent.Main>
-  );
-};
-
-interface Props {
-  visible: boolean;
-}
-export const SubSection = ({ visible }: Props) => {
-  return (
-    <StyleComponent.RightArea show={visible}>
-      {/* <Graph /> */}
-    </StyleComponent.RightArea>
   );
 };
