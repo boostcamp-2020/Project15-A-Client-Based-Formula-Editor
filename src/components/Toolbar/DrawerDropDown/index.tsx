@@ -53,14 +53,6 @@ const Drawer = () => {
     const src = mathQuillContainer.current;
 
     const canvasSection = await html2canvas(src);
-    if (!isDropdownShow) {
-      src.appendChild(canvasSection);
-      dispatch(changeLatex(src.childNodes[0]));
-      src.removeChild(src.childNodes[0]);
-    } else {
-      src.appendChild(latexContainer);
-      src.removeChild(src.childNodes[0]);
-    }
   };
   const mouseDownHandler = () => {
     (contextValue as any).fillStyle = colorValue;
