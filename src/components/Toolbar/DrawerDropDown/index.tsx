@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
@@ -16,26 +16,46 @@ import * as StyleComponent from './style';
 
 const Drawer = () => {
   const ref = useRef();
+
   const { isDropdownShow, latexContainer, isClick } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
   );
-  const [contextValue, setContext] = useState();
-  const [clicks, setClick] = useState(true);
-  const [colorValue, setColor] = useState('');
+  const { backgroundCanvas } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
+  );
   const dispatch = useDispatch();
   const color = ['black', 'yellow', 'red', 'green', 'white'];
+  const [contextValue, setContext] = useState();
+  const [colorValue, setColor] = useState('');
 
-  const { mathQuillContainer } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
-  );
-  const onClickHandler = async (e: React.MouseEvent<HTMLElement>) => {
-    // const canvas = mathQuillContainer.current.children[0];
-    // const contexts = canvas.getContext('2d');
-    // const [colors, context] = setColors(e.target, contexts);
-    // setContext(context);
-    // setColor(colors);
+  const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
+    const canvas = backgroundCanvas.current;
+    const contexts = canvas.getContext('2d');
+    const [colors, context] = setColors(e.target, contexts);
+    setContext(context);
+    setColor(colors);
+    context.fillStyle = colorValue;
+    context.beginPath();
+    console.log(`현재 시작${context.fillStyle}`);
+    context.arc(500, 500, 100, 0, Math.PI * 2, false);
+    context.fill();
   };
-
+  const mouseDownHandler = (e: any) => {
+    console.log('down');
+  };
+  const mouseUpHandler = (e: any) => {
+    console.log('up');
+    const context = contextValue as any;
+    console.log(context);
+    context.beginPath();
+    context.fillStyle = colorValue;
+    context.arc(150, 45, 10, 0, Math.PI * 2, false);
+    context.fill();
+    context.fillText(`${365 - 10}/365`, 200, 110);
+  };
+  const mouseMoveHandler = (e: any) => {
+    console.log('move');
+  };
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (
@@ -48,15 +68,27 @@ const Drawer = () => {
     }
   );
 
-  const onClickDrawerHandler = async () => {
+  const onClickDrawerHandler = () => {
     dispatch(dropdown(!isDropdownShow));
-    const src = mathQuillContainer.current;
-
-    const canvasSection = await html2canvas(src);
   };
   const onClickClearHandler = () => {
     console.log('tmp');
   };
+  useEffect(() => {
+    document.addEventListener('mouseup', mouseUpHandler);
+    return () => document.removeEventListener('mouseup', mouseUpHandler);
+  }, [mouseUpHandler]);
+  useEffect(() => {
+    document.addEventListener('mousemove', mouseMoveHandler);
+    return () => document.removeEventListener('mousemove', mouseMoveHandler);
+  }, [mouseMoveHandler]);
+  useEffect(() => {
+    document.addEventListener('mousedown', mouseDownHandler);
+
+    return () => {
+      document.removeEventListener('mousedown', mouseDownHandler);
+    };
+  }, [mouseDownHandler]);
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>

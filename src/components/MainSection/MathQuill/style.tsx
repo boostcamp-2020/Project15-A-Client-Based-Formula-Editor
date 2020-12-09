@@ -10,6 +10,7 @@ interface MathFieldProp {
   fontSize: number;
   fontColor: string;
   isBackgroundDropdownShow: boolean;
+  isDropdownShow: boolean;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -25,6 +26,8 @@ export const MathField = styled.div<MathFieldProp>`
       : props.canDrop
       ? colors.dragEffect
       : props.isBackgroundDropdownShow
+      ? 'transparent'
+      : props.isDropdownShow
       ? 'transparent'
       : 'white'};
 

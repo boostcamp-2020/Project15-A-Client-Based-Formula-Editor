@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable prettier/prettier */
 // eslint-disable-next-line react/jsx-wrap-multilines
 import React, { useState, useRef, useEffect} from 'react';
@@ -26,11 +27,14 @@ const MainSection = () => {
   const { isBackgroundDropdownShow } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
+  const {isDropdownShow} = useSelector(
+    (state:RootState) => state.drawerDropdownHandler
+  )
   const dispatch = useDispatch();
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
-
+  
   const mainSectionRef = useRef<HTMLDivElement>(null);
   const backgroundCanvas = useRef<HTMLCanvasElement>(null);
 
@@ -106,11 +110,12 @@ const MainSection = () => {
             canDrop={canDrop}
             latex={latex}
             dragndrop={drop}
+            isDropdownShow={isDropdownShow}
           />
         )}
-        canvas={isBackgroundDropdownShow && (
-          <Canvas backgroundCanvas={backgroundCanvas} />
-        )}
+        canvas={isBackgroundDropdownShow? (
+          <Canvas backgroundCanvas={backgroundCanvas} show="background" />
+        ):  (isDropdownShow? <Canvas backgroundCanvas={backgroundCanvas} show="drawer" />:undefined)}
         isBackground={isBackgroundDropdownShow}
         latex={<Latex value={latex} onChange={changeHandler} />}
         tab={<Tab />}
