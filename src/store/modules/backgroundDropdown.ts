@@ -4,10 +4,13 @@ import { createAction, handleActions } from 'redux-actions';
 const CHANGE_DROPDOWN = 'CHANGE_DROPDOWN_STATE';
 const GET_CANVAS = 'GET_CANVAS';
 const WINTER_DROPDOWN = 'WINTER_DROPDOWN';
+const CLOSE = 'backgroundDropdown/CLOSE';
 
 export const backgroundDropdown = createAction(CHANGE_DROPDOWN);
 export const getCanvas = createAction(GET_CANVAS);
 export const winterDropdown = createAction(WINTER_DROPDOWN);
+export const closeDropdown = createAction(CLOSE);
+
 
 export interface BackgroundState {
   isBackgroundDropdownShow: boolean;
@@ -39,6 +42,8 @@ export const BackgroundDropdownHandler = handleActions(
         ...state,
         winterDropdownShow: !state.winterDropdownShow,
       };
+    [CLOSE]: (state: BackgroundState) => {
+      return { ...state, isBackgroundDropdownShow: false };
     },
   },
   initialState

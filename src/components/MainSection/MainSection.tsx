@@ -29,14 +29,29 @@ const MainSection = () => {
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
+
   const mainSectionRef = useRef<HTMLDivElement>(null);
   const backgroundCanvas = useRef<HTMLCanvasElement>(null);
+
+  const { mathQuiiFunc } = useSelector(
+    (state: RootState) => state.mathQuillReducer
+  );
+
+  const handleClientOffset = (x: number, y: number, latexString: string) => {
+    mathQuiiFunc.clickAt(x, y);
+    mathQuiiFunc.write(latexString);
+  };
+
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'box',
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
+    drop(item: { name: string; type: string; latex: string }, monitor) {
+      const clientOffset = monitor.getClientOffset();
+      handleClientOffset(clientOffset.x, clientOffset.y, item.latex);
+    },
   });
 
   const heightInfo = { initial: 25 };
@@ -89,15 +104,10 @@ const MainSection = () => {
             isActive={isActive}
             canDrop={canDrop}
             latex={latex}
+            dragndrop={drop}
           />
         )}
-        canvas={isBackgroundDropdownShow && <Canvas backgroundCanvas={backgroundCanvas} />}
-        isBackground={isBackgroundDropdownShow}
-        latex={<Latex value={latex} onChange={changeHandler} />}
-        tab={<Tab />}
-        resizing={resizing}
-        height={height}
-      />
+      canvas={isBackgroundDropdownShow && <Canvas backgroundCanvas={backgroundCanvas} />}
       {click && <CropSection />}
     </>
   );

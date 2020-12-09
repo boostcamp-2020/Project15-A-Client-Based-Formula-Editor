@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
+export const FontDropdown = styled.div``;
 export const DropDownContent = styled.div<{ dropDown: string }>`
   width: 6.25rem;
   border: 1px solid ${colors.borderGrey};
@@ -26,7 +27,7 @@ export const Content = styled.div<{ isSelected: boolean }>`
     margin-left: auto;
     margin-top: 5px;
   }
-  &: hover {
+  &:hover {
     background-color: ${colors.hoverGrey};
   }
 `;

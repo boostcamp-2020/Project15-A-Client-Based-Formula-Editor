@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import SPRING from '@src/utils/svg/background/spring.svg';
@@ -11,6 +12,7 @@ import { RoundButton } from '@src/components/Common/RoundButton/style';
 import {
   backgroundDropdown,
   winterDropdown,
+  closeDropdown,
 } from '@src/store/modules/backgroundDropdown';
 import { drawing } from '@src/store/modules/drawerDropdown';
 import {
@@ -18,6 +20,7 @@ import {
   fallingSnow,
   deleteWinterAnimation,
 } from '@src/utils/backgroundAnimation';
+import useOutsideClick from '@src/hooks/useOutSideClick';
 import * as StyleComponent from './style';
 
 const Background = () => {
@@ -50,8 +53,10 @@ const Background = () => {
       drawingSnow(context, canvas.width, canvas.height, winterDropdownShow);
     }
   };
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(backgroundRef, isBackgroundDropdownShow, closeDropdown);
   return (
-    <div>
+    <div ref={backgroundRef}>
       <RoundButton onClick={onClickBackgroundHandler}>
         <BACKGROUND />
       </RoundButton>
