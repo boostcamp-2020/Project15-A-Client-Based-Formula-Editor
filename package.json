@@ -42,6 +42,7 @@
     "@types/redux-actions": "^2.6.1",
     "@types/styled-components": "^5.1.4",
     "css-loader": "^5.0.1",
+    "desmos": "^1.5.4",
     "html2canvas": "^1.0.0-rc.7",
     "react": "^17.0.1",
     "react-dnd": "^11.1.3",

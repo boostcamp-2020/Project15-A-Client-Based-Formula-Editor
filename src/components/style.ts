@@ -36,15 +36,3 @@ export const LeftArea = styled.div`
   flex-direction: column;
   width: 100%;
 `;
-
-interface Props {
-  show: boolean;
-}
-
-export const RightArea = styled.div<Props>`
-  flex: 1;
-  width: ${(props) => (props.show ? '100%' : '0%')};
-  flex-grow: ${(props) => (props.show ? '1' : '0')};
-  overflow: hidden;
-  background-color: ${colors.backgroundGrey};
-`;
