@@ -11,7 +11,6 @@ export const getCanvas = createAction(GET_CANVAS);
 export const winterDropdown = createAction(WINTER_DROPDOWN);
 export const closeDropdown = createAction(CLOSE);
 
-
 export interface BackgroundState {
   isBackgroundDropdownShow: boolean;
   backgroundCanvas: any;
@@ -42,6 +41,7 @@ export const BackgroundDropdownHandler = handleActions(
         ...state,
         winterDropdownShow: !state.winterDropdownShow,
       };
+    },
     [CLOSE]: (state: BackgroundState) => {
       return { ...state, isBackgroundDropdownShow: false };
     },
