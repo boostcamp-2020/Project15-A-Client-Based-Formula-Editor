@@ -11,8 +11,7 @@ export const MainSectionTemplate = styled.div`
   position: relative;
 `;
 
-export const TextArea = styled.div<{ height: number; isBackground: boolean }>`
-  background-color: #e1e0de;
+export const TextArea = styled.div<{ height: number }>`
   width: 100%;
   height: ${(props) => 100 - props.height}%;
 `;

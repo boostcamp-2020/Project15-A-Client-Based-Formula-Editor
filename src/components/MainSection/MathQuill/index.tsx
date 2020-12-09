@@ -11,6 +11,7 @@ interface Props {
   isActive: boolean;
   canDrop: boolean;
   latex: string;
+  isBackgroundDropdownShow: boolean;
   dragndrop: any;
 }
 
@@ -18,6 +19,7 @@ const EditableMathExample = ({
   isActive,
   canDrop,
   latex,
+  isBackgroundDropdownShow,
   dragndrop,
 }: Props) => {
   const { isDecline } = useSelector((state: RootState) => state.declineHandler);
@@ -47,6 +49,7 @@ const EditableMathExample = ({
       fontAlign={fontAlign}
       fontSize={selectedFontSize}
       fontColor={fontColor}
+      isBackgroundDropdownShow={isBackgroundDropdownShow}
       ref={dragndrop}
     >
       <EditableMathField

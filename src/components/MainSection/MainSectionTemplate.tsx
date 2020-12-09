@@ -24,11 +24,7 @@ const MainSectionTemplate = ({
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
-      <StyleComponent.TextArea
-        isBackground={isBackground}
-        height={height}
-        ref={mainSectionRef}
-      >
+      <StyleComponent.TextArea height={height} ref={mainSectionRef}>
         {mathQuill}
         {canvas}
       </StyleComponent.TextArea>

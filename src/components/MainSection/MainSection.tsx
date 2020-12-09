@@ -1,9 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+/* eslint-disable prettier/prettier */
+import React, { useState, useRef, useEffect} from 'react';
 import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
 import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
+import {getCanvas} from '@src/store/modules/backgroundDropdown';
 import Canvas from '@src/components/Common/Canvas';
 import CropSection from './CropSection';
 import MainSectionTemplate from './MainSectionTemplate';
@@ -29,6 +31,7 @@ const MainSection = () => {
   };
 
   const mainSectionRef = useRef<HTMLDivElement>(null);
+  const backgroundCanvas = useRef<HTMLCanvasElement>(null);
 
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
@@ -86,28 +89,25 @@ const MainSection = () => {
 
   useEffect(() => {
     dispatch(getMathQuillContainer(mainSectionRef));
-  }, []);
 
+  }, []);
+  useEffect(()=>{
+    dispatch(getCanvas(backgroundCanvas));
+  }, [isBackgroundDropdownShow]);
   return (
     <>
       <MainSectionTemplate
         mainSectionRef={mainSectionRef}
-        mathQuill={
-          // eslint-disable-next-line react/jsx-wrap-multilines
+        mathQuill={(
           <MathQuill
+            isBackgroundDropdownShow={isBackgroundDropdownShow}
             isActive={isActive}
             canDrop={canDrop}
             latex={latex}
             dragndrop={drop}
           />
-        }
-        canvas={isBackgroundDropdownShow && <Canvas />}
-        isBackground={isBackgroundDropdownShow}
-        latex={<Latex value={latex} onChange={changeHandler} />}
-        tab={<Tab />}
-        resizing={resizing}
-        height={height}
-      />
+        )}
+      canvas={isBackgroundDropdownShow && <Canvas backgroundCanvas={backgroundCanvas} />}
       {click && <CropSection />}
     </>
   );

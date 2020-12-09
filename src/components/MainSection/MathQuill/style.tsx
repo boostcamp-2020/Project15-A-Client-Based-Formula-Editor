@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
@@ -8,6 +9,7 @@ interface MathFieldProp {
   canDrop: boolean;
   fontSize: number;
   fontColor: string;
+  isBackgroundDropdownShow: boolean;
 }
 
 export const MathField = styled.div<MathFieldProp>`
@@ -22,6 +24,8 @@ export const MathField = styled.div<MathFieldProp>`
       ? colors.dragEffect
       : props.canDrop
       ? colors.dragEffect
+      : props.isBackgroundDropdownShow
+      ? 'transparent'
       : 'white'};
 
   font-size: ${(props) => props.fontSize}px;
