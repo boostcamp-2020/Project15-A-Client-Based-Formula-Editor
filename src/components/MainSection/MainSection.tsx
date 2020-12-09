@@ -4,6 +4,7 @@ import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
 import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
+import Canvas from '@src/components/Common/Canvas';
 import CropSection from './CropSection';
 import MainSectionTemplate from './MainSectionTemplate';
 import MathQuill from './MathQuill';
@@ -19,11 +20,24 @@ const MainSection = () => {
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
+  const { isBackgroundDropdownShow } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
+  );
   const dispatch = useDispatch();
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
+
   const mainSectionRef = useRef<HTMLDivElement>(null);
+
+  const { mathQuiiFunc } = useSelector(
+    (state: RootState) => state.mathQuillReducer
+  );
+
+  const handleClientOffset = (x: number, y: number, latexString: string) => {
+    mathQuiiFunc.clickAt(x, y);
+    mathQuiiFunc.write(latexString);
+  };
 
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: 'box',
@@ -31,6 +45,10 @@ const MainSection = () => {
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
+    drop(item: { name: string; type: string; latex: string }, monitor) {
+      const clientOffset = monitor.getClientOffset();
+      handleClientOffset(clientOffset.x, clientOffset.y, item.latex);
+    },
   });
 
   const heightInfo = { initial: 25 };
@@ -75,8 +93,16 @@ const MainSection = () => {
       <MainSectionTemplate
         mainSectionRef={mainSectionRef}
         mathQuill={
-          <MathQuill isActive={isActive} canDrop={canDrop} latex={latex} />
+          // eslint-disable-next-line react/jsx-wrap-multilines
+          <MathQuill
+            isActive={isActive}
+            canDrop={canDrop}
+            latex={latex}
+            dragndrop={drop}
+          />
         }
+        canvas={isBackgroundDropdownShow && <Canvas />}
+        isBackground={isBackgroundDropdownShow}
         latex={<Latex value={latex} onChange={changeHandler} />}
         tab={<Tab />}
         resizing={resizing}
