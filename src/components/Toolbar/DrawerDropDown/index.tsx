@@ -6,13 +6,13 @@ import { RoundButton } from '@src/components/Common/RoundButton/style';
 import { dropdown } from '@src/store/modules/drawerDropdown';
 import { closeDropdown } from '@src/store/modules/backgroundDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
-import setColors, { moveHandler } from '@src/utils/setColor';
+import setColors, { canvasX, canvasY } from '@src/utils/setColor';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>();
 
-  const { isDropdownShow, latexContainer, isClick } = useSelector(
+  const { isDropdownShow } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
   );
   const { isBackgroundDropdownShow } = useSelector(
@@ -22,30 +22,43 @@ const Drawer = () => {
     (state: RootState) => state.BackgroundDropdownHandler
   );
   const dispatch = useDispatch();
-  const color = ['black', 'yellow', 'red', 'green', 'white'];
-  const [contextValue, setContext] = useState();
-  const [colorValue, setColor] = useState('');
-
+  const color = ['black', 'yellow', 'red', 'green'];
+  const [click, setClick] = useState(false);
+  const [colorValue, setColor] = useState();
   const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
     const canvas = backgroundCanvas.current;
     const contexts = canvas.getContext('2d');
     const [colors, context] = setColors(e.target, contexts);
-    setContext(context);
     setColor(colors);
   };
   const mouseDownHandler = (e: any) => {
-    console.log('down');
+    setClick(true);
+    const canvas = backgroundCanvas.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d');
+    if (context === null) return;
+    const x = canvasX(e.clientX, canvas);
+    const y = canvasY(e.clientY, canvas);
+    context.beginPath();
+    context.strokeStyle = colorValue;
+    context.moveTo(x, y);
   };
 
   const mouseUpHandler = (e: any) => {
-    console.log('up');
-    console.log(e);
-    const canvas = backgroundCanvas.current;
-    const context = contextValue as any;
-    moveHandler(e, canvas, context, ref.current);
+    setClick(false);
   };
   const mouseMoveHandler = (e: any) => {
-    console.log('move');
+    const canvas = backgroundCanvas.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d');
+    if (context === null) return;
+    const x = canvasX(e.clientX, canvas);
+    const y = canvasY(e.clientY, canvas);
+    if (click) {
+      context.lineTo(x, y);
+      context.lineWidth = ref.current.value;
+      context.stroke();
+    }
   };
   const DrawerItem = color.map(
     (value): JSX.Element => {
@@ -66,11 +79,14 @@ const Drawer = () => {
     dispatch(dropdown(!isDropdownShow));
   };
   const onClickClearHandler = () => {
-    console.log('tmp');
+    const canvas = backgroundCanvas.current;
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, 300, 300);
   };
   useEffect(() => {
     document.addEventListener('mouseup', mouseUpHandler);
-  }, [mouseMoveHandler]);
+    return () => document.removeEventListener('mouseup', mouseUpHandler);
+  }, [mouseUpHandler]);
   useEffect(() => {
     document.addEventListener('mousemove', mouseMoveHandler);
     return () => document.removeEventListener('mousemove', mouseMoveHandler);
@@ -91,9 +107,9 @@ const Drawer = () => {
       {isDropdownShow && (
         <StyleComponent.DrawerContainer>
           {DrawerItem}
-          <button type="button" onClick={onClickClearHandler}>
+          <RoundButton onClick={onClickClearHandler}>
             <ERASE />
-          </button>
+          </RoundButton>
           <input type="range" ref={ref} min="1" max="5" />
         </StyleComponent.DrawerContainer>
       )}
