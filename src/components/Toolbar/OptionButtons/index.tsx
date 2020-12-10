@@ -4,7 +4,7 @@ import BACK from '@src/utils/svg/toolbar/back.svg';
 import FORWORD from '@src/utils/svg/toolbar/forward.svg';
 import CLEAR from '@src/utils/svg/toolbar/clear.svg';
 import ToolBarButton from '@src/components/Common/ToolbarButton';
-import { clear } from '@src/store/modules/mathQuill';
+import { clear, redo, undo } from '@src/store/modules/mathQuill';
 import colors from '@src/utils/colors';
 
 const OptionButtons = () => {
@@ -14,10 +14,10 @@ const OptionButtons = () => {
     dispatch(clear());
   };
   const onClickBackHandler = () => {
-    console.log('back');
+    dispatch(undo());
   };
   const onClickForwardHandler = () => {
-    console.log('forward');
+    dispatch(redo());
   };
 
   const options = [
