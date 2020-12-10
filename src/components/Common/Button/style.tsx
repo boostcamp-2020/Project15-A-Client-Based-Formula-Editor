@@ -4,19 +4,19 @@ import colors from '@src/utils/colors';
 export const CustomButton = styled.button`
   width: 100px;
   height: 100%;
-  background-color: ${colors.white};
-  border: 2px solid ${colors.grey};
+  background-color: ${colors.grey};
   border-radius: 3px;
   margin-right: 1.87rem;
   color: ${colors.grey};
   cursor: pointer;
   font-size: 13px;
-  color: ${colors.black};
+  color: ${colors.white};
   font-weight: bold;
-  outline: none;
+  border: 0;
+  outline: 0;
   transition-duration: 0.4s;
+  opacity: 0.6;
   &: hover {
-    background-color: ${colors.grey};
-    color: ${colors.white};
+    opacity: 1;
   }
 `;
