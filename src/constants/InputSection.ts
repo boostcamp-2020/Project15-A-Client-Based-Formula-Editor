@@ -22,6 +22,7 @@ import MULTIPLE from '@src/utils/svg/leftsection/inputsection/multiple.svg';
 import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
 import GREECE from '@src/utils/svg/leftsection/inputsection/greece.svg';
 import FONT from '@src/utils/svg/leftsection/inputsection/font.svg';
+import NullPreview from '@src/utils/svg/latex/nullPreview.png';
 
 export interface InputLatex {
   name: string;
@@ -123,6 +124,22 @@ export const InputLatexMathTopContent: InputLatex[] = [
     svg: SPECIALSYMBOL,
     latex: '①',
   },
+
+  {
+    name: 'greece',
+    svg: GREECE,
+    latex: '\\alpha ',
+  },
+  {
+    name: 'font',
+    svg: FONT,
+    latex: '\\epsilon',
+  },
+  {
+    name: 'division',
+    svg: DIVISION,
+    latex: '\\div ',
+  },
   {
     name: 'plus',
     svg: PLUS,
@@ -137,20 +154,5 @@ export const InputLatexMathTopContent: InputLatex[] = [
     name: 'multiple',
     svg: MULTIPLE,
     latex: '\\times ',
-  },
-  {
-    name: 'division',
-    svg: DIVISION,
-    latex: '\\div ',
-  },
-  {
-    name: 'greece',
-    svg: GREECE,
-    latex: '\\alpha ',
-  },
-  {
-    name: 'font',
-    svg: FONT,
-    latex: '\\epsilon',
   },
 ];
