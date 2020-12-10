@@ -10,7 +10,7 @@ export const RightArea = styled.div<Props>`
   width: ${(props) => (props.show ? '100%' : '0%')};
   flex-grow: ${(props) => (props.show ? '1' : '0')};
   overflow: hidden;
-  background-color: ${colors.backgroundGrey};
+  background-color: ${colors.graphPuple};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +19,12 @@ export const RightArea = styled.div<Props>`
 export const GraphContainer = styled.div`
   width: 400px;
   height: 300px;
-  border: 1px solid;
 `;
 
 export const Title = styled.div`
+  cursor: pointer;
   width: 100%;
   height: 45px;
-  border: 1px solid;
   margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
@@ -37,5 +36,8 @@ export const Title = styled.div`
   }
   .title {
     font-size: 30px;
+    margin-left: 30px;
+    font-weight: bold;
+    color: ${colors.white};
   }
 `;
