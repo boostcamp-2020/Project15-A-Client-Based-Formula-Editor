@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from '@src/components/Common/Button';
-import colors from '@src/utils/colors';
 import { setCropContainer } from '@src/store/modules/getMathQuill';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@src/store/modules';
+import html2canvas from 'html2canvas';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
@@ -14,12 +14,29 @@ interface ButtonProps {
 
 const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
   const dispatch = useDispatch();
+  const { mathQuillContainer } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
+  const { click } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const onClickImageSeveralSaveHandler = () => {
     dispatch(setCropContainer(true));
   };
+  const onClickSaveAllHandler = async () => {
+    if (!click) {
+      const mathquillSection = mathQuillContainer.current;
+      const canvas = await html2canvas(mathquillSection);
+      const imageUrl = canvas.toDataURL('data:image/gif;base64');
+      const aTag = document.createElement('a');
+      aTag.download = '수식 저장.gif';
+      aTag.href = imageUrl;
+      aTag.click();
+    }
+  };
   return (
     <StyledComponent.SaveButtonContainer saveClick={saveClick}>
-      <StyledComponent.MiniButton>
+      <StyledComponent.MiniButton onClick={onClickSaveAllHandler}>
         <span className="text">전체</span>
         <span className="text">저장</span>
       </StyledComponent.MiniButton>

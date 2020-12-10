@@ -27,6 +27,9 @@ const MainSection = () => {
   const { isBackgroundDropdownShow } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
+  const { saveClick } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const {isDropdownShow} = useSelector(
     (state:RootState) => state.drawerDropdownHandler
   )
@@ -122,7 +125,7 @@ const MainSection = () => {
         height={height}
       />
     
-      {click && <CropSection />}
+      {click && saveClick &&  <CropSection /> }
     </>
   );
 };

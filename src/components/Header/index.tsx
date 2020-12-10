@@ -6,7 +6,10 @@ import colors from '@src/utils/colors';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import saveAsFile from '@src/utils/savefile';
-import { setSaveContainer } from '@src/store/modules/getMathQuill';
+import {
+  setSaveContainer,
+  setCropContainer,
+} from '@src/store/modules/getMathQuill';
 import HeaderTitle from './HeaderTitle';
 import SaveButtons from './SaveButtons';
 import * as StyleComponent from './style';
@@ -19,9 +22,12 @@ const Header = () => {
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
-
+  const { click } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const onClickSaveHandler = () => {
     dispatch(setSaveContainer(!saveClick));
+    dispatch(setCropContainer(false));
   };
 
   const onClickExportHandler = () => {
