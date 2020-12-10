@@ -36,8 +36,8 @@ export const drawerDropdownHandler = handleActions(
         isDropdownShow: !state.isDropdownShow,
       };
     },
- 
-   [CLOSE]: (state = initialState) => {
+
+    [CLOSE]: (state = initialState) => {
       return { ...state, isDropdownShow: false };
     },
 
@@ -52,7 +52,6 @@ export const drawerDropdownHandler = handleActions(
         ...state,
         isClick: !state.isClick,
       };
-
     },
   },
   initialState

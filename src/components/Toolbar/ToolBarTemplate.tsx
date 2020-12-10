@@ -25,13 +25,13 @@ const ToolBarTemplate = ({
   return (
     <StyleComponent.ToolBarTemplate>
       <StyleComponent.Attributes>
-        {FontSizeDropDown}
         {FontColorDropDown}
+        {FontSizeDropDown}
         {AlignDropDown}
         {ItalicButton}
+        {graphButton}
         {DrawerDropDown}
         {BackgroundButton}
-        {graphButton}
       </StyleComponent.Attributes>
       <StyleComponent.Options>{optionButtons}</StyleComponent.Options>
     </StyleComponent.ToolBarTemplate>
