@@ -55,7 +55,7 @@ const Drawer = () => {
     if (context === null) return;
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
-    if (click) {
+    if (click && isDropdownShow) {
       context.lineTo(x, y);
       context.lineWidth = ref.current.value;
       context.stroke();
