@@ -2,7 +2,8 @@ import { SVG } from '@src/utils/svg/leftsection/mathsection';
 
 export interface InputMath {
   name: string;
-  svg: string;
+  svg?: string;
+  symbol?: string;
   latex: string;
 }
 export const mathFraction: InputMath[] = [
@@ -688,6 +689,131 @@ export const matrix: InputMath[] = [
   },
 ];
 
+export const specialsymbol: InputMath[] = [
+  {
+    name: '1',
+    symbol: '①',
+    latex: '①',
+  },
+  {
+    name: '2',
+    symbol: '②',
+    latex: '②',
+  },
+  {
+    name: '3',
+    symbol: '③',
+    latex: '③',
+  },
+  {
+    name: '4',
+    symbol: '④',
+    latex: '④',
+  },
+  {
+    name: '5',
+    symbol: '⑤',
+    latex: '⑤',
+  },
+  {
+    name: '6',
+    symbol: '⑥',
+    latex: '⑥',
+  },
+  {
+    name: '7',
+    symbol: '⑦',
+    latex: '⑦',
+  },
+  {
+    name: '8',
+    symbol: '⑧',
+    latex: '⑧',
+  },
+  {
+    name: '9',
+    symbol: '⑨',
+    latex: '⑨',
+  },
+  {
+    name: '10',
+    symbol: '⑩',
+    latex: '⑩',
+  },
+
+  {
+    name: 'a',
+    symbol: 'ⓐ',
+    latex: 'ⓐ',
+  },
+  {
+    name: 'b',
+    symbol: 'ⓑ',
+    latex: 'ⓑ',
+  },
+  {
+    name: 'c',
+    symbol: 'ⓒ',
+    latex: 'ⓒ',
+  },
+  {
+    name: 'd',
+    symbol: 'ⓓ',
+    latex: 'ⓓ',
+  },
+  {
+    name: 'e',
+    symbol: 'ⓔ',
+    latex: 'ⓔ',
+  },
+  {
+    name: 'f',
+    symbol: 'ⓕ',
+    latex: 'ⓕ',
+  },
+
+  {
+    name: 'g',
+    symbol: 'ⓖ',
+    latex: 'ⓖ',
+  },
+  {
+    name: 'h',
+    symbol: 'ⓗ',
+    latex: 'ⓗ',
+  },
+  {
+    name: 'i',
+    symbol: 'ⓘ',
+    latex: 'ⓘ',
+  },
+  {
+    name: 'j',
+    symbol: 'ⓙ',
+    latex: 'ⓙ',
+  },
+  {
+    name: '(a)',
+    symbol: '⒜',
+    latex: '⒜',
+  },
+  {
+    name: '(b)',
+    symbol: '⒝',
+    latex: '⒝',
+  },
+  {
+    name: '(c)',
+    symbol: '⒞',
+    latex: '⒞',
+  },
+  {
+    name: '(d)',
+    symbol: '⒟',
+    latex: '⒟',
+  },
+];
+
 const mathSection = [
   {
     name: 'mathFraction',
@@ -732,6 +858,10 @@ const mathSection = [
   {
     name: 'matrix',
     value: matrix,
+  },
+  {
+    name: 'specialsymbol',
+    value: specialsymbol,
   },
 ];
 export default mathSection;
