@@ -33,22 +33,17 @@ const Drawer = () => {
     setContext(context);
     setColor(colors);
   };
-  const mouseDownHandler = (e: any) => {
-    console.log('down');
-  };
+  const mouseDownHandler = (e: any) => {};
   const mouseUpHandler = (e: any) => {
-    console.log('up');
     const context = contextValue as any;
-    console.log(context);
+    if (!context) return;
     context.beginPath();
     context.fillStyle = colorValue;
     context.arc(150, 45, 10, 0, Math.PI * 2, false);
     context.fill();
     context.fillText(`${365 - 10}/365`, 200, 110);
   };
-  const mouseMoveHandler = (e: any) => {
-    console.log('move');
-  };
+  const mouseMoveHandler = (e: any) => {};
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (

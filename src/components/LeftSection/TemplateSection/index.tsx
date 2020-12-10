@@ -29,7 +29,6 @@ const TemplateSectionContainer = () => {
         <Title title="템플릿" />
         <StyledComponent.ButtonContainer>
           {templateArray.map((data) => {
-            console.log(data.name);
             return (
               <LatexContent
                 latex={data.latex}
