@@ -31,6 +31,7 @@ const Drawer = () => {
     const [colors, context] = setColors(e.target, contexts);
     setColor(colors);
   };
+
   const mouseDownHandler = (e: any) => {
     setClick(true);
     const canvas = backgroundCanvas.current;
@@ -60,6 +61,7 @@ const Drawer = () => {
       context.stroke();
     }
   };
+
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (
