@@ -94,11 +94,10 @@ const MainSection = () => {
 
   useEffect(() => {
     dispatch(getMathQuillContainer(mainSectionRef));
-
-  }, []);
-  useEffect(()=>{
     dispatch(getCanvas(backgroundCanvas));
-  }, [isBackgroundDropdownShow]);
+   
+  }, []);
+
   return (
     <>
       <MainSectionTemplate

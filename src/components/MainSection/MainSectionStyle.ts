@@ -14,6 +14,7 @@ export const MainSectionTemplate = styled.div`
 export const TextArea = styled.div<{ height: number }>`
   width: 100%;
   height: ${(props) => 100 - props.height}%;
+  position: relative;
 `;
 
 export const LaTeX = styled.div<{ height: number }>`
