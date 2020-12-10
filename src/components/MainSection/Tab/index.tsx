@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
-import { change } from '@src/store/modules/mathQuill';
+import { change, loadHistory } from '@src/store/modules/mathQuill';
 import { changeColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/font-dropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
@@ -29,7 +29,9 @@ const Tab = () => {
   const { isDecline: fontDecline } = useSelector(
     (state: RootState) => state.declineHandler
   );
-
+  const { history, historyIdx } = useSelector(
+    (state: RootState) => state.mathQuillReducer
+  );
   const dispatch = useDispatch();
 
   let storedData;
@@ -47,6 +49,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
+        history: string[];
+        historyIdx: number;
       }) => {
         if (data.id === selectedTabId) {
           return {
@@ -56,6 +60,8 @@ const Tab = () => {
             fontSize,
             fontDecline,
             fontAlign,
+            history,
+            historyIdx,
           };
         }
         return data;
@@ -75,6 +81,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
+        history: string[];
+        historyIdx: number;
       }) => tab.id === tabId
     )[0];
 
@@ -87,6 +95,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
+        history: string[];
+        historyIdx: number;
       }) => {
         if (data.id === selectedTabId) {
           return {
@@ -96,6 +106,8 @@ const Tab = () => {
             fontSize,
             fontDecline,
             fontAlign,
+            history,
+            historyIdx,
           };
         }
         return data;
@@ -109,6 +121,12 @@ const Tab = () => {
     dispatch(changeFontAlign(selectedTabData.fontAlign));
     dispatch(decline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
+    dispatch(
+      loadHistory({
+        history: selectedTabData.history,
+        historyIdx: selectedTabData.historyIdx,
+      })
+    );
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
   };
 
@@ -123,6 +141,8 @@ const Tab = () => {
       fontSize: '15',
       fontAlign: 'center',
       fontDecline: true,
+      history: ['blank'],
+      historyIdx: 0,
     });
 
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -144,6 +164,8 @@ const Tab = () => {
           fontSize: number;
           fontDecline: boolean;
           fontAlign: string;
+          history: string[];
+          historyIdx: number;
         }) => data.id !== tabId
       );
 
@@ -153,6 +175,12 @@ const Tab = () => {
       dispatch(change(newStoreData[0].latex));
       dispatch(changeFontAlign(newStoreData[0].fontAlign));
       dispatch(decline(newStoreData[0].fontDecline));
+      dispatch(
+        loadHistory({
+          history: newStoreData[0].history,
+          historyIdx: newStoreData[0].historyIdx,
+        })
+      );
       dispatch(updateTab(newStoreData));
       window.localStorage.setItem('tab', JSON.stringify(newStoreData));
     }
@@ -186,6 +214,12 @@ const Tab = () => {
       dispatch(changeFontAlign(storedData[0].fontAlign));
       dispatch(decline(storedData[0].fontDecline));
       dispatch(change(storedData[0].latex));
+      dispatch(
+        loadHistory({
+          history: storedData[0].history,
+          historyIdx: storedData[0].historyIdx,
+        })
+      );
     } else {
       window.localStorage.setItem('tab', JSON.stringify(tabList));
     }

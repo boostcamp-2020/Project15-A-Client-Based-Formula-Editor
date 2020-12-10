@@ -16,7 +16,15 @@ type Action =
 export interface TabState {
   lastId: number;
   selectedTabId: number;
-  tabList: { id: number; title: string; latex: string }[];
+  tabList: {
+    id: number;
+    title: string;
+    latex: string;
+    fontColor: string;
+    fontSize: number;
+    fontAlign: string;
+    fontDecline: boolean;
+  }[];
 }
 
 const getLastId = () => {
@@ -30,7 +38,17 @@ const getLastId = () => {
 const initialState = {
   lastId: getLastId(),
   selectedTabId: 1,
-  tabList: [{ id: 1, title: 'TAB1', latex: 'blank' }],
+  tabList: [
+    {
+      id: 1,
+      title: 'TAB1',
+      latex: 'blank',
+      fontColor: 'black',
+      fontSize: 15,
+      fontAlign: 'center',
+      fontDecline: true,
+    },
+  ],
 };
 
 export const tabReducer = handleActions(
@@ -46,6 +64,10 @@ export const tabReducer = handleActions(
           id: state.lastId + 1,
           title: `TAB${state.lastId + 1}`,
           latex: 'blank',
+          fontColor: 'black',
+          fontSize: 15,
+          fontDecline: true,
+          fontAlign: 'center',
         }),
       };
     },
