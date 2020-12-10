@@ -36,15 +36,13 @@ const Drawer = () => {
   const mouseDownHandler = (e: any) => {
     console.log('down');
   };
+
   const mouseUpHandler = (e: any) => {
     console.log('up');
+    console.log(e);
+    const canvas = backgroundCanvas.current;
     const context = contextValue as any;
-    console.log(context);
-    context.beginPath();
-    context.fillStyle = colorValue;
-    context.arc(150, 45, 10, 0, Math.PI * 2, false);
-    context.fill();
-    context.fillText(`${365 - 10}/365`, 200, 110);
+    moveHandler(e, canvas, context, ref.current);
   };
   const mouseMoveHandler = (e: any) => {
     console.log('move');
@@ -72,8 +70,7 @@ const Drawer = () => {
   };
   useEffect(() => {
     document.addEventListener('mouseup', mouseUpHandler);
-    return () => document.removeEventListener('mouseup', mouseUpHandler);
-  }, [mouseUpHandler]);
+  }, [mouseMoveHandler]);
   useEffect(() => {
     document.addEventListener('mousemove', mouseMoveHandler);
     return () => document.removeEventListener('mousemove', mouseMoveHandler);
