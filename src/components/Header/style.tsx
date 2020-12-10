@@ -41,6 +41,7 @@ export const SaveButtonContainer = styled.div`
   width: 110px;
   justify-content: space-between;
   margin-right: 1.87rem;
+  display: none;
 `;
 
 export const MiniButton = styled.div`

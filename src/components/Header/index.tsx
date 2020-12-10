@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import SVGIcon from '@src/utils/svg/header/logo.svg';
 import Button from '@src/components/Common/Button';
+import SaveModeButton from '@src/components/Common/SaveModeButton';
 import colors from '@src/utils/colors';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import saveAsFile from '@src/utils/savefile';
 import { setCropContainer } from '@src/store/modules/getMathQuill';
 import HeaderTitle from './HeaderTitle';
+import SaveButtons from './SaveButtons';
 import * as StyleComponent from './style';
 
 const Header = () => {
@@ -33,19 +35,16 @@ const Header = () => {
       <SVGIcon />
       <HeaderTitle />
       <StyleComponent.ButtonContainer>
-        {click === false ? (
-          <Button
-            color={colors.lightGrey}
-            value="저장 모드"
-            onClick={onClickImageSaveHandler}
-          />
-        ) : (
-          <Button
-            color={colors.lightGrey}
-            value="일반 모드"
-            onClick={onClickImageSaveHandler}
-          />
-        )}
+        <SaveModeButton
+          color={colors.lightGrey}
+          value="저장 모드"
+          onClick={onClickImageSaveHandler}
+        />
+        <SaveButtons
+          color={colors.lightGrey}
+          value="저장 모드"
+          onClick={onClickImageSaveHandler}
+        />
         <Button
           color={colors.lightGrey}
           value="Export"
