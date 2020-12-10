@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
@@ -12,9 +11,12 @@ import { RoundButton } from '@src/components/Common/RoundButton/style';
 import {
   backgroundDropdown,
   winterDropdown,
-  closeDropdown,
 } from '@src/store/modules/backgroundDropdown';
-import { drawing } from '@src/store/modules/drawerDropdown';
+import {
+  drawing,
+  dropdown,
+  closeDropdown,
+} from '@src/store/modules/drawerDropdown';
 import {
   drawingSnow,
   fallingSnow,
@@ -29,10 +31,15 @@ const Background = () => {
     backgroundCanvas,
     winterDropdownShow,
   } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
-
+  const { isDropdownShow } = useSelector(
+    (state: RootState) => state.drawerDropdownHandler
+  );
   const dispatch = useDispatch();
 
   const onClickBackgroundHandler = () => {
+    if (isDropdownShow) {
+      dispatch(closeDropdown());
+    }
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
     if (isBackgroundDropdownShow) {
       dispatch(winterDropdown(false));
@@ -54,7 +61,6 @@ const Background = () => {
     }
   };
   const backgroundRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(backgroundRef, isBackgroundDropdownShow, closeDropdown);
   return (
     <div ref={backgroundRef}>
       <RoundButton onClick={onClickBackgroundHandler}>

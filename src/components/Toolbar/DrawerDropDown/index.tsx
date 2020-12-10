@@ -3,15 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import {
-  dropdown,
-  closeDropdown,
-  changeLatex,
-} from '@src/store/modules/drawerDropdown';
+import { dropdown } from '@src/store/modules/drawerDropdown';
+import { closeDropdown } from '@src/store/modules/backgroundDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
-import outsideClick from '@src/hooks/useOutSideClick';
 import setColors, { moveHandler } from '@src/utils/setColor';
-import html2canvas from 'html2canvas';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -19,6 +14,9 @@ const Drawer = () => {
 
   const { isDropdownShow, latexContainer, isClick } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
+  );
+  const { isBackgroundDropdownShow } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
   );
   const { backgroundCanvas } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
@@ -34,11 +32,6 @@ const Drawer = () => {
     const [colors, context] = setColors(e.target, contexts);
     setContext(context);
     setColor(colors);
-    context.fillStyle = colorValue;
-    context.beginPath();
-    console.log(`현재 시작${context.fillStyle}`);
-    context.arc(500, 500, 100, 0, Math.PI * 2, false);
-    context.fill();
   };
   const mouseDownHandler = (e: any) => {
     console.log('down');
@@ -69,6 +62,9 @@ const Drawer = () => {
   );
 
   const onClickDrawerHandler = () => {
+    if (isBackgroundDropdownShow) {
+      dispatch(closeDropdown());
+    }
     dispatch(dropdown(!isDropdownShow));
   };
   const onClickClearHandler = () => {
@@ -89,6 +85,7 @@ const Drawer = () => {
       document.removeEventListener('mousedown', mouseDownHandler);
     };
   }, [mouseDownHandler]);
+
   return (
     <div>
       <RoundButton onClick={onClickDrawerHandler}>

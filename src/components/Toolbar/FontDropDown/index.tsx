@@ -27,7 +27,7 @@ export default function FontDropDown() {
   };
   const fontRef = useRef<HTMLDivElement>(null);
   useOutsideClick(fontRef, dropDown === 'open', closeDropdown);
-  const fonts = [11, 13, 15, 16, 19, 24, 28, 30, 34, 38];
+  const fonts = [15, 16, 19, 24, 28, 30, 34];
 
   const fontList: JSX.Element[] = fonts.map(
     (font): JSX.Element => {
