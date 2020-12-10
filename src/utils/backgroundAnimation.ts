@@ -16,6 +16,7 @@ const initSnow = () => {
   const t = Math.random() * (Math.PI * 2);
   g.addColorStop(0, 'rgba(255,255,255,1)');
   g.addColorStop(1, 'rgba(255,255,255,0)');
+
   context.beginPath();
   context.moveTo(x, y);
   context.fillStyle = g;
@@ -70,6 +71,7 @@ export const drawingSnow = (
   height = h;
   context = ctx;
   backGround = background;
+
   context.fillStyle = 'rgba(0,0,0,0.7)';
   context.fillRect(0, 0, width, height);
   snowArr = [];

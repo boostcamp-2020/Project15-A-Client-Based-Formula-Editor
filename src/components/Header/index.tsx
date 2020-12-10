@@ -27,7 +27,6 @@ const Header = () => {
   );
   const onClickSaveHandler = () => {
     dispatch(setSaveContainer(!saveClick));
-    dispatch(setCropContainer(false));
   };
 
   const onClickExportHandler = () => {

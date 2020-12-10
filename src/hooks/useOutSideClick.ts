@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 import { useEffect, MutableRefObject } from 'react';
 import { useDispatch } from 'react-redux';
 

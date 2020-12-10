@@ -21,14 +21,17 @@ const Drawer = () => {
   const { backgroundCanvas } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
+
   const dispatch = useDispatch();
   const color = ['black', 'yellow', 'red', 'green'];
   const [click, setClick] = useState(false);
   const [colorValue, setColor] = useState();
+
   const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
     const canvas = backgroundCanvas.current;
     const contexts = canvas.getContext('2d');
     const [colors, context] = setColors(e.target, contexts);
+
     setColor(colors);
   };
 
@@ -37,7 +40,8 @@ const Drawer = () => {
     const canvas = backgroundCanvas.current;
     if (!canvas) return;
     const context = canvas.getContext('2d');
-    if (context === null) return;
+    if (!context) return;
+
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
     context.beginPath();
@@ -52,7 +56,8 @@ const Drawer = () => {
     const canvas = backgroundCanvas.current;
     if (!canvas) return;
     const context = canvas.getContext('2d');
-    if (context === null) return;
+    if (!context) return;
+
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
     if (click && isDropdownShow) {
@@ -85,6 +90,7 @@ const Drawer = () => {
     const context = canvas.getContext('2d');
     context.clearRect(0, 0, 300, 300);
   };
+
   useEffect(() => {
     document.addEventListener('mouseup', mouseUpHandler);
     return () => document.removeEventListener('mouseup', mouseUpHandler);

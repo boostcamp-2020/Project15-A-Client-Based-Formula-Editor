@@ -60,6 +60,7 @@ const Background = () => {
       drawingSnow(context, canvas.width, canvas.height, winterDropdownShow);
     }
   };
+
   const backgroundRef = useRef<HTMLDivElement>(null);
   return (
     <div ref={backgroundRef}>
