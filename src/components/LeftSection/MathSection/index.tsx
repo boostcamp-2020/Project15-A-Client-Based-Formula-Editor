@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import Title from '@src/components/Common/Title';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { insert } from '@src/store/modules/mathQuill';
 import { RootState } from '@src/store/modules';
 import { LatexContent } from '@src/components/Common/LatexContent';
+import { LatexSymbolContent } from '@src/components/Common/LatexSymbolContent';
 import mathSection from '@src/constants/mathSection';
 import * as mathSVG from '@src/constants/mathSection';
 import * as StyledComponent from './style';
@@ -21,21 +22,48 @@ const MathSectionContainer = () => {
     mathQuiiFunc.write(value);
     dispatch(insert(value));
   };
+
+  const symbolList = ['specialsymbol'];
+  const isSymbol = symbolList.includes(name);
+  console.log(name, isSymbol);
+
+  let latexContentList: JSX.Element[];
+
+  if (isSymbol) {
+    latexContentList = mathArray.map((data: any) => {
+      return (
+        <LatexSymbolContent
+          latex={data.latex}
+          key={data.name}
+          symbol={data.symbol}
+          width="80"
+          height="80"
+          name={data.name}
+          onClick={() => onClickHandler(data.latex)}
+        />
+      );
+    });
+  } else {
+    latexContentList = mathArray.map((data: any) => {
+      return (
+        <LatexContent
+          latex={data.latex}
+          key={data.name}
+          svg={data.svg}
+          width="80"
+          height="80"
+          name={data.name}
+          onClick={() => onClickHandler(data.latex)}
+        />
+      );
+    });
+  }
+
   return (
     <StyledComponent.MathSectionContainer>
       <Title title="수식" />
       <StyledComponent.ButtonContainer>
-        {mathArray.map((data) => (
-          <LatexContent
-            latex={data.latex}
-            key={data.name}
-            svg={data.svg}
-            width="80"
-            height="80"
-            name={data.name}
-            onClick={() => onClickHandler(data.latex)}
-          />
-        ))}
+        {latexContentList}
       </StyledComponent.ButtonContainer>
     </StyledComponent.MathSectionContainer>
   );
