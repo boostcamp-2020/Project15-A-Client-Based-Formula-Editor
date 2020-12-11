@@ -2,10 +2,16 @@
 import React from 'react';
 import { InputLatexMathTopContent } from '@src/constants/InputSection';
 import { LatexContent } from '@src/components/Common/LatexContent';
+import { useDispatch } from 'react-redux';
+import { show } from '@src/store/modules/mathQuill';
 
 import * as StyledComponent from './style';
 
 const InputBottomSelectionSection = () => {
+  const dispatch = useDispatch();
+  const onClickHandler = (name: string) => {
+    dispatch(show(name));
+  };
   return (
     <>
       <StyledComponent.InputBottomSelectionSectionContainer>
@@ -17,6 +23,7 @@ const InputBottomSelectionSection = () => {
             name={value.name}
             width="40"
             height="40"
+            onClick={() => onClickHandler(value.name)}
           />
         ))}
         <StyledComponent.InputLatexContent width="84" height="40">
