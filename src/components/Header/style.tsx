@@ -34,24 +34,25 @@ export const Title = styled.div`
     color: ${colors.grey};
   }
 `;
-
-export const SaveButtonContainer = styled.div`
-  display: flex;
+interface Props {
+  saveClick: boolean;
+}
+export const SaveButtonContainer = styled.div<Props>`
+  display: ${(props) => (props.saveClick ? 'flex' : 'none')};
   align-items: center;
   width: 110px;
   justify-content: space-between;
   margin-right: 1.87rem;
-  display: none;
 `;
 
 export const MiniButton = styled.div`
-  display: flex;
-  flex-direction: column;
+ display: lex;
+  flex-dection: column;
   justify-content: space-between 
   width: 50px;
   height: 100%;
   align-items: center;
-  background-color: ${colors.grey};
+        background-color: ${colors.grey};
   padding: 3px;
   border-radius: 3px;
   cursor: pointer;

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable consistent-return */
 const setColor = (e: EventTarget, context: any) => {
   const e1 = e as HTMLElement;

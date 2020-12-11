@@ -6,21 +6,27 @@ import colors from '@src/utils/colors';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import saveAsFile from '@src/utils/savefile';
-import { setCropContainer } from '@src/store/modules/getMathQuill';
+import {
+  setSaveContainer,
+  setCropContainer,
+} from '@src/store/modules/getMathQuill';
 import HeaderTitle from './HeaderTitle';
 import SaveButtons from './SaveButtons';
 import * as StyleComponent from './style';
 
 const Header = () => {
-  const { click } = useSelector(
+  const dispatch = useDispatch();
+  const { saveClick } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
-  const dispatch = useDispatch();
-  const onClickImageSaveHandler = async () => {
-    dispatch(setCropContainer(true));
+  const { click } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
+  const onClickSaveHandler = () => {
+    dispatch(setSaveContainer(!saveClick));
   };
 
   const onClickExportHandler = () => {
@@ -38,12 +44,13 @@ const Header = () => {
         <SaveModeButton
           color={colors.lightGrey}
           value="저장 모드"
-          onClick={onClickImageSaveHandler}
+          onClick={onClickSaveHandler}
         />
         <SaveButtons
           color={colors.lightGrey}
           value="저장 모드"
-          onClick={onClickImageSaveHandler}
+          onClick={onClickSaveHandler}
+          saveClick={saveClick}
         />
         <Button
           color={colors.lightGrey}
