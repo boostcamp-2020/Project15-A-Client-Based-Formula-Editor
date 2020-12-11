@@ -7,7 +7,7 @@ import BackgroundDropDown from '@src/components/Toolbar/BackgroundDropdown';
 import AlignDropDown from '@src/components/Toolbar/AlignDropDown';
 import GraphButton from '@src/components/Toolbar/GraphButton';
 import OptionButtons from '@src/components/Toolbar/OptionButtons';
-import ToolBarTemplate from './ToolbarTemplate';
+import ToolBarTemplate from './ToolBarTemplate';
 
 const ToolBar = () => {
   return (
