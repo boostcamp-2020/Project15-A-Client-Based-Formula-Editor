@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 const RAIN_NUM = 100;
 let width: number;
@@ -41,6 +42,7 @@ const drawRain = () => {
   }
 };
 export const drawingRain = (
+  canvas: any,
   ctx: CanvasRenderingContext2D,
   w: number,
   h: number
@@ -48,9 +50,16 @@ export const drawingRain = (
   width = w;
   height = h;
   context = ctx;
+
+  if (canvas) {
+    console.log('?');
+
+    context.scale(0.2, 0.2);
+  }
+
   context.clearRect(0, 0, width, height);
   context.fillStyle = '#243c74';
-  context.fillRect(0, 0, width, height);
+  context.fillRect(0, 0, window.outerWidth, window.outerHeight);
   rainArr = [];
   for (let i = 0; i < RAIN_NUM; i++) {
     initRain();

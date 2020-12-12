@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import SUMMER from '@src/utils/svg/background/summer.svg';
@@ -10,7 +10,6 @@ import {
   winterDropdown,
   summerDropdown,
 } from '@src/store/modules/backgroundDropdown';
-import { closeDropdown, drawing } from '@src/store/modules/drawerDropdown';
 import {
   drawingSnow,
   deleteWinterAnimation,
@@ -28,9 +27,7 @@ const Background = () => {
     winterDropdownShow,
     summerDropdownShow,
   } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
-  );
+
   const dispatch = useDispatch();
 
   const onClickBackgroundHandler = () => {
@@ -47,11 +44,12 @@ const Background = () => {
     if (summerDropdownShow) {
       deleteSummerAnimation();
       deleteWinterAnimation();
-      drawingRain(context, canvas.width, canvas.height);
+      drawingRain(canvas, context, canvas.width, canvas.height);
     } else {
       dispatch(summerDropdown(true));
       deleteWinterAnimation();
-      drawingRain(context, canvas.width, canvas.height);
+      deleteSummerAnimation();
+      drawingRain(canvas, context, canvas.width, canvas.height);
     }
   };
   const onClickWinterHandler = () => {
@@ -70,6 +68,7 @@ const Background = () => {
   };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
+
   return (
     <div ref={backgroundRef}>
       <RoundButton onClick={onClickBackgroundHandler}>
