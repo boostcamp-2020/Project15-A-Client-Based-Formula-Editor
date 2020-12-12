@@ -71,10 +71,6 @@
 ## 👬 프로젝트의 이슈 및 PR
 <center>
 
-![react](https://img.shields.io/badge/react-17.0.1-9cf?logo=react) ![Typescript](https://img.shields.io/badge/typescript-v4.0.5-white?logo=typescript)
-</center>
-<center>
-
 [![GitHub Open Issues](https://img.shields.io/github/issues-raw/boostcamp-2020/Project15-A-Client-Based-Formula-Editor?color=green)](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/issues) [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/boostcamp-2020/Project15-A-Client-Based-Formula-Editor?color=red)](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/issues) [![GitHub Open PR](https://img.shields.io/github/issues-pr-raw/boostcamp-2020/Project15-A-Client-Based-Formula-Editor?color=green)](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/issues) [![GitHub Closed PR](https://img.shields.io/github/issues-pr-closed-raw/boostcamp-2020/Project15-A-Client-Based-Formula-Editor?color=red)](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/issues)
 
 </center>
