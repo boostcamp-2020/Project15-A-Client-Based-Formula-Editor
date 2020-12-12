@@ -31,38 +31,25 @@ const Background = () => {
   const dispatch = useDispatch();
 
   const onClickBackgroundHandler = () => {
-    if (isDropdownShow) {
-      dispatch(closeDropdown());
-    }
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
-    if (isBackgroundDropdownShow) {
-      dispatch(winterDropdown(false));
-      dispatch(summerDropdown(false));
-      deleteWinterAnimation();
-    }
+    dispatch(winterDropdown(false));
+    dispatch(summerDropdown(false));
+    deleteWinterAnimation();
   };
   const onClickSummerHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
-    if (winterDropdownShow) {
-      dispatch(winterDropdown(false));
-      deleteWinterAnimation();
-    }
-    if (!summerDropdownShow) {
-      dispatch(summerDropdown(true));
-      drawingRain(context, canvas.width, canvas.height);
-    }
+    dispatch(winterDropdown(false));
+    deleteWinterAnimation();
+    dispatch(summerDropdown(true));
+    drawingRain(context, canvas.width, canvas.height);
   };
   const onClickWinterHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
-    if (summerDropdownShow) {
-      dispatch(summerDropdown(false));
-    }
-    if (!winterDropdownShow) {
-      dispatch(winterDropdown(true));
-      drawingSnow(context, canvas.width, canvas.height);
-    }
+    dispatch(summerDropdown(false));
+    dispatch(winterDropdown(true));
+    drawingSnow(context, canvas.width, canvas.height);
   };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
