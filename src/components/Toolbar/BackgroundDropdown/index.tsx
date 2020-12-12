@@ -48,8 +48,13 @@ const Background = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
     dispatch(summerDropdown(false));
-    dispatch(winterDropdown(true));
-    drawingSnow(context, canvas.width, canvas.height);
+    if (winterDropdownShow) {
+      deleteWinterAnimation();
+      drawingSnow(context, canvas.width, canvas.height);
+    } else {
+      dispatch(winterDropdown(true));
+      drawingSnow(context, canvas.width, canvas.height);
+    }
   };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
