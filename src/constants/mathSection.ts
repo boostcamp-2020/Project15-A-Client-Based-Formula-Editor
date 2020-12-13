@@ -814,6 +814,149 @@ export const specialsymbol: InputMath[] = [
   },
 ];
 
+export const misc: InputMath[] = [
+  {
+    name: 'misc',
+    symbol: '∀',
+    latex: '\\forall ',
+  },
+  {
+    name: 'misc2',
+    symbol: 'ð',
+    latex: '\\eth ',
+  },
+  {
+    name: 'misc3',
+    symbol: 'ℊ',
+    latex: '\\g ',
+  },
+  {
+    name: 'misc4',
+    symbol: '℩',
+    latex: '\\variota',
+  },
+  {
+    name: 'misc5',
+    symbol: 'ι',
+    latex: '\\i',
+  },
+  {
+    name: 'misc6',
+    symbol: 'j',
+    latex: '\\j',
+  },
+  {
+    name: 'misc8',
+    symbol: 'ℓ',
+    latex: '\\ell',
+  },
+  {
+    name: 'misc9',
+    symbol: 'ϰ',
+    latex: '\\varkappa',
+  },
+  {
+    name: 'misc10',
+    symbol: 'ℏ',
+    latex: '\\hbar',
+  },
+  {
+    name: 'misc11',
+    symbol: 'ơ',
+    latex: '\\o',
+  },
+  {
+    name: 'misc12',
+    symbol: 'ℱ',
+    latex: '\\F',
+  },
+  {
+    name: 'misc13',
+    symbol: 'ℒ',
+    latex: '\\L',
+  },
+  {
+    name: 'misc14',
+    symbol: '∂',
+    latex: '\\partial',
+  },
+  {
+    name: 'misc15',
+    symbol: '∁',
+    latex: '\\complement',
+  },
+  {
+    name: 'misc16',
+    symbol: 'ℑ',
+    latex: '\\Im',
+  },
+  {
+    name: 'misc17',
+    symbol: '℘',
+    latex: '\\wp',
+  },
+  {
+    name: 'misc18',
+    symbol: 'ℬ',
+    latex: '\\B',
+  },
+  {
+    name: 'misc19',
+    symbol: 'ℇ',
+    latex: '\\E',
+  },
+  {
+    name: 'misc21',
+    symbol: '𝕳',
+    latex: '\\H',
+  },
+  {
+    name: 'misc22',
+    symbol: '℧',
+    latex: '\\mho',
+  },
+  {
+    name: 'misc23',
+    symbol: 'Å',
+    latex: '\\AA',
+  },
+  {
+    name: 'misc24',
+    symbol: 'ℰ',
+    latex: '\\Ep',
+  },
+  {
+    name: 'misc25',
+    symbol: '℮',
+    latex: '\\e',
+  },
+  {
+    name: 'misc26',
+    symbol: 'ℵ',
+    latex: '\\aleph',
+  },
+  {
+    name: 'misc27',
+    symbol: 'ℶ',
+    latex: '\\beth',
+  },
+  {
+    name: 'misc27',
+    symbol: 'ℶ',
+    latex: '\\beth',
+  },
+  {
+    name: 'misc28',
+    symbol: 'ℷ',
+    latex: '\\m',
+  },
+  {
+    name: 'misc29',
+    symbol: 'ℸ',
+    latex: '\\daleth',
+  },
+];
+
 const mathSection = [
   {
     name: 'mathFraction',
@@ -863,5 +1006,6 @@ const mathSection = [
     name: 'specialsymbol',
     value: specialsymbol,
   },
+  { name: 'misc', value: misc },
 ];
 export default mathSection;
