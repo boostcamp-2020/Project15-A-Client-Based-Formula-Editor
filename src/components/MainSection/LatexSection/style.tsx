@@ -26,6 +26,5 @@ export const Content = styled.div`
     padding: 10px;
     min-width: 96%;
     min-height: 95%;
-    margin: auto;
   }
 `;
