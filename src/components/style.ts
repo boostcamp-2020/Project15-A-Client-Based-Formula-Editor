@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const Header = styled.div`
-  height: 3.5rem;
-  background-color: white;
+  height: 3.8rem;
+  background-color: ${colors.white};
   display: flex;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid ${colors.borderGrey};
 `;
 
 export const Aside = styled.div`
