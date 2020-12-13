@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
