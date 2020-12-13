@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import * as StyledComponent from './style';
 
 const Canvas = ({ backgroundCanvas, show }: any) => {
