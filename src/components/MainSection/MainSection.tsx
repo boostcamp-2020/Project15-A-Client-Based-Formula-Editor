@@ -42,12 +42,6 @@ const MainSection = () => {
   const backgroundCanvas = useRef<any>(null);
   const canvas = backgroundCanvas.current;
 
-  if(canvas!==null){
-      const context = canvas.getContext('2d');
-      context.canvas.width = window.innerWidth;
-      context.canvas.height = window.innerHeight;
-      context.scale(7,7);
-  }
 
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
