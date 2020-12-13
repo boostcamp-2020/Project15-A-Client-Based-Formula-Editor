@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
+export const LaTex = styled.div`
+  overflow: hidden;
+`;
+
 export const Handle = styled.div`
   display: flex;
   cursor: row-resize;
@@ -15,6 +19,7 @@ export const Handle = styled.div`
 
 export const Content = styled.div`
   display: flex;
+  height: 100%;
   textarea {
     background-color: transparent;
     color: ${colors.white};

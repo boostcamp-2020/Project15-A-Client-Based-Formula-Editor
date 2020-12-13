@@ -23,7 +23,7 @@ export const LaTeX = styled.div<{ height: number }>`
   height: ${(props) => props.height}%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow: hidden;
 `;
 
 export const Tab = styled.div`
