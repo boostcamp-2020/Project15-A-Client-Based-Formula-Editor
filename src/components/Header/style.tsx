@@ -8,9 +8,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   & svg {
     cursor: pointer;
-    width: 3rem;
-    height: 3rem;
-    margin-left: 0.3rem;
+    margin-left: 0.5rem;
   }
 `;
 
@@ -24,10 +22,9 @@ export const ButtonContainer = styled.div`
 
 export const Title = styled.div`
   font-weight: bold;
-  margin-left: 0.43rem;
   .bigText {
     font-size: 1.3rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.45rem;
   }
   .smallText {
     font-size: 0.87rem;
@@ -40,7 +37,7 @@ interface Props {
 export const SaveButtonContainer = styled.div<Props>`
   display: ${(props) => (props.saveClick ? 'flex' : 'none')};
   align-items: center;
-  width: 110px;
+  width: 115px;
   justify-content: space-between;
   margin-right: 1.87rem;
 `;
@@ -52,13 +49,14 @@ export const MiniButton = styled.div`
   width: 50px;
   height: 100%;
   align-items: center;
-        background-color: ${colors.grey};
+  background-color: ${colors.grey};
   padding: 3px;
   border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
   outline: none;
   opacity: 0.6;
+  margin-right: 5px; 
   .text {
     font-size: 13px;
     color: white;
