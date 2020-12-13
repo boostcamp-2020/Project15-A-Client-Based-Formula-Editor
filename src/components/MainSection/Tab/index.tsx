@@ -34,8 +34,28 @@ const Tab = () => {
   );
   const dispatch = useDispatch();
 
-  let storedData;
-  let newStoreData;
+  let storedData: {
+    id: number;
+    title: string;
+    latex: string;
+    fontColor: string;
+    fontSize: number;
+    fontDecline: boolean;
+    fontAlign: string;
+    history: string[];
+    historyIdx: number;
+  }[];
+  let newStoreData: {
+    id: number;
+    title: string;
+    latex: string;
+    fontColor: string;
+    fontSize: number;
+    fontDecline: boolean;
+    fontAlign: string;
+    history: string[];
+    historyIdx: number;
+  }[];
 
   useInterval(() => {
     console.log('자동저장되었습니다.');
@@ -138,7 +158,7 @@ const Tab = () => {
       title: `TAB${lastId + 1}`,
       latex: 'blank',
       fontColor: 'black',
-      fontSize: '15',
+      fontSize: 15,
       fontAlign: 'center',
       fontDecline: true,
       history: ['blank'],
@@ -151,6 +171,17 @@ const Tab = () => {
 
   const handleDeleteTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
+    let nextTabInfo: {
+      id: number;
+      title: string;
+      latex: string;
+      fontColor: string;
+      fontSize: number;
+      fontDecline: boolean;
+      fontAlign: string;
+      history: string[];
+      historyIdx: number;
+    };
 
     if (storedData.length === 1) {
       alert('This is the last tab!');
@@ -169,18 +200,27 @@ const Tab = () => {
         }) => data.id !== tabId
       );
 
-      dispatch(changeTab(newStoreData[0].id));
-      dispatch(changeColor(newStoreData[0].fontColor));
-      dispatch(changeFontSize(newStoreData[0].fontSize));
-      dispatch(change(newStoreData[0].latex));
-      dispatch(changeFontAlign(newStoreData[0].fontAlign));
-      dispatch(decline(newStoreData[0].fontDecline));
-      dispatch(
-        loadHistory({
-          history: newStoreData[0].history,
-          historyIdx: newStoreData[0].historyIdx,
-        })
-      );
+      newStoreData = [];
+      storedData.forEach((data, index) => {
+        if (data.id !== tabId) {
+          newStoreData.push(data);
+        } else if (selectedTabId === tabId) {
+          nextTabInfo = storedData[index - 1];
+          dispatch(changeTab(nextTabInfo.id));
+          dispatch(changeColor(nextTabInfo.fontColor));
+          dispatch(changeFontSize(nextTabInfo.fontSize));
+          dispatch(change(nextTabInfo.latex));
+          dispatch(changeFontAlign(nextTabInfo.fontAlign));
+          dispatch(decline(nextTabInfo.fontDecline));
+          dispatch(
+            loadHistory({
+              history: nextTabInfo.history,
+              historyIdx: nextTabInfo.historyIdx,
+            })
+          );
+        }
+      });
+
       dispatch(updateTab(newStoreData));
       window.localStorage.setItem('tab', JSON.stringify(newStoreData));
     }
