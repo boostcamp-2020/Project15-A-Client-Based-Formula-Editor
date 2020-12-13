@@ -14,10 +14,12 @@ export const HeaderContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   margin-left: auto;
-  height: 35px;
+  height: 65%;
   background-color: ${colors.white};
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
 `;
 
 export const Title = styled.div`
@@ -37,36 +39,41 @@ interface Props {
 export const SaveButtonContainer = styled.div<Props>`
   display: ${(props) => (props.saveClick ? 'flex' : 'none')};
   align-items: center;
-  width: 115px;
-  justify-content: space-between;
-  margin-right: 1.87rem;
+  justify-content: space-around;
+  width: 380px;
 `;
 
 export const MiniButton = styled.div`
- display: lex;
-  flex-dection: column;
-  justify-content: space-between 
-  width: 50px;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100%;
   background-color: ${colors.grey};
   padding: 3px;
-  border-radius: 3px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   outline: none;
   opacity: 0.6;
-  margin-right: 5px; 
-  .text {
+  .text1 {
     font-size: 13px;
     color: white;
     font-weight: bold;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 4px;
-    margin-top: 4px;
+    margin-top: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-bottom: 5px;
+  }
+  .text2 {
+    font-size: 13px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
   }
   &: hover {
-    opacity: 1
+    opacity: 1;
   }
 `;

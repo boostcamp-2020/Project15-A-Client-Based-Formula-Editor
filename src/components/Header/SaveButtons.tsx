@@ -37,12 +37,16 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
   return (
     <StyledComponent.SaveButtonContainer saveClick={saveClick}>
       <StyledComponent.MiniButton onClick={onClickSaveAllHandler}>
-        <span className="text">전체</span>
-        <span className="text">저장</span>
+        <div className="text1">Save all</div>
       </StyledComponent.MiniButton>
       <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
-        <span className="text">부분</span>
-        <span className="text">저장</span>
+        <div className="text1">Save the part</div>
+      </StyledComponent.MiniButton>
+      <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
+        <div className="text1">Complete</div>
+      </StyledComponent.MiniButton>
+      <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
+        <div className="text1">Cancel</div>
       </StyledComponent.MiniButton>
     </StyledComponent.SaveButtonContainer>
   );
