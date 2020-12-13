@@ -9,6 +9,7 @@ import { change } from '@src/store/modules/mathQuill';
 import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
 import {getCanvas} from '@src/store/modules/backgroundDropdown';
 import Canvas from '@src/components/Common/Canvas';
+import Alert from '@src/components/Alert'
 import CropSection from './CropSection';
 import MainSectionTemplate from './MainSectionTemplate';
 import MathQuill from './MathQuill';
@@ -105,6 +106,7 @@ const MainSection = () => {
     <>
       <MainSectionTemplate
         mainSectionRef={mainSectionRef}
+        alert={<Alert />}
         mathQuill={(
           <MathQuill
             isBackgroundDropdownShow={isBackgroundDropdownShow}
@@ -118,7 +120,6 @@ const MainSection = () => {
         canvas={isBackgroundDropdownShow? (
           <Canvas backgroundCanvas={backgroundCanvas} show="background" />
         ):  (isDropdownShow? <Canvas backgroundCanvas={backgroundCanvas} show="drawer" />:undefined)}
-        isBackground={isBackgroundDropdownShow}
         latex={<Latex value={latex} onChange={changeHandler} />}
         tab={<Tab />}
         resizing={resizing}

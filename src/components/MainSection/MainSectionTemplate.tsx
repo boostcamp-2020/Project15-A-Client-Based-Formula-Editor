@@ -9,7 +9,7 @@ interface Props {
   resizing: any;
   height: number;
   canvas: JSX.Element;
-  isBackground: any;
+  alert: JSX.Element;
 }
 
 const MainSectionTemplate = ({
@@ -20,11 +20,12 @@ const MainSectionTemplate = ({
   resizing,
   height,
   canvas,
-  isBackground,
+  alert,
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing}>
       <StyleComponent.TextArea height={height} ref={mainSectionRef}>
+        {alert}
         {mathQuill}
         {canvas}
       </StyleComponent.TextArea>
