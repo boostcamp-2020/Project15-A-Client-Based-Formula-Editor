@@ -10,8 +10,8 @@ const DropDown = ({ click }: DropDownProps) => {
   return (
     <DropdownDiv>
       <DropdownContent>
-        {click === 'drawer' ? <Drawer /> : ''}
-        {click === 'background' ? <Background /> : ''}
+        {click === 'drawer' && <Drawer />}
+        {click === 'background' && <Background />}
       </DropdownContent>
     </DropdownDiv>
   );

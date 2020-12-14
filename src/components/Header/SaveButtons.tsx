@@ -1,5 +1,8 @@
 import React from 'react';
-import { setCropContainer } from '@src/store/modules/getMathQuill';
+import {
+  setCropContainer,
+  deleteCropContainer,
+} from '@src/store/modules/getMathQuill';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import html2canvas from 'html2canvas';
@@ -21,7 +24,11 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
     (state: RootState) => state.getMathQuillReducer
   );
   const onClickImageSeveralSaveHandler = () => {
-    dispatch(setCropContainer(true));
+    if (!click) {
+      dispatch(setCropContainer());
+    } else if (click) {
+      dispatch(deleteCropContainer());
+    }
   };
   const onClickSaveAllHandler = async () => {
     if (!click) {

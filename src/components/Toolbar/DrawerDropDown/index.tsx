@@ -48,6 +48,7 @@ const Drawer = () => {
     context.strokeStyle = colorValue;
     context.moveTo(x, y);
   };
+  
 
   const mouseUpHandler = (e: any) => {
     setClick(false);

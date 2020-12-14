@@ -6,7 +6,6 @@ export const CustomButton = styled.button`
   height: 100%;
   background-color: ${colors.mainGreen};
   border-radius: 7px;
-  color: ${colors.grey};
   cursor: pointer;
   font-size: 18px;
   color: ${colors.white};

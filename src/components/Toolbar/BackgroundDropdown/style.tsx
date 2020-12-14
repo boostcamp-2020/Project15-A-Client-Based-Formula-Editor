@@ -3,7 +3,7 @@ import colors from '@src/utils/colors';
 
 export const BackgroundContainer = styled.div`
   display: flex;
-  width: 200px;
+  width: 70px;
   justify-content: space-between;
   z-index: 1;
   position: absolute;
