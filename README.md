@@ -2,7 +2,7 @@
 > 그림판,그래프, 수식 편집 따로따로 불편하셨죠? 
 > 개선된 UX/UI 환경에서 모두 작업하세요! **통합 수식 편집기**
 <p align="center">
-<img src="https://i.imgur.com/aXavTq0.gif" width="300" height="200"> </p>
+<img src="./src/utils/svg/header/logo.svg" width="400" height="300"></p>
 
 ## 💻 배포 주소 
   [http://www.formulaEditor.co.kr](http://49.50.167.109/)
