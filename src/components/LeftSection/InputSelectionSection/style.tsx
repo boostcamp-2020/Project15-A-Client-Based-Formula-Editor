@@ -60,5 +60,6 @@ export const InputLatexContent = styled.div<InputLatexContentProps>`
   transition-duration: 0.4s;
   &:hover {
     background-color: ${colors.lightGrey};
+    cursor: pointer;
   }
 `;
