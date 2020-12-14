@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const MiddleHolder = styled.div`
+  display: none;
   width: 50%;
   padding: 0px 10px;
   position: absolute;
