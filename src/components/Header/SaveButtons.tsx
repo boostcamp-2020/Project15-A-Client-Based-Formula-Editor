@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  setSaveContainer,
   setCropContainer,
   deleteCropContainer,
 } from '@src/store/modules/getMathQuill';
@@ -23,6 +24,7 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
+
   const onClickImageSeveralSaveHandler = () => {
     if (!click) {
       dispatch(setCropContainer());
@@ -41,6 +43,9 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
       aTag.click();
     }
   };
+  const onCilickCancelHandler = () => {
+    dispatch(setSaveContainer(!saveClick));
+  };
   return (
     <StyledComponent.SaveButtonContainer saveClick={saveClick}>
       <StyledComponent.MiniButton onClick={onClickSaveAllHandler}>
@@ -52,7 +57,7 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
       <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
         <div className="text1">Complete</div>
       </StyledComponent.MiniButton>
-      <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
+      <StyledComponent.MiniButton onClick={onCilickCancelHandler}>
         <div className="text1">Cancel</div>
       </StyledComponent.MiniButton>
     </StyledComponent.SaveButtonContainer>

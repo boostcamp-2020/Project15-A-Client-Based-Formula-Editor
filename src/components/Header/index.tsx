@@ -40,9 +40,7 @@ const Header = () => {
     saveAsFile(mathQuiiFunc.html(), 'html.txt');
     saveAsFile(JSON.stringify(style), 'css.txt');
   };
-  const onClickMainHandler = () => {
-    console.log('?');
-  };
+  const onClickMainHandler = () => {};
   return (
     <StyleComponent.HeaderContainer>
       <SVGIcon />

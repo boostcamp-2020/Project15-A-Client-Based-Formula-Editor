@@ -84,7 +84,6 @@ const CropSection = () => {
   return (
     <>
       <Modal display="block">
-        <CropSaveButton onClick={onClickSaveHandler}>저장하기</CropSaveButton>
         <ReactCrop
           src={url}
           crop={cropData}
