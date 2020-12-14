@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
+import { addStyles, StaticMathField } from 'react-mathquill';
 import * as StyleComponent from './style';
 
+addStyles();
 interface Props {
   latex: string;
   name: string;
-  children: React.ReactNode;
   width: string;
   height: string;
   onClick?: () => void;
@@ -17,7 +18,6 @@ export const DictionaryContent = ({
   width,
   height,
   onClick,
-  children,
 }: Props) => {
   const [{ isDragging }, drag] = useDrag({
     item: { name, type: 'box', latex },
@@ -36,7 +36,9 @@ export const DictionaryContent = ({
         opacity={opacity}
         onClick={onClick}
       >
-        {children}
+        <div>
+          <StaticMathField>{latex}</StaticMathField>
+        </div>
       </StyleComponent.InputLatexContent>
     </>
   );

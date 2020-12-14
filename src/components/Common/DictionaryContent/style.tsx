@@ -9,7 +9,7 @@ interface LatexProps {
 export const InputLatexContent = styled.div<LatexProps>`
   flex: auto;
   display: flex;
-  width: ${(props) => props.width}px;
+  width: ${(props) => props.width};
   height: ${(props) => props.height}px;
   opacity: ${(props) => props.opacity};
   justify-content: center;
@@ -18,9 +18,8 @@ export const InputLatexContent = styled.div<LatexProps>`
   font-size: 80%;
   cursor: pointer;
   transition-duration: 0.4s;
-  & > * {
+  * {
     cursor: pointer;
-  }
   }
   &:hover {
     background-color: ${colors.lightGrey};
