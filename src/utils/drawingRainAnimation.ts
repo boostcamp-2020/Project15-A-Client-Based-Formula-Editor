@@ -6,7 +6,7 @@ const RAIN_NUM = 200;
 let width: number;
 let height: number;
 let context: CanvasRenderingContext2D;
-let animationId: any;
+let animationId: number;
 let rainArr: Array<any> = [];
 const makeLine = (x: number, y: number, length: number) => {
   context.beginPath();

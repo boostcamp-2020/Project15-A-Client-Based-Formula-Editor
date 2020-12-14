@@ -5,8 +5,17 @@ const SNOW_NUM = 100;
 let width: number;
 let height: number;
 let context: CanvasRenderingContext2D;
-let animationId: any;
-let snowArr: Array<any> = [];
+let animationId: number;
+
+interface snowProps {
+  x: number;
+  y: number;
+  randomRadius: number;
+  g: CanvasGradient;
+  distance: number;
+  t: number;
+}
+let snowArr: Array<snowProps> = [];
 const initSnow = () => {
   const x = Math.floor(Math.random() * width);
   const y = Math.floor(Math.random() * height);
