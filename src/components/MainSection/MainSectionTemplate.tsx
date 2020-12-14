@@ -10,6 +10,7 @@ interface Props {
   height: number;
   canvas: JSX.Element;
   alert: JSX.Element;
+  show: boolean;
 }
 
 const MainSectionTemplate = ({
@@ -21,9 +22,10 @@ const MainSectionTemplate = ({
   height,
   canvas,
   alert,
+  show,
 }: Props) => {
   return (
-    <StyleComponent.MainSectionTemplate ref={resizing}>
+    <StyleComponent.MainSectionTemplate ref={resizing} show={show}>
       <StyleComponent.TextArea height={height} ref={mainSectionRef}>
         {alert}
         {mathQuill}

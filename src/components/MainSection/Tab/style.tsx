@@ -4,24 +4,24 @@ import colors from '@src/utils/colors';
 export const TabContainer = styled.ul`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 3.5rem;
   overflow: auto;
 `;
 
 export const SmallTab = styled.li`
   width: 2.5rem;
   height: 1.3rem;
-  flex: 0, 1, auto;
-  align-items: center;
-  list-style: none;
-  border-radius: 0 0 10px 10px;
-  transition: all 0.2s ease-in-out;
-  background-color: ${colors.lightGrey};
-  color: ${colors.black};
-  cursor: pointer;
-  display: flex;
   padding: 0.3rem;
-  &: hover {
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  color: ${colors.black};
+  border-radius: 0 0 10px 10px;
+  background-color: ${colors.lightGrey};
+  list-style: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
     height: 1.7rem;
   }
   svg {
@@ -31,33 +31,29 @@ export const SmallTab = styled.li`
 `;
 
 export const TabItem = styled(SmallTab)<{
-  tabId?: number;
-  selectedTabId?: number;
+  tabId: number;
+  selectedTabId: number;
   title?: string;
 }>`
   width: 5.5rem;
-  background-color: ${(props) => {
-    if (props.selectedTabId === props.tabId) return colors.grey;
-    return colors.lightGrey;
-  }};
-  color: ${(props) => {
-    if (props.selectedTabId === props.tabId) return colors.white;
-    return colors.darkGrey;
-  }};
+  background-color: ${(props) =>
+    props.selectedTabId === props.tabId ? colors.grey : colors.lightGrey};
+  color: ${(props) =>
+    props.selectedTabId === props.tabId ? colors.white : colors.darkGrey};
   input {
-    display: none;
     width: 100%;
-    font-size: 0.8rem;
-    font-weight: normal;
+    display: none;
     border: none;
-    background: none;
     outline: none;
     text-align: center;
+    font-size: 0.8rem;
+    font-weight: normal;
+    background: none;
   }
   svg {
     visibility: hidden;
   }
-  &: hover {
+  &:hover {
     height: 1.7rem;
     svg {
       visibility: visible;
@@ -68,9 +64,9 @@ export const TabItem = styled(SmallTab)<{
 export const Title = styled.div`
   width: 100%;
   font-size: 0.8rem;
-  font-weight: normal;
-  border: none;
-  background: none;
-  text-align: center;
   margin: auto;
+  border: none;
+  text-align: center;
+  font-weight: normal;
+  background: none;
 `;

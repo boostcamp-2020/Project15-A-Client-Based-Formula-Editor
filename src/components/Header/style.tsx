@@ -13,13 +13,13 @@ export const HeaderContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  margin-left: auto;
   height: 65%;
-  background-color: ${colors.white};
   display: flex;
+  margin-left: auto;
+  margin-right: 20px;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 20px;
+  background-color: ${colors.white};
 `;
 
 export const Title = styled.div`
@@ -33,47 +33,49 @@ export const Title = styled.div`
     color: ${colors.grey};
   }
 `;
+
 interface Props {
   saveClick: boolean;
 }
+
 export const SaveButtonContainer = styled.div<Props>`
+  width: 380px;
   display: ${(props) => (props.saveClick ? 'flex' : 'none')};
   align-items: center;
   justify-content: space-around;
-  width: 380px;
 `;
 
 export const MiniButton = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   height: 100%;
-  background-color: ${colors.grey};
   padding: 3px;
   border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
+  align-items: center;
+  justify-content: center;
   outline: none;
   opacity: 0.6;
+  background-color: ${colors.grey};
+  font-weight: bold;
+  cursor: pointer;
   .text1 {
-    font-size: 13px;
-    color: white;
-    font-weight: bold;
     margin-top: 5px;
     margin-left: 7px;
     margin-right: 7px;
     margin-bottom: 5px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
   }
   .text2 {
-    font-size: 13px;
-    color: white;
-    font-weight: bold;
     margin-bottom: 5px;
     margin-left: 7px;
     margin-right: 7px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
   }
-  &: hover {
+  &:hover {
     opacity: 1;
   }
 `;

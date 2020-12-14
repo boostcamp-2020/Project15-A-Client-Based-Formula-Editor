@@ -52,7 +52,7 @@ export const MathField = styled.div<MathFieldProp>`
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
   .mq-empty {
-    background-color: ${colors.white};
     border: 0.5px dotted ${colors.grey};
+    background-color: ${colors.white};
   }
 `;

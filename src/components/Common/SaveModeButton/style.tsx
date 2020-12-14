@@ -2,19 +2,19 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const CustomButton = styled.button`
+  width: 100px;
+  height: 100%;
   display: inline-block;
   border-radius: 7px;
-  background-color: ${colors.mainGreen};
   border: none;
-  color: #ffffff;
+  outline: 0;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  width: 100px;
-  height: 100%;
+  color: #ffffff;
+  background-color: ${colors.mainGreen};
   transition: all 0.5s;
   cursor: pointer;
-  outline: 0;
 `;
 
 export const Span = styled.span`
@@ -24,20 +24,20 @@ export const Span = styled.span`
   transition: 0.5s;
 
   &::after {
-    content: '\\00bb';
     position: absolute;
-    opacity: 0;
     top: 0;
     right: -20px;
+    opacity: 0;
+    content: '\\00bb';
     transition: 0.5s;
   }
 
-  ${CustomButton}: hover & {
+  ${CustomButton}:hover & {
     padding-right: 25px;
   }
 
-  ${CustomButton}: hover &::after {
-    opacity: 1;
+  ${CustomButton}:hover &::after {
     right: 0;
+    opacity: 1;
   }
 `;

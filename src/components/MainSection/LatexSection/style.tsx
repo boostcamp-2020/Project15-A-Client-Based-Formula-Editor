@@ -7,29 +7,29 @@ export const LaTex = styled.div`
 
 export const Handle = styled.div`
   display: flex;
-  cursor: row-resize;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: ${colors.backgroundGrey};
-  font-weight: bold;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-  align-items: center;
   margin-left: 6px;
+  align-items: center;
+  color: ${colors.backgroundGrey};
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  cursor: row-resize;
 `;
 
 export const Content = styled.div`
   display: flex;
   height: 100%;
   textarea {
-    background-color: transparent;
-    color: ${colors.white};
-    font-size: 17px;
-    font-weight: bold;
-    resize: none;
-    border: none;
-    outline: none;
     padding: 10px;
     min-width: 96%;
     min-height: 95%;
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: transparent;
+    color: ${colors.white};
   }
 `;

@@ -2,15 +2,16 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const Aside = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  width: 28rem;
   background-color: ${colors.backgroundGrey};
 
   .SplitPane {
     position: relative !important;
-    min-height: initial !important;
     flex: 1 1 0 !important;
+    min-height: initial !important;
   }
 
   .Pane1 {

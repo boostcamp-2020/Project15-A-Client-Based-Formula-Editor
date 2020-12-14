@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const RoundButton = styled.div`
-  border-radius: 3.125rem;
   width: 2rem;
   height: 2rem;
-  cursor: pointer;
   display: flex;
+  border-radius: 3.125rem;
   background-color: ${colors.white};
   overflow: hidden;
+  cursor: pointer;
   .title {
     margin: auto;
     font-family: 'Times New Roman', Times, serif;
@@ -21,8 +21,8 @@ export const RoundButton = styled.div`
     font-family: 'Times New Roman', Times, serif;
     font-size: 1 rem;
     font-weight: bold;
-    color: ${colors.black};
     font-style: italic;
+    color: ${colors.black};
   }
   svg {
     margin: auto;
