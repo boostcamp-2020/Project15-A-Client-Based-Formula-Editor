@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown } from '@src/store/modules/drawerDropdown';
-import { closeDropdown } from '@src/store/modules/backgroundDropdown';
+import { dropdown, closeDropdown } from '@src/store/modules/drawerDropdown';
+import { getCanvas } from '@src/store/modules/backgroundDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
 import * as StyleComponent from './style';
@@ -21,7 +21,9 @@ const Drawer = () => {
   const { backgroundCanvas } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
-
+  const { completeShow } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const dispatch = useDispatch();
   const color = ['black', 'yellow', 'red', 'green'];
   const [click, setClick] = useState(false);
@@ -48,7 +50,6 @@ const Drawer = () => {
     context.strokeStyle = colorValue;
     context.moveTo(x, y);
   };
-  
 
   const mouseUpHandler = (e: any) => {
     setClick(false);
@@ -61,6 +62,7 @@ const Drawer = () => {
 
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
+    if (completeShow) return;
     if (click && isDropdownShow) {
       context.lineTo(x, y);
       context.lineWidth = ref.current.value;
@@ -80,11 +82,12 @@ const Drawer = () => {
     }
   );
 
-  const onClickDrawerHandler = () => {
-    if (isBackgroundDropdownShow) {
+  const onClickDrawerHandler = (background: any) => {
+    if (isDropdownShow) {
       dispatch(closeDropdown());
+    } else {
+      dispatch(dropdown());
     }
-    dispatch(dropdown(!isDropdownShow));
   };
   const onClickClearHandler = () => {
     const canvas = backgroundCanvas.current;
@@ -107,10 +110,14 @@ const Drawer = () => {
       document.removeEventListener('mousedown', mouseDownHandler);
     };
   }, [mouseDownHandler]);
-
+  useEffect(() => {
+    if (isDropdownShow) {
+      dispatch(getCanvas(backgroundCanvas));
+    }
+  }, [isDropdownShow]);
   return (
     <div>
-      <RoundButton onClick={onClickDrawerHandler}>
+      <RoundButton onClick={() => onClickDrawerHandler(backgroundCanvas)}>
         <DRAWER />
       </RoundButton>
       {isDropdownShow && (
