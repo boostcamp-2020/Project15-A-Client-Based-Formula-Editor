@@ -1,4 +1,4 @@
-import snowImageData from '@src/utils/svg/background/겨울.jpg';
+import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-plusplus */
 const SNOW_NUM = 100;

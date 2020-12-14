@@ -1,3 +1,5 @@
+import rainImageData from '@src/utils/svg/background/비배경화면.jpg';
+
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 const RAIN_NUM = 200;
@@ -29,8 +31,10 @@ const moveRain = (x: number, y: number, length: number) => {
 const drawRain = () => {
   animationId = requestAnimationFrame(drawRain);
   context.clearRect(0, 0, width, height);
-  context.fillStyle = 'rgba(0,0,0,0.7)';
-  context.fillRect(0, 0, width, height);
+  const rainImage = new Image();
+  rainImage.src = rainImageData;
+  context.drawImage(rainImage, 0, 0, width, height);
+  context.fill();
   for (let i = 0; i < RAIN_NUM; i++) {
     const rain = rainArr[i];
     rain.y += rain.distance;
@@ -52,7 +56,6 @@ export const drawingRain = (
   context = ctx;
 
   context.clearRect(0, 0, width, height);
-  context.fillStyle = 'rgba(0,0,0,0.7)';
   context.fillRect(0, 0, width, height);
   rainArr = [];
   for (let i = 0; i < RAIN_NUM; i++) {
