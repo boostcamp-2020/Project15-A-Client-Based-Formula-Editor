@@ -1,5 +1,5 @@
 import rainImageData from '@src/utils/svg/background/비배경화면.jpg';
-
+import { rainProps } from '@src/@types/animation';
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 const RAIN_NUM = 200;
@@ -7,7 +7,9 @@ let width: number;
 let height: number;
 let context: CanvasRenderingContext2D;
 let animationId: number;
-let rainArr: Array<any> = [];
+
+let rainArr: Array<rainProps> = [];
+
 const makeLine = (x: number, y: number, length: number) => {
   context.beginPath();
   context.strokeStyle = '#dfdfdf';

@@ -1,4 +1,5 @@
 import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
+import { snowProps } from '@src/@types/animation';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-plusplus */
 const SNOW_NUM = 100;
@@ -7,14 +8,6 @@ let height: number;
 let context: CanvasRenderingContext2D;
 let animationId: number;
 
-interface snowProps {
-  x: number;
-  y: number;
-  randomRadius: number;
-  g: CanvasGradient;
-  distance: number;
-  t: number;
-}
 let snowArr: Array<snowProps> = [];
 const initSnow = () => {
   const x = Math.floor(Math.random() * width);
