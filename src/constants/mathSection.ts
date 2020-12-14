@@ -1112,6 +1112,162 @@ export const arrow: InputMath[] = [
     latex: '⇊',
   },
 ];
+export const inequality: InputMath[] = [
+  {
+    name: 'inequality1',
+    symbol: '=',
+    latex: '=',
+  },
+  {
+    name: 'inequality2',
+    symbol: '<',
+    latex: '<',
+  },
+  {
+    name: 'inequality3',
+    symbol: '>',
+    latex: '>',
+  },
+  {
+    name: 'inequality4',
+    symbol: '≤',
+    latex: '≤',
+  },
+  {
+    name: 'inequality5',
+    symbol: '≥',
+    latex: '≥',
+  },
+  {
+    name: 'inequality6',
+    symbol: '≲',
+    latex: '≲',
+  },
+  {
+    name: 'inequality7',
+    symbol: '≳',
+    latex: '≳',
+  },
+  {
+    name: 'inequality8',
+    symbol: '⊂',
+    latex: '⊂',
+  },
+  {
+    name: 'inequality9',
+    symbol: '⊃',
+    latex: '⊃',
+  },
+  {
+    name: 'inequality10',
+    symbol: '⊆',
+    latex: '⊆',
+  },
+  {
+    name: 'inequality11',
+    symbol: '⊇',
+    latex: '⊇',
+  },
+  {
+    name: 'inequality12',
+    symbol: '⊊',
+    latex: '⊊',
+  },
+  {
+    name: 'inequality13',
+    symbol: '⊋',
+    latex: '⊋',
+  },
+  {
+    name: 'inequality14',
+    symbol: '≻',
+    latex: '≻',
+  },
+  {
+    name: 'inequality15',
+    symbol: '≺',
+    latex: '≺',
+  },
+];
+export const notoperator: InputMath[] = [
+  {
+    name: 'notoperator1',
+    symbol: '≮',
+    latex: '≮',
+  },
+  {
+    name: 'notoperator2',
+    symbol: '≯',
+    latex: '≯',
+  },
+  {
+    name: 'notoperator3',
+    symbol: '⊄',
+    latex: '⊄',
+  },
+  {
+    name: 'notoperator4',
+    symbol: '⊅',
+    latex: '⊅',
+  },
+  {
+    name: 'notoperator5',
+    symbol: '⊈',
+    latex: '⊈',
+  },
+  {
+    name: 'notoperator6',
+    symbol: '⊉',
+    latex: '⊉',
+  },
+  {
+    name: 'notoperator7',
+    symbol: '≰',
+    latex: '≰',
+  },
+  {
+    name: 'notoperator8',
+    symbol: '≱',
+    latex: '≱',
+  },
+];
+export const figure: InputMath[] = [
+  {
+    name: 'figure1',
+    symbol: '∟',
+    latex: '∟',
+  },
+  {
+    name: 'figure2',
+    symbol: '∠',
+    latex: '∠',
+  },
+  {
+    name: 'figure3',
+    symbol: '∢',
+    latex: '∢',
+  },
+  {
+    name: 'figure4',
+    symbol: '∴',
+    latex: '∴',
+  },
+  {
+    name: 'figure5',
+    symbol: '∵',
+    latex: '∵',
+  },
+  {
+    name: 'figure6',
+    symbol: '∶',
+    latex: '∶',
+  },
+  {
+    name: 'figure7',
+    symbol: '∷',
+    latex: '∷',
+  },
+];
 export const dictionary: InputMath[] = [
   {
     name: '다항식과비례식',
@@ -1692,5 +1848,8 @@ const mathSection = [
   { name: 'misc', value: misc },
   { name: 'dictionary', value: dictionary },
   { name: 'arrow', value: arrow },
+  { name: 'inequality', value: inequality },
+  { name: 'notoperator', value: notoperator },
+  { name: 'figure', value: figure },
 ];
 export default mathSection;
