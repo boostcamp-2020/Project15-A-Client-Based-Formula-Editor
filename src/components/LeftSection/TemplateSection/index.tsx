@@ -6,6 +6,8 @@ import { LatexContent } from '@src/components/Common/LatexContent';
 import * as templateSVG from '@src/constants/templateSection';
 import { insert } from '@src/store/modules/mathQuill';
 import templateSection from '@src/constants/templateSection';
+import UpArrow from '@src/utils/svg/leftsection/templatesection/up-arrow.svg';
+import DownArrow from '@src/utils/svg/leftsection/templatesection/down-arrow.svg';
 import * as StyledComponent from './style';
 
 const TemplateSectionContainer = () => {
@@ -23,10 +25,20 @@ const TemplateSectionContainer = () => {
     mathQuiiFunc.write(value);
     dispatch(insert(value));
   };
+
+  const resizingHandler = () => {
+    console.log('hi');
+  };
+
   return (
     <>
       <StyledComponent.TemplateSectionContainer>
-        <Title title="템플릿" />
+        <StyledComponent.Header>
+          <Title title="템플릿" />
+          <button type="button" onClick={resizingHandler}>
+            <DownArrow />
+          </button>
+        </StyledComponent.Header>
         <StyledComponent.ButtonContainer>
           {templateArray.map((data) => {
             return (

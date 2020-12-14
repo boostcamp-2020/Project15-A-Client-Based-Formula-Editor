@@ -814,6 +814,95 @@ export const specialsymbol: InputMath[] = [
   },
 ];
 
+export const unit: InputMath[] = [
+  {
+    name: '밀리미터',
+    symbol: '㎜',
+    latex: '㎜',
+  },
+  {
+    name: '센티미터',
+    symbol: '㎝',
+    latex: '㎝',
+  },
+  {
+    name: '킬로미터',
+    symbol: '㎞',
+    latex: '㎞',
+  },
+  {
+    name: '밀리그램',
+    symbol: '㎎',
+    latex: '㎎',
+  },
+  {
+    name: '킬로그램',
+    symbol: '㎏',
+    latex: '㎏',
+  },
+  {
+    name: '평방센티',
+    symbol: '㎠',
+    latex: '㎠',
+  },
+  {
+    name: '평방미터',
+    symbol: '㎡',
+    latex: '㎡',
+  },
+  {
+    name: '평방킬로미터',
+    symbol: '㎢',
+    latex: '㎢',
+  },
+  {
+    name: '입방센티',
+    symbol: '㎤',
+    latex: '㎤',
+  },
+  {
+    name: '입방미터',
+    symbol: '㎥',
+    latex: '㎥',
+  },
+  {
+    name: '입방킬로미터',
+    symbol: '㎦',
+    latex: '㎦',
+  },
+  {
+    name: '데시리터',
+    symbol: '㎗',
+    latex: '㎗',
+  },
+  {
+    name: '밀리리터',
+    symbol: '㎖',
+    latex: '㎖',
+  },
+  {
+    name: '리터',
+    symbol: 'ℓ',
+    latex: 'ℓ',
+  },
+  {
+    name: '섭씨온도',
+    symbol: '℃',
+    latex: '℃',
+  },
+  {
+    name: '화씨온도',
+    symbol: '℉',
+    latex: '℉',
+  },
+
+  {
+    name: '천분율',
+    symbol: '‰',
+    latex: '‰',
+  }
+];
+
 export const misc: InputMath[] = [
   {
     name: 'misc',
@@ -1005,6 +1094,10 @@ const mathSection = [
   {
     name: 'specialsymbol',
     value: specialsymbol,
+  },
+  {
+    name: 'unit',
+    value: unit,
   },
   { name: 'misc', value: misc },
 ];

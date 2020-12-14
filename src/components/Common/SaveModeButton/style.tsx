@@ -3,7 +3,7 @@ import colors from '@src/utils/colors';
 
 export const CustomButton = styled.button`
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: ${colors.mainGreen};
   border: none;
   color: #ffffff;
@@ -14,8 +14,7 @@ export const CustomButton = styled.button`
   height: 100%;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
-  margin-right: 1rem;
+  outline: 0;
 `;
 
 export const Span = styled.span`

@@ -4,18 +4,17 @@ import colors from '@src/utils/colors';
 export const CustomButton = styled.button`
   width: 100px;
   height: 100%;
-  background-color: ${colors.grey};
-  border-radius: 3px;
-  margin-right: 1.87rem;
+  background-color: ${colors.mainGreen};
+  border-radius: 7px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 18px;
   color: ${colors.white};
   font-weight: bold;
-  border: 0;
+  border: none;
   outline: 0;
-  transition-duration: 0.4s;
-  opacity: 0.6;
-  &: hover {
-    opacity: 1;
+  text-align: center;
+  margin-left: 5px;
+  &:hover {
+    opacity: 0.6;
   }
 `;
