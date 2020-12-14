@@ -51,12 +51,7 @@ const Header = () => {
           value="저장 모드"
           onClick={onClickSaveHandler}
         />
-        <SaveButtons
-          color={colors.lightGrey}
-          value="저장 모드"
-          onClick={onClickMainHandler}
-          saveClick={saveClick}
-        />
+        <SaveButtons saveClick={saveClick} />
         <Button
           color={colors.lightGrey}
           value="Export"

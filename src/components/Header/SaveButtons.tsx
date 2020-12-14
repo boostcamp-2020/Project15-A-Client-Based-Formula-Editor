@@ -13,13 +13,10 @@ import saveAsFile from '@src/utils/savefile';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
-  color: string;
-  value: string;
-  onClick: () => void;
   saveClick: boolean;
 }
 
-const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
+const SaveButtons = ({ saveClick }: ButtonProps) => {
   const dispatch = useDispatch();
   const { completeShow } = useSelector(
     (state: RootState) => state.getMathQuillReducer
