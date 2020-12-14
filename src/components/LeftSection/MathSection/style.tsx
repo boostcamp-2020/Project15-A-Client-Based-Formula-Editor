@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const MathSectionContainer = styled.div`
-  background-color: ${colors.white};
   width: 97%;
   height: 100%;
-  border: 1px solid ${colors.borderGrey};
   display: flex;
   flex-direction: column;
+  border: 1px solid ${colors.borderGrey};
+  background-color: ${colors.white};
 `;
 export const ButtonContainer = styled.div`
   display: flex;

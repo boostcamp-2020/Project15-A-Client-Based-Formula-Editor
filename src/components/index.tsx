@@ -17,7 +17,11 @@ export const HeaderSection = () => {
 };
 
 export const Aside = () => {
-  return <LeftSection />;
+  return (
+    <StyleComponent.Aside>
+      <LeftSection />
+    </StyleComponent.Aside>
+  );
 };
 
 export const Section = () => {
@@ -26,7 +30,7 @@ export const Section = () => {
     <StyleComponent.Main>
       <ToolBar />
       <StyleComponent.MoveArea>
-        <MainSection />
+        <MainSection visible={visible} />
         <SubSection visible={visible} />
       </StyleComponent.MoveArea>
     </StyleComponent.Main>

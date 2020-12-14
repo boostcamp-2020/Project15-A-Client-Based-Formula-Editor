@@ -5,7 +5,7 @@ export const CustomButton = styled.div`
   cursor: pointer;
   svg {
     fill: ${colors.white};
-    &: hover {
+    &:hover {
       fill: ${colors.darkGrey};
     }
   }

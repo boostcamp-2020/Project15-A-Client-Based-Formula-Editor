@@ -44,7 +44,7 @@ const SubSection = ({ visible }: Props) => {
         <div className="edge" />
         <div className="title">Graph</div>
       </StyleComponent.Title>
-      <StyleComponent.GraphContainer ref={graphRef} />
+      {visible && <StyleComponent.GraphContainer ref={graphRef} />}
     </StyleComponent.RightArea>
   );
 };

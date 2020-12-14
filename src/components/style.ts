@@ -3,36 +3,27 @@ import colors from '@src/utils/colors';
 
 export const Header = styled.div`
   height: 3.8rem;
-  background-color: ${colors.white};
   display: flex;
   border-bottom: 1px solid ${colors.borderGrey};
+  background-color: ${colors.white};
 `;
 
 export const Aside = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 27rem;
-  background-color: ${colors.backgroundGrey};
+  width: 30%;
+  height: 100%;
 `;
-
 export const Main = styled.div`
+  width: 70%;
   display: flex;
   flex-direction: column;
-  flex: 1;
 `;
 
 export const MoveArea = styled.div`
+  width: 100%;
+  flex: 1;
   display: flex;
-  height: 100%;
 
   & > div {
     transition: all 1s;
   }
-`;
-
-export const LeftArea = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 `;

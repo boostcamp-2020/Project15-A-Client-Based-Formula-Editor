@@ -6,14 +6,14 @@ interface Props {
 }
 
 export const RightArea = styled.div<Props>`
-  flex: 1;
-  width: ${(props) => (props.show ? '100%' : '0%')};
-  flex-grow: ${(props) => (props.show ? '1' : '0')};
-  overflow: hidden;
-  background-color: ${colors.graphPuple};
+  flex: 0 1;
+  flex-basis: ${(props) => (props.show ? '30%' : '0%')};
+  width: ${(props) => (props.show ? '30%' : '0%')};
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${colors.graphPuple};
+  overflow: hidden;
 `;
 
 export const GraphContainer = styled.div`
@@ -22,21 +22,22 @@ export const GraphContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  cursor: pointer;
   width: 100%;
   height: 45px;
   margin-top: 30px;
   margin-bottom: 30px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+
   .edge {
     width: 10px;
     height: 100%;
     background-color: ${colors.mainGreen};
   }
   .title {
-    font-size: 30px;
     margin-left: 30px;
+    font-size: 30px;
     font-weight: bold;
     color: ${colors.white};
   }
