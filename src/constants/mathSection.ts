@@ -1040,6 +1040,78 @@ export const misc: InputMath[] = [
     latex: 'ℸ',
   },
 ];
+export const arrow: InputMath[] = [
+  {
+    name: 'arrow1',
+    symbol: '←',
+    latex: '\\gets',
+  },
+  {
+    name: 'arrow2',
+    symbol: '→',
+    latex: '\\to ',
+  },
+  {
+    name: 'arrow3',
+    symbol: '↑',
+    latex: '\\uparrow ',
+  },
+  {
+    name: 'arrow4',
+    symbol: '↓',
+    latex: '\\downarrow ',
+  },
+  {
+    name: 'arrow5',
+    symbol: '↘︎',
+    latex: '\\searrow ',
+  },
+  {
+    name: 'arrow6',
+    symbol: '⟷',
+    latex: '\\leftrightarrow ',
+  },
+  {
+    name: 'arrow7',
+    symbol: '⟸',
+    latex: '\\Leftarrow ',
+  },
+  {
+    name: 'arrow8',
+    symbol: '⟹',
+    latex: '\\Rightarrow',
+  },
+  {
+    name: 'arrow9',
+    symbol: '⥣',
+    latex: '\\Uparrow ',
+  },
+  {
+    name: 'arrow10',
+    symbol: '⇓',
+    latex: '\\Downarrow',
+  },
+  {
+    name: 'arrow11',
+    symbol: '↺',
+    latex: '↺',
+  },
+  {
+    name: 'arrow12',
+    symbol: '↻',
+    latex: '↻',
+  },
+  {
+    name: 'arrow13',
+    symbol: '⇈',
+    latex: '⇈',
+  },
+  {
+    name: 'arrow14',
+    symbol: '⇊',
+    latex: '⇊',
+  },
+];
 export const dictionary: InputMath[] = [
   {
     name: '다항식과비례식',
@@ -1619,5 +1691,6 @@ const mathSection = [
   },
   { name: 'misc', value: misc },
   { name: 'dictionary', value: dictionary },
+  { name: 'arrow', value: arrow },
 ];
 export default mathSection;
