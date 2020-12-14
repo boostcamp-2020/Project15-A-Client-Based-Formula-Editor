@@ -8,7 +8,7 @@ export const Wrap = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 100%l;
+  width: 100%;
   flex: 1;
   display: flex;
 `;
