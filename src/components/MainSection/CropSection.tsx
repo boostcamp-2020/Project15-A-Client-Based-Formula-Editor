@@ -4,9 +4,11 @@ import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import html2canvas from 'html2canvas';
 import saveAsFile from '@src/utils/savefile';
+import { cropContainer } from '@src/store/modules/getMathQuill';
 import { Modal, CropSaveButton } from './MainSectionStyle';
 
 const CropSection = () => {
+  const dispatch = useDispatch();
   const [cropData, setCrop] = useState({});
   const [imageRef, setImageRef] = useState();
   const [inputs, setInputs] = useState({
@@ -56,6 +58,7 @@ const CropSection = () => {
         ...inputs,
         cropUrl: croppedImageUrl,
       });
+      dispatch(cropContainer(croppedImageUrl));
     }
   };
 

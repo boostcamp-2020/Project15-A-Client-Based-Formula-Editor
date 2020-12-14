@@ -3,10 +3,13 @@ import {
   setSaveContainer,
   setCropContainer,
   deleteCropContainer,
+  showCompleteContainer,
+  deleteCompleteContainer,
 } from '@src/store/modules/getMathQuill';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import html2canvas from 'html2canvas';
+import saveAsFile from '@src/utils/savefile';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
@@ -18,18 +21,25 @@ interface ButtonProps {
 
 const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
   const dispatch = useDispatch();
+  const { completeShow } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const { mathQuillContainer } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
-
+  const { cropUrl } = useSelector(
+    (state: RootState) => state.getMathQuillReducer
+  );
   const onClickImageSeveralSaveHandler = () => {
     if (!click) {
       dispatch(setCropContainer());
+      dispatch(showCompleteContainer());
     } else if (click) {
       dispatch(deleteCropContainer());
+      dispatch(deleteCompleteContainer());
     }
   };
   const onClickSaveAllHandler = async () => {
@@ -43,8 +53,15 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
       aTag.click();
     }
   };
-  const onCilickCancelHandler = () => {
-    dispatch(setSaveContainer(!saveClick));
+  const onClickCompleteSaveHandler = () => {
+    saveAsFile(cropUrl, '수식 저장.gif');
+  };
+  const onClickCancelHandler = () => {
+    if (!completeShow) {
+      dispatch(setSaveContainer(!saveClick));
+    }
+    dispatch(deleteCropContainer());
+    dispatch(deleteCompleteContainer());
   };
   return (
     <StyledComponent.SaveButtonContainer saveClick={saveClick}>
@@ -54,10 +71,12 @@ const SaveButtons = ({ color, value, onClick, saveClick }: ButtonProps) => {
       <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
         <div className="text1">Save the part</div>
       </StyledComponent.MiniButton>
-      <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
-        <div className="text1">Complete</div>
-      </StyledComponent.MiniButton>
-      <StyledComponent.MiniButton onClick={onCilickCancelHandler}>
+      {completeShow ? (
+        <StyledComponent.MiniButton onClick={onClickCompleteSaveHandler}>
+          <div className="text1">Complete</div>
+        </StyledComponent.MiniButton>
+      ) : null}
+      <StyledComponent.MiniButton onClick={onClickCancelHandler}>
         <div className="text1">Cancel</div>
       </StyledComponent.MiniButton>
     </StyledComponent.SaveButtonContainer>
