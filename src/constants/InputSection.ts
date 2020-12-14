@@ -131,7 +131,7 @@ export const InputLatexMathTopContent: InputLatex[] = [
     latex: '\\alpha ',
   },
   {
-    name: 'font',
+    name: 'misc',
     svg: FONT,
     latex: '\\epsilon',
   },

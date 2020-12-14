@@ -26,7 +26,11 @@ const InputBottomSelectionSection = () => {
             onClick={() => onClickHandler(value.name)}
           />
         ))}
-        <StyledComponent.InputLatexContent width="84" height="40">
+        <StyledComponent.InputLatexContent
+          width="84"
+          height="40"
+          onClick={() => onClickHandler('dictionary')}
+        >
           <StyledComponent.Dictionary>수식 사전</StyledComponent.Dictionary>
         </StyledComponent.InputLatexContent>
       </StyledComponent.InputBottomSelectionSectionContainer>

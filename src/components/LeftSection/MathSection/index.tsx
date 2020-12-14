@@ -5,6 +5,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { insert } from '@src/store/modules/mathQuill';
 import { RootState } from '@src/store/modules';
 import { LatexContent } from '@src/components/Common/LatexContent';
+import { DictionaryContent } from '@src/components/Common/DictionaryContent';
 import { LatexSymbolContent } from '@src/components/Common/LatexSymbolContent';
 import mathSection from '@src/constants/mathSection';
 import * as mathSVG from '@src/constants/mathSection';
@@ -23,12 +24,24 @@ const MathSectionContainer = () => {
     dispatch(insert(value));
   };
 
-  const symbolList = ['specialsymbol', 'unit'];
+  const symbolList = ['specialsymbol', 'unit', 'misc'];
   const isSymbol = symbolList.includes(name);
 
   let latexContentList: JSX.Element[];
-
-  if (isSymbol) {
+  if (name === 'dictionary') {
+    latexContentList = mathArray.map((data: any) => {
+      return (
+        <DictionaryContent
+          latex={data.latex}
+          key={data.name}
+          width="100%"
+          height="80"
+          name={data.name}
+          onClick={() => onClickHandler(data.latex)}
+        />
+      );
+    });
+  } else if (isSymbol) {
     latexContentList = mathArray.map((data: any) => {
       return (
         <LatexSymbolContent
