@@ -24,7 +24,7 @@ const MainSection = () => {
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
-  const { isBackgroundDropdownShow } = useSelector(
+  const { isBackgroundDropdownShow,winterDropdownShow, summerDropdownShow} = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
   const { saveClick } = useSelector(
@@ -39,7 +39,9 @@ const MainSection = () => {
   };
   
   const mainSectionRef = useRef<HTMLDivElement>(null);
-  const backgroundCanvas = useRef<HTMLCanvasElement>(null);
+  const backgroundCanvas = useRef<any>(null);
+  const canvas = backgroundCanvas.current;
+
 
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
@@ -98,7 +100,7 @@ const MainSection = () => {
   useEffect(() => {
     dispatch(getMathQuillContainer(mainSectionRef));
     dispatch(getCanvas(backgroundCanvas));
-   
+
   }, []);
 
   return (

@@ -1,17 +1,17 @@
+import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-plusplus */
 const SNOW_NUM = 100;
 let width: number;
 let height: number;
 let context: CanvasRenderingContext2D;
-let backGround: boolean;
 let animationId: any;
 let snowArr: Array<any> = [];
 const initSnow = () => {
   const x = Math.floor(Math.random() * width);
   const y = Math.floor(Math.random() * height);
   const distance = Math.floor(Math.random() * 3 + 1);
-  const randomRadius = Math.floor(Math.random() * 2 + 1);
+  const randomRadius = Math.floor(Math.random() * 10 + 5);
   const g = context.createRadialGradient(x, y, 0, x, y, randomRadius);
   const t = Math.random() * (Math.PI * 2);
   g.addColorStop(0, 'rgba(255,255,255,1)');
@@ -41,7 +41,9 @@ export const fallingSnow = () => {
   animationId = requestAnimationFrame(fallingSnow);
 
   context.clearRect(0, 0, width, height);
-  context.fillStyle = 'rgba(0,0,0,0.7)';
+  const snowImage = new Image();
+  snowImage.src = snowImageData;
+  context.drawImage(snowImage, 0, 0, width, height);
   context.fillRect(0, 0, width, height);
   context.fill();
   for (let i = 0; i < SNOW_NUM; i++) {
@@ -64,15 +66,12 @@ export const fallingSnow = () => {
 export const drawingSnow = (
   ctx: CanvasRenderingContext2D,
   w: number,
-  h: number,
-  background: boolean
+  h: number
 ) => {
   width = w;
   height = h;
   context = ctx;
-  backGround = background;
-
-  context.fillStyle = 'rgba(0,0,0,0.7)';
+  context.clearRect(0, 0, width, height);
   context.fillRect(0, 0, width, height);
   snowArr = [];
   for (let i = 0; i < SNOW_NUM; i++) {

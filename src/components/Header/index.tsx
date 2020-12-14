@@ -9,6 +9,7 @@ import saveAsFile from '@src/utils/savefile';
 import {
   setSaveContainer,
   setCropContainer,
+  deleteCropContainer,
 } from '@src/store/modules/getMathQuill';
 import HeaderTitle from './HeaderTitle';
 import SaveButtons from './SaveButtons';
@@ -27,6 +28,9 @@ const Header = () => {
   );
   const onClickSaveHandler = () => {
     dispatch(setSaveContainer(!saveClick));
+    if (click) {
+      dispatch(deleteCropContainer());
+    }
   };
 
   const onClickExportHandler = () => {
@@ -35,6 +39,9 @@ const Header = () => {
     ) as any;
     saveAsFile(mathQuiiFunc.html(), 'html.txt');
     saveAsFile(JSON.stringify(style), 'css.txt');
+  };
+  const onClickMainHandler = () => {
+    console.log('?');
   };
   return (
     <StyleComponent.HeaderContainer>
@@ -49,7 +56,7 @@ const Header = () => {
         <SaveButtons
           color={colors.lightGrey}
           value="저장 모드"
-          onClick={onClickSaveHandler}
+          onClick={onClickMainHandler}
           saveClick={saveClick}
         />
         <Button
