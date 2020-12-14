@@ -912,27 +912,27 @@ export const misc: InputMath[] = [
   {
     name: 'misc2',
     symbol: 'ð',
-    latex: '\\eth ',
+    latex: 'ð ',
   },
   {
     name: 'misc3',
     symbol: 'ℊ',
-    latex: '\\g ',
+    latex: 'ℊ',
   },
   {
     name: 'misc4',
     symbol: '℩',
-    latex: '\\variota',
+    latex: '℩',
   },
   {
     name: 'misc5',
     symbol: 'ι',
-    latex: '\\i',
+    latex: '\\iota',
   },
   {
     name: 'misc6',
     symbol: 'j',
-    latex: '\\j',
+    latex: 'j',
   },
   {
     name: 'misc8',
@@ -952,17 +952,17 @@ export const misc: InputMath[] = [
   {
     name: 'misc11',
     symbol: 'ơ',
-    latex: '\\o',
+    latex: '\\sigma',
   },
   {
     name: 'misc12',
     symbol: 'ℱ',
-    latex: '\\F',
+    latex: 'ℱ',
   },
   {
     name: 'misc13',
     symbol: 'ℒ',
-    latex: '\\L',
+    latex: 'ℒ',
   },
   {
     name: 'misc14',
@@ -972,7 +972,7 @@ export const misc: InputMath[] = [
   {
     name: 'misc15',
     symbol: '∁',
-    latex: '\\complement',
+    latex: '∁',
   },
   {
     name: 'misc16',
@@ -987,22 +987,22 @@ export const misc: InputMath[] = [
   {
     name: 'misc18',
     symbol: 'ℬ',
-    latex: '\\B',
+    latex: 'ℬ',
   },
   {
     name: 'misc19',
     symbol: 'ℇ',
-    latex: '\\E',
+    latex: 'ℇ',
   },
   {
     name: 'misc21',
     symbol: '𝕳',
-    latex: '\\H',
+    latex: '𝕳',
   },
   {
     name: 'misc22',
     symbol: '℧',
-    latex: '\\mho',
+    latex: '℧',
   },
   {
     name: 'misc23',
@@ -1012,12 +1012,12 @@ export const misc: InputMath[] = [
   {
     name: 'misc24',
     symbol: 'ℰ',
-    latex: '\\Ep',
+    latex: 'ℰ',
   },
   {
     name: 'misc25',
     symbol: '℮',
-    latex: '\\e',
+    latex: '℮',
   },
   {
     name: 'misc26',
@@ -1027,22 +1027,17 @@ export const misc: InputMath[] = [
   {
     name: 'misc27',
     symbol: 'ℶ',
-    latex: '\\beth',
-  },
-  {
-    name: 'misc27',
-    symbol: 'ℶ',
-    latex: '\\beth',
+    latex: 'ℶ',
   },
   {
     name: 'misc28',
     symbol: 'ℷ',
-    latex: '\\m',
+    latex: 'ℷ',
   },
   {
     name: 'misc29',
     symbol: 'ℸ',
-    latex: '\\daleth',
+    latex: 'ℸ',
   },
 ];
 export const dictionary: InputMath[] = [
@@ -1197,11 +1192,6 @@ export const dictionary: InputMath[] = [
     latex: 'a=bcos C+ccos B\\ b=ccos A+acos C\\ c=acos B+bcos A',
   },
   {
-    name: '기하2',
-    symbol: '',
-    latex: 'a^2=b^2+c^2-2bccos A\\ b^2=c^2+a^2-2cacos B\\ c^2=a^2+b^2-2abcos C',
-  },
-  {
     name: '기하3',
     symbol: '',
     latex: 'S=\\frac{1}{2}bcsin A',
@@ -1210,17 +1200,17 @@ export const dictionary: InputMath[] = [
     name: '기하4',
     symbol: '',
     latex:
-      'S=sqrt{sleft(s-a\\right)left(s-b\\right)left(s-c\\right)},left(2s=a+b+c\\right)',
+      'S=sqrt{s\\left(s-a\\right)\\left(s-b\\right)\\left(s-c\\right)},\\left(2s=a+b+c\\right)',
   },
   {
     name: '기하5',
     symbol: '',
-    latex: 'left(\\frac{x_1+x_2+x_3}{3},\\frac{y_1+y_2+y_3}{3}\\right)',
+    latex: '\\left(\\frac{x_1+x_2+x_3}{3},\\frac{y_1+y_2+y_3}{3}\\right)',
   },
   {
     name: '기하6',
     symbol: '',
-    latex: 'y-y_1=\\frac{y_2-y_1}{x_2-x_1}left(x-x_1\\right)',
+    latex: 'y-y_1=\\frac{y_2-y_1}{x_2-x_1}\\left(x-x_1\\right)',
   },
   {
     name: '기하7',
@@ -1299,14 +1289,26 @@ export const dictionary: InputMath[] = [
     name: '함수2',
     symbol: '',
     latex:
-      '\\csc \\theta =\\frac{1}{\\sin \\theta },\\sec \\theta =\\frac{1}{\\cos \\theta },\\cot \\theta =\\frac{1}{\\tan \\theta }',
+      '\\tan \\theta =\\frac{\\sin \\theta }{\\cos \\theta },\\cot \\theta =\\frac{\\cos \\theta }{\\sin \\theta }',
   },
   {
     name: '함수3',
     symbol: '',
-    latex:
-      '\\sin \\left(360\\cir +\\theta \\right)=\\sin \\theta \\cos \\left(360\\cir +\\theta \\right)=\\cos \\theta \\tan \\left(360\\cir +\\theta \\right)=\\tan \\theta ',
+    latex: '\\sin \\left(-\\theta \\right)=-\\sin \\theta',
   },
+  {
+    name: '함수4',
+    symbol: '',
+    latex:
+      '\\cos \\left(\\alpha +\\beta \\right)=\\cos \\alpha \\cos \\beta -\\sin \\alpha \\sin \\beta ',
+  },
+  {
+    name: '함수6',
+    symbol: '',
+    latex:
+      '\\cos 2\\alpha =\\cos ^2\\alpha -\\sin ^2\\alpha =2\\cos ^2\\alpha -1=1-2\\sin ^2\\alpha ',
+  },
+
   {
     name: '극한과 로그1',
     symbol: '',
@@ -1359,30 +1361,6 @@ export const dictionary: InputMath[] = [
     latex: '\\lim _{x\\to 0}^{ }\\left(1+x\\right)^{\\frac{1}{x}}=e',
   },
   {
-    name: '미분/적분/벡터',
-    symbol: '',
-    latex:
-      '\\frac{\\righttriangle y}{\\righttriangle x}=\\frac{f\\left(a+\\righttriangle x\\right)-f\\left(a\\right)}{\\righttriangle x}',
-  },
-  {
-    name: '미분/적분/벡터2',
-    symbol: '',
-    latex:
-      '\\lim _{\\righttriangle x\\to 0}^{ }\\frac{\\righttriangle y}{\\righttriangle x}=\\lim _{\\righttriangle x\\to 0}^{ }\\frac{f\\left(a+\\righttriangle x\\right)-f\\left(a\\right)}{\\righttriangle x}',
-  },
-  {
-    name: '미분/적분/벡터3',
-    symbol: '',
-    latex:
-      '\\lim _{\\righttriangle x\\to 0}^{ }\\frac{\\righttriangle y}{\\righttriangle x}=\\lim _{\\righttriangle x\\to 0}^{ }\\frac{f\\left(x+\\righttriangle x\\right)-f\\left(x\\right)}{\\righttriangle x}',
-  },
-  {
-    name: '미분/적분/벡터4',
-    symbol: '',
-    latex:
-      '\\lim _{\\righttriangle t\\to 0}^{ }\\frac{\\righttriangle y}{\\righttriangle t}=\\frac{dy}{dt}',
-  },
-  {
     name: '미분/적분/벡터5',
     symbol: '',
     latex:
@@ -1410,12 +1388,6 @@ export const dictionary: InputMath[] = [
     symbol: '',
     latex:
       '\\int _{ }^{ }\\left(f\\left(x\\right)\\pm g\\left(x\\right)\\right)dx=\\int _{ }^{ }f\\left(x\\right)dx\\pm \\int _{ }^{ }g\\left(x\\right)dx\\quad \\left(복호동순\\right)',
-  },
-  {
-    name: '미분/적분/벡터10',
-    symbol: '',
-    latex:
-      '\\int _a^bf\\left(x\\right)dx=\\lim _{n\\to \\infty }^{ }\\sum _{k=1}^nf\\left(x_k\\right)\\cdot \\righttriangle x',
   },
   {
     name: '미분/적분/벡터11',
@@ -1446,12 +1418,6 @@ export const dictionary: InputMath[] = [
     symbol: '',
     latex:
       '\\lim _{n\\to \\infty }^{ }\\sum _{k=1}^nf\\left(a+\\frac{\\left(b-a\\right)k}{n}\\right)\\cdot \\frac{b-a}{n}=\\int _a^bf\\left(x\\right)dx',
-  },
-  {
-    name: '미분/적분/벡터16',
-    symbol: '',
-    latex:
-      '\\lim _{n\\to \\infty }^{ }\\sum _{k=1}^nf\\left(a+\\frac{pk}{n}\\right)\\cdot \\frac{p}{n}=\\int _a^{a+p}f\\left(x\\right)dx =\\int _0^pf\\left(a+x\\right)dx\\quad \\left(p=b-a\\right)',
   },
   {
     name: '미분/적분/벡터17',
@@ -1502,11 +1468,6 @@ export const dictionary: InputMath[] = [
     latex: 'nH_r=_{n+r-1}C_r',
   },
   {
-    name: '확률/통계6',
-    symbol: '',
-    latex: '\\left(a+b\\right)^2\\sum _{r=0}^n\\combi{\\ }_nC_ra^{n-r}b^r',
-  },
-  {
     name: '확률/통계7',
     symbol: '',
     latex:
@@ -1517,12 +1478,6 @@ export const dictionary: InputMath[] = [
     symbol: '',
     latex:
       '\\sigma ^2=\\frac{1}{N}\\sum _{i=1}^n\\left(x_i-m\\right)^2f_i=\\frac{1}{N}\\sum _{i=1}^nx_i^2f_i-m^2 \\left(N=\\sum _{i=1}^nf_i\\right)',
-  },
-  {
-    name: '확률/통계9',
-    symbol: '',
-    latex:
-      '\\sigma ^2=\\frac{1}{N}\\sum _{i=1}^n\\left(x_i-A\\right)^2f_i-\\left(\\frac{1}{N}\\sum _{i=1}^n\\left(x_i^2-A\\right)f_i\\right)^2 \\left(N=\\sum _{i=1}^nf_i,\\quad A는\\quad 가평균\\right)',
   },
   {
     name: '수열',
