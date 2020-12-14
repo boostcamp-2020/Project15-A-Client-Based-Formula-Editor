@@ -4,7 +4,6 @@ import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import { dropdown, closeDropdown } from '@src/store/modules/drawerDropdown';
-import { getCanvas } from '@src/store/modules/backgroundDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
 import * as StyleComponent from './style';
@@ -32,7 +31,12 @@ const Drawer = () => {
   const onClickHandler = (e: React.MouseEvent<HTMLElement>) => {
     const canvas = backgroundCanvas.current;
     const contexts = canvas.getContext('2d');
+
     const [colors, context] = setColors(e.target, contexts);
+    if (context.canvas.width !== window.innerWidth) {
+      context.canvas.width = window.innerWidth;
+      context.canvas.height = window.innerHeight;
+    }
 
     setColor(colors);
   };
@@ -92,6 +96,8 @@ const Drawer = () => {
   const onClickClearHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
+    context.canvas.width = window.innerWidth;
+    context.canvas.height = window.innerHeight;
     context.clearRect(0, 0, 300, 300);
   };
 
@@ -110,11 +116,7 @@ const Drawer = () => {
       document.removeEventListener('mousedown', mouseDownHandler);
     };
   }, [mouseDownHandler]);
-  useEffect(() => {
-    if (isDropdownShow) {
-      dispatch(getCanvas(backgroundCanvas));
-    }
-  }, [isDropdownShow]);
+
   return (
     <div>
       <RoundButton onClick={() => onClickDrawerHandler(backgroundCanvas)}>
