@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
 import { snowProps } from '@src/@types/animation';
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -44,7 +45,20 @@ const makeImage = () => {
   snowImage.src = snowImageData;
   return snowImage;
 };
-
+const calculateSnow = (snow: snowProps) => {
+  snow.t = snow.t >= Math.PI * 2 ? 0 : snow.t;
+  snow.x += Math.sin(snow.t) * snow.distance * 0.8;
+  snow.y += snow.distance;
+  if (snow.x > width) {
+    snow.x = 0;
+    snow.distance = Math.floor(Math.random() * 3 + 1);
+  }
+  if (snow.y > height) {
+    snow.y = 0;
+    snow.distance = Math.floor(Math.random() * 3 + 1);
+  }
+  return [snow.x, snow.y, snow.distance];
+};
 export const fallingSnow = () => {
   animationId = requestAnimationFrame(fallingSnow);
 
@@ -55,18 +69,8 @@ export const fallingSnow = () => {
   context.fill();
   for (let i = 0; i < SNOW_NUM; i++) {
     const snow = snowArr[i];
-    snow.t = snow.t >= Math.PI * 2 ? 0 : snow.t;
-    snow.x += Math.sin(snow.t) * snow.distance * 0.8;
-    snow.y += snow.distance;
-    if (snow.x > width) {
-      snow.x = 0;
-      snow.distance = Math.floor(Math.random() * 3 + 1);
-    }
-    if (snow.y > height) {
-      snow.y = 0;
-      snow.distance = Math.floor(Math.random() * 3 + 1);
-    }
-    moveSnow(snow.x, snow.y, snow.randomRadius);
+    const [x, y, distance] = calculateSnow(snow);
+    moveSnow(x, y, snow.randomRadius);
   }
 };
 
