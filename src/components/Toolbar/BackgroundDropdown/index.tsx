@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import SUMMER from '@src/utils/svg/background/summer.svg';
 import WINTER from '@src/utils/svg/background/winter.svg';
@@ -26,8 +26,10 @@ const Background = () => {
     backgroundCanvas,
     winterDropdownShow,
     summerDropdownShow,
-  } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
-
+  } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler,
+    shallowEqual
+  );
   const dispatch = useDispatch();
 
   const onClickBackgroundHandler = () => {
