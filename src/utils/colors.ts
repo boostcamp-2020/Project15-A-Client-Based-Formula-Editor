@@ -11,6 +11,7 @@ interface colorType {
   hoverGrey: string;
   dragEffect: string;
   graphPuple: string;
+  rainColor: string;
 }
 const colors: colorType = {
   fontGreen: '#00c73c',
@@ -25,5 +26,6 @@ const colors: colorType = {
   hoverGrey: '#f1f1f1',
   dragEffect: '#F2F5E9',
   graphPuple: '#776e81',
+  rainColor: '#dfdfdf',
 };
 export default colors;
