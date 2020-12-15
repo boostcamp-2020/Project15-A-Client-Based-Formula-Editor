@@ -44,7 +44,7 @@ export const Modal = styled.div<Props>`
   height: 13%; /* Full height */
   display: ${(props) => props.display}; /* Hidden by default */
   position: fixed; /* Stay in place */
-  background-color: rgba(255, 255, 255, 0.1); /* Black w/ opacity */
+  background-color: transparent; /* Black w/ opacity */
 `;
 
 export const CropSaveButton = styled.div`
