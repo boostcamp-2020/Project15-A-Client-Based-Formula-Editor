@@ -46,11 +46,11 @@ const Background = () => {
     if (summerDropdownShow) {
       deleteSummerAnimation();
       deleteWinterAnimation();
-      drawingRain(canvas, context, canvas.width, canvas.height);
+      drawingRain(context, canvas.width, canvas.height);
     } else {
       dispatch(summerDropdown(true));
       deleteWinterAnimation();
-      drawingRain(canvas, context, canvas.width, canvas.height);
+      drawingRain(context, canvas.width, canvas.height);
     }
   };
   const onClickWinterHandler = () => {

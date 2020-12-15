@@ -61,7 +61,6 @@ const drawRain = () => {
 };
 
 export const drawingRain = (
-  canvas: any,
   ctx: CanvasRenderingContext2D,
   w: number,
   h: number
