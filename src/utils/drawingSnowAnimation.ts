@@ -57,7 +57,7 @@ const calculateSnow = (snow: snowProps) => {
     snow.y = 0;
     snow.distance = Math.floor(Math.random() * 3 + 1);
   }
-  return [snow.x, snow.y, snow.distance];
+  return [snow.x, snow.y];
 };
 export const fallingSnow = () => {
   animationId = requestAnimationFrame(fallingSnow);
@@ -69,7 +69,7 @@ export const fallingSnow = () => {
   context.fill();
   for (let i = 0; i < SNOW_NUM; i++) {
     const snow = snowArr[i];
-    const [x, y, distance] = calculateSnow(snow);
+    const [x, y] = calculateSnow(snow);
     moveSnow(x, y, snow.randomRadius);
   }
 };
