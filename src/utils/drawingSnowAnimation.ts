@@ -39,12 +39,17 @@ const moveSnow = (x: number, y: number, r: number) => {
   context.fill();
 };
 
+const makeImage = () => {
+  const snowImage = new Image();
+  snowImage.src = snowImageData;
+  return snowImage;
+};
+
 export const fallingSnow = () => {
   animationId = requestAnimationFrame(fallingSnow);
 
   context.clearRect(0, 0, width, height);
-  const snowImage = new Image();
-  snowImage.src = snowImageData;
+  const snowImage = makeImage();
   context.drawImage(snowImage, 0, 0, width, height);
   context.fillRect(0, 0, width, height);
   context.fill();
