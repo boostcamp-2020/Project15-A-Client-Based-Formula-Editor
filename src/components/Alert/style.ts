@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
-export const MiddleHolder = styled.div`
-  display: none;
+export const MiddleHolder = styled.div<{ visible: boolean }>`
+  visibility: ${(props) => (props.visible === true ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.visible === true ? 1 : 0)};
+  transition: ${(props) =>
+    props.visible === true
+      ? 'opacity 0.1s linear'
+      : 'visibility 0s 2s, opacity 2s linear'};
   width: 50%;
   padding: 0px 10px;
   position: absolute;

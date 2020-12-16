@@ -1,5 +1,10 @@
 {
     "presets": ["@babel/preset-env",{
-        "targets":{"browsers":["last 2 versions", ">= 5% in KR"]}
+        "targets":{
+            "node":"current",
+            "ie":11,
+            "browsers":["last 2 versions", ">= 5% in KR"]
+        },
+        "corejs": 3,
     }, "@babel/preset-react"]
 }

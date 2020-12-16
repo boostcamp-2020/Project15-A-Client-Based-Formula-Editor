@@ -34,11 +34,7 @@ const Header = () => {
   };
 
   const onClickExportHandler = () => {
-    const style = window.getComputedStyle(
-      document.querySelector('.mq-root-block')
-    ) as any;
     saveAsFile(mathQuiiFunc.html(), 'html.txt');
-    saveAsFile(JSON.stringify(style), 'css.txt');
   };
   const onClickMainHandler = () => {};
   return (

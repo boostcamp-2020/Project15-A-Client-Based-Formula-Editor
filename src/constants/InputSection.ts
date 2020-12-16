@@ -28,68 +28,81 @@ export interface InputLatex {
   name: string;
   svg: string;
   latex: string;
+  isPossible?: boolean;
 }
 export const InputLatexTopContent: InputLatex[] = [
   {
     name: 'mathFraction',
     svg: MULTPLY,
     latex: '\\frac{ }{ }',
+    isPossible: true,
   },
   {
     name: 'sqrt',
     svg: ROOT,
     latex: '\\sqrt{ }',
+    isPossible: true,
   },
   {
     name: 'combi',
     svg: POW,
     latex: '^{ }',
+    isPossible: true,
   },
   {
     name: 'integral',
     svg: INTEGRAL,
     latex: '\\int _{ }^{ }',
+    isPossible: true,
   },
   {
     name: 'sigma',
     svg: SIGMA,
     latex: '\\sum _{ }^{ }',
+    isPossible: true,
   },
   {
     name: 'bracket',
     svg: GLOHO,
     latex: '\\left\\{\\right\\}',
+    isPossible: true,
   },
   {
     name: 'sin',
     svg: SIN,
     latex: '\\sin ^{ }',
+    isPossible: true,
   },
   {
     name: 'decoration',
     svg: DECORATION,
     latex: '\\dot{ }\\dot{ }',
+    isPossible: true,
   },
   {
     name: 'limit',
     svg: LIMIT,
     latex: '\\lim _{ }^{ }',
+    isPossible: true,
   },
   {
     name: 'operator',
     svg: OPERATOR,
     latex: '\\triangleq',
+    isPossible: true,
   },
   {
     name: 'matrix',
     svg: MATRIX,
     latex: '\\begin{pmatrix}  &  \\  &  \\end{pmatrix}',
+    isPossible: true,
   },
   {
     name: 'inputdraw',
     svg: INPUTDRAW,
     latex:
       '\\begin{grid}\\cell{0000}&\\cell{0000}\\\\cell{0000}&\\cell{0000}\\end{grid}',
+    isPossible: false,
   },
 ];
 
@@ -135,6 +148,8 @@ export const InputLatexMathTopContent: InputLatex[] = [
     svg: FONT,
     latex: '\\epsilon',
   },
+];
+export const InputCalculation: InputLatex[] = [
   {
     name: 'division',
     svg: DIVISION,

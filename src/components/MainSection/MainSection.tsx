@@ -29,8 +29,6 @@ const MainSection = ({ visible }: Props) => {
   );
   const {
     isBackgroundDropdownShow,
-    winterDropdownShow,
-    summerDropdownShow,
   } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
   const { saveClick } = useSelector(
     (state: RootState) => state.getMathQuillReducer
@@ -45,7 +43,7 @@ const MainSection = ({ visible }: Props) => {
 
   const mainSectionRef = useRef<HTMLDivElement>(null);
   const backgroundCanvas = useRef<any>(null);
-  const canvas = backgroundCanvas.current;
+
 
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
@@ -134,9 +132,9 @@ const MainSection = ({ visible }: Props) => {
         resizing={resizing}
         height={height}
         show={visible}
+        crop={click && saveClick && <CropSection height={height} visible={visible} />}
       />
 
-      {click && saveClick && <CropSection />}
     </>
   );
 };

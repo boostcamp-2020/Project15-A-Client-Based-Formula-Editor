@@ -9,6 +9,7 @@ import { DictionaryContent } from '@src/components/Common/DictionaryContent';
 import { LatexSymbolContent } from '@src/components/Common/LatexSymbolContent';
 import mathSection from '@src/constants/mathSection';
 import * as mathSVG from '@src/constants/mathSection';
+import { changeAlertMode } from '@src/store/modules/alert';
 import * as StyledComponent from './style';
 import LatexContentList from './ButtonList';
 
@@ -20,12 +21,29 @@ const MathSectionContainer = () => {
   );
   const math = mathSection.filter((id) => id.name === name);
   const mathArray = math.length > 0 ? math[0].value : mathSVG.mathFraction;
-  const onClickHandler = (value: string) => {
-    mathQuiiFunc.write(value);
-    dispatch(insert(value));
+
+  const onClickHandler = (value: string, isPossible: boolean) => {
+    if (isPossible) {
+      mathQuiiFunc.write(value);
+      dispatch(insert(value));
+    } else {
+      dispatch(changeAlertMode(1));
+    }
   };
 
-  const symbolList = ['specialsymbol', 'unit', 'misc'];
+  const symbolList = [
+    'arrow',
+    'inequality',
+    'notoperator',
+    'figure',
+    'specialsymbol',
+    'unit',
+    'misc',
+    'division',
+    'plus',
+    'minus',
+    'multiple',
+  ];
   const isSymbol = symbolList.includes(name);
 
   const [list, setList] = useState([]);

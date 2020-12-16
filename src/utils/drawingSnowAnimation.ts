@@ -1,12 +1,15 @@
+/* eslint-disable no-param-reassign */
 import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
+import { snowProps } from '@src/@types/animation';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-plusplus */
 const SNOW_NUM = 100;
 let width: number;
 let height: number;
 let context: CanvasRenderingContext2D;
-let animationId: any;
-let snowArr: Array<any> = [];
+let animationId: number;
+
+let snowArr: Array<snowProps> = [];
 const initSnow = () => {
   const x = Math.floor(Math.random() * width);
   const y = Math.floor(Math.random() * height);
@@ -37,29 +40,37 @@ const moveSnow = (x: number, y: number, r: number) => {
   context.fill();
 };
 
+const makeImage = () => {
+  const snowImage = new Image();
+  snowImage.src = snowImageData;
+  return snowImage;
+};
+const calculateSnow = (snow: snowProps) => {
+  snow.t = snow.t >= Math.PI * 2 ? 0 : snow.t;
+  snow.x += Math.sin(snow.t) * snow.distance * 0.8;
+  snow.y += snow.distance;
+  if (snow.x > width) {
+    snow.x = 0;
+    snow.distance = Math.floor(Math.random() * 3 + 1);
+  }
+  if (snow.y > height) {
+    snow.y = 0;
+    snow.distance = Math.floor(Math.random() * 3 + 1);
+  }
+  return [snow.x, snow.y];
+};
 export const fallingSnow = () => {
   animationId = requestAnimationFrame(fallingSnow);
 
   context.clearRect(0, 0, width, height);
-  const snowImage = new Image();
-  snowImage.src = snowImageData;
+  const snowImage = makeImage();
   context.drawImage(snowImage, 0, 0, width, height);
   context.fillRect(0, 0, width, height);
   context.fill();
   for (let i = 0; i < SNOW_NUM; i++) {
     const snow = snowArr[i];
-    snow.t = snow.t >= Math.PI * 2 ? 0 : snow.t;
-    snow.x += Math.sin(snow.t) * snow.distance * 0.8;
-    snow.y += snow.distance;
-    if (snow.x > width) {
-      snow.x = 0;
-      snow.distance = Math.floor(Math.random() * 3 + 1);
-    }
-    if (snow.y > height) {
-      snow.y = 0;
-      snow.distance = Math.floor(Math.random() * 3 + 1);
-    }
-    moveSnow(snow.x, snow.y, snow.randomRadius);
+    const [x, y] = calculateSnow(snow);
+    moveSnow(x, y, snow.randomRadius);
   }
 };
 

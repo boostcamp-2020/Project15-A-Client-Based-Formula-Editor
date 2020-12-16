@@ -7,7 +7,12 @@ import saveAsFile from '@src/utils/savefile';
 import { cropContainer } from '@src/store/modules/getMathQuill';
 import { Modal, CropSaveButton } from './MainSectionStyle';
 
-const CropSection = () => {
+interface cropProps {
+  height: number;
+  visible: boolean;
+}
+
+const CropSection = ({ height, visible }: cropProps) => {
   const dispatch = useDispatch();
   const [cropData, setCrop] = useState({});
   const [imageRef, setImageRef] = useState();
@@ -82,11 +87,16 @@ const CropSection = () => {
       });
       setCrop({ width: 30, height: 30, unit: 'px' });
     };
+    const cropImage = document.querySelector('.ReactCrop__image') as any;
+    cropImage.style.height = '410px';
+    cropImage.style.width = '0.1%';
+
     getHtml();
   }, []);
+
   return (
     <>
-      <Modal display="block">
+      <Modal display="block" height={height} visible={visible}>
         <ReactCrop
           src={url}
           crop={cropData}

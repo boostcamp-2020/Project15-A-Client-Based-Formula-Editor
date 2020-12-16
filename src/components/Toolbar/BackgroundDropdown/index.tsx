@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useRef, useCallback } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import SUMMER from '@src/utils/svg/background/summer.svg';
 import WINTER from '@src/utils/svg/background/winter.svg';
@@ -26,17 +26,14 @@ const Background = () => {
     backgroundCanvas,
     winterDropdownShow,
     summerDropdownShow,
-  } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
-
+  } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler,
+    shallowEqual
+  );
   const dispatch = useDispatch();
-
-  const onClickBackgroundHandler = () => {
+  const onClickBackgroundHandler = useCallback(() => {
     dispatch(backgroundDropdown(!isBackgroundDropdownShow));
-    dispatch(winterDropdown(false));
-    dispatch(summerDropdown(false));
-    deleteWinterAnimation();
-    deleteSummerAnimation();
-  };
+  }, []);
   const onClickSummerHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
@@ -45,12 +42,13 @@ const Background = () => {
     context.canvas.height = window.innerHeight;
     if (summerDropdownShow) {
       deleteSummerAnimation();
+      drawingRain(context, canvas.width, canvas.height);
+
       deleteWinterAnimation();
-      drawingRain(canvas, context, canvas.width, canvas.height);
     } else {
       dispatch(summerDropdown(true));
+      drawingRain(context, canvas.width, canvas.height);
       deleteWinterAnimation();
-      drawingRain(canvas, context, canvas.width, canvas.height);
     }
   };
   const onClickWinterHandler = () => {
@@ -61,17 +59,17 @@ const Background = () => {
     dispatch(summerDropdown(false));
     if (winterDropdownShow) {
       deleteWinterAnimation();
-      deleteSummerAnimation();
       drawingSnow(context, canvas.width, canvas.height);
+      deleteSummerAnimation();
     } else {
       dispatch(winterDropdown(true));
       deleteSummerAnimation();
+      deleteWinterAnimation();
       drawingSnow(context, canvas.width, canvas.height);
     }
   };
 
   const backgroundRef = useRef<HTMLDivElement>(null);
-
   return (
     <div ref={backgroundRef}>
       <RoundButton onClick={onClickBackgroundHandler}>

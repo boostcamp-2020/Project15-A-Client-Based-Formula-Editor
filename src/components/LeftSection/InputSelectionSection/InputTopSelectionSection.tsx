@@ -3,13 +3,17 @@ import { InputLatexTopContent } from '@src/constants/InputSection';
 import { LatexContent } from '@src/components/Common/LatexContent';
 import { useDispatch } from 'react-redux';
 import { show } from '@src/store/modules/mathQuill';
+import { changeAlertMode } from '@src/store/modules/alert';
 
 import * as StyledComponent from './style';
 
 const InputTopSelectionSection = () => {
   const dispatch = useDispatch();
-  const onClickHandler = (name: string) => {
-    dispatch(show(name));
+  const onClickHandler = (name: string, isPossible: boolean) => {
+    if (isPossible) dispatch(show(name));
+    else {
+      dispatch(changeAlertMode(1));
+    }
   };
   return (
     <>
@@ -23,7 +27,7 @@ const InputTopSelectionSection = () => {
             name={value.name}
             width="65"
             height="68"
-            onClick={() => onClickHandler(value.name)}
+            onClick={() => onClickHandler(value.name, value.isPossible)}
           />
         ))}
       </StyledComponent.InputTopSelectionSectionContainer>
