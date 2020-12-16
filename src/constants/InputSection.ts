@@ -135,6 +135,8 @@ export const InputLatexMathTopContent: InputLatex[] = [
     svg: FONT,
     latex: '\\epsilon',
   },
+];
+export const InputCalculation: InputLatex[] = [
   {
     name: 'division',
     svg: DIVISION,

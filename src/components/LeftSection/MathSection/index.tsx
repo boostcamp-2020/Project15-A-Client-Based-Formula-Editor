@@ -32,6 +32,10 @@ const MathSectionContainer = () => {
     'specialsymbol',
     'unit',
     'misc',
+    'division',
+    'plus',
+    'minus',
+    'multiple',
   ];
   const isSymbol = symbolList.includes(name);
 

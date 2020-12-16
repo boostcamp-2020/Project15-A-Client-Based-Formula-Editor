@@ -1,4 +1,8 @@
 import { SVG } from '@src/utils/svg/leftsection/mathsection';
+import PLUS from '@src/utils/svg/leftsection/inputsection/plus.svg';
+import MINUS from '@src/utils/svg/leftsection/inputsection/minus.svg';
+import MULTIPLE from '@src/utils/svg/leftsection/inputsection/multiple.svg';
+import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
 
 export interface InputMath {
   name: string;
@@ -1792,6 +1796,34 @@ export const dictionary: InputMath[] = [
     latex: '_{k\\sum _{ }^{ }k=\\frac{n\\left(n+1\\right)}{2}}',
   },
 ];
+const division: InputMath[] = [
+  {
+    name: 'division',
+    symbol: '÷',
+    latex: '\\div ',
+  },
+];
+const plus: InputMath[] = [
+  {
+    name: 'plus',
+    symbol: '+',
+    latex: '+',
+  },
+];
+const minus: InputMath[] = [
+  {
+    name: 'minus',
+    symbol: '-',
+    latex: '-',
+  },
+];
+const multiple: InputMath[] = [
+  {
+    name: 'multiple',
+    symbol: '×',
+    latex: '\\times ',
+  },
+];
 const mathSection = [
   {
     name: 'mathFraction',
@@ -1851,5 +1883,9 @@ const mathSection = [
   { name: 'inequality', value: inequality },
   { name: 'notoperator', value: notoperator },
   { name: 'figure', value: figure },
+  { name: 'division', value: division },
+  { name: 'plus', value: plus },
+  { name: 'minus', value: minus },
+  { name: 'multiple', value: multiple },
 ];
 export default mathSection;
