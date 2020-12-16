@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDrag } from 'react-dnd';
 import { addStyles, StaticMathField } from 'react-mathquill';
 import * as StyleComponent from './style';
 
@@ -19,18 +18,11 @@ export const DictionaryContent = ({
   height,
   onClick,
 }: Props) => {
-  const [{ isDragging }, drag] = useDrag({
-    item: { name, type: 'box', latex },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
-  const opacity = isDragging ? 0.4 : 1;
+  const opacity = 1;
 
   return (
     <>
       <StyleComponent.InputLatexContent
-        ref={drag}
         width={width}
         height={height}
         opacity={opacity}
