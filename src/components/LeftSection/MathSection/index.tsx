@@ -9,6 +9,7 @@ import { DictionaryContent } from '@src/components/Common/DictionaryContent';
 import { LatexSymbolContent } from '@src/components/Common/LatexSymbolContent';
 import mathSection from '@src/constants/mathSection';
 import * as mathSVG from '@src/constants/mathSection';
+import { changeAlertMode } from '@src/store/modules/alert';
 import * as StyledComponent from './style';
 
 const MathSectionContainer = () => {
@@ -19,9 +20,14 @@ const MathSectionContainer = () => {
   );
   const math = mathSection.filter((id) => id.name === name);
   const mathArray = math.length > 0 ? math[0].value : mathSVG.mathFraction;
-  const onClickHandler = (value: string) => {
-    mathQuiiFunc.write(value);
-    dispatch(insert(value));
+
+  const onClickHandler = (value: string, isPossible: boolean) => {
+    if (isPossible) {
+      mathQuiiFunc.write(value);
+      dispatch(insert(value));
+    } else {
+      dispatch(changeAlertMode(1));
+    }
   };
 
   const symbolList = [
@@ -49,7 +55,7 @@ const MathSectionContainer = () => {
           width="100%"
           height="80"
           name={data.name}
-          onClick={() => onClickHandler(data.latex)}
+          onClick={() => onClickHandler(data.latex, data.isPossible)}
         />
       );
     });
@@ -63,7 +69,7 @@ const MathSectionContainer = () => {
           width="80"
           height="80"
           name={data.name}
-          onClick={() => onClickHandler(data.latex)}
+          onClick={() => onClickHandler(data.latex, data.isPossible)}
         />
       );
     });
@@ -77,7 +83,7 @@ const MathSectionContainer = () => {
           width="80"
           height="80"
           name={data.name}
-          onClick={() => onClickHandler(data.latex)}
+          onClick={() => onClickHandler(data.latex, data.isPossible)}
         />
       );
     });
