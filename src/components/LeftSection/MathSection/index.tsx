@@ -58,7 +58,7 @@ const MathSectionContainer = () => {
             width="100%"
             height="80"
             name={data.name}
-            onClick={() => onClickHandler(data.latex)}
+            onClick={() => onClickHandler(data.latex, data.isPossible)}
           />
         );
       });
@@ -72,7 +72,7 @@ const MathSectionContainer = () => {
             width="80"
             height="80"
             name={data.name}
-            onClick={() => onClickHandler(data.latex)}
+            onClick={() => onClickHandler(data.latex, data.isPossible)}
           />
         );
       });
@@ -86,7 +86,7 @@ const MathSectionContainer = () => {
             width="80"
             height="80"
             name={data.name}
-            onClick={() => onClickHandler(data.latex)}
+            onClick={() => onClickHandler(data.latex, data.isPossible)}
           />
         );
       });

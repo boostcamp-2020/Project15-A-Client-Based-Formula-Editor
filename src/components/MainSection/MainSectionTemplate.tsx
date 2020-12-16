@@ -11,7 +11,6 @@ interface Props {
   canvas: JSX.Element;
   alert: JSX.Element;
   show: boolean;
-  crop: JSX.Element;
 }
 
 const MainSectionTemplate = ({
@@ -24,12 +23,10 @@ const MainSectionTemplate = ({
   canvas,
   alert,
   show,
-  crop,
 }: Props) => {
   return (
     <StyleComponent.MainSectionTemplate ref={resizing} show={show}>
       <StyleComponent.TextArea height={height} ref={mainSectionRef}>
-        {crop}
         {alert}
         {mathQuill}
         {canvas}
