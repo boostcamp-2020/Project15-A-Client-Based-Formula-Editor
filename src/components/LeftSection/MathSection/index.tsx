@@ -24,7 +24,15 @@ const MathSectionContainer = () => {
     dispatch(insert(value));
   };
 
-  const symbolList = ['specialsymbol', 'unit', 'misc'];
+  const symbolList = [
+    'arrow',
+    'inequality',
+    'notoperator',
+    'figure',
+    'specialsymbol',
+    'unit',
+    'misc',
+  ];
   const isSymbol = symbolList.includes(name);
 
   let latexContentList: JSX.Element[];

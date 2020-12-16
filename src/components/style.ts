@@ -9,11 +9,11 @@ export const Header = styled.div`
 `;
 
 export const Aside = styled.div`
-  width: 30%;
+  width: 23%;
   height: 100%;
 `;
 export const Main = styled.div`
-  width: 70%;
+  width: 77%;
   display: flex;
   flex-direction: column;
 `;
