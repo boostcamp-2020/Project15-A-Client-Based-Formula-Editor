@@ -42,7 +42,7 @@ interface Props {
 }
 
 export const Modal = styled.div<Props>`
-  width: ${(props) => (props.visible ? '53.9%' : '77%')}; /* Full width */
+  width: ${(props) => (props.visible ? '54%' : '77%')}; /* Full width */
   height: 470px; /* Full height */
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */

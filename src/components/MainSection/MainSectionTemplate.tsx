@@ -29,11 +29,12 @@ const MainSectionTemplate = ({
   return (
     <StyleComponent.MainSectionTemplate ref={resizing} show={show}>
       <StyleComponent.TextArea height={height} ref={mainSectionRef}>
+        {crop}
         {alert}
         {mathQuill}
         {canvas}
       </StyleComponent.TextArea>
-      {crop}
+
       <StyleComponent.LaTeX height={height}>{latex}</StyleComponent.LaTeX>
       <StyleComponent.Tab>{tab}</StyleComponent.Tab>
     </StyleComponent.MainSectionTemplate>
