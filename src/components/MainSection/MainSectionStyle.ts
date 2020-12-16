@@ -37,14 +37,15 @@ export const Tab = styled.div`
 
 interface Props {
   display: string;
+  height: number;
+  visible: boolean;
 }
 
 export const Modal = styled.div<Props>`
-  width: 79%; /* Full width */
-  height: 13%; /* Full height */
-  display: ${(props) => props.display}; /* Hidden by default */
+  width: ${(props) => (props.visible ? '53.9%' : '77%')}; /* Full width */
+  height: 480px; /* Full height */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  background-color: rgba(255, 255, 255, 0.1); /* Black w/ opacity */
 `;
 
 export const CropSaveButton = styled.div`

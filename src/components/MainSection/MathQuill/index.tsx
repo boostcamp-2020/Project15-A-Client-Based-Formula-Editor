@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { mathQuill, change } from '@src/store/modules/mathQuill';
@@ -40,9 +40,9 @@ const EditableMathExample = ({
     dispatch(mathQuill(mathquill));
   };
 
-  const changeHandler = (mathField: MathField) => {
+  const changeHandler = useCallback((mathField: MathField) => {
     dispatch(change(mathField.latex()));
-  };
+  }, []);
   return (
     <StyleComponent.MathField
       isActive={isActive}
