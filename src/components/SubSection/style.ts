@@ -14,6 +14,7 @@ export const RightArea = styled.div<Props>`
   align-items: center;
   background-color: ${colors.graphPuple};
   overflow: hidden;
+  z-index: 10;
 `;
 
 export const GraphContainer = styled.div`

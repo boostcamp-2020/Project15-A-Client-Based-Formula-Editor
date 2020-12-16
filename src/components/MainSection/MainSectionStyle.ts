@@ -43,9 +43,10 @@ interface Props {
 
 export const Modal = styled.div<Props>`
   width: ${(props) => (props.visible ? '53.9%' : '77%')}; /* Full width */
-  height: 480px; /* Full height */
+  height: 470px; /* Full height */
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
+  transition: all 1s;
 `;
 
 export const CropSaveButton = styled.div`
