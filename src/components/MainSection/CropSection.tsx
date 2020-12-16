@@ -88,8 +88,8 @@ const CropSection = ({ height, visible }: cropProps) => {
       setCrop({ width: 30, height: 30, unit: 'px' });
     };
     const cropImage = document.querySelector('.ReactCrop__image') as any;
-    cropImage.style.height = '410px';
-    cropImage.style.width = '0.1%';
+    cropImage.style.height = '490px';
+    cropImage.style.width = '100%';
 
     getHtml();
   }, []);
