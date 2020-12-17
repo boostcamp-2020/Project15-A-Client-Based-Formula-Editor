@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import localstorage from '@src/utils/localstorage';
 
 const CHANGE_TAB = 'tab/CHANGE_TAB' as const;
 const ADD_TAB = 'tab/ADD_TAB' as const;
@@ -27,16 +28,8 @@ export interface TabState {
   }[];
 }
 
-const getLastId = () => {
-  const storedData = JSON.parse(window.localStorage.getItem('tab'));
-  if (storedData) {
-    return storedData[storedData.length - 1].id;
-  }
-  return 1;
-};
-
 const initialState = {
-  lastId: getLastId(),
+  lastId: localstorage.getLastId(),
   selectedTabId: 1,
   tabList: [
     {
