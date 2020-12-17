@@ -22,7 +22,7 @@ export const alertReducer = handleActions(
       state: AlertModeState = initialState,
       action: Action
     ) => {
-      return { ...state, mode: action.payload, toggle: !!state.toggle };
+      return { ...state, mode: action.payload, toggle: !state.toggle };
     },
   },
   initialState
