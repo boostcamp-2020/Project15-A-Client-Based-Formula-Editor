@@ -36,7 +36,6 @@ export const Tab = styled.div`
 
 interface Props {
   display: string;
-  height: number;
   visible: boolean;
 }
 
@@ -52,12 +51,12 @@ export const CropSaveButton = styled.div`
   height: 33px;
   display: flex;
   padding-top: 15px;
-  margin-left: 50%;
   margin-top: -50px;
+  margin-left: 50%;
   justify-content: center;
   background-color: ${colors.borderGrey};
   &:hover {
-    cursor: pointer;
     color: ${colors.mainGreen};
+    cursor: pointer;
   }
 `;

@@ -7,11 +7,10 @@ import { cropImage } from '@src/store/modules/saveMode';
 import { Modal } from './MainSectionStyle';
 
 interface cropProps {
-  height: number;
   visible: boolean;
 }
 
-const CropSection = ({ height, visible }: cropProps) => {
+const CropSection = ({ visible }: cropProps) => {
   const dispatch = useDispatch();
   const [cropData, setCrop] = useState({});
   const [imageRef, setImageRef] = useState();
@@ -89,7 +88,7 @@ const CropSection = ({ height, visible }: cropProps) => {
 
   return (
     <>
-      <Modal display="block" height={height} visible={visible}>
+      <Modal display="block" visible={visible}>
         <ReactCrop
           src={url}
           crop={cropData}
