@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalStyle } from '@src/utils/global-style';
 import * as Semantic from '@src/components/index';
-import * as StyleComponent from './style';
+import * as StyleComponent from './mainPageStyle';
 
 const MainPage = () => {
   return (
