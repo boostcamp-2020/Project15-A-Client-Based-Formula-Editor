@@ -1,16 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
-import { decline } from '@src/store/modules/fontDecline';
+import { changeDecline } from '@src/store/modules/fontDecline';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 
 const ItalicButton = () => {
-  const { isDecline } = useSelector((state: RootState) => state.declineHandler);
+  const { fontDecline } = useSelector(
+    (state: RootState) => state.fontDeclineReducer
+  );
 
   const dispatch = useDispatch();
 
   const onClickDeclineHandler = () => {
-    dispatch(decline({ isDecline: !isDecline, fontDecline: 'normal' }));
+    dispatch(changeDecline({ fontDecline: !fontDecline }));
   };
 
   return (

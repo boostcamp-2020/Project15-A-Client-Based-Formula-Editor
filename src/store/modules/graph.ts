@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const CLICK_GRAPHBUTTON = 'CLICK_GRAPHBUTTON';
+const CLICK_GRAPHBUTTON = 'graph/CLICK_GRAPHBUTTON';
 export const clickButton = createAction(CLICK_GRAPHBUTTON);
 
 export interface GraphState {
@@ -10,7 +10,7 @@ const initialState: GraphState = {
   visible: false,
 };
 
-export const graphHandler = handleActions(
+export const graphReducer = handleActions(
   {
     [CLICK_GRAPHBUTTON]: (state: GraphState) => {
       return { ...state, visible: !state.visible };

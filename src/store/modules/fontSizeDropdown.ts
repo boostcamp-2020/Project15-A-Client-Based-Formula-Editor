@@ -1,40 +1,50 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const TOGGLE = 'font-dropdown/TOGGLE' as const;
-const CHANGE_FONT_SIZE = 'font-dropdown/CHANGE_FONT_SIZE' as const;
-const CLOSE = 'font-dropdown/CLOSE';
+const SHOW_FONT_SIZE_DROPDOWN = 'fontSizeDropdown/SHOW_FONT_SIZE_DROPDOWN' as const;
+const CHANGE_FONT_SIZE = 'fontSizeDropdown/CHANGE_FONT_SIZE' as const;
+const CLOSE_FONT_SIZE_DROPDOWN = 'fontSizeDropdown/CLOSE_FONT_SIZE_DROPDOWN' as const;
 
-export const toggle = createAction(TOGGLE);
+export const showFontSizeDropdown = createAction(SHOW_FONT_SIZE_DROPDOWN);
 export const changeFontSize = createAction(CHANGE_FONT_SIZE);
-export const closeDropdown = createAction(CLOSE);
+export const closeFontSizeDropdown = createAction(CLOSE_FONT_SIZE_DROPDOWN);
 
 type Action =
-  | ReturnType<typeof toggle>
+  | ReturnType<typeof showFontSizeDropdown>
   | ReturnType<typeof changeFontSize>
-  | ReturnType<typeof closeDropdown>;
+  | ReturnType<typeof closeFontSizeDropdown>;
 
-export interface FontDropDownState {
-  dropDown: string;
+export interface FontSizeDropdownState {
+  fontSizeDropdown: boolean;
   selectedFontSize: number;
 }
 
 const initialState = {
-  dropDown: 'close',
+  fontSizeDropdown: false,
   selectedFontSize: 15,
 };
 
-export const fontDropDownReducer = handleActions(
+export const fontSizeDropdownReducer = handleActions(
   {
-    [TOGGLE]: (state) => {
-      if (state.dropDown === 'open') return { ...state, dropDown: 'close' };
-      return { ...state, dropDown: 'open' };
+    [SHOW_FONT_SIZE_DROPDOWN]: (
+      state: FontSizeDropdownState = initialState
+    ) => {
+      return { ...state, fontSizeDropdown: !state.fontSizeDropdown };
     },
 
-    [CHANGE_FONT_SIZE]: (state, action: Action) => {
-      return { ...state, dropDown: 'close', selectedFontSize: action.payload };
+    [CHANGE_FONT_SIZE]: (
+      state: FontSizeDropdownState = initialState,
+      action: Action
+    ) => {
+      return {
+        ...state,
+        fontSizeDropdown: false,
+        selectedFontSize: action.payload,
+      };
     },
-    [CLOSE]: (state) => {
-      return { ...state, dropDown: 'close' };
+    [CLOSE_FONT_SIZE_DROPDOWN]: (
+      state: FontSizeDropdownState = initialState
+    ) => {
+      return { ...state, fontSizeDropdown: false };
     },
   },
   initialState

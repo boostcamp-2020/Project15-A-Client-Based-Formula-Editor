@@ -6,7 +6,7 @@ import { change, loadHistory } from '@src/store/modules/mathQuill';
 import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
-import { decline } from '@src/store/modules/fontDecline';
+import { changeDecline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
 import TabList from './TabList';
 import PlusTab from './PlusTab';
@@ -21,13 +21,13 @@ const Tab = () => {
     (state: RootState) => state.fontColorDropdownReducer
   );
   const { selectedFontSize: fontSize } = useSelector(
-    (state: RootState) => state.fontDropDownReducer
+    (state: RootState) => state.fontSizeDropdownReducer
   );
   const { fontAlign } = useSelector(
     (state: RootState) => state.fontAlignReducer
   );
-  const { isDecline: fontDecline } = useSelector(
-    (state: RootState) => state.declineHandler
+  const { fontDecline } = useSelector(
+    (state: RootState) => state.fontDeclineReducer
   );
   const { history, historyIdx } = useSelector(
     (state: RootState) => state.mathQuillReducer
@@ -139,7 +139,7 @@ const Tab = () => {
     dispatch(changeFontSize(selectedTabData.fontSize));
     dispatch(change(selectedTabData.latex));
     dispatch(changeFontAlign(selectedTabData.fontAlign));
-    dispatch(decline(selectedTabData.fontDecline));
+    dispatch(changeDecline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
     dispatch(
       loadHistory({
@@ -211,7 +211,7 @@ const Tab = () => {
           dispatch(changeFontSize(nextTabInfo.fontSize));
           dispatch(change(nextTabInfo.latex));
           dispatch(changeFontAlign(nextTabInfo.fontAlign));
-          dispatch(decline(nextTabInfo.fontDecline));
+          dispatch(changeDecline(nextTabInfo.fontDecline));
           dispatch(
             loadHistory({
               history: nextTabInfo.history,
@@ -252,7 +252,7 @@ const Tab = () => {
       dispatch(changeFontColor(storedData[0].fontColor));
       dispatch(changeFontSize(storedData[0].fontSize));
       dispatch(changeFontAlign(storedData[0].fontAlign));
-      dispatch(decline(storedData[0].fontDecline));
+      dispatch(changeDecline(storedData[0].fontDecline));
       dispatch(change(storedData[0].latex));
       dispatch(
         loadHistory({

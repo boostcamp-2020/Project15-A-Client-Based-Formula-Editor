@@ -2,29 +2,32 @@ import { combineReducers } from 'redux';
 import { alertReducer, AlertModeState } from './alert';
 import { fontAlignReducer, AlignState } from './fontAlign';
 import { fontColorDropdownReducer, FontColorState } from './fontColorDropdown';
-import { declineHandler, DeclineState } from './fontDecline';
-import { paintDropdownReducer, PaintState } from './paintDropdown';
-import { fontDropDownReducer, FontDropDownState } from './fontSizeDropdown';
-import { mathQuillReducer, MathQuillState } from './mathQuill';
+import { fontDeclineReducer, DeclineState } from './fontDecline';
+import {
+  fontSizeDropdownReducer,
+  FontSizeDropdownState,
+} from './fontSizeDropdown';
+import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
 import { tabReducer, TabState } from './tab';
 import {
   backgroundDropdownReducer,
   BackgroundState,
 } from './backgroundDropdown';
-import { graphHandler, GraphState } from './graph';
-import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
+import { graphReducer, GraphState } from './graph';
+import { mathQuillReducer, MathQuillState } from './mathQuill';
+import { paintDropdownReducer, PaintState } from './paintDropdown';
 
 export interface RootState {
   alertReducer: AlertModeState;
   backgroundDropdownReducer: BackgroundState;
   fontAlignReducer: AlignState;
   fontColorDropdownReducer: FontColorState;
-  declineHandler: DeclineState;
-  fontDropDownReducer: FontDropDownState;
-  tabReducer: TabState;
+  fontDeclineReducer: DeclineState;
+  fontSizeDropdownReducer: FontSizeDropdownState;
   mathQuillReducer: MathQuillState;
+  tabReducer: TabState;
+  graphReducer: GraphState;
   paintDropdownReducer: PaintState;
-  graphHandler: GraphState;
   getMathQuillReducer: MathQuillContainerState;
 }
 export default combineReducers({
@@ -32,11 +35,11 @@ export default combineReducers({
   backgroundDropdownReducer,
   fontAlignReducer,
   fontColorDropdownReducer,
-  declineHandler,
+  fontDeclineReducer,
   paintDropdownReducer,
-  fontDropDownReducer,
+  fontSizeDropdownReducer,
   tabReducer,
-  graphHandler,
+  graphReducer,
   mathQuillReducer,
   getMathQuillReducer,
 });

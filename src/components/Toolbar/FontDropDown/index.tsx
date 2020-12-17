@@ -2,9 +2,9 @@ import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import {
-  toggle,
+  showFontSizeDropdown,
   changeFontSize,
-  closeDropdown,
+  closeFontSizeDropdown,
 } from '@src/store/modules/fontSizeDropdown';
 import useOutsideClick from '@src/hooks/useOutSideClick';
 import FontContent from './FontContent';
@@ -12,21 +12,21 @@ import FontButton from './FontButton';
 import * as S from './style';
 
 export default function FontDropDown() {
-  const { dropDown, selectedFontSize } = useSelector(
-    (state: RootState) => state.fontDropDownReducer
+  const { fontSizeDropdown, selectedFontSize } = useSelector(
+    (state: RootState) => state.fontSizeDropdownReducer
   );
 
   const dispatch = useDispatch();
 
   const handleToggle = () => {
-    dispatch(toggle());
+    dispatch(showFontSizeDropdown());
   };
 
   const handleChagneFontSize = (size: number) => {
     dispatch(changeFontSize(size));
   };
   const fontRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(fontRef, dropDown === 'open', closeDropdown);
+  useOutsideClick(fontRef, fontSizeDropdown, closeFontSizeDropdown);
   const fonts = [15, 16, 19, 24, 28, 30, 34];
 
   const fontList: JSX.Element[] = fonts.map(
@@ -48,7 +48,9 @@ export default function FontDropDown() {
         changeStatus={handleToggle}
         selectedFontSize={selectedFontSize}
       />
-      <S.DropDownContent dropDown={dropDown}>{fontList}</S.DropDownContent>
+      <S.DropDownContent fontSizeDropdown={fontSizeDropdown}>
+        {fontList}
+      </S.DropDownContent>
     </S.FontDropdown>
   );
 }

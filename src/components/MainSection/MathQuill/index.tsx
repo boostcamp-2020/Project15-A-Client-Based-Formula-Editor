@@ -24,12 +24,14 @@ const EditableMathExample = ({
   dragndrop,
   paintDropdown,
 }: Props) => {
-  const { isDecline } = useSelector((state: RootState) => state.declineHandler);
+  const { fontDecline } = useSelector(
+    (state: RootState) => state.fontDeclineReducer
+  );
   const { fontAlign } = useSelector(
     (state: RootState) => state.fontAlignReducer
   );
   const { selectedFontSize } = useSelector(
-    (state: RootState) => state.fontDropDownReducer
+    (state: RootState) => state.fontSizeDropdownReducer
   );
   const { fontColor } = useSelector(
     (state: RootState) => state.fontColorDropdownReducer
@@ -47,7 +49,7 @@ const EditableMathExample = ({
     <StyleComponent.MathField
       isActive={isActive}
       canDrop={canDrop}
-      isDecline={isDecline}
+      isDecline={fontDecline}
       fontAlign={fontAlign}
       fontSize={selectedFontSize}
       fontColor={fontColor}

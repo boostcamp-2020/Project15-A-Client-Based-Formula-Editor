@@ -1,8 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const CHANGE_FONTCOLOR = 'fontColorDropdown/CHANGE_COLOR';
-const SHOW_FONTCOLOR_DROPDOWN = 'fontColorDropdown/SHOW_FONTCOLOR_DROPDOWN';
-const CLOSE_FONTCOLOR_DROPDOWN = 'fontColorDropdown/CLOSE_FONTCOLOR_DROPDOWN';
+const CHANGE_FONTCOLOR = 'fontColorDropdown/CHANGE_COLOR' as const;
+const SHOW_FONTCOLOR_DROPDOWN = 'fontColorDropdown/SHOW_FONTCOLOR_DROPDOWN' as const;
+const CLOSE_FONTCOLOR_DROPDOWN = 'fontColorDropdown/CLOSE_FONTCOLOR_DROPDOWN' as const;
 
 export const changeFontColor = createAction(
   CHANGE_FONTCOLOR,

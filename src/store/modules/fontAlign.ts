@@ -1,8 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SHOW_FONTALIGN_DROPDOWN = 'fontAlign/SHOW_FONTALIGN_DROPDOWN';
-const CHANGE_FONTALIGN = 'fontAlign/CHANGE_FONTALIGN';
-const CLOSE_FONTALIGN_DROPDOWN = 'fontAlign/CLOSE_FONTALIGN_DROPDOWN';
+const SHOW_FONTALIGN_DROPDOWN = 'fontAlign/SHOW_FONTALIGN_DROPDOWN' as const;
+const CHANGE_FONTALIGN = 'fontAlign/CHANGE_FONTALIGN' as const;
+const CLOSE_FONTALIGN_DROPDOWN = 'fontAlign/CLOSE_FONTALIGN_DROPDOWN' as const;
 
 export const showFontAlignDropdown = createAction(SHOW_FONTALIGN_DROPDOWN);
 export const changeFontAlign = createAction(
