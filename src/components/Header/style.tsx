@@ -42,7 +42,7 @@ export const SaveButtonContainer = styled.div<Props>`
   width: 380px;
   display: ${(props) => (props.saveButtonActive ? 'flex' : 'none')};
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 `;
 
 export const MiniButton = styled.div`
@@ -50,12 +50,11 @@ export const MiniButton = styled.div`
   flex-direction: column;
   height: 100%;
   padding: 3px;
-  border-radius: 10px;
+  border-right: 2.5px solid ${colors.grey};
   align-items: center;
   justify-content: center;
   outline: none;
   opacity: 0.6;
-  background-color: ${colors.grey};
   font-weight: bold;
   cursor: pointer;
   .text1 {
@@ -63,8 +62,8 @@ export const MiniButton = styled.div`
     margin-left: 7px;
     margin-right: 7px;
     margin-bottom: 5px;
-    color: white;
-    font-size: 13px;
+    color: ${colors.grey};
+    font-size: 16px;
     font-weight: bold;
   }
   .text2 {
