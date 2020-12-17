@@ -27,22 +27,27 @@ const MainSection = ({ visible }: Props) => {
   const { click } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
+  
   const {
-    isBackgroundDropdownShow,
+    backgroundDropdown,
   } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
+  
   const { saveClick } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
+  
   const { isDropdownShow } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
   );
+  
   const dispatch = useDispatch();
+  
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
 
   const mainSectionRef = useRef<HTMLDivElement>(null);
-  const backgroundCanvas = useRef<any>(null);
+  const backgroundCanvas = useRef<HTMLCanvasElement>(null);
 
 
   const { mathQuiiFunc } = useSelector(
@@ -112,7 +117,7 @@ const MainSection = ({ visible }: Props) => {
         mathQuill={
           // eslint-disable-next-line react/jsx-wrap-multilines
           <MathQuill
-            isBackgroundDropdownShow={isBackgroundDropdownShow}
+            isBackgroundDropdownShow={backgroundDropdown}
             isActive={isActive}
             canDrop={canDrop}
             latex={latex}
@@ -121,7 +126,7 @@ const MainSection = ({ visible }: Props) => {
           />
         }
         canvas={
-          isBackgroundDropdownShow ? (
+          backgroundDropdown ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="background" />
           ) : isDropdownShow ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="drawer" />

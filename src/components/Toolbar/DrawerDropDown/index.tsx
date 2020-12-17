@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown } from '@src/store/modules/drawerDropdown';
+import { drawerDropdown } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
-import { closeDropdown } from '@src/store/modules/backgroundDropdown';
+import { closeBackgroundDropdown } from '@src/store/modules/backgroundDropdown';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -22,7 +22,7 @@ const Drawer = () => {
   const { completeShow } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
-  const { isBackgroundDropdownShow } = useSelector(
+  const { backgroundDropdown } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
   const dispatch = useDispatch();
@@ -89,8 +89,8 @@ const Drawer = () => {
   );
 
   const onClickDrawerHandler = (background: any) => {
-    if (!isBackgroundDropdownShow) {
-      dispatch(dropdown());
+    if (!backgroundDropdown) {
+      dispatch(drawerDropdown());
     }
   };
   const onClickClearHandler = () => {

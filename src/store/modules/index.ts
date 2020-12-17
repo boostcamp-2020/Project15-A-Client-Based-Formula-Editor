@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { fontColorDropdownHandler, State } from './fontColorDropdown';
-import { drawerDropdownHandler, IState } from './drawerDropdown';
+import { drawerDropdownHandler, DrawerState } from './drawerDropdown';
 import { fontDropDownReducer, FontDropDownState } from './font-dropdown';
 import { mathQuillReducer, MathQuillState } from './mathQuill';
 import { tabReducer, TabState } from './tab';
@@ -18,7 +18,7 @@ export interface RootState {
   fontDropDownReducer: FontDropDownState;
   tabReducer: TabState;
   mathQuillReducer: MathQuillState;
-  drawerDropdownHandler: IState;
+  drawerDropdownHandler: DrawerState;
   fontColorDropdownHandler: State;
   BackgroundDropdownHandler: BackgroundState;
   graphHandler: GraphState;
