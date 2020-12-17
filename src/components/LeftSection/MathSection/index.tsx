@@ -50,6 +50,7 @@ const MathSectionContainer = () => {
     'plus',
     'minus',
     'multiple',
+    'greece',
   ];
   const isSymbol = symbolList.includes(name);
 

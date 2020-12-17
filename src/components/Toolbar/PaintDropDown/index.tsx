@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
@@ -49,7 +50,6 @@ const Drawer = () => {
     if (!canvas) return;
     const context = canvas.getContext('2d');
     if (!context) return;
-
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
     context.beginPath();
@@ -58,6 +58,11 @@ const Drawer = () => {
   };
 
   const mouseUpHandler = (e: any) => {
+    const canvas = backgroundCanvas.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
     setClick(false);
   };
   const mouseMoveHandler = (e: any) => {
@@ -75,7 +80,17 @@ const Drawer = () => {
       context.stroke();
     }
   };
-
+  useEffect(() => {
+    if (
+      backgroundCanvas.current === null ||
+      backgroundCanvas.current === undefined
+    ) {
+      return;
+    }
+    const can = backgroundCanvas.current;
+    const ctx = can.getContext('2d');
+    ctx.strokeStyle = 'transparent';
+  }, [isDropdownShow]);
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (

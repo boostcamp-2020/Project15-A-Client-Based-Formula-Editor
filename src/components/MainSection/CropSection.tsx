@@ -84,7 +84,6 @@ const CropSection = ({ height, visible }: cropProps) => {
       });
       setCrop({ width: 30, height: 30, unit: 'px' });
     };
-
     getHtml();
   }, []);
 

@@ -3,10 +3,8 @@ import Title from '@src/components/Common/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { LatexContent } from '@src/components/Common/LatexContent';
-import * as templateSVG from '@src/constants/templateSection';
 import { insert } from '@src/store/modules/mathQuill';
 import templateSection from '@src/constants/templateSection';
-import DownArrow from '@src/utils/svg/leftsection/templatesection/down-arrow.svg';
 import * as StyledComponent from './style';
 
 const TemplateSectionContainer = () => {
@@ -19,9 +17,7 @@ const TemplateSectionContainer = () => {
   const dispatch = useDispatch();
 
   const template = templateSection.filter((id) => id.name === name);
-  const templateArray =
-    template.length > 0 ? template[0].value : templateSVG.fraction;
-
+  const templateArray = template.length > 0 ? template[0].value : [];
   const onClickHandler = (value: string) => {
     mathQuiiFunc.write(value);
     dispatch(insert(value));
@@ -34,24 +30,25 @@ const TemplateSectionContainer = () => {
           <Title title="템플릿" />
         </StyledComponent.Header>
         <StyledComponent.ButtonContainer>
-          {templateArray.map((data) => {
-            return (
-              <LatexContent
-                latex={data.latex}
-                key={data.name}
-                svg={data.svg}
-                width={
-                  data.name.indexOf('integral') !== -1 ||
-                  data.name.indexOf('limit') !== -1
-                    ? '160'
-                    : '80'
-                }
-                height="80"
-                name={data.name}
-                onClick={() => onClickHandler(data.latex)}
-              />
-            );
-          })}
+          {templateArray.length > 0 &&
+            templateArray.map((data) => {
+              return (
+                <LatexContent
+                  latex={data.latex}
+                  key={data.name}
+                  svg={data.svg}
+                  width={
+                    data.name.indexOf('integral') !== -1 ||
+                    data.name.indexOf('limit') !== -1
+                      ? '160'
+                      : '80'
+                  }
+                  height="80"
+                  name={data.name}
+                  onClick={() => onClickHandler(data.latex)}
+                />
+              );
+            })}
         </StyledComponent.ButtonContainer>
       </StyledComponent.TemplateSectionContainer>
     </>

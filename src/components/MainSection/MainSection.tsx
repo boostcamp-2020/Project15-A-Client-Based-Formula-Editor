@@ -137,9 +137,8 @@ const MainSection = ({ visible }: Props) => {
         resizing={resizing}
         height={height}
         show={visible}
-        crop={cropModal && saveButtonActive && <CropSection height={height} visible={visible} />}
       />
-
+      {cropModal && saveButtonActive && <CropSection height={height} visible={visible} />}
     </>
   );
 };
