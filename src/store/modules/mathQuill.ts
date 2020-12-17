@@ -1,18 +1,17 @@
 import { createAction, handleActions } from 'redux-actions';
 
 const MATHQUILL = 'mathquill/MATHQUILL' as const;
-const CLEAR = 'mathquill/CLEAR';
-const CHANGE = 'mathquill/CHANGE';
-const INSERT = 'mathquill/CLICK_BUTTON';
-const SHOW_OTHER_SECTION = 'mathquill/SHOW_OTHER_SECTION';
-const UNDO = 'mathquill/UNDO';
-const REDO = 'mathquill/REDO';
-const LOAD_HISTORY = 'mathquill/LOAD_HISTORY';
+const CLEAR = 'mathquill/CLEAR' as const;
+const CHANGE = 'mathquill/CHANGE' as const;
+const INSERT = 'mathquill/CLICK_BUTTON' as const;
+const UNDO = 'mathquill/UNDO' as const;
+const REDO = 'mathquill/REDO' as const;
+const LOAD_HISTORY = 'mathquill/LOAD_HISTORY' as const;
+
 export const mathQuill = createAction(MATHQUILL);
 export const clear = createAction(CLEAR);
 export const change = createAction(CHANGE, (latex: string) => latex);
 export const insert = createAction(INSERT);
-export const show = createAction(SHOW_OTHER_SECTION);
 export const undo = createAction(UNDO);
 export const redo = createAction(REDO);
 export const loadHistory = createAction(LOAD_HISTORY);
@@ -22,7 +21,6 @@ type Action =
   | ReturnType<typeof clear>
   | ReturnType<typeof change>
   | ReturnType<typeof insert>
-  | ReturnType<typeof show>
   | ReturnType<typeof undo>
   | ReturnType<typeof redo>
   | ReturnType<typeof loadHistory>;
@@ -30,7 +28,6 @@ type Action =
 export interface MathQuillState {
   mathQuiiFunc: any;
   latex: string;
-  name: string;
   history: string[];
   historyIdx: number;
 }
@@ -38,18 +35,17 @@ export interface MathQuillState {
 const initialState = {
   latex: 'Hello',
   mathQuiiFunc: 0,
-  name: '',
   history: ['Hello'],
   historyIdx: 0,
 };
 
 export const mathQuillReducer = handleActions(
   {
-    [MATHQUILL]: (state = initialState, action: Action) => {
+    [MATHQUILL]: (state: MathQuillState = initialState, action: Action) => {
       return { ...state, mathQuiiFunc: action.payload };
     },
-    [CLEAR]: (state = initialState, action: Action) => {
-      if (state.history[state.historyIdx] === '') return state;
+    [CLEAR]: (state = initialState) => {
+      if (state.history[state.historyIdx] === '') return { ...state };
 
       return {
         ...state,
@@ -58,8 +54,9 @@ export const mathQuillReducer = handleActions(
         historyIdx: state.historyIdx + 1,
       };
     },
-    [CHANGE]: (state = initialState, action: Action) => {
-      if (state.history[state.historyIdx] === action.payload) return state;
+    [CHANGE]: (state: MathQuillState = initialState, action: Action) => {
+      if (state.history[state.historyIdx] === action.payload)
+        return { ...state };
 
       return {
         ...state,
@@ -68,10 +65,10 @@ export const mathQuillReducer = handleActions(
         historyIdx: state.historyIdx + 1,
       };
     },
-    [INSERT]: (state = initialState, action: Action) => {
+    [INSERT]: (state: MathQuillState = initialState) => {
       const newLatex = state.mathQuiiFunc.latex();
-      if (state.history[state.historyIdx] === newLatex) return state;
-      if (state.historyIdx !== state.hsitory.length - 1) {
+      if (state.history[state.historyIdx] === newLatex) return { ...state };
+      if (state.historyIdx !== state.history.length - 1) {
         return {
           ...state,
           latex: newLatex,
@@ -82,10 +79,7 @@ export const mathQuillReducer = handleActions(
 
       return { ...state, latex: state.mathQuiiFunc.latex() };
     },
-    [SHOW_OTHER_SECTION]: (state = initialState, action: Action) => {
-      return { ...state, name: action.payload };
-    },
-    [UNDO]: (state = initialState) => {
+    [UNDO]: (state: MathQuillState = initialState) => {
       if (state.historyIdx === 0) return state;
 
       return {
@@ -94,8 +88,8 @@ export const mathQuillReducer = handleActions(
         historyIdx: state.historyIdx - 1,
       };
     },
-    [REDO]: (state = initialState) => {
-      if (state.historyIdx === state.history.length - 1) return state;
+    [REDO]: (state: MathQuillState = initialState) => {
+      if (state.historyIdx === state.history.length - 1) return { ...state };
 
       return {
         ...state,
@@ -103,7 +97,7 @@ export const mathQuillReducer = handleActions(
         historyIdx: state.historyIdx + 1,
       };
     },
-    [LOAD_HISTORY]: (state, action) => {
+    [LOAD_HISTORY]: (state: MathQuillState = initialState, action) => {
       return {
         ...state,
         history: [...action.payload.history],

@@ -8,14 +8,15 @@ import {
   FontSizeDropdownState,
 } from './fontSizeDropdown';
 import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
-import { tabReducer, TabState } from './tab';
 import {
   backgroundDropdownReducer,
   BackgroundState,
 } from './backgroundDropdown';
 import { graphReducer, GraphState } from './graph';
+import { leftSectionReducer, LeftSectionState } from './leftSection';
 import { mathQuillReducer, MathQuillState } from './mathQuill';
 import { paintDropdownReducer, PaintState } from './paintDropdown';
+import { tabReducer, TabState } from './tab';
 
 export interface RootState {
   alertReducer: AlertModeState;
@@ -24,11 +25,12 @@ export interface RootState {
   fontColorDropdownReducer: FontColorState;
   fontDeclineReducer: DeclineState;
   fontSizeDropdownReducer: FontSizeDropdownState;
-  mathQuillReducer: MathQuillState;
-  tabReducer: TabState;
-  graphReducer: GraphState;
-  paintDropdownReducer: PaintState;
   getMathQuillReducer: MathQuillContainerState;
+  graphReducer: GraphState;
+  leftSectionReducer: LeftSectionState;
+  mathQuillReducer: MathQuillState;
+  paintDropdownReducer: PaintState;
+  tabReducer: TabState;
 }
 export default combineReducers({
   alertReducer,
@@ -36,10 +38,11 @@ export default combineReducers({
   fontAlignReducer,
   fontColorDropdownReducer,
   fontDeclineReducer,
-  paintDropdownReducer,
   fontSizeDropdownReducer,
-  tabReducer,
   graphReducer,
+  leftSectionReducer,
   mathQuillReducer,
   getMathQuillReducer,
+  paintDropdownReducer,
+  tabReducer,
 });

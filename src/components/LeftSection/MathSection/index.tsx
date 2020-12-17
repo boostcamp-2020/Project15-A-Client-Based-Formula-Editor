@@ -15,10 +15,17 @@ import LatexContentList from './ButtonList';
 
 const MathSectionContainer = () => {
   const dispatch = useDispatch();
-  const { mathQuiiFunc, name } = useSelector(
+
+  const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer,
     shallowEqual
   );
+
+  const { name } = useSelector(
+    (state: RootState) => state.leftSectionReducer,
+    shallowEqual
+  );
+
   const math = mathSection.filter((id) => id.name === name);
   const mathArray = math.length > 0 ? math[0].value : mathSVG.mathFraction;
 

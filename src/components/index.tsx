@@ -25,7 +25,7 @@ export const Aside = () => {
 };
 
 export const Section = () => {
-  const { visible } = useSelector((state: RootState) => state.graphHandler);
+  const { visible } = useSelector((state: RootState) => state.graphReducer);
   return (
     <StyleComponent.Main>
       <ToolBar />

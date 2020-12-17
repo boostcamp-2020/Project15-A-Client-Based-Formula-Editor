@@ -18,10 +18,11 @@ const initialState = {
 
 export const alertReducer = handleActions(
   {
-    [CHANGE_ALERT_MODE]: (state, action: Action) => {
-      if (state.toggle)
-        return { ...state, mode: action.payload, toggle: false };
-      return { ...state, mode: action.payload, toggle: true };
+    [CHANGE_ALERT_MODE]: (
+      state: AlertModeState = initialState,
+      action: Action
+    ) => {
+      return { ...state, mode: action.payload, toggle: !!state.toggle };
     },
   },
   initialState

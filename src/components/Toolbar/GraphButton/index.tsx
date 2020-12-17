@@ -1,15 +1,13 @@
 import React from 'react';
 import * as GraphAction from '@src/store/modules/graph';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@src/store/modules';
+import { useDispatch } from 'react-redux';
 import Button from './Button';
 
 const Graph = () => {
-  const { visible } = useSelector((state: RootState) => state.graphHandler);
   const dispatch = useDispatch();
 
   const onClickHandler = () => {
-    dispatch(GraphAction.clickButton());
+    dispatch(GraphAction.clickGraphButton());
   };
 
   return <Button onClick={onClickHandler} />;
