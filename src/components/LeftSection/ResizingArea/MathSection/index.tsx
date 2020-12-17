@@ -81,6 +81,7 @@ const MathSectionContainer = () => {
             height="80"
             name={data.name}
             onClick={() => onClickHandler(data.latex, data.isPossible)}
+            isPossible={data.isPossible}
           />
         );
       });
@@ -95,6 +96,7 @@ const MathSectionContainer = () => {
             height="80"
             name={data.name}
             onClick={() => onClickHandler(data.latex, data.isPossible)}
+            isPossible={data.isPossible}
           />
         );
       });
@@ -110,7 +112,7 @@ const MathSectionContainer = () => {
       setTimeout(() => {
         getList();
         setLoading(false);
-      }, 3000);
+      }, 1000);
     } else getList();
   }, [name]);
 
