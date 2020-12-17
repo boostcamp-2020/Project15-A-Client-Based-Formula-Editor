@@ -32,7 +32,7 @@ const EditableMathExample = ({
     (state: RootState) => state.fontDropDownReducer
   );
   const { fontColor } = useSelector(
-    (state: RootState) => state.fontColorDropdownHandler
+    (state: RootState) => state.fontColorDropdownReducer
   );
   const dispatch = useDispatch();
 

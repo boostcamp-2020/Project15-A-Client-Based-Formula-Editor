@@ -4,12 +4,12 @@ import * as StyleComponent from './style';
 interface Props {
   onClick: () => void;
   fontColor: string;
-  isActive: boolean;
+  fontColorDropdown: boolean;
 }
-const FontColorButton = ({ onClick, isActive, fontColor }: Props) => {
+const FontColorButton = ({ onClick, fontColorDropdown, fontColor }: Props) => {
   return (
     <StyleComponent.DropdownButton onClick={onClick}>
-      {isActive ? (
+      {fontColorDropdown ? (
         <>
           <div className="title">A</div>
           <StyleComponent.ColorBlind active />

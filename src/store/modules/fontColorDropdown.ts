@@ -1,32 +1,44 @@
 import { createAction, handleActions } from 'redux-actions';
-// action_type
-const CHANGE_COLOR = 'CHANGE_COLOR';
-const CHANGE_DROPDOWN_STATE = 'CHANGE_DROPOWN_STATE';
-const CLOSE = 'fontColorDropdown/CLOSE';
-export const changeColor = createAction(CHANGE_COLOR, (value: string) => value);
-export const changeDropdownState = createAction(CHANGE_DROPDOWN_STATE);
-export const closeDropdown = createAction(CLOSE);
 
-export interface State {
-  isActive: boolean;
+const CHANGE_FONTCOLOR = 'fontColorDropdown/CHANGE_COLOR';
+const SHOW_FONTCOLOR_DROPDOWN = 'fontColorDropdown/SHOW_FONTCOLOR_DROPDOWN';
+const CLOSE_FONTCOLOR_DROPDOWN = 'fontColorDropdown/CLOSE_FONTCOLOR_DROPDOWN';
+
+export const changeFontColor = createAction(
+  CHANGE_FONTCOLOR,
+  (value: string) => value
+);
+export const showFontColorDropdown = createAction(SHOW_FONTCOLOR_DROPDOWN);
+export const closeFontColorDropdown = createAction(CLOSE_FONTCOLOR_DROPDOWN);
+
+type Action =
+  | ReturnType<typeof changeFontColor>
+  | ReturnType<typeof showFontColorDropdown>
+  | ReturnType<typeof closeFontColorDropdown>;
+
+export interface FontColorState {
+  fontColorDropdown: boolean;
   fontColor: string;
 }
 
-const initialState: State = {
-  isActive: false,
+const initialState: FontColorState = {
+  fontColorDropdown: false,
   fontColor: 'black',
 };
 
-export const fontColorDropdownHandler = handleActions(
+export const fontColorDropdownReducer = handleActions(
   {
-    [CHANGE_COLOR]: (state: State = initialState, action: any) => {
-      return { ...state, isActive: false, fontColor: action.payload };
+    [CHANGE_FONTCOLOR]: (
+      state: FontColorState = initialState,
+      action: Action
+    ) => {
+      return { ...state, fontColorDropdown: false, fontColor: action.payload };
     },
-    [CHANGE_DROPDOWN_STATE]: (state: State) => {
-      return { ...state, isActive: !state.isActive };
+    [SHOW_FONTCOLOR_DROPDOWN]: (state: FontColorState = initialState) => {
+      return { ...state, fontColorDropdown: !state.fontColorDropdown };
     },
-    [CLOSE]: (state: State) => {
-      return { ...state, isActive: false };
+    [CLOSE_FONTCOLOR_DROPDOWN]: (state: FontColorState = initialState) => {
+      return { ...state, fontColorDropdown: false };
     },
   },
   initialState

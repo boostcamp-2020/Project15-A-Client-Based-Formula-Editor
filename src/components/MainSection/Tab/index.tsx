@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
 import { change, loadHistory } from '@src/store/modules/mathQuill';
-import { changeColor } from '@src/store/modules/fontColorDropdown';
+import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
 import { decline } from '@src/store/modules/fontDecline';
@@ -18,7 +18,7 @@ const Tab = () => {
   );
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
   const { fontColor } = useSelector(
-    (state: RootState) => state.fontColorDropdownHandler
+    (state: RootState) => state.fontColorDropdownReducer
   );
   const { selectedFontSize: fontSize } = useSelector(
     (state: RootState) => state.fontDropDownReducer
@@ -135,7 +135,7 @@ const Tab = () => {
     );
 
     dispatch(changeTab(tabId));
-    dispatch(changeColor(selectedTabData.fontColor));
+    dispatch(changeFontColor(selectedTabData.fontColor));
     dispatch(changeFontSize(selectedTabData.fontSize));
     dispatch(change(selectedTabData.latex));
     dispatch(changeFontAlign(selectedTabData.fontAlign));
@@ -207,7 +207,7 @@ const Tab = () => {
         } else if (selectedTabId === tabId) {
           nextTabInfo = storedData[index - 1];
           dispatch(changeTab(nextTabInfo.id));
-          dispatch(changeColor(nextTabInfo.fontColor));
+          dispatch(changeFontColor(nextTabInfo.fontColor));
           dispatch(changeFontSize(nextTabInfo.fontSize));
           dispatch(change(nextTabInfo.latex));
           dispatch(changeFontAlign(nextTabInfo.fontAlign));
@@ -249,7 +249,7 @@ const Tab = () => {
     if (storedData !== null) {
       dispatch(changeTab(storedData[0].id));
       dispatch(updateTab(storedData));
-      dispatch(changeColor(storedData[0].fontColor));
+      dispatch(changeFontColor(storedData[0].fontColor));
       dispatch(changeFontSize(storedData[0].fontSize));
       dispatch(changeFontAlign(storedData[0].fontAlign));
       dispatch(decline(storedData[0].fontDecline));
