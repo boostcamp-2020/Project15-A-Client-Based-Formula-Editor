@@ -1,3 +1,10 @@
-import configure from './configure';
+import { createStore } from 'redux';
+import modules from './modules';
 
-export default configure();
+const configureStore = () => {
+  const store = createStore(modules);
+
+  return store;
+};
+
+export default configureStore();
