@@ -14,11 +14,10 @@ interface MathFieldProp {
 }
 
 export const MathField = styled.div<MathFieldProp>`
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: ${(props) => props.fontColor};
   background-color: ${(props) =>
     // eslint-disable-next-line no-nested-ternary
     props.isActive
@@ -30,9 +29,10 @@ export const MathField = styled.div<MathFieldProp>`
       : props.paintDropdown
       ? 'transparent'
       : 'white'};
+  align-items: center;
+  justify-content: center;
 
   font-size: ${(props) => props.fontSize}px;
-  color: ${(props) => props.fontColor};
   transition: all 0.3s;
   .mq-editable-field {
     width: 100%;
@@ -42,13 +42,13 @@ export const MathField = styled.div<MathFieldProp>`
     box-shadow: none;
   }
   .mq-editable-field > .mq-root-block {
-    display: inline-block;
+    display: flex;
     flex-wrap: wrap;
     border: none;
+    justify-content: ${(props) => props.fontAlign};
   }
   .mq-root-block var,
   span {
-    text-align: ${(props) => props.fontAlign};
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
   .mq-empty {
