@@ -41,8 +41,7 @@ interface Props {
 }
 
 export const Modal = styled.div<Props>`
-  width: ${(props) => (props.visible ? '54%' : '77%')};
-  height: 460px; /* Full height */
+  height: 460px;
   display: flex; /* Hidden by default */
   position: fixed; /* Stay in place */
   transition: all 1s;
