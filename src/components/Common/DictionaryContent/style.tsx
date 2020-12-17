@@ -11,13 +11,13 @@ export const InputLatexContent = styled.div<LatexProps>`
   display: flex;
   width: ${(props) => props.width};
   height: ${(props) => props.height}px;
+  border: 1px dashed ${colors.borderGrey};
   opacity: ${(props) => props.opacity};
   justify-content: center;
   align-items: center;
-  border: 1px dashed ${colors.borderGrey};
   font-size: 80%;
-  cursor: pointer;
   transition-duration: 0.4s;
+  cursor: pointer;
   * {
     cursor: pointer;
   }

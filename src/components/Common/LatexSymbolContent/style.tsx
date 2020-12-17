@@ -11,10 +11,10 @@ export const InputLatexContent = styled.div<LatexProps>`
   display: flex;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  opacity: ${(props) => props.opacity};
-  justify-content: center;
-  align-items: center;
   border: 1px dashed ${colors.borderGrey};
+  opacity: ${(props) => props.opacity};
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition-duration: 0.4s;
   &:hover {

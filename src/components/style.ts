@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const Header = styled.div`
-  height: 3.8rem;
   display: flex;
+  height: 3.8rem;
   border-bottom: 1px solid ${colors.borderGrey};
   background-color: ${colors.white};
 `;
@@ -13,15 +13,15 @@ export const Aside = styled.div`
   height: 100%;
 `;
 export const Main = styled.div`
-  width: 77%;
   display: flex;
   flex-direction: column;
+  width: 77%;
 `;
 
 export const MoveArea = styled.div`
-  width: 100%;
   flex: 1;
   display: flex;
+  width: 100%;
 
   & > div {
     transition: all 1s;

@@ -3,19 +3,19 @@ import colors from '@src/utils/colors';
 
 export const MiddleHolder = styled.div<{ visible: boolean }>`
   position: absolute;
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+  top: 10px;
   width: 100%;
   margin: 0 auto;
-  top: 0;
-  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
-  align-items: center;
+  border-radius: 0 0 5px 5px;
+  background: ${colors.alertWhite};
   opacity: ${(props) => (props.visible ? 1 : 0)};
+  align-items: center;
+  z-index: 1100;
   transition: ${(props) =>
     props.visible
       ? 'opacity 0.1s linear'
       : 'visibility 0s 2s, opacity 2s linear'};
-  background: ${colors.alertWhite};
-  border-radius: 0 0 5px 5px;
-  z-index: 1100;
   strong {
     font-weight: bold;
   }
@@ -28,18 +28,18 @@ export const MiddleHolder = styled.div<{ visible: boolean }>`
     text-shadow: 0 1px 0 ${colors.alertWhite};
   }
   .alert-error {
-    background-color: ${colors.errorBackground};
     border-color: ${colors.errorBorder};
+    background-color: ${colors.errorBackground};
     color: ${colors.error};
   }
   .alert-success {
-    background-color: ${colors.succesBackground};
     border-color: ${colors.succesBorder};
+    background-color: ${colors.succesBackground};
     color: ${colors.success};
   }
   .alert-info {
-    background-color: ${colors.infoBackround};
     border-color: ${colors.infoBorder};
+    background-color: ${colors.infoBackround};
     color: ${colors.info};
   }
 `;
