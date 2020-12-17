@@ -132,9 +132,9 @@ const MainSection = ({ visible }: Props) => {
         resizing={resizing}
         height={height}
         show={visible}
-        crop={click && saveClick && <CropSection height={height} visible={visible} />}
+        
       />
-
+      {click && saveClick && <CropSection height={height} visible={visible} />}
     </>
   );
 };

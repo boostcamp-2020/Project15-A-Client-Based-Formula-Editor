@@ -10,7 +10,6 @@ export const MainSectionTemplate = styled.div<TemplateProps>`
   flex: 0 1 ${(props) => (props.show ? '70%' : '100%')};
   display: flex;
   flex-direction: column;
-  position: relative;
 `;
 
 export const TextArea = styled.div<{ height: number }>`
@@ -42,9 +41,8 @@ interface Props {
 }
 
 export const Modal = styled.div<Props>`
-  width: ${(props) => (props.visible ? '54%' : '77%')}; /* Full width */
-  height: 470px; /* Full height */
-  display: block; /* Hidden by default */
+  height: 460px;
+  display: flex; /* Hidden by default */
   position: fixed; /* Stay in place */
   transition: all 1s;
 `;

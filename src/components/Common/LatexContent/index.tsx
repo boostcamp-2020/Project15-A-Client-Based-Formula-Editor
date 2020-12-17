@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { useDrag } from 'react-dnd';
 import Svg from '@src/components/Common/Svg';
@@ -29,8 +29,18 @@ export const LatexContent = ({
       isDragging: monitor.isDragging(),
     }),
   });
+  const { backgroundCanvas } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
+  );
   const opacity = isDragging ? 0.4 : 1;
-
+  useEffect(() => {
+    if (backgroundCanvas.current === null) return;
+    if (backgroundCanvas && isDragging) {
+      const canvas = backgroundCanvas.current;
+      const context = canvas.getContext('2d');
+      context.strokeStyle = 'transparent';
+    }
+  }, [isDragging]);
   return (
     <>
       <StyleComponent.InputLatexContent
