@@ -6,14 +6,14 @@ import {
 } from '@src/constants/InputSection';
 import { LatexContent } from '@src/components/Common/LatexContent';
 import { useDispatch } from 'react-redux';
-import { show } from '@src/store/modules/mathQuill';
+import { changeFomula } from '@src/store/modules/leftSection';
 
 import * as StyledComponent from './style';
 
 const InputBottomSelectionSection = () => {
   const dispatch = useDispatch();
   const onClickHandler = (name: string) => {
-    dispatch(show(name));
+    dispatch(changeFomula(name));
   };
   return (
     <>

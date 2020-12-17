@@ -4,25 +4,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown, closeDropdown } from '@src/store/modules/drawerDropdown';
+import { showPaintDropdown } from '@src/store/modules/paintDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
+import { closeBackgroundDropdown } from '@src/store/modules/backgroundDropdown';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
   const ref = useRef<HTMLInputElement>();
 
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
+  const { paintDropdown } = useSelector(
+    (state: RootState) => state.paintDropdownReducer
   );
-  const { isBackgroundDropdownShow } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler
-  );
+
   const { backgroundCanvas } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler
+    (state: RootState) => state.backgroundDropdownReducer
   );
-  const { completeShow } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { moreButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
+  );
+  const { backgroundDropdown } = useSelector(
+    (state: RootState) => state.backgroundDropdownReducer
   );
   const dispatch = useDispatch();
   const color = ['black', 'yellow', 'red', 'green'];
@@ -71,8 +73,8 @@ const Drawer = () => {
 
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
-    if (completeShow) return;
-    if (click && isDropdownShow) {
+    if (moreButtonActive) return;
+    if (click && paintDropdown) {
       context.lineTo(x, y);
       context.lineWidth = ref.current.value;
       context.stroke();
@@ -88,7 +90,7 @@ const Drawer = () => {
     const can = backgroundCanvas.current;
     const ctx = can.getContext('2d');
     ctx.strokeStyle = 'transparent';
-  }, [isDropdownShow]);
+  }, [paintDropdown]);
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (
@@ -102,10 +104,8 @@ const Drawer = () => {
   );
 
   const onClickDrawerHandler = (background: any) => {
-    if (isDropdownShow) {
-      dispatch(closeDropdown());
-    } else {
-      dispatch(dropdown());
+    if (!backgroundDropdown) {
+      dispatch(showPaintDropdown());
     }
   };
   const onClickClearHandler = () => {
@@ -137,7 +137,7 @@ const Drawer = () => {
       <RoundButton onClick={() => onClickDrawerHandler(backgroundCanvas)}>
         <DRAWER />
       </RoundButton>
-      {isDropdownShow && (
+      {paintDropdown && (
         <StyleComponent.DrawerContainer>
           {DrawerItem}
           <RoundButton onClick={onClickClearHandler}>

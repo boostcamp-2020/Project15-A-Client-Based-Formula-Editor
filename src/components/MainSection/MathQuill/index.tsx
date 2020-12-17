@@ -13,7 +13,7 @@ interface Props {
   latex: string;
   isBackgroundDropdownShow: boolean;
   dragndrop: any;
-  isDropdownShow: boolean;
+  paintDropdown: boolean;
 }
 
 const EditableMathExample = ({
@@ -22,17 +22,19 @@ const EditableMathExample = ({
   latex,
   isBackgroundDropdownShow,
   dragndrop,
-  isDropdownShow,
+  paintDropdown,
 }: Props) => {
-  const { isDecline } = useSelector((state: RootState) => state.declineHandler);
+  const { fontDecline } = useSelector(
+    (state: RootState) => state.fontDeclineReducer
+  );
   const { fontAlign } = useSelector(
-    (state: RootState) => state.fontAlignHandler
+    (state: RootState) => state.fontAlignReducer
   );
   const { selectedFontSize } = useSelector(
-    (state: RootState) => state.fontDropDownReducer
+    (state: RootState) => state.fontSizeDropdownReducer
   );
   const { fontColor } = useSelector(
-    (state: RootState) => state.fontColorDropdownHandler
+    (state: RootState) => state.fontColorDropdownReducer
   );
   const dispatch = useDispatch();
 
@@ -47,12 +49,12 @@ const EditableMathExample = ({
     <StyleComponent.MathField
       isActive={isActive}
       canDrop={canDrop}
-      isDecline={isDecline}
+      isDecline={fontDecline}
       fontAlign={fontAlign}
       fontSize={selectedFontSize}
       fontColor={fontColor}
       isBackgroundDropdownShow={isBackgroundDropdownShow}
-      isDropdownShow={isDropdownShow}
+      paintDropdown={paintDropdown}
       ref={dragndrop}
     >
       <EditableMathField

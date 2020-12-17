@@ -1,31 +1,34 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
-import * as fontAlignHandler from '@src/store/modules/fontAlign';
-import AlignCenter from '@src/utils/svg/toolbar/align-center.svg';
+import * as fontAlignReducer from '@src/store/modules/fontAlign';
 import useOutsideClick from '@src/hooks/useOutSideClick';
 import Button from './Button';
 import AlignContent from './AlignContent';
 import * as StyledComponent from './style';
 
 const AlignButton = () => {
-  const { isAlign, fontAlign } = useSelector(
-    (state: RootState) => state.fontAlignHandler
+  const { fontAlignDropdown, fontAlign } = useSelector(
+    (state: RootState) => state.fontAlignReducer
   );
   const dispatch = useDispatch();
   const onClickHandler = () => {
-    dispatch(fontAlignHandler.changeDropdownState());
+    dispatch(fontAlignReducer.showFontAlignDropdown());
   };
   const onChangeAlignHandler = (position: string) => {
-    dispatch(fontAlignHandler.changeFontAlign(position));
+    dispatch(fontAlignReducer.changeFontAlign(position));
   };
   const alignRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(alignRef, isAlign, fontAlignHandler.closeDropdown);
+  useOutsideClick(
+    alignRef,
+    fontAlignDropdown,
+    fontAlignReducer.closeFontAlignDropdown
+  );
 
   return (
     <StyledComponent.AlignDropdown ref={alignRef}>
       <Button onClick={onClickHandler} fontAlign={fontAlign} />
-      {isAlign && <AlignContent changeAlign={onChangeAlignHandler} />}
+      {fontAlignDropdown && <AlignContent changeAlign={onChangeAlignHandler} />}
     </StyledComponent.AlignDropdown>
   );
 };

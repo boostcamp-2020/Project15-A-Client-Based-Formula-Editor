@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  setSaveContainer,
-  setCropContainer,
-  deleteCropContainer,
-  showCompleteContainer,
-  deleteCompleteContainer,
-} from '@src/store/modules/getMathQuill';
+  clickSaveButton,
+  exitCropModal,
+  hiddenMoreButton,
+  showCropModal,
+  showMoreButton,
+} from '@src/store/modules/saveMode';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import html2canvas from 'html2canvas';
@@ -14,35 +14,33 @@ import { changeAlertMode } from '@src/store/modules/alert';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
-  saveClick: boolean;
+  saveButtonActive: boolean;
 }
 
-const SaveButtons = ({ saveClick }: ButtonProps) => {
+const SaveButtons = ({ saveButtonActive }: ButtonProps) => {
   const dispatch = useDispatch();
-  const { completeShow } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { moreButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   const { mathQuillContainer } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+    (state: RootState) => state.saveModeReducer
   );
-  const { click } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { cropModal } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
-  const { cropUrl } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
-  );
+  const { cropUrl } = useSelector((state: RootState) => state.saveModeReducer);
   const onClickImageSeveralSaveHandler = () => {
-    if (!click) {
-      dispatch(setCropContainer());
-      dispatch(showCompleteContainer());
-    } else if (click) {
-      dispatch(deleteCropContainer());
-      dispatch(deleteCompleteContainer());
+    if (!cropModal) {
+      dispatch(showCropModal());
+      dispatch(showMoreButton());
+    } else if (cropModal) {
+      dispatch(exitCropModal());
+      dispatch(hiddenMoreButton());
     }
   };
   const onClickSaveAllHandler = async () => {
     dispatch(changeAlertMode(2));
-    if (!click) {
+    if (!cropModal) {
       const mathquillSection = mathQuillContainer.current;
       const canvas = await html2canvas(mathquillSection);
       const imageUrl = canvas.toDataURL('data:image/gif;base64');
@@ -57,21 +55,21 @@ const SaveButtons = ({ saveClick }: ButtonProps) => {
     saveAsFile(cropUrl, '수식 저장.gif');
   };
   const onClickCancelHandler = () => {
-    if (!completeShow) {
-      dispatch(setSaveContainer(!saveClick));
+    if (!moreButtonActive) {
+      dispatch(clickSaveButton(!saveButtonActive));
     }
-    dispatch(deleteCropContainer());
-    dispatch(deleteCompleteContainer());
+    dispatch(exitCropModal());
+    dispatch(hiddenMoreButton());
   };
   return (
-    <StyledComponent.SaveButtonContainer saveClick={saveClick}>
+    <StyledComponent.SaveButtonContainer saveButtonActive={saveButtonActive}>
       <StyledComponent.MiniButton onClick={onClickSaveAllHandler}>
         <div className="text1">Save all</div>
       </StyledComponent.MiniButton>
       <StyledComponent.MiniButton onClick={onClickImageSeveralSaveHandler}>
         <div className="text1">Save the part</div>
       </StyledComponent.MiniButton>
-      {completeShow ? (
+      {moreButtonActive ? (
         <StyledComponent.MiniButton onClick={onClickCompleteSaveHandler}>
           <div className="text1">Complete</div>
         </StyledComponent.MiniButton>

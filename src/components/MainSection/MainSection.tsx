@@ -6,7 +6,7 @@ import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
-import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
+import { getMathQuillContainer } from '@src/store/modules/saveMode';
 import { getCanvas } from '@src/store/modules/backgroundDropdown';
 import Canvas from '@src/components/Common/Canvas';
 import Alert from '@src/components/Alert';
@@ -24,25 +24,30 @@ interface Props {
 }
 const MainSection = ({ visible }: Props) => {
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
-  const { click } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { cropModal } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
+  
   const {
-    isBackgroundDropdownShow,
-  } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
-  const { saveClick } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+    backgroundDropdown,
+  } = useSelector((state: RootState) => state.backgroundDropdownReducer);
+  
+  const { saveButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
+  
+  const { paintDropdown } = useSelector(
+    (state: RootState) => state.paintDropdownReducer
   );
+  
   const dispatch = useDispatch();
+  
   const changeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     dispatch(change(e.target.value));
   };
 
   const mainSectionRef = useRef<HTMLDivElement>(null);
-  const backgroundCanvas = useRef<any>(null);
+  const backgroundCanvas = useRef<HTMLCanvasElement>(null);
 
 
   const { mathQuiiFunc } = useSelector(
@@ -112,18 +117,18 @@ const MainSection = ({ visible }: Props) => {
         mathQuill={
           // eslint-disable-next-line react/jsx-wrap-multilines
           <MathQuill
-            isBackgroundDropdownShow={isBackgroundDropdownShow}
+            isBackgroundDropdownShow={backgroundDropdown}
             isActive={isActive}
             canDrop={canDrop}
             latex={latex}
             dragndrop={drop}
-            isDropdownShow={isDropdownShow}
+            paintDropdown={paintDropdown}
           />
         }
         canvas={
-          isBackgroundDropdownShow ? (
+          backgroundDropdown ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="background" />
-          ) : isDropdownShow ? (
+          ) : paintDropdown ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="drawer" />
           ) : undefined
         }
@@ -132,9 +137,8 @@ const MainSection = ({ visible }: Props) => {
         resizing={resizing}
         height={height}
         show={visible}
-        
       />
-      {click && saveClick && <CropSection height={height} visible={visible} />}
+      {cropModal && saveButtonActive && <CropSection height={height} visible={visible} />}
     </>
   );
 };

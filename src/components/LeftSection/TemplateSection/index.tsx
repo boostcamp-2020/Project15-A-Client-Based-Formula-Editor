@@ -8,10 +8,12 @@ import templateSection from '@src/constants/templateSection';
 import * as StyledComponent from './style';
 
 const TemplateSectionContainer = () => {
-  // 임시로 변수 지정. 추후 props로 inputselected 받아와서 변경하도록 할예정
-  const { mathQuiiFunc, name } = useSelector(
+  const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
+
+  const { name } = useSelector((state: RootState) => state.leftSectionReducer);
+
   const dispatch = useDispatch();
 
   const template = templateSection.filter((id) => id.name === name);

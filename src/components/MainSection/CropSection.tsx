@@ -3,9 +3,8 @@ import ReactCrop from 'react-image-crop';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import html2canvas from 'html2canvas';
-import saveAsFile from '@src/utils/savefile';
-import { cropContainer } from '@src/store/modules/getMathQuill';
-import { Modal, CropSaveButton } from './MainSectionStyle';
+import { cropImage } from '@src/store/modules/saveMode';
+import { Modal } from './MainSectionStyle';
 
 interface cropProps {
   height: number;
@@ -20,13 +19,13 @@ const CropSection = ({ height, visible }: cropProps) => {
     url: '',
     cropUrl: '',
   });
-  const { url, cropUrl } = inputs;
+  const { url } = inputs;
   const ref = useRef();
   const { mathQuillContainer } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+    (state: RootState) => state.saveModeReducer
   );
   let imageUrl;
-  const onChangeHandler = (crop: any, percentCrop: any) => {
+  const onChangeHandler = (crop: any) => {
     setCrop(crop);
   };
   const getCroppedImg = (image: any, crop: any) => {
@@ -63,19 +62,17 @@ const CropSection = ({ height, visible }: cropProps) => {
         ...inputs,
         cropUrl: croppedImageUrl,
       });
-      dispatch(cropContainer(croppedImageUrl));
+      dispatch(cropImage(croppedImageUrl));
     }
   };
 
-  const onComplateHandler = (crop: any, percentCrop: any) => {
+  const onComplateHandler = (crop: any) => {
     makeClientCrop(crop);
   };
   const onImageLoaded = (image: any) => {
     setImageRef(image);
   };
-  const onClickSaveHandler = () => {
-    saveAsFile(cropUrl, '수식 저장.gif');
-  };
+
   useEffect(() => {
     const getHtml = async () => {
       const src = mathQuillContainer.current;

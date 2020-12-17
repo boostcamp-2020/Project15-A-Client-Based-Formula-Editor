@@ -1,42 +1,48 @@
 import { combineReducers } from 'redux';
-import { fontColorDropdownHandler, State } from './fontColorDropdown';
-import { drawerDropdownHandler, IState } from './drawerDropdown';
-import { fontDropDownReducer, FontDropDownState } from './font-dropdown';
-import { mathQuillReducer, MathQuillState } from './mathQuill';
-import { tabReducer, TabState } from './tab';
+import { alertReducer, AlertModeState } from './alert';
+import { fontAlignReducer, AlignState } from './fontAlign';
+import { fontColorDropdownReducer, FontColorState } from './fontColorDropdown';
+import { fontDeclineReducer, DeclineState } from './fontDecline';
 import {
-  BackgroundDropdownHandler,
+  fontSizeDropdownReducer,
+  FontSizeDropdownState,
+} from './fontSizeDropdown';
+import { saveModeReducer, SaveModeState } from './saveMode';
+import {
+  backgroundDropdownReducer,
   BackgroundState,
 } from './backgroundDropdown';
-import { graphHandler, GraphState } from './graph';
-import { declineHandler, DeclineState } from './fontDecline';
-import { fontAlignHandler, AlignState } from './fontAlign';
-import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
-import { alertReducer, AlertModeState } from './alert';
+import { graphReducer, GraphState } from './graph';
+import { leftSectionReducer, LeftSectionState } from './leftSection';
+import { mathQuillReducer, MathQuillState } from './mathQuill';
+import { paintDropdownReducer, PaintState } from './paintDropdown';
+import { tabReducer, TabState } from './tab';
 
 export interface RootState {
-  fontDropDownReducer: FontDropDownState;
-  tabReducer: TabState;
-  mathQuillReducer: MathQuillState;
-  drawerDropdownHandler: IState;
-  fontColorDropdownHandler: State;
-  BackgroundDropdownHandler: BackgroundState;
-  graphHandler: GraphState;
-  declineHandler: DeclineState;
-  fontAlignHandler: AlignState;
-  getMathQuillReducer: MathQuillContainerState;
   alertReducer: AlertModeState;
+  backgroundDropdownReducer: BackgroundState;
+  fontAlignReducer: AlignState;
+  fontColorDropdownReducer: FontColorState;
+  fontDeclineReducer: DeclineState;
+  fontSizeDropdownReducer: FontSizeDropdownState;
+  saveModeReducer: SaveModeState;
+  graphReducer: GraphState;
+  leftSectionReducer: LeftSectionState;
+  mathQuillReducer: MathQuillState;
+  paintDropdownReducer: PaintState;
+  tabReducer: TabState;
 }
 export default combineReducers({
-  drawerDropdownHandler,
-  fontDropDownReducer,
-  fontColorDropdownHandler,
-  tabReducer,
-  BackgroundDropdownHandler,
-  graphHandler,
-  declineHandler,
-  fontAlignHandler,
-  mathQuillReducer,
-  getMathQuillReducer,
   alertReducer,
+  backgroundDropdownReducer,
+  fontAlignReducer,
+  fontColorDropdownReducer,
+  fontDeclineReducer,
+  fontSizeDropdownReducer,
+  graphReducer,
+  leftSectionReducer,
+  mathQuillReducer,
+  saveModeReducer,
+  paintDropdownReducer,
+  tabReducer,
 });

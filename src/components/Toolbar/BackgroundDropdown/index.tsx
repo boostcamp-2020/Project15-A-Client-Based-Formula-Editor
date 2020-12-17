@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import SUMMER from '@src/utils/svg/background/summer.svg';
@@ -6,9 +6,9 @@ import WINTER from '@src/utils/svg/background/winter.svg';
 import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
 import {
-  backgroundDropdown,
-  winterDropdown,
-  summerDropdown,
+  showBackgroundDropdown,
+  showWinter,
+  showSummer,
 } from '@src/store/modules/backgroundDropdown';
 import {
   drawingSnow,
@@ -18,51 +18,60 @@ import {
   drawingRain,
   deleteSummerAnimation,
 } from '@src/utils/drawingRainAnimation';
+import { closePaint } from '@src/store/modules/paintDropdown';
 import * as StyleComponent from './style';
 
 const Background = () => {
   const {
-    isBackgroundDropdownShow,
+    backgroundDropdown,
     backgroundCanvas,
-    winterDropdownShow,
-    summerDropdownShow,
+    winterBackground,
+    summerBackground,
   } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler,
+    (state: RootState) => state.backgroundDropdownReducer,
     shallowEqual
   );
+
+  const { paintDropdown } = useSelector(
+    (state: RootState) => state.paintDropdownReducer
+  );
   const dispatch = useDispatch();
-  const onClickBackgroundHandler = useCallback(() => {
-    dispatch(backgroundDropdown(!isBackgroundDropdownShow));
-  }, []);
+
+  const onClickBackgroundHandler = () => {
+    if (!paintDropdown) {
+      dispatch(showBackgroundDropdown());
+    }
+  };
+
   const onClickSummerHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
-    dispatch(winterDropdown(false));
+    dispatch(showWinter(false));
     context.canvas.width = window.innerWidth;
     context.canvas.height = window.innerHeight;
-    if (summerDropdownShow) {
+    if (summerBackground) {
       deleteSummerAnimation();
       drawingRain(context, canvas.width, canvas.height);
-
       deleteWinterAnimation();
     } else {
-      dispatch(summerDropdown(true));
+      dispatch(showSummer(true));
       drawingRain(context, canvas.width, canvas.height);
       deleteWinterAnimation();
     }
   };
+
   const onClickWinterHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
     context.canvas.width = window.innerWidth;
     context.canvas.height = window.innerHeight;
-    dispatch(summerDropdown(false));
-    if (winterDropdownShow) {
+    dispatch(showSummer(false));
+    if (winterBackground) {
       deleteWinterAnimation();
       drawingSnow(context, canvas.width, canvas.height);
       deleteSummerAnimation();
     } else {
-      dispatch(winterDropdown(true));
+      dispatch(showWinter(true));
       deleteSummerAnimation();
       deleteWinterAnimation();
       drawingSnow(context, canvas.width, canvas.height);
@@ -75,7 +84,7 @@ const Background = () => {
       <RoundButton onClick={onClickBackgroundHandler}>
         <BACKGROUND />
       </RoundButton>
-      {isBackgroundDropdownShow && (
+      {backgroundDropdown && (
         <StyleComponent.BackgroundContainer>
           <RoundButton onClick={onClickSummerHandler}>
             <SUMMER />

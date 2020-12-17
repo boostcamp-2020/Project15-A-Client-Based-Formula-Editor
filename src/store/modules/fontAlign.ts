@@ -1,36 +1,41 @@
 import { createAction, handleActions } from 'redux-actions';
-// action_type
-const CHANGE_FONTALIGN = 'CHANGE_ALIGN';
-const CHANGE_FONTALIGN_STATE = 'CHANGE_FONTALIGN_STATE';
-const CLOSE = 'fontAlign/CLOSE';
 
+const SHOW_FONTALIGN_DROPDOWN = 'fontAlign/SHOW_FONTALIGN_DROPDOWN' as const;
+const CHANGE_FONTALIGN = 'fontAlign/CHANGE_FONTALIGN' as const;
+const CLOSE_FONTALIGN_DROPDOWN = 'fontAlign/CLOSE_FONTALIGN_DROPDOWN' as const;
+
+export const showFontAlignDropdown = createAction(SHOW_FONTALIGN_DROPDOWN);
 export const changeFontAlign = createAction(
   CHANGE_FONTALIGN,
   (value: string) => value
 );
-export const changeDropdownState = createAction(CHANGE_FONTALIGN_STATE);
-export const closeDropdown = createAction(CLOSE);
+export const closeFontAlignDropdown = createAction(CLOSE_FONTALIGN_DROPDOWN);
+
+type Action =
+  | ReturnType<typeof showFontAlignDropdown>
+  | ReturnType<typeof changeFontAlign>
+  | ReturnType<typeof closeFontAlignDropdown>;
 
 export interface AlignState {
-  isAlign: boolean;
+  fontAlignDropdown: boolean;
   fontAlign: string;
 }
 
 const initialState: AlignState = {
-  isAlign: false,
+  fontAlignDropdown: false,
   fontAlign: 'center',
 };
 
-export const fontAlignHandler = handleActions(
+export const fontAlignReducer = handleActions(
   {
-    [CHANGE_FONTALIGN]: (state: AlignState = initialState, action: any) => {
-      return { ...state, isAlign: false, fontAlign: action.payload };
+    [CHANGE_FONTALIGN]: (state: AlignState = initialState, action: Action) => {
+      return { ...state, fontAlignDropdown: false, fontAlign: action.payload };
     },
-    [CHANGE_FONTALIGN_STATE]: (state: AlignState) => {
-      return { ...state, isAlign: !state.isAlign };
+    [SHOW_FONTALIGN_DROPDOWN]: (state: AlignState = initialState) => {
+      return { ...state, fontAlignDropdown: !state.fontAlignDropdown };
     },
-    [CLOSE]: (state: AlignState) => {
-      return { ...state, isAlign: false };
+    [CLOSE_FONTALIGN_DROPDOWN]: (state: AlignState = initialState) => {
+      return { ...state, fontAlignDropdown: false };
     },
   },
   initialState
