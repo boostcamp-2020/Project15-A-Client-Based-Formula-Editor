@@ -7,7 +7,7 @@ import {
   fontSizeDropdownReducer,
   FontSizeDropdownState,
 } from './fontSizeDropdown';
-import { getMathQuillReducer, MathQuillContainerState } from './getMathQuill';
+import { saveModeReducer, SaveModeState } from './saveMode';
 import {
   backgroundDropdownReducer,
   BackgroundState,
@@ -25,7 +25,7 @@ export interface RootState {
   fontColorDropdownReducer: FontColorState;
   fontDeclineReducer: DeclineState;
   fontSizeDropdownReducer: FontSizeDropdownState;
-  getMathQuillReducer: MathQuillContainerState;
+  saveModeReducer: SaveModeState;
   graphReducer: GraphState;
   leftSectionReducer: LeftSectionState;
   mathQuillReducer: MathQuillState;
@@ -42,7 +42,7 @@ export default combineReducers({
   graphReducer,
   leftSectionReducer,
   mathQuillReducer,
-  getMathQuillReducer,
+  saveModeReducer,
   paintDropdownReducer,
   tabReducer,
 });

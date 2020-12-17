@@ -35,12 +35,12 @@ export const Title = styled.div`
 `;
 
 interface Props {
-  saveClick: boolean;
+  saveButtonActive: boolean;
 }
 
 export const SaveButtonContainer = styled.div<Props>`
   width: 380px;
-  display: ${(props) => (props.saveClick ? 'flex' : 'none')};
+  display: ${(props) => (props.saveButtonActive ? 'flex' : 'none')};
   align-items: center;
   justify-content: space-around;
 `;

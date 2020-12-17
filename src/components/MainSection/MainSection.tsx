@@ -6,7 +6,7 @@ import { useDrop } from 'react-dnd';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import { change } from '@src/store/modules/mathQuill';
-import { getMathQuillContainer } from '@src/store/modules/getMathQuill';
+import { getMathQuillContainer } from '@src/store/modules/saveMode';
 import { getCanvas } from '@src/store/modules/backgroundDropdown';
 import Canvas from '@src/components/Common/Canvas';
 import Alert from '@src/components/Alert';
@@ -24,16 +24,16 @@ interface Props {
 }
 const MainSection = ({ visible }: Props) => {
   const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
-  const { click } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { cropModal } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   
   const {
     backgroundDropdown,
   } = useSelector((state: RootState) => state.backgroundDropdownReducer);
   
-  const { saveClick } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { saveButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   
   const { paintDropdown } = useSelector(
@@ -137,7 +137,7 @@ const MainSection = ({ visible }: Props) => {
         resizing={resizing}
         height={height}
         show={visible}
-        crop={click && saveClick && <CropSection height={height} visible={visible} />}
+        crop={cropModal && saveButtonActive && <CropSection height={height} visible={visible} />}
       />
 
     </>

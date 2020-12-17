@@ -19,8 +19,8 @@ const Drawer = () => {
   const { backgroundCanvas } = useSelector(
     (state: RootState) => state.backgroundDropdownReducer
   );
-  const { completeShow } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { moreButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   const { backgroundDropdown } = useSelector(
     (state: RootState) => state.backgroundDropdownReducer
@@ -68,7 +68,7 @@ const Drawer = () => {
 
     const x = canvasX(e.clientX, canvas);
     const y = canvasY(e.clientY, canvas);
-    if (completeShow) return;
+    if (moreButtonActive) return;
     if (click && paintDropdown) {
       context.lineTo(x, y);
       context.lineWidth = ref.current.value;

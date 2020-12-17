@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SVGIcon from '@src/utils/svg/header/logo.svg';
 import Button from '@src/components/Common/Button';
 import SaveModeButton from '@src/components/Common/SaveModeButton';
@@ -6,37 +6,33 @@ import colors from '@src/utils/colors';
 import { RootState } from '@src/store/modules';
 import { useSelector, useDispatch } from 'react-redux';
 import saveAsFile from '@src/utils/savefile';
-import {
-  setSaveContainer,
-  setCropContainer,
-  deleteCropContainer,
-} from '@src/store/modules/getMathQuill';
+import { clickSaveButton, exitCropModal } from '@src/store/modules/saveMode';
 import HeaderTitle from './HeaderTitle';
 import SaveButtons from './SaveButtons';
 import * as StyleComponent from './style';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { saveClick } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { saveButtonActive } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   const { mathQuiiFunc } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
-  const { click } = useSelector(
-    (state: RootState) => state.getMathQuillReducer
+  const { cropModal } = useSelector(
+    (state: RootState) => state.saveModeReducer
   );
   const onClickSaveHandler = () => {
-    dispatch(setSaveContainer(!saveClick));
-    if (click) {
-      dispatch(deleteCropContainer());
+    dispatch(clickSaveButton(!saveButtonActive));
+    if (cropModal) {
+      dispatch(exitCropModal());
     }
   };
 
   const onClickExportHandler = () => {
     saveAsFile(mathQuiiFunc.html(), 'html.txt');
   };
-  const onClickMainHandler = () => {};
+
   return (
     <StyleComponent.HeaderContainer>
       <SVGIcon />
@@ -47,7 +43,7 @@ const Header = () => {
           value="저장 모드"
           onClick={onClickSaveHandler}
         />
-        <SaveButtons saveClick={saveClick} />
+        <SaveButtons saveButtonActive={saveButtonActive} />
         <Button
           color={colors.lightGrey}
           value="Export"
