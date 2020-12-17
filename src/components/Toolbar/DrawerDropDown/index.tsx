@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import ERASE from '@src/utils/svg/toolbar/erase.svg';
 import { RoundButton } from '@src/components/Common/RoundButton/style';
-import { dropdown, closeDropdown } from '@src/store/modules/drawerDropdown';
+import { dropdown } from '@src/store/modules/drawerDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
+import { closeDropdown } from '@src/store/modules/backgroundDropdown';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -14,14 +15,15 @@ const Drawer = () => {
   const { isDropdownShow } = useSelector(
     (state: RootState) => state.drawerDropdownHandler
   );
-  const { isBackgroundDropdownShow } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler
-  );
+
   const { backgroundCanvas } = useSelector(
     (state: RootState) => state.BackgroundDropdownHandler
   );
   const { completeShow } = useSelector(
     (state: RootState) => state.getMathQuillReducer
+  );
+  const { isBackgroundDropdownShow } = useSelector(
+    (state: RootState) => state.BackgroundDropdownHandler
   );
   const dispatch = useDispatch();
   const color = ['black', 'yellow', 'red', 'green'];
@@ -87,9 +89,7 @@ const Drawer = () => {
   );
 
   const onClickDrawerHandler = (background: any) => {
-    if (isDropdownShow) {
-      dispatch(closeDropdown());
-    } else {
+    if (!isBackgroundDropdownShow) {
       dispatch(dropdown());
     }
   };
