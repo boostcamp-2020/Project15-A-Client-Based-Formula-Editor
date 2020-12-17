@@ -3,15 +3,15 @@ import colors from '@src/utils/colors';
 
 export const DrawerContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1;
   position: absolute;
   top: 3.75rem;
-  border: solid 1px ${colors.borderGrey};
-  background-color: ${colors.white};
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px;
+  border: solid 1px ${colors.borderGrey};
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: ${colors.white};
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
   svg {
     margin-left: 0.3rem;
   }

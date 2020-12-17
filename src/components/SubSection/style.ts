@@ -8,13 +8,12 @@ interface Props {
 export const RightArea = styled.div<Props>`
   flex: 0 1;
   flex-basis: ${(props) => (props.show ? '30%' : '0%')};
-  width: ${(props) => (props.show ? '30%' : '0%')};
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: ${(props) => (props.show ? '30%' : '0%')};
   background-color: ${colors.graphPuple};
+  align-items: center;
   overflow: hidden;
-  z-index: 10;
 `;
 
 export const GraphContainer = styled.div`
