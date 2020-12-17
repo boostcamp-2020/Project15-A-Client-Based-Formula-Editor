@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SplitPane from 'react-split-pane';
-import MathSectionContainer from '@src/components/LeftSection/MathSection';
-import TemplateContainer from '@src/components/LeftSection/TemplateSection';
+import MathSectionContainer from './MathSection';
+import TemplateContainer from './TemplateSection';
 
 const SplitArea = () => {
   return (

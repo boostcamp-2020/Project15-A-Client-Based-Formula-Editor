@@ -11,6 +11,7 @@ import { RootState } from '@src/store/modules';
 import html2canvas from 'html2canvas';
 import saveAsFile from '@src/utils/savefile';
 import { changeAlertMode } from '@src/store/modules/alert';
+import CLOUD from '@src/utils/svg/header/cloud.svg';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
@@ -77,6 +78,7 @@ const SaveButtons = ({ saveButtonActive }: ButtonProps) => {
       <StyledComponent.MiniButton onClick={onClickCancelHandler}>
         <div className="text1">Cancel</div>
       </StyledComponent.MiniButton>
+      <CLOUD />
     </StyledComponent.SaveButtonContainer>
   );
 };

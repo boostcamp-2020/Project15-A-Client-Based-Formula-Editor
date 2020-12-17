@@ -4,14 +4,14 @@ import * as StyleComponent from './LeftSectionStyle';
 interface Props {
   InputSectionContainer: JSX.Element;
   ResizingBar: JSX.Element;
-  TempArea: JSX.Element;
+  BottomWhiteSpace: JSX.Element;
   SplitArea: JSX.Element;
 }
 
 const LeftSectionTemplate = ({
   InputSectionContainer,
   ResizingBar,
-  TempArea,
+  BottomWhiteSpace,
   SplitArea,
 }: Props) => {
   return (
@@ -19,7 +19,7 @@ const LeftSectionTemplate = ({
       {InputSectionContainer}
       {ResizingBar}
       {SplitArea}
-      {TempArea}
+      {BottomWhiteSpace}
     </StyleComponent.Aside>
   );
 };

@@ -2,8 +2,8 @@
 import React from 'react';
 import * as StyledComponent from './style';
 
-const TempArea = () => {
-  return <StyledComponent.Temp />;
+const BottomWhiteSpace = () => {
+  return <StyledComponent.BottomWhiteSpace />;
 };
 
-export default TempArea;
+export default BottomWhiteSpace;
