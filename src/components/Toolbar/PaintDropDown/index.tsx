@@ -90,7 +90,7 @@ const Drawer = () => {
     const can = backgroundCanvas.current;
     const ctx = can.getContext('2d');
     ctx.strokeStyle = 'transparent';
-  }, [isDropdownShow]);
+  }, [paintDropdown]);
   const DrawerItem = color.map(
     (value): JSX.Element => {
       return (

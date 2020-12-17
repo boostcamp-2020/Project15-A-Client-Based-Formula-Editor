@@ -30,7 +30,7 @@ export const LatexContent = ({
     }),
   });
   const { backgroundCanvas } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler
+    (state: RootState) => state.backgroundDropdownReducer
   );
   const opacity = isDragging ? 0.4 : 1;
   useEffect(() => {
