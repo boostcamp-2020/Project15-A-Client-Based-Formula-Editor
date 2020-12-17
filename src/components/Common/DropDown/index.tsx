@@ -1,5 +1,5 @@
 import React from 'react';
-import Drawer from '@src/components/Toolbar/DrawerDropDown';
+import Drawer from '@src/components/Toolbar/PaintDropDown';
 import Background from '@src/components/Toolbar/BackgroundDropdown';
 import { DropdownDiv, DropdownContent } from './style';
 

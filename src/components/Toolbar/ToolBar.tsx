@@ -2,7 +2,7 @@ import React from 'react';
 import FontSizeDropDown from '@src/components/Toolbar/FontDropDown';
 import FontColorDropDown from '@src/components/Toolbar/FontColorDropdown';
 import ItalicButton from '@src/components/Toolbar/ItalicButton';
-import DrawerDropDown from '@src/components/Toolbar/DrawerDropDown';
+import DrawerDropDown from '@src/components/Toolbar/PaintDropDown';
 import BackgroundDropDown from '@src/components/Toolbar/BackgroundDropdown';
 import AlignDropDown from '@src/components/Toolbar/AlignDropDown';
 import GraphButton from '@src/components/Toolbar/GraphButton';

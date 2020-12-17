@@ -30,14 +30,14 @@ const MainSection = ({ visible }: Props) => {
   
   const {
     backgroundDropdown,
-  } = useSelector((state: RootState) => state.BackgroundDropdownHandler);
+  } = useSelector((state: RootState) => state.backgroundDropdownReducer);
   
   const { saveClick } = useSelector(
     (state: RootState) => state.getMathQuillReducer
   );
   
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
+  const { paintDropdown } = useSelector(
+    (state: RootState) => state.paintDropdownReducer
   );
   
   const dispatch = useDispatch();
@@ -122,13 +122,13 @@ const MainSection = ({ visible }: Props) => {
             canDrop={canDrop}
             latex={latex}
             dragndrop={drop}
-            isDropdownShow={isDropdownShow}
+            paintDropdown={paintDropdown}
           />
         }
         canvas={
           backgroundDropdown ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="background" />
-          ) : isDropdownShow ? (
+          ) : paintDropdown ? (
             <Canvas backgroundCanvas={backgroundCanvas} show="drawer" />
           ) : undefined
         }

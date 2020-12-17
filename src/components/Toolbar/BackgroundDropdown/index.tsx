@@ -18,7 +18,7 @@ import {
   drawingRain,
   deleteSummerAnimation,
 } from '@src/utils/drawingRainAnimation';
-import { closeDropdown } from '@src/store/modules/drawerDropdown';
+import { closePaint } from '@src/store/modules/paintDropdown';
 import * as StyleComponent from './style';
 
 const Background = () => {
@@ -28,17 +28,17 @@ const Background = () => {
     winterBackground,
     summerBackground,
   } = useSelector(
-    (state: RootState) => state.BackgroundDropdownHandler,
+    (state: RootState) => state.backgroundDropdownReducer,
     shallowEqual
   );
 
-  const { isDropdownShow } = useSelector(
-    (state: RootState) => state.drawerDropdownHandler
+  const { paintDropdown } = useSelector(
+    (state: RootState) => state.paintDropdownReducer
   );
   const dispatch = useDispatch();
 
   const onClickBackgroundHandler = () => {
-    if (!isDropdownShow) {
+    if (!paintDropdown) {
       dispatch(showBackgroundDropdown());
     }
   };
