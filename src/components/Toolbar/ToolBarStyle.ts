@@ -2,27 +2,28 @@ import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
 export const ToolBarTemplate = styled.div`
-  background-color: ${colors.mainGreen};
-  height: 3rem;
   flex: none;
-  position: relative;
   display: flex;
+  position: relative;
+  height: 3rem;
+  background-color: ${colors.mainGreen};
   align-items: center;
 `;
 
 export const Attributes = styled.div`
-  width: 300px;
   display: flex;
+  width: 300px;
+  margin-left: 20px;
+  margin-right: 20px;
   align-items: center;
   justify-content: space-between;
-  margin-left: 20px;
 `;
 
 export const Options = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  align-items: center;
   width: 105px;
+  margin-left: auto;
   margin-right: 20px;
+  align-items: center;
+  justify-content: space-between;
 `;
