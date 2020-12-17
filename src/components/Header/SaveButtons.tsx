@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import html2canvas from 'html2canvas';
 import saveAsFile from '@src/utils/savefile';
+import { changeAlertMode } from '@src/store/modules/alert';
 import * as StyledComponent from './style';
 
 interface ButtonProps {
@@ -40,6 +41,7 @@ const SaveButtons = ({ saveClick }: ButtonProps) => {
     }
   };
   const onClickSaveAllHandler = async () => {
+    dispatch(changeAlertMode(2));
     if (!click) {
       const mathquillSection = mathQuillContainer.current;
       const canvas = await html2canvas(mathquillSection);
@@ -51,6 +53,7 @@ const SaveButtons = ({ saveClick }: ButtonProps) => {
     }
   };
   const onClickCompleteSaveHandler = () => {
+    dispatch(changeAlertMode(2));
     saveAsFile(cropUrl, '수식 저장.gif');
   };
   const onClickCancelHandler = () => {

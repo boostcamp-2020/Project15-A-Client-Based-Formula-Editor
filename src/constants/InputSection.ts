@@ -89,13 +89,13 @@ export const InputLatexTopContent: InputLatex[] = [
     name: 'operator',
     svg: OPERATOR,
     latex: '\\triangleq',
-    isPossible: true,
+    isPossible: false,
   },
   {
     name: 'matrix',
     svg: MATRIX,
     latex: '\\begin{pmatrix}  &  \\  &  \\end{pmatrix}',
-    isPossible: true,
+    isPossible: false,
   },
   {
     name: 'inputdraw',

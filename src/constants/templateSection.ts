@@ -215,12 +215,6 @@ export const limit: InputMath[] = [
     latex: '\\lim _{n\\to \\infty }^{ }\\left(a_n\\pm b_n\\right)',
   },
   {
-    name: 'limit4',
-    svg: SVG.limit.LIMIT_4,
-    latex:
-      '\\lim _{\\righttriangle x\\to 0}^{ }\\frac{\\righttriangle y}{\\righttriangle x}',
-  },
-  {
     name: 'limit5',
     svg: SVG.limit.LIMIT_5,
     latex: '\\lim _{n\\to \\infty }^{ }\\left(1+\\frac{1}{n}\\right)^n',
