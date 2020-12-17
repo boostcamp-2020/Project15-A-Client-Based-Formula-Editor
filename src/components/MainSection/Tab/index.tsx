@@ -4,7 +4,7 @@ import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
 import { change, loadHistory } from '@src/store/modules/mathQuill';
 import { changeColor } from '@src/store/modules/fontColorDropdown';
-import { changeFontSize } from '@src/store/modules/font-dropdown';
+import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
 import { decline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
@@ -24,7 +24,7 @@ const Tab = () => {
     (state: RootState) => state.fontDropDownReducer
   );
   const { fontAlign } = useSelector(
-    (state: RootState) => state.fontAlignHandler
+    (state: RootState) => state.fontAlignReducer
   );
   const { isDecline: fontDecline } = useSelector(
     (state: RootState) => state.declineHandler

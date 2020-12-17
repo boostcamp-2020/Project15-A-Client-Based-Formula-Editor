@@ -5,7 +5,7 @@ import {
   toggle,
   changeFontSize,
   closeDropdown,
-} from '@src/store/modules/font-dropdown';
+} from '@src/store/modules/fontSizeDropdown';
 import useOutsideClick from '@src/hooks/useOutSideClick';
 import FontContent from './FontContent';
 import FontButton from './FontButton';

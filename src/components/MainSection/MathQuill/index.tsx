@@ -26,7 +26,7 @@ const EditableMathExample = ({
 }: Props) => {
   const { isDecline } = useSelector((state: RootState) => state.declineHandler);
   const { fontAlign } = useSelector(
-    (state: RootState) => state.fontAlignHandler
+    (state: RootState) => state.fontAlignReducer
   );
   const { selectedFontSize } = useSelector(
     (state: RootState) => state.fontDropDownReducer

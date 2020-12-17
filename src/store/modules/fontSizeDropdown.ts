@@ -1,8 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const TOGGLE = 'fontDropdown/TOGGLE' as const;
-const CHANGE_FONT_SIZE = 'fontDropdown/CHANGE_FONT_SIZE' as const;
-const CLOSE = 'fontDropdown/CLOSE' as const;
+const TOGGLE = 'font-dropdown/TOGGLE' as const;
+const CHANGE_FONT_SIZE = 'font-dropdown/CHANGE_FONT_SIZE' as const;
+const CLOSE = 'font-dropdown/CLOSE';
 
 export const toggle = createAction(TOGGLE);
 export const changeFontSize = createAction(CHANGE_FONT_SIZE);
