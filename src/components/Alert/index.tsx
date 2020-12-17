@@ -36,7 +36,12 @@ const Alert = () => {
           if (mode === 0) {
             return (
               <div className="alert alert-info">
-                <strong>Info💡 </strong>
+                <strong>
+                  Info
+                  <span role="img" aria-label="bulb">
+                    💡
+                  </span>
+                </strong>
                 Try drag and drop here!
               </div>
             );
@@ -44,7 +49,12 @@ const Alert = () => {
           if (mode === 1) {
             return (
               <div className="alert alert-error">
-                <strong>sorry🙏 </strong>
+                <strong>
+                  sorry
+                  <span role="img" aria-label="hands">
+                    🙏
+                  </span>
+                </strong>
                 This feature is still being prepared.
               </div>
             );
@@ -52,7 +62,12 @@ const Alert = () => {
           if (mode === 2) {
             return (
               <div className="alert alert-success">
-                <strong>Well done!👐 </strong>
+                <strong>
+                  Well done!
+                  <span role="img" aria-label="hansUp">
+                    👐
+                  </span>
+                </strong>
                 You have successfully saved.
               </div>
             );
