@@ -66,7 +66,8 @@
 
 
 ## ⚙️ 기술 스택
-![기술스택](https://i.imgur.com/xioOxlB.jpg)
+<p align="center">
+<img src="https://i.imgur.com/xioOxlB.jpg" width="720" height="540"></p>
 
 ## :book: 프로젝트 사용 방법
 
