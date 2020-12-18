@@ -11,7 +11,7 @@ export const DrawerContainer = styled.div`
   background-color: ${colors.white};
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 15;
   svg {
     margin-left: 0.3rem;
   }

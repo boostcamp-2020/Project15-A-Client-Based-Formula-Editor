@@ -10,7 +10,7 @@ export const DropDownContent = styled.div<{ fontSizeDropdown: boolean }>`
   border: 1px solid ${colors.borderGrey};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   background-color: white;
-  z-index: 1;
+  z-index: 15;
   cursor: pointer;
 `;
 

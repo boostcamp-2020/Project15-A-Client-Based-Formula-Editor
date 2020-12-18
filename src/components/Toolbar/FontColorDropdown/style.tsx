@@ -15,7 +15,7 @@ export const ColorBlind = styled.div<Props>`
   height: 0.2rem;
   background-color: ${(props) =>
     props.active ? colors.fontGreen : props.color || colors.black};
-  z-index: 1;
+  z-index: 15;
 `;
 
 export const DropdownButton = styled(RoundButton)`
