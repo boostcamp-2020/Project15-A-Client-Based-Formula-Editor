@@ -7,6 +7,7 @@ import {
   closeFontSizeDropdown,
 } from '@src/store/modules/fontSizeDropdown';
 import useOutsideClick from '@src/hooks/useOutSideClick';
+import fontSizeList from '@src/constants/fontSizeList';
 import FontContent from './FontContent';
 import FontButton from './FontButton';
 import * as S from './style';
@@ -27,9 +28,9 @@ export default function FontDropDown() {
   };
   const fontRef = useRef<HTMLDivElement>(null);
   useOutsideClick(fontRef, fontSizeDropdown, closeFontSizeDropdown);
-  const fonts = [15, 16, 19, 24, 28, 30, 34];
+  // const fonts = [15, 16, 19, 24, 28, 30, 34];
 
-  const fontList: JSX.Element[] = fonts.map(
+  const fontList: JSX.Element[] = fontSizeList.map(
     (font): JSX.Element => {
       return (
         <FontContent
