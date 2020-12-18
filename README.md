@@ -10,7 +10,8 @@
 📣 제대로 동작하지 않는다면 개발자 도구 -> Application -> Local Storage -> tab 을 초기화 해주세요!
 
 ## 📺 데모 영상
-  https://www.youtube.com/watch?v=6U7Kl9AnjrE&ab_channel=%EC%86%A1%EC%A7%84%ED%98%84
+[데모 영상](https://www.youtube.com/watch?v=SWKl3JTpxak&ab_channel=%EC%86%A1%EC%A7%84%ED%98%84)
+
 ## 📖 [WIKI Home](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/wiki)
  - 팀 그라운드 룰, 스프린트 과정의 기록을 남깁니다.
  - 저희의 wiki가 궁금하시다면? 위의 사이트를 참고하세요!
