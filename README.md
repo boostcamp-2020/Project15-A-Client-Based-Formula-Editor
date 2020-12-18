@@ -7,8 +7,9 @@
 ## 💻 배포 주소 
   [http://www.formulaEditor.co.kr](http://49.50.167.109/)
 <!--  - http://49.50.167.109/ -->
+📣 제대로 동작하지 않는다면 개발자 도구 -> Application -> Local Storage -> tab 을 초기화 해주세요!
 
-## :smile: 데모 영상
+## 📺 데모 영상
   https://www.youtube.com/watch?v=6U7Kl9AnjrE&ab_channel=%EC%86%A1%EC%A7%84%ED%98%84
 ## 📖 [WIKI Home](https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor/wiki)
  - 팀 그라운드 룰, 스프린트 과정의 기록을 남깁니다.
@@ -68,27 +69,21 @@
 
 ## :book: 프로젝트 사용 방법
 
-1. 레포지토리를 클론하고자 하는 디렉토리에서 아래 명령어를 수행
-
-   ```
-   git clone https://github.com/boostcamp-2020/Project15-A-Client-Based-Formula-Editor.git
-   ```
-
-2. 디렉토리 이동
+1. 디렉토리 이동
    ```
    cd Project15-A-Client-Based-Formula-Editor
    ```
    
-3. package.json에 정의된 패키지 설치
+2. package.json에 정의된 패키지 설치
    ```
    npm i
    ```
 
-4. webpack server 실행
+3. webpack server 실행
    ```
    npm start
    ```
-5. webpack build
+4. webpack build
    ```
    npm build
    ```
