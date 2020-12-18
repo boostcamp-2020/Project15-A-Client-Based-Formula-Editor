@@ -24,9 +24,9 @@ export const DrawerContainer = styled.div`
   }
 `;
 export const DrawerDiv = styled.div`
-  border-radius: 4px;
   width: 1.2rem;
   height: 1.2rem;
+  border-radius: 4px;
   background-color: ${(props) => props.color};
   & + & {
     margin-left: 0.3rem;

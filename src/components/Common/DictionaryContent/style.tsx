@@ -4,7 +4,6 @@ import colors from '@src/utils/colors';
 interface LatexProps {
   width: string;
   height: string;
-  opacity: number;
 }
 export const InputLatexContent = styled.div<LatexProps>`
   flex: auto;
@@ -12,7 +11,7 @@ export const InputLatexContent = styled.div<LatexProps>`
   width: ${(props) => props.width};
   height: ${(props) => props.height}px;
   border: 1px dashed ${colors.borderGrey};
-  opacity: ${(props) => props.opacity};
+  opacity: 1;
   justify-content: center;
   align-items: center;
   font-size: 80%;
