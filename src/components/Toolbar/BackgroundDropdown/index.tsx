@@ -19,6 +19,8 @@ import {
   deleteSummerAnimation,
 } from '@src/utils/drawingRainAnimation';
 import { closePaint } from '@src/store/modules/paintDropdown';
+import SvgButton from '@src/components/Common/SvgButton';
+import colors from '@src/utils/colors';
 import * as StyleComponent from './style';
 
 const Background = () => {
@@ -86,12 +88,16 @@ const Background = () => {
       </RoundButton>
       {backgroundDropdown && (
         <StyleComponent.BackgroundContainer>
-          <RoundButton onClick={onClickSummerHandler}>
-            <SUMMER />
-          </RoundButton>
-          <RoundButton onClick={onClickWinterHandler}>
-            <WINTER />
-          </RoundButton>
+          <SvgButton
+            svgColor={colors.black}
+            Svg={SUMMER}
+            onClick={onClickSummerHandler}
+          />
+          <SvgButton
+            svgColor={colors.black}
+            Svg={WINTER}
+            onClick={onClickWinterHandler}
+          />
         </StyleComponent.BackgroundContainer>
       )}
     </div>
