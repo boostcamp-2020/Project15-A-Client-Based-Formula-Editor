@@ -57,6 +57,7 @@ const InputBottomSelectionSection = () => {
             width="40"
             height="40"
             onClick={() => insertHandler(value.latex)}
+            isPossible={value.isPossible}
           />
         ))}
       </StyledComponent.InputBottomSelectionSectionContainer>
