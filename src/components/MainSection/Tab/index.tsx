@@ -58,7 +58,6 @@ const Tab = () => {
   }[];
 
   useInterval(() => {
-    console.log('자동저장되었습니다.');
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     newStoreData = storedData.map(
       (data: {
@@ -230,7 +229,7 @@ const Tab = () => {
     (tab): JSX.Element => {
       return (
         <TabList
-          key={tab.id}
+          key={`key${tab.id}`}
           tabId={tab.id}
           selectedTabId={selectedTabId}
           tabTitle={tab.title}
@@ -241,10 +240,9 @@ const Tab = () => {
     }
   );
 
-  list.push(<PlusTab handleAddTab={handleAddTab} />);
+  list.push(<PlusTab key={0} handleAddTab={handleAddTab} />);
 
   useEffect(() => {
-    console.log('Successful import from local storage!');
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     if (storedData !== null) {
       dispatch(changeTab(storedData[0].id));
