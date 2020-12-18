@@ -1,0 +1,18 @@
+미/적분 수식
+부정적분 : \int _{\ }^{\ }
+정적분 : \int _{ }^{ }
+이중적분 : \iint _{\ }^{\ }
+이중적분 : \iint _{ }^{ }
+선적분 : \oint _{\ }^{\ }
+선적분 : \oint _{ }^{ }
+면적분 : \oiint _{\ }^{\ }
+면적분 : \oiint _{ }^{ }
+체적분 : \oiiint _{\ }^{\ }
+체적분 : \oiiint _{ }^{ }
+적분의 정리 : \left\lceil \right\rceil _{ }^{ }
+
+미/적분 템플릿
+미/적분 템플릿1 : \frac{dy}{dx}
+미/적분 템플릿2 : \frac{\triangle y}{\triangle x}
+미/적분 템플릿3 : \int _{\ }^{\ }f\left(x\right)dx
+미/적분 템플릿4 : \frac{d}{dx}\int _a^sf\left(t\right)dt
