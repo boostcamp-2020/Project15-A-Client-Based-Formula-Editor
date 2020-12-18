@@ -23,6 +23,7 @@ import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
 import GREECE from '@src/utils/svg/leftsection/inputsection/greece.svg';
 import FONT from '@src/utils/svg/leftsection/inputsection/font.svg';
 import NullPreview from '@src/utils/svg/latex/nullPreview.png';
+import { tabReducer } from '@src/store/modules/tab';
 
 export interface InputLatex {
   name: string;
@@ -111,42 +112,50 @@ export const InputLatexMathTopContent: InputLatex[] = [
     name: 'arrow',
     svg: ARROW,
     latex: '\\gets',
+    isPossible: true,
   },
   {
     name: 'inequality',
     svg: INQUALITY,
     latex: '<',
+    isPossible: true,
   },
   {
     name: 'notoperator',
     svg: NOTOPERATOR,
     latex: '\\nless ',
+    isPossible: true,
   },
   {
     name: 'figure',
     svg: FIGURE,
-    latex: '\\lfloor',
+    latex: '∟',
+    isPossible: true,
   },
   {
     name: 'unit',
     svg: UNIT,
     latex: '㎠',
+    isPossible: true,
   },
   {
     name: 'specialsymbol',
     svg: SPECIALSYMBOL,
     latex: '①',
+    isPossible: true,
   },
 
   {
     name: 'greece',
     svg: GREECE,
     latex: '\\alpha ',
+    isPossible: true,
   },
   {
     name: 'misc',
     svg: FONT,
     latex: '\\epsilon',
+    isPossible: true,
   },
 ];
 export const InputCalculation: InputLatex[] = [
@@ -154,20 +163,24 @@ export const InputCalculation: InputLatex[] = [
     name: 'division',
     svg: DIVISION,
     latex: '\\div ',
+    isPossible: true,
   },
   {
     name: 'plus',
     svg: PLUS,
     latex: '+',
+    isPossible: true,
   },
   {
     name: 'minus',
     svg: MINUS,
     latex: '-',
+    isPossible: true,
   },
   {
     name: 'multiple',
     svg: MULTIPLE,
     latex: '\\times ',
+    isPossible: true,
   },
 ];

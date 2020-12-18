@@ -8,7 +8,7 @@ export const MiddleHolder = styled.div<{ visible: boolean }>`
   width: 100%;
   margin: 0 auto;
   border-radius: 0 0 5px 5px;
-  background: ${colors.alertWhite};
+  background: transparent;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   align-items: center;
   z-index: 1100;
