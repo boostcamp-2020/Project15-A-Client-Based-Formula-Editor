@@ -7,7 +7,7 @@
 ## 💻 배포 주소 
   [http://www.formulaEditor.co.kr](http://49.50.167.109/)
 <!--  - http://49.50.167.109/ -->
-📣 제대로 동작하지 않는다면 개발자 도구 > Application > Local Storage > tab을 초기화 해주세요!
+📣 제대로 동작하지 않는다면 `개발자 도구` > `Application` > `Local Storage` > `tab`을 초기화 해주세요!
 
 ## 📺 데모 영상
 [데모 영상](https://www.youtube.com/watch?v=SWKl3JTpxak&ab_channel=%EC%86%A1%EC%A7%84%ED%98%84)
