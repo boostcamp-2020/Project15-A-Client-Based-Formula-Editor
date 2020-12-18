@@ -65,7 +65,6 @@ const MathSectionContainer = () => {
             key={data.name}
             width="100%"
             height="80"
-            name={data.name}
             onClick={() => onClickHandler(data.latex, data.isPossible)}
           />
         );
