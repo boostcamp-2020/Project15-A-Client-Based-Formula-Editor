@@ -6,21 +6,37 @@ export const TabContainer = styled.ul`
   width: 100%;
   height: 3.5rem;
   overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: ${colors.white};
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3.5px;
+    background-color: ${colors.lightGrey};
+
+    &:hover {
+      background-color: ${colors.grey};
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: ${colors.white};
+  }
 `;
 
 export const SmallTab = styled.li`
+  flex: 0 1 auto;
+  display: flex;
+  border-radius: 0 0 10px 10px;
   width: 2.5rem;
   height: 1.3rem;
-  padding: 0.3rem;
-  display: flex;
-  flex: 0 1 auto;
-  align-items: center;
-  color: ${colors.black};
-  border-radius: 0 0 10px 10px;
-  background-color: ${colors.lightGrey};
+  padding: 0.3rem;0 10px 10px;
   list-style: none;
-  transition: all 0.2s ease-in-out;
+  background-color: ${colors.lightGrey};
+  color: ${colors.black};
+  align-items: center;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   &:hover {
     height: 1.7rem;
   }
@@ -41,14 +57,14 @@ export const TabItem = styled(SmallTab)<{
   color: ${(props) =>
     props.selectedTabId === props.tabId ? colors.white : colors.darkGrey};
   input {
-    width: 100%;
     display: none;
-    border: none;
+    width: 100%;
     outline: none;
+    border: none;
+    background: none;
     text-align: center;
     font-size: 0.8rem;
     font-weight: normal;
-    background: none;
   }
   svg {
     visibility: hidden;

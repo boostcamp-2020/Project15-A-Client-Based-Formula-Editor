@@ -1,19 +1,30 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import { RootState } from '@src/store/modules';
 import {
   InputLatexMathTopContent,
   InputCalculation,
 } from '@src/constants/InputSection';
 import { LatexContent } from '@src/components/Common/LatexContent';
-import { useDispatch } from 'react-redux';
 import { changeFomula } from '@src/store/modules/leftSection';
-
+import { insert } from '@src/store/modules/mathQuill';
 import * as StyledComponent from './style';
 
 const InputBottomSelectionSection = () => {
+  const { mathQuiiFunc } = useSelector(
+    (state: RootState) => state.mathQuillReducer,
+    shallowEqual
+  );
+
   const dispatch = useDispatch();
   const onClickHandler = (name: string) => {
     dispatch(changeFomula(name));
+  };
+
+  const insertHandler = (value: string) => {
+    mathQuiiFunc.write(value);
+    dispatch(insert(value));
   };
   return (
     <>
@@ -27,6 +38,7 @@ const InputBottomSelectionSection = () => {
             width="40"
             height="40"
             onClick={() => onClickHandler(value.name)}
+            isPossible={value.isPossible}
           />
         ))}
         <StyledComponent.InputLatexContent
@@ -44,7 +56,7 @@ const InputBottomSelectionSection = () => {
             name={value.name}
             width="40"
             height="40"
-            onClick={() => onClickHandler(value.name)}
+            onClick={() => insertHandler(value.latex)}
           />
         ))}
       </StyledComponent.InputBottomSelectionSectionContainer>

@@ -6,31 +6,31 @@ interface TemplateProps {
   show: boolean;
 }
 export const MainSectionTemplate = styled.div<TemplateProps>`
-  width: ${(props) => (props.show ? '70%' : '100%')};
   flex: 0 1 ${(props) => (props.show ? '70%' : '100%')};
   display: flex;
   flex-direction: column;
+  width: ${(props) => (props.show ? '70%' : '100%')};
 `;
 
 export const TextArea = styled.div<{ height: number }>`
+  position: relative;
   width: 100%;
   height: ${(props) => 100 - props.height}%;
-  position: relative;
 `;
 
 export const LaTeX = styled.div<{ height: number }>`
-  width: 100%;
-  height: ${(props) => props.height}%;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: ${(props) => props.height}%;
   background-color: ${colors.grey};
   overflow: hidden;
 `;
 
 export const Tab = styled.div`
+  flex: 0 1 2.3rem;
   width: 100%;
   height: 100%;
-  flex: 0 1 2.3rem;
   background-color: ${colors.backgroundGrey};
 `;
 
@@ -40,21 +40,21 @@ interface Props {
 }
 
 export const Modal = styled.div<Props>`
-  height: 460px;
   display: flex; /* Hidden by default */
   position: fixed; /* Stay in place */
+  height: 460px;
   transition: all 1s;
 `;
 
 export const CropSaveButton = styled.div`
+  display: flex;
   width: 100px;
   height: 33px;
-  display: flex;
-  padding-top: 15px;
   margin-top: -50px;
   margin-left: 50%;
-  justify-content: center;
+  padding-top: 15px;
   background-color: ${colors.borderGrey};
+  justify-content: center;
   &:hover {
     color: ${colors.mainGreen};
     cursor: pointer;

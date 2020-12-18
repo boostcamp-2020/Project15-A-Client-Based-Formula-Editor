@@ -13,6 +13,7 @@ interface Props {
   width: string;
   height: string;
   onClick?: () => void;
+  isPossible?: boolean;
 }
 
 export const LatexContent = ({
@@ -22,9 +23,10 @@ export const LatexContent = ({
   width,
   height,
   onClick,
+  isPossible,
 }: Props) => {
   const [{ isDragging }, drag] = useDrag({
-    item: { name, type: 'box', latex },
+    item: { name, type: 'box', latex, isPossible },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),

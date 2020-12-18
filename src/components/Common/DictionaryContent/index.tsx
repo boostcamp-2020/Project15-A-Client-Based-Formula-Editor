@@ -5,27 +5,17 @@ import * as StyleComponent from './style';
 addStyles();
 interface Props {
   latex: string;
-  name: string;
   width: string;
   height: string;
   onClick?: () => void;
 }
 
-export const DictionaryContent = ({
-  latex,
-  name,
-  width,
-  height,
-  onClick,
-}: Props) => {
-  const opacity = 1;
-
+export const DictionaryContent = ({ latex, width, height, onClick }: Props) => {
   return (
     <>
       <StyleComponent.InputLatexContent
         width={width}
         height={height}
-        opacity={opacity}
         onClick={onClick}
       >
         <div>

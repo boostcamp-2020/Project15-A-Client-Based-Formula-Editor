@@ -28,6 +28,7 @@ const InputTopSelectionSection = () => {
             width="65"
             height="68"
             onClick={() => onClickHandler(value.name, value.isPossible)}
+            isPossible={value.isPossible}
           />
         ))}
       </StyledComponent.InputTopSelectionSectionContainer>

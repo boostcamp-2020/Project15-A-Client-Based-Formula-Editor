@@ -23,7 +23,7 @@ export const Content = styled.div`
   textarea {
     padding: 10px;
     min-width: 96%;
-    min-height: 95%;
+    min-height: 90%;
     resize: none;
     border: none;
     outline: none;

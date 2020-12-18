@@ -1,10 +1,10 @@
 import React from 'react';
+import colorList from '@src/constants/colorList';
 import * as StyleComponent from './style';
 
 interface Props {
   onClick: (color: string) => void;
 }
-const colorList = ['black', 'red', 'blue', 'green', 'yellow', 'white'];
 const DropdownContent = ({ onClick }: Props) => {
   return (
     <StyleComponent.DropdownContainer>

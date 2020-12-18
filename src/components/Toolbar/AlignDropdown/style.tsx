@@ -10,12 +10,12 @@ export const ButtonContainer = styled(RoundButton)`
 export const DropdownContainer = styled.div`
   display: flex;
   position: absolute;
-  border: solid 1px ${colors.borderGrey};
-  z-index: 1;
   top: 3.75rem;
   padding: 12px;
+  border: solid 1px ${colors.borderGrey};
   background-color: ${colors.white};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
 
 export const AlignDropdown = styled.div``;

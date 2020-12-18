@@ -5,20 +5,20 @@ interface Props {
   InputSectionContainer: JSX.Element;
   ResizingBar: JSX.Element;
   BottomWhiteSpace: JSX.Element;
-  SplitArea: JSX.Element;
+  ResizingArea: JSX.Element;
 }
 
 const LeftSectionTemplate = ({
   InputSectionContainer,
   ResizingBar,
   BottomWhiteSpace,
-  SplitArea,
+  ResizingArea,
 }: Props) => {
   return (
     <StyleComponent.Aside>
       {InputSectionContainer}
       {ResizingBar}
-      {SplitArea}
+      {ResizingArea}
       {BottomWhiteSpace}
     </StyleComponent.Aside>
   );

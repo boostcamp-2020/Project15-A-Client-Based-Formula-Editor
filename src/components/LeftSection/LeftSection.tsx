@@ -3,14 +3,14 @@ import LeftSectionTemplate from './LeftSectionTemplate';
 import InputSelectionSection from './InputSelectionSection';
 import ResizingBar from './ResizingBar';
 import BottomWhiteSpace from './BottomWhiteSpace';
-import SplitArea from './SplitArea';
+import ResizingArea from './ResizingArea';
 
 const LeftSection = () => {
   return (
     <>
       <LeftSectionTemplate
         InputSectionContainer={<InputSelectionSection />}
-        SplitArea={<SplitArea />}
+        ResizingArea={<ResizingArea />}
         ResizingBar={<ResizingBar />}
         BottomWhiteSpace={<BottomWhiteSpace />}
       />

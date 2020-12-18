@@ -10,6 +10,7 @@ import { getMathQuillContainer } from '@src/store/modules/saveMode';
 import { getCanvas } from '@src/store/modules/backgroundDropdown';
 import Canvas from '@src/components/Common/Canvas';
 import Alert from '@src/components/Alert';
+import { changeAlertMode } from '@src/store/modules/alert';
 import CropSection from './CropSection';
 import MainSectionTemplate from './MainSectionTemplate';
 import MathQuill from './MathQuill';
@@ -65,9 +66,14 @@ const MainSection = ({ visible }: Props) => {
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
-    drop(item: { name: string; type: string; latex: string }, monitor) {
-      const clientOffset = monitor.getClientOffset();
-      handleClientOffset(clientOffset.x, clientOffset.y, item.latex);
+    drop(item: { name: string; type: string; latex: string, isPossible: boolean }, monitor) {
+      if(item.isPossible) {
+        const clientOffset = monitor.getClientOffset();
+        handleClientOffset(clientOffset.x, clientOffset.y, item.latex);
+      }
+      else {
+        dispatch(changeAlertMode(1));
+      }
     },
   });
 

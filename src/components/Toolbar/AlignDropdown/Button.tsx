@@ -11,9 +11,9 @@ interface AlignProps {
 const AlignButton = ({ onClick, fontAlign }: AlignProps) => {
   return (
     <StyledComponent.ButtonContainer onClick={onClick}>
-      {fontAlign === 'left' && <AlignLeft />}
+      {fontAlign === 'flex-start' && <AlignLeft />}
       {fontAlign === 'center' && <AlignCenter />}
-      {fontAlign === 'right' && <AlignRight />}
+      {fontAlign === 'flex-end' && <AlignRight />}
     </StyledComponent.ButtonContainer>
   );
 };
