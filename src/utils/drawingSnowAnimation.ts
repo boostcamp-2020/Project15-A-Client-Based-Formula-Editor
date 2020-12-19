@@ -60,10 +60,10 @@ const calculateSnow = (snow: snowProps) => {
   return [snow.x, snow.y];
 };
 export const fallingSnow = () => {
-  animationId = requestAnimationFrame(fallingSnow);
-
-  context.clearRect(0, 0, width, height);
   const snowImage = makeImage();
+  animationId = requestAnimationFrame(fallingSnow);
+  context.clearRect(0, 0, width, height);
+
   context.drawImage(snowImage, 0, 0, width, height);
   context.fillRect(0, 0, width, height);
   context.fill();
@@ -88,6 +88,7 @@ export const drawingSnow = (
   for (let i = 0; i < SNOW_NUM; i++) {
     initSnow();
   }
+
   fallingSnow();
 };
 

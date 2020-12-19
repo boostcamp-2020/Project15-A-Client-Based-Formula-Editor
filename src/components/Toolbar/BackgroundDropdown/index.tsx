@@ -43,6 +43,8 @@ const Background = () => {
     if (!paintDropdown) {
       dispatch(showBackgroundDropdown());
     }
+    deleteWinterAnimation();
+    deleteSummerAnimation();
   };
 
   const onClickSummerHandler = () => {
