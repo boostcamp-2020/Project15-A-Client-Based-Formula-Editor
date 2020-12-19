@@ -46,6 +46,7 @@ const TemplateSectionContainer = () => {
                   height="80"
                   name={data.name}
                   onClick={() => onClickHandler(data.latex)}
+                  isPossible={data.isPossible}
                 />
               );
             })}
