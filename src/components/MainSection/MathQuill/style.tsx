@@ -42,13 +42,13 @@ export const MathField = styled.div<MathFieldProp>`
     box-shadow: none;
   }
   .mq-editable-field > .mq-root-block {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     border: none;
-    justify-content: ${(props) => props.fontAlign};
   }
   .mq-root-block var,
   span {
+    text-align: ${(props) => props.fontAlign};
     font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
   }
   .mq-empty {

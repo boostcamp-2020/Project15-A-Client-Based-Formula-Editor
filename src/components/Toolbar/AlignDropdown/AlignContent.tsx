@@ -11,7 +11,7 @@ interface AlignContentProps {
 }
 const aligns = [
   {
-    position: 'flex-start',
+    position: 'left',
     id: 0,
     Svg: AlignLeft,
   },
@@ -21,7 +21,7 @@ const aligns = [
     Svg: AlignCenter,
   },
   {
-    position: 'flex-end',
+    position: 'right',
     id: 2,
     Svg: AlignRight,
   },
