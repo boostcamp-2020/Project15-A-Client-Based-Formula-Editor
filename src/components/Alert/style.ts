@@ -11,7 +11,7 @@ export const MiddleHolder = styled.div<{ visible: boolean }>`
   background: transparent;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   align-items: center;
-  z-index: 13;
+  z-index: 10;
   transition: ${(props) =>
     props.visible
       ? 'opacity 0.1s linear'
