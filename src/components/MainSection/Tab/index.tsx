@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
-import { change, loadHistory } from '@src/store/modules/mathQuill';
+import { loadHistory } from '@src/store/modules/mathQuill';
 import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
@@ -38,7 +38,7 @@ const Tab = () => {
   let newStoreData: TabData[];
 
   useInterval(() => {
-    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    storedData = JSON.parse(window.localStorage.getItem('tab-data'));
     newStoreData = storedData.map((data: TabData) => {
       if (data.id === selectedTabId) {
         return {
@@ -54,11 +54,11 @@ const Tab = () => {
       }
       return data;
     });
-    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+    window.localStorage.setItem('tab-data', JSON.stringify(newStoreData));
   }, 10000);
 
   const handleChangeTab = (tabId: number) => {
-    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    storedData = JSON.parse(window.localStorage.getItem('tab-data'));
     const selectedTabData = storedData.filter(
       (tab: TabData) => tab.id === tabId
     )[0];
@@ -92,11 +92,11 @@ const Tab = () => {
         nextLaTex: selectedTabData.nextLaTex,
       })
     );
-    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+    window.localStorage.setItem('tab-data', JSON.stringify(newStoreData));
   };
 
   const handleAddTab = () => {
-    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    storedData = JSON.parse(window.localStorage.getItem('tab-data'));
 
     newStoreData = storedData.concat({
       id: lastId + 1,
@@ -110,12 +110,12 @@ const Tab = () => {
       nextLaTex: [],
     });
 
-    window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+    window.localStorage.setItem('tab-data', JSON.stringify(newStoreData));
     dispatch(addTab());
   };
 
   const handleDeleteTab = (tabId: number) => {
-    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    storedData = JSON.parse(window.localStorage.getItem('tab-data'));
     let nextTabInfo: TabData;
 
     if (storedData.length === 1) {
@@ -145,7 +145,7 @@ const Tab = () => {
       });
 
       dispatch(updateTab(newStoreData));
-      window.localStorage.setItem('tab', JSON.stringify(newStoreData));
+      window.localStorage.setItem('tab-data', JSON.stringify(newStoreData));
     }
   };
 
@@ -167,7 +167,7 @@ const Tab = () => {
   list.push(<PlusTab key={0} handleAddTab={handleAddTab} />);
 
   useEffect(() => {
-    storedData = JSON.parse(window.localStorage.getItem('tab'));
+    storedData = JSON.parse(window.localStorage.getItem('tab-data'));
     if (storedData !== null) {
       dispatch(changeTab(storedData[0].id));
       dispatch(updateTab(storedData));
@@ -183,7 +183,7 @@ const Tab = () => {
         })
       );
     } else {
-      window.localStorage.setItem('tab', JSON.stringify(tabList));
+      window.localStorage.setItem('tab-data', JSON.stringify(tabList));
     }
   }, []);
 

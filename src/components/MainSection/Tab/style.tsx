@@ -30,7 +30,7 @@ export const SmallTab = styled.li`
   border-radius: 0 0 10px 10px;
   width: 2.5rem;
   height: 1.3rem;
-  padding: 0.3rem;0 10px 10px;
+  padding: 0.3rem;
   list-style: none;
   background-color: ${colors.lightGrey};
   color: ${colors.black};
