@@ -42,15 +42,18 @@ export const MathField = styled.div<MathFieldProp>`
     box-shadow: none;
   }
   .mq-editable-field > .mq-root-block {
-    display: flex;
+    display: inline-block;
     flex-wrap: wrap;
     border: none;
-    justify-content: ${(props) => props.fontAlign};
   }
-  .mq-root-block var,
-  span {
-    font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
+  .mq-root-block {
+    text-align: ${(props) => props.fontAlign};
+    & var,
+    span {
+      font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
+    }
   }
+
   .mq-empty {
     border: 0.5px dotted ${colors.grey};
     background-color: ${colors.white};

@@ -4,7 +4,6 @@ import { RootState } from '@src/store/modules';
 import SUMMER from '@src/utils/svg/background/summer.svg';
 import WINTER from '@src/utils/svg/background/winter.svg';
 import BACKGROUND from '@src/utils/svg/background/background_icon.svg';
-import { RoundButton } from '@src/components/Common/RoundButton/style';
 import {
   showBackgroundDropdown,
   showWinter,
@@ -18,7 +17,6 @@ import {
   drawingRain,
   deleteSummerAnimation,
 } from '@src/utils/drawingRainAnimation';
-import { closePaint } from '@src/store/modules/paintDropdown';
 import SvgButton from '@src/components/Common/SvgButton';
 import colors from '@src/utils/colors';
 import * as StyleComponent from './style';
@@ -43,6 +41,8 @@ const Background = () => {
     if (!paintDropdown) {
       dispatch(showBackgroundDropdown());
     }
+    deleteWinterAnimation();
+    deleteSummerAnimation();
   };
 
   const onClickSummerHandler = () => {
@@ -83,9 +83,12 @@ const Background = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
   return (
     <div ref={backgroundRef}>
-      <RoundButton onClick={onClickBackgroundHandler}>
+      <StyleComponent.BackgroundDropdownButton
+        backgroundDropdown={backgroundDropdown}
+        onClick={onClickBackgroundHandler}
+      >
         <BACKGROUND />
-      </RoundButton>
+      </StyleComponent.BackgroundDropdownButton>
       {backgroundDropdown && (
         <StyleComponent.BackgroundContainer>
           <SvgButton

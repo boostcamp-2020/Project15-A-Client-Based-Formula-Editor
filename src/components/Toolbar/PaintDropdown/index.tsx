@@ -7,7 +7,6 @@ import { RoundButton } from '@src/components/Common/RoundButton/style';
 import { showPaintDropdown } from '@src/store/modules/paintDropdown';
 import DRAWER from '@src/utils/svg/toolbar/drawer.svg';
 import setColors, { canvasX, canvasY } from '@src/utils/setColor';
-import { closeBackgroundDropdown } from '@src/store/modules/backgroundDropdown';
 import * as StyleComponent from './style';
 
 const Drawer = () => {
@@ -134,9 +133,12 @@ const Drawer = () => {
 
   return (
     <div>
-      <RoundButton onClick={() => onClickDrawerHandler(backgroundCanvas)}>
+      <StyleComponent.DropdownButton
+        paintDropdown={paintDropdown}
+        onClick={() => onClickDrawerHandler(backgroundCanvas)}
+      >
         <DRAWER />
-      </RoundButton>
+      </StyleComponent.DropdownButton>
       {paintDropdown && (
         <StyleComponent.DrawerContainer>
           {DrawerItem}

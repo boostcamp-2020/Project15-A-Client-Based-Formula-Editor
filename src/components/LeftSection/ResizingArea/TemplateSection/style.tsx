@@ -4,7 +4,7 @@ import colors from '@src/utils/colors';
 export const TemplateSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 97%;
+  width: 98%;
   height: 100%;
   border: 1px solid ${colors.borderGrey};
   background-color: ${colors.white};

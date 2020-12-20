@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
+import { RoundButton } from '@src/components/Common/RoundButton/style';
+
+interface Props {
+  backgroundDropdown: boolean;
+}
+export const BackgroundDropdownButton = styled(RoundButton)<Props>`
+  background-color: ${(props) =>
+    props.backgroundDropdown ? colors.darkGrey : colors.white};
+  svg path {
+    fill: ${(props) => props.backgroundDropdown && colors.white};
+  }
+
+  &:hover {
+    background-color: ${(props) =>
+      props.backgroundDropdown ? colors.darkGrey : '#f1f3f4'};
+    opacity: 0.8;
+  }
+`;
 
 export const BackgroundContainer = styled.div`
   display: flex;
@@ -27,4 +45,3 @@ export const BackgroundContainer = styled.div`
     width: 10px;
   }
 `;
-export const BackgroundContent = styled.div``;

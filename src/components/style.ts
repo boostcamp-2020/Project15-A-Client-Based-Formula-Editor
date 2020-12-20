@@ -10,12 +10,18 @@ export const Header = styled.div`
 
 export const Aside = styled.div`
   width: 23%;
+  @media screen and (max-width: 1600px) {
+    width: 30%;
+  }
   height: 100%;
 `;
 export const Main = styled.div`
   display: flex;
   flex-direction: column;
   width: 77%;
+  @media screen and (max-width: 1600px) {
+    width: 70%;
+  }
 `;
 
 export const MoveArea = styled.div`
