@@ -8,6 +8,7 @@ import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
 import { loadDeline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
+import { TabData } from '@src/@types/tabData';
 import TabList from './TabList';
 import PlusTab from './PlusTab';
 import * as StyleComponent from './style';
@@ -33,104 +34,50 @@ const Tab = () => {
   );
   const dispatch = useDispatch();
 
-  let storedData: {
-    id: number;
-    title: string;
-    latex: string;
-    fontColor: string;
-    fontSize: number;
-    fontDecline: boolean;
-    fontAlign: string;
-    preLaTex: string[];
-    nextLaTex: string[];
-  }[];
-  let newStoreData: {
-    id: number;
-    title: string;
-    latex: string;
-    fontColor: string;
-    fontSize: number;
-    fontDecline: boolean;
-    fontAlign: string;
-    preLaTex: string[];
-    nextLaTex: string[];
-  }[];
+  let storedData: TabData[];
+  let newStoreData: TabData[];
 
   useInterval(() => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
-    newStoreData = storedData.map(
-      (data: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        preLaTex: string[];
-        nextLaTex: string[];
-      }) => {
-        if (data.id === selectedTabId) {
-          return {
-            ...data,
-            latex,
-            fontColor,
-            fontSize,
-            fontDecline,
-            fontAlign,
-            preLaTex,
-            nextLaTex,
-          };
-        }
-        return data;
+    newStoreData = storedData.map((data: TabData) => {
+      if (data.id === selectedTabId) {
+        return {
+          ...data,
+          latex,
+          fontColor,
+          fontSize,
+          fontDecline,
+          fontAlign,
+          preLaTex,
+          nextLaTex,
+        };
       }
-    );
+      return data;
+    });
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
   }, 10000);
 
   const handleChangeTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     const selectedTabData = storedData.filter(
-      (tab: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        preLaTex: string[];
-        nextLaTex: string[];
-      }) => tab.id === tabId
+      (tab: TabData) => tab.id === tabId
     )[0];
 
-    newStoreData = storedData.map(
-      (data: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        preLaTex: string[];
-        nextLaTex: string[];
-      }) => {
-        if (data.id === selectedTabId) {
-          return {
-            ...data,
-            latex,
-            fontColor,
-            fontSize,
-            fontDecline,
-            fontAlign,
-            preLaTex,
-            nextLaTex,
-          };
-        }
-        return data;
+    newStoreData = storedData.map((data: TabData) => {
+      if (data.id === selectedTabId) {
+        return {
+          ...data,
+          latex,
+          fontColor,
+          fontSize,
+          fontDecline,
+          fontAlign,
+          preLaTex,
+          nextLaTex,
+        };
       }
-    );
+      return data;
+    });
 
     dispatch(changeTab(tabId));
     dispatch(changeFontColor(selectedTabData.fontColor));
@@ -169,34 +116,12 @@ const Tab = () => {
 
   const handleDeleteTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
-    let nextTabInfo: {
-      id: number;
-      title: string;
-      latex: string;
-      fontColor: string;
-      fontSize: number;
-      fontDecline: boolean;
-      fontAlign: string;
-      preLaTex: string[];
-      nextLaTex: string[];
-    };
+    let nextTabInfo: TabData;
 
     if (storedData.length === 1) {
       alert('This is the last tab!');
     } else {
-      newStoreData = storedData.filter(
-        (data: {
-          id: number;
-          title: string;
-          latex: string;
-          fontColor: string;
-          fontSize: number;
-          fontDecline: boolean;
-          fontAlign: string;
-          preLaTex: string[];
-          nextLaTex: string[];
-        }) => data.id !== tabId
-      );
+      newStoreData = storedData.filter((data: TabData) => data.id !== tabId);
 
       newStoreData = [];
       storedData.forEach((data, index) => {
