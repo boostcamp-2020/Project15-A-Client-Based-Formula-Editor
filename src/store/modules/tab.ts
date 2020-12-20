@@ -25,6 +25,8 @@ export interface TabState {
     fontSize: number;
     fontAlign: string;
     fontDecline: boolean;
+    preLaTex: string[];
+    nextLaTex: string[];
   }[];
 }
 
@@ -40,6 +42,8 @@ const initialState = {
       fontSize: 15,
       fontAlign: 'center',
       fontDecline: true,
+      preLaTex: [] as string[],
+      nextLaTex: [] as string[],
     },
   ],
 };
@@ -59,8 +63,10 @@ export const tabReducer = handleActions(
           latex: 'blank',
           fontColor: 'black',
           fontSize: 15,
-          fontDecline: true,
+          fontDecline: false,
           fontAlign: 'center',
+          preLaTex: [],
+          nextLaTex: [],
         }),
       };
     },

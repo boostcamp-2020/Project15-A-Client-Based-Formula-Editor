@@ -6,8 +6,9 @@ import { change, loadHistory } from '@src/store/modules/mathQuill';
 import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
-import { changeDecline } from '@src/store/modules/fontDecline';
+import { loadDeline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
+import { TabData } from '@src/@types/tabData';
 import TabList from './TabList';
 import PlusTab from './PlusTab';
 import * as StyleComponent from './style';
@@ -16,7 +17,6 @@ const Tab = () => {
   const { lastId, selectedTabId, tabList } = useSelector(
     (state: RootState) => state.tabReducer
   );
-  const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
   const { fontColor } = useSelector(
     (state: RootState) => state.fontColorDropdownReducer
   );
@@ -29,121 +29,67 @@ const Tab = () => {
   const { fontDecline } = useSelector(
     (state: RootState) => state.fontDeclineReducer
   );
-  const { history, historyIdx } = useSelector(
+  const { latex, preLaTex, nextLaTex } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
   const dispatch = useDispatch();
 
-  let storedData: {
-    id: number;
-    title: string;
-    latex: string;
-    fontColor: string;
-    fontSize: number;
-    fontDecline: boolean;
-    fontAlign: string;
-    history: string[];
-    historyIdx: number;
-  }[];
-  let newStoreData: {
-    id: number;
-    title: string;
-    latex: string;
-    fontColor: string;
-    fontSize: number;
-    fontDecline: boolean;
-    fontAlign: string;
-    history: string[];
-    historyIdx: number;
-  }[];
+  let storedData: TabData[];
+  let newStoreData: TabData[];
 
   useInterval(() => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
-    newStoreData = storedData.map(
-      (data: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        history: string[];
-        historyIdx: number;
-      }) => {
-        if (data.id === selectedTabId) {
-          return {
-            ...data,
-            latex,
-            fontColor,
-            fontSize,
-            fontDecline,
-            fontAlign,
-            history,
-            historyIdx,
-          };
-        }
-        return data;
+    newStoreData = storedData.map((data: TabData) => {
+      if (data.id === selectedTabId) {
+        return {
+          ...data,
+          latex,
+          fontColor,
+          fontSize,
+          fontDecline,
+          fontAlign,
+          preLaTex,
+          nextLaTex,
+        };
       }
-    );
+      return data;
+    });
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
   }, 10000);
 
   const handleChangeTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
     const selectedTabData = storedData.filter(
-      (tab: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        history: string[];
-        historyIdx: number;
-      }) => tab.id === tabId
+      (tab: TabData) => tab.id === tabId
     )[0];
 
-    newStoreData = storedData.map(
-      (data: {
-        id: number;
-        title: string;
-        latex: string;
-        fontColor: string;
-        fontSize: number;
-        fontDecline: boolean;
-        fontAlign: string;
-        history: string[];
-        historyIdx: number;
-      }) => {
-        if (data.id === selectedTabId) {
-          return {
-            ...data,
-            latex,
-            fontColor,
-            fontSize,
-            fontDecline,
-            fontAlign,
-            history,
-            historyIdx,
-          };
-        }
-        return data;
+    newStoreData = storedData.map((data: TabData) => {
+      if (data.id === selectedTabId) {
+        return {
+          ...data,
+          latex,
+          fontColor,
+          fontSize,
+          fontDecline,
+          fontAlign,
+          preLaTex,
+          nextLaTex,
+        };
       }
-    );
+      return data;
+    });
 
     dispatch(changeTab(tabId));
     dispatch(changeFontColor(selectedTabData.fontColor));
     dispatch(changeFontSize(selectedTabData.fontSize));
-    dispatch(change(selectedTabData.latex));
     dispatch(changeFontAlign(selectedTabData.fontAlign));
-    dispatch(changeDecline(selectedTabData.fontDecline));
+    dispatch(loadDeline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
     dispatch(
       loadHistory({
-        history: selectedTabData.history,
-        historyIdx: selectedTabData.historyIdx,
+        latex: selectedTabData.latex,
+        preLaTex: selectedTabData.preLaTex,
+        nextLaTex: selectedTabData.nextLaTex,
       })
     );
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -159,9 +105,9 @@ const Tab = () => {
       fontColor: 'black',
       fontSize: 15,
       fontAlign: 'center',
-      fontDecline: true,
-      history: ['blank'],
-      historyIdx: 0,
+      fontDecline: false,
+      preLaTex: [],
+      nextLaTex: [],
     });
 
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -170,34 +116,12 @@ const Tab = () => {
 
   const handleDeleteTab = (tabId: number) => {
     storedData = JSON.parse(window.localStorage.getItem('tab'));
-    let nextTabInfo: {
-      id: number;
-      title: string;
-      latex: string;
-      fontColor: string;
-      fontSize: number;
-      fontDecline: boolean;
-      fontAlign: string;
-      history: string[];
-      historyIdx: number;
-    };
+    let nextTabInfo: TabData;
 
     if (storedData.length === 1) {
       alert('This is the last tab!');
     } else {
-      newStoreData = storedData.filter(
-        (data: {
-          id: number;
-          title: string;
-          latex: string;
-          fontColor: string;
-          fontSize: number;
-          fontDecline: boolean;
-          fontAlign: string;
-          history: string[];
-          historyIdx: number;
-        }) => data.id !== tabId
-      );
+      newStoreData = storedData.filter((data: TabData) => data.id !== tabId);
 
       newStoreData = [];
       storedData.forEach((data, index) => {
@@ -208,13 +132,13 @@ const Tab = () => {
           dispatch(changeTab(nextTabInfo.id));
           dispatch(changeFontColor(nextTabInfo.fontColor));
           dispatch(changeFontSize(nextTabInfo.fontSize));
-          dispatch(change(nextTabInfo.latex));
           dispatch(changeFontAlign(nextTabInfo.fontAlign));
-          dispatch(changeDecline(nextTabInfo.fontDecline));
+          dispatch(loadDeline(nextTabInfo.fontDecline));
           dispatch(
             loadHistory({
-              history: nextTabInfo.history,
-              historyIdx: nextTabInfo.historyIdx,
+              latex: nextTabInfo.latex,
+              preLaTex: nextTabInfo.preLaTex,
+              nextLaTex: nextTabInfo.nextLaTex,
             })
           );
         }
@@ -250,12 +174,12 @@ const Tab = () => {
       dispatch(changeFontColor(storedData[0].fontColor));
       dispatch(changeFontSize(storedData[0].fontSize));
       dispatch(changeFontAlign(storedData[0].fontAlign));
-      dispatch(changeDecline(storedData[0].fontDecline));
-      dispatch(change(storedData[0].latex));
+      dispatch(loadDeline(storedData[0].fontDecline));
       dispatch(
         loadHistory({
-          history: storedData[0].history,
-          historyIdx: storedData[0].historyIdx,
+          latex: storedData[0].latex,
+          preLaTex: storedData[0].preLaTex,
+          nextLaTex: storedData[0].nextLaTex,
         })
       );
     } else {
