@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { changeTab, addTab, updateTab } from '@src/store/modules/tab';
-import { change, loadHistory } from '@src/store/modules/mathQuill';
+import { loadHistory } from '@src/store/modules/mathQuill';
 import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
