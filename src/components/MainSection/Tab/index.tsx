@@ -41,8 +41,8 @@ const Tab = () => {
     fontSize: number;
     fontDecline: boolean;
     fontAlign: string;
-    history: string[];
-    historyIdx: number;
+    preLaTex: string[];
+    nextLaTex: string[];
   }[];
   let newStoreData: {
     id: number;
@@ -52,8 +52,8 @@ const Tab = () => {
     fontSize: number;
     fontDecline: boolean;
     fontAlign: string;
-    history: string[];
-    historyIdx: number;
+    preLaTex: string[];
+    nextLaTex: string[];
   }[];
 
   useInterval(() => {
@@ -67,8 +67,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
-        history: string[];
-        historyIdx: number;
+        preLaTex: string[];
+        nextLaTex: string[];
       }) => {
         if (data.id === selectedTabId) {
           return {
@@ -78,8 +78,8 @@ const Tab = () => {
             fontSize,
             fontDecline,
             fontAlign,
-            history,
-            historyIdx,
+            preLaTex,
+            nextLaTex,
           };
         }
         return data;
@@ -99,8 +99,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
-        history: string[];
-        historyIdx: number;
+        preLaTex: string[];
+        nextLaTex: string[];
       }) => tab.id === tabId
     )[0];
 
@@ -113,8 +113,8 @@ const Tab = () => {
         fontSize: number;
         fontDecline: boolean;
         fontAlign: string;
-        history: string[];
-        historyIdx: number;
+        preLaTex: string[];
+        nextLaTex: string[];
       }) => {
         if (data.id === selectedTabId) {
           return {
@@ -124,8 +124,8 @@ const Tab = () => {
             fontSize,
             fontDecline,
             fontAlign,
-            history,
-            historyIdx,
+            preLaTex,
+            nextLaTex,
           };
         }
         return data;
@@ -141,8 +141,8 @@ const Tab = () => {
     dispatch(updateTab(newStoreData));
     dispatch(
       loadHistory({
-        history: selectedTabData.history,
-        historyIdx: selectedTabData.historyIdx,
+        preLaTex: selectedTabData.preLaTex,
+        nextLaTex: selectedTabData.nextLaTex,
       })
     );
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -159,6 +159,8 @@ const Tab = () => {
       fontSize: 15,
       fontAlign: 'center',
       fontDecline: false,
+      preLaTex: [],
+      nextLaTex: [],
     });
 
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -175,8 +177,8 @@ const Tab = () => {
       fontSize: number;
       fontDecline: boolean;
       fontAlign: string;
-      history: string[];
-      historyIdx: number;
+      preLaTex: string[];
+      nextLaTex: string[];
     };
 
     if (storedData.length === 1) {
@@ -191,8 +193,8 @@ const Tab = () => {
           fontSize: number;
           fontDecline: boolean;
           fontAlign: string;
-          history: string[];
-          historyIdx: number;
+          preLaTex: string[];
+          nextLaTex: string[];
         }) => data.id !== tabId
       );
 
@@ -210,8 +212,8 @@ const Tab = () => {
           dispatch(loadDeline(nextTabInfo.fontDecline));
           dispatch(
             loadHistory({
-              history: nextTabInfo.history,
-              historyIdx: nextTabInfo.historyIdx,
+              preLaTex: nextTabInfo.preLaTex,
+              nextLaTex: nextTabInfo.nextLaTex,
             })
           );
         }
@@ -251,8 +253,8 @@ const Tab = () => {
       dispatch(change(storedData[0].latex));
       dispatch(
         loadHistory({
-          history: storedData[0].history,
-          historyIdx: storedData[0].historyIdx,
+          preLaTex: storedData[0].preLaTex,
+          nextLaTex: storedData[0].nextLaTex,
         })
       );
     } else {

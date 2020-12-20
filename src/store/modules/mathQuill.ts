@@ -26,17 +26,17 @@ type Action =
   | ReturnType<typeof loadHistory>;
 
 export interface MathQuillState {
-  mathQuiiFunc: any;
   latex: string;
-  history: string[];
-  historyIdx: number;
+  mathQuiiFunc: any;
+  preLaTex: string[];
+  nextLaTex: string[];
 }
 
 const initialState = {
   latex: 'Hello',
   mathQuiiFunc: 0,
-  history: ['Hello'],
-  historyIdx: 0,
+  preLaTex: [] as string[],
+  nextLaTex: [] as string[],
 };
 
 export const mathQuillReducer = handleActions(
@@ -45,63 +45,54 @@ export const mathQuillReducer = handleActions(
       return { ...state, mathQuiiFunc: action.payload };
     },
     [CLEAR]: (state = initialState) => {
-      if (state.history[state.historyIdx] === '') return { ...state };
+      if (state.latex === '') return { ...state };
 
       return {
         ...state,
         latex: '',
-        history: [...state.history, ''],
-        historyIdx: state.historyIdx + 1,
+        preLaTex: [...state.preLaTex, state.latex],
+        nextLaTex: [],
       };
     },
     [CHANGE]: (state: MathQuillState = initialState, action: Action) => {
-      if (state.history[state.historyIdx] === action.payload)
+      if (state.latex === action.payload) {
         return { ...state };
+      }
 
       return {
         ...state,
         latex: action.payload,
-        history: [...state.history, action.payload],
-        historyIdx: state.historyIdx + 1,
+        preLaTex: [...state.preLaTex, state.latex],
+        nextLaTex: [],
       };
     },
-    [INSERT]: (state: MathQuillState = initialState) => {
-      const newLatex = state.mathQuiiFunc.latex();
-      if (state.history[state.historyIdx] === newLatex) return { ...state };
-      if (state.historyIdx !== state.history.length - 1) {
-        return {
-          ...state,
-          latex: newLatex,
-          history: [state.history.slice(0, state.historyIdx + 1), newLatex],
-          historyIdx: state.historyIdx + 1,
-        };
-      }
-
-      return { ...state, latex: state.mathQuiiFunc.latex() };
-    },
     [UNDO]: (state: MathQuillState = initialState) => {
-      if (state.historyIdx === 0) return state;
+      if (state.preLaTex.length === 0) return { ...state };
+
+      const newLatex = state.preLaTex.pop();
 
       return {
         ...state,
-        latex: state.history[state.historyIdx - 1],
-        historyIdx: state.historyIdx - 1,
+        latex: newLatex,
+        nextLaTex: [...state.nextLaTex, state.latex],
       };
     },
     [REDO]: (state: MathQuillState = initialState) => {
-      if (state.historyIdx === state.history.length - 1) return { ...state };
+      if (state.nextLaTex.length === 0) return { ...state };
+
+      const newLaTex = state.nextLaTex.pop();
 
       return {
         ...state,
-        latex: state.history[state.historyIdx + 1],
-        historyIdx: state.historyIdx + 1,
+        latex: newLaTex,
+        preLaTex: [...state.preLaTex, state.latex],
       };
     },
     [LOAD_HISTORY]: (state: MathQuillState = initialState, action) => {
       return {
         ...state,
-        history: [...action.payload.history],
-        historyIdx: action.payload.historyIdx,
+        preLaTex: [...action.payload.preLaTex],
+        nextLaTex: [...action.payload.nextLaTex],
       };
     },
   },
