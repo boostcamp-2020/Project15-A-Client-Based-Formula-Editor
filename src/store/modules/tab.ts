@@ -59,7 +59,7 @@ export const tabReducer = handleActions(
           latex: 'blank',
           fontColor: 'black',
           fontSize: 15,
-          fontDecline: true,
+          fontDecline: false,
           fontAlign: 'center',
         }),
       };
