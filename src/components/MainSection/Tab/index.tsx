@@ -82,12 +82,12 @@ const Tab = () => {
     dispatch(changeTab(tabId));
     dispatch(changeFontColor(selectedTabData.fontColor));
     dispatch(changeFontSize(selectedTabData.fontSize));
-    dispatch(change(selectedTabData.latex));
     dispatch(changeFontAlign(selectedTabData.fontAlign));
     dispatch(loadDeline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
     dispatch(
       loadHistory({
+        latex: selectedTabData.latex,
         preLaTex: selectedTabData.preLaTex,
         nextLaTex: selectedTabData.nextLaTex,
       })
@@ -132,11 +132,11 @@ const Tab = () => {
           dispatch(changeTab(nextTabInfo.id));
           dispatch(changeFontColor(nextTabInfo.fontColor));
           dispatch(changeFontSize(nextTabInfo.fontSize));
-          dispatch(change(nextTabInfo.latex));
           dispatch(changeFontAlign(nextTabInfo.fontAlign));
           dispatch(loadDeline(nextTabInfo.fontDecline));
           dispatch(
             loadHistory({
+              latex: nextTabInfo.latex,
               preLaTex: nextTabInfo.preLaTex,
               nextLaTex: nextTabInfo.nextLaTex,
             })
@@ -175,9 +175,9 @@ const Tab = () => {
       dispatch(changeFontSize(storedData[0].fontSize));
       dispatch(changeFontAlign(storedData[0].fontAlign));
       dispatch(loadDeline(storedData[0].fontDecline));
-      dispatch(change(storedData[0].latex));
       dispatch(
         loadHistory({
+          latex: storedData[0].latex,
           preLaTex: storedData[0].preLaTex,
           nextLaTex: storedData[0].nextLaTex,
         })

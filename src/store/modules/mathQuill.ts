@@ -88,9 +88,10 @@ export const mathQuillReducer = handleActions(
         preLaTex: [...state.preLaTex, state.latex],
       };
     },
-    [LOAD_HISTORY]: (state: MathQuillState = initialState, action) => {
+    [LOAD_HISTORY]: (state: MathQuillState = initialState, action: Action) => {
       return {
         ...state,
+        latex: action.payload.latex,
         preLaTex: [...action.payload.preLaTex],
         nextLaTex: [...action.payload.nextLaTex],
       };
