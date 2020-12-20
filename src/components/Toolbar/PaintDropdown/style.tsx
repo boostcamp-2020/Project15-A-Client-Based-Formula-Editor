@@ -1,6 +1,23 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
+import { RoundButton } from '@src/components/Common/RoundButton/style';
 
+interface Props {
+  paintDropdown: boolean;
+}
+export const DropdownButton = styled(RoundButton)<Props>`
+  background-color: ${(props) =>
+    props.paintDropdown ? colors.darkGrey : colors.white};
+  svg {
+    fill: ${(props) => props.paintDropdown && colors.white};
+  }
+
+  &:hover {
+    background-color: ${(props) =>
+      props.paintDropdown ? colors.darkGrey : '#f1f3f4'};
+    opacity: 0.8;
+  }
+`;
 export const DrawerContainer = styled.div`
   display: flex;
   position: absolute;
@@ -18,9 +35,7 @@ export const DrawerContainer = styled.div`
   button {
     border: none;
     background-color: ${colors.white};
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 `;
 export const DrawerDiv = styled.div`
@@ -28,10 +43,8 @@ export const DrawerDiv = styled.div`
   height: 1.2rem;
   border-radius: 4px;
   background-color: ${(props) => props.color};
+  cursor: pointer;
   & + & {
     margin-left: 0.3rem;
-  }
-  &:hover {
-    cursor: pointer;
   }
 `;

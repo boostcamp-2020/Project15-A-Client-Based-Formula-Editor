@@ -4,7 +4,7 @@ import colors from '@src/utils/colors';
 export const InputSectionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 97%;
+  width: 98%;
   height: 280px;
   margin-top: 4px;
   border: 1px solid ${colors.borderGrey};

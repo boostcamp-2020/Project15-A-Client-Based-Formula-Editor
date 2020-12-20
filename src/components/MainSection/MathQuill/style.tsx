@@ -46,11 +46,14 @@ export const MathField = styled.div<MathFieldProp>`
     flex-wrap: wrap;
     border: none;
   }
-  .mq-root-block var,
-  span {
+  .mq-root-block {
     text-align: ${(props) => props.fontAlign};
-    font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
+    & var,
+    span {
+      font-style: ${(props) => (props.isDecline ? 'italic' : 'normal')};
+    }
   }
+
   .mq-empty {
     border: 0.5px dotted ${colors.grey};
     background-color: ${colors.white};

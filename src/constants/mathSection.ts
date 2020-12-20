@@ -1,8 +1,4 @@
 import { SVG } from '@src/utils/svg/leftsection/mathsection';
-import PLUS from '@src/utils/svg/leftsection/inputsection/plus.svg';
-import MINUS from '@src/utils/svg/leftsection/inputsection/minus.svg';
-import MULTIPLE from '@src/utils/svg/leftsection/inputsection/multiple.svg';
-import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
 
 export interface InputMath {
   name: string;
@@ -45,38 +41,32 @@ export const combi: InputMath[] = [
   {
     name: 'combi1',
     svg: SVG.combi.COMBI,
-    latex: '^{ }',
+    latex: 'x^{ }',
     isPossible: true,
   },
   {
     name: 'combi2',
     svg: SVG.combi.COMBI_DOWN,
-    latex: '{ }_{ }',
-    isPossible: true,
-  },
-  {
-    name: 'combi3',
-    svg: SVG.combi.COMBI_RIGHT,
-    latex: '{ }_{ }^{ }',
+    latex: 'x_{ }',
     isPossible: true,
   },
   {
     name: 'combi4',
     svg: SVG.combi.COMBI_LEFT,
-    latex: '_{  }^{  }{  }',
+    latex: '_{  }^{  }x',
     isPossible: true,
   },
   {
     name: 'combi5',
     svg: SVG.combi.COMBI_DOWN_BOTH,
-    latex: '{ _{  }{\\  }_{  } }',
-    isPossible: true,
+    latex: '{ _{  }x_{  } }',
+    isPossible: false,
   },
   {
     name: 'combi6',
     svg: SVG.combi.COMBI_ALL,
-    latex: '_{ }^{ }{\\ }_{ }^{ }',
-    isPossible: true,
+    latex: '_{ }^{ }\\overline{ }_{ }^{ }',
+    isPossible: false,
   },
 ];
 
@@ -139,12 +129,6 @@ export const integral: InputMath[] = [
     name: 'integral10',
     svg: SVG.integral.VOLUMN_INTEGRAL_2,
     latex: '\\oiiint _{ }^{ }',
-    isPossible: false,
-  },
-  {
-    name: 'integral11',
-    svg: SVG.integral.INTEGRAL_THEOREM,
-    latex: '\\left\\lceil \\right\\rceil _{ }^{ }',
     isPossible: false,
   },
 ];
