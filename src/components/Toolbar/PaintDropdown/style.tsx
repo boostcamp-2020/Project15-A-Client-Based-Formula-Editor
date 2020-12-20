@@ -35,9 +35,7 @@ export const DrawerContainer = styled.div`
   button {
     border: none;
     background-color: ${colors.white};
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 `;
 export const DrawerDiv = styled.div`
@@ -45,10 +43,8 @@ export const DrawerDiv = styled.div`
   height: 1.2rem;
   border-radius: 4px;
   background-color: ${(props) => props.color};
+  cursor: pointer;
   & + & {
     margin-left: 0.3rem;
-  }
-  &:hover {
-    cursor: pointer;
   }
 `;

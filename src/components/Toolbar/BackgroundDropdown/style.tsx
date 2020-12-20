@@ -45,4 +45,3 @@ export const BackgroundContainer = styled.div`
     width: 10px;
   }
 `;
-export const BackgroundContent = styled.div``;
