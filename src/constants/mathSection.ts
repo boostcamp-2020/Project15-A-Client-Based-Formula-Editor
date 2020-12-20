@@ -1,8 +1,4 @@
 import { SVG } from '@src/utils/svg/leftsection/mathsection';
-import PLUS from '@src/utils/svg/leftsection/inputsection/plus.svg';
-import MINUS from '@src/utils/svg/leftsection/inputsection/minus.svg';
-import MULTIPLE from '@src/utils/svg/leftsection/inputsection/multiple.svg';
-import DIVISION from '@src/utils/svg/leftsection/inputsection/division.svg';
 
 export interface InputMath {
   name: string;
@@ -52,12 +48,6 @@ export const combi: InputMath[] = [
     name: 'combi2',
     svg: SVG.combi.COMBI_DOWN,
     latex: '{ }_{ }',
-    isPossible: true,
-  },
-  {
-    name: 'combi3',
-    svg: SVG.combi.COMBI_RIGHT,
-    latex: '{ }_{ }^{ }',
     isPossible: true,
   },
   {
@@ -139,12 +129,6 @@ export const integral: InputMath[] = [
     name: 'integral10',
     svg: SVG.integral.VOLUMN_INTEGRAL_2,
     latex: '\\oiiint _{ }^{ }',
-    isPossible: false,
-  },
-  {
-    name: 'integral11',
-    svg: SVG.integral.INTEGRAL_THEOREM,
-    latex: '\\left\\lceil \\right\\rceil _{ }^{ }',
     isPossible: false,
   },
 ];
