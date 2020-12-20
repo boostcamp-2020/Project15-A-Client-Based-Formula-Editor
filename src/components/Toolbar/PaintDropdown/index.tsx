@@ -134,9 +134,12 @@ const Drawer = () => {
 
   return (
     <div>
-      <RoundButton onClick={() => onClickDrawerHandler(backgroundCanvas)}>
+      <StyleComponent.DropdownButton
+        paintDropdown={paintDropdown}
+        onClick={() => onClickDrawerHandler(backgroundCanvas)}
+      >
         <DRAWER />
-      </RoundButton>
+      </StyleComponent.DropdownButton>
       {paintDropdown && (
         <StyleComponent.DrawerContainer>
           {DrawerItem}

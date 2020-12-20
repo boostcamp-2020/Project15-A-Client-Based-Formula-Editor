@@ -83,9 +83,12 @@ const Background = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
   return (
     <div ref={backgroundRef}>
-      <RoundButton onClick={onClickBackgroundHandler}>
+      <StyleComponent.BackgroundDropdownButton
+        backgroundDropdown={backgroundDropdown}
+        onClick={onClickBackgroundHandler}
+      >
         <BACKGROUND />
-      </RoundButton>
+      </StyleComponent.BackgroundDropdownButton>
       {backgroundDropdown && (
         <StyleComponent.BackgroundContainer>
           <SvgButton
