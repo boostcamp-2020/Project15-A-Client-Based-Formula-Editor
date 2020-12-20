@@ -6,7 +6,7 @@ import { change, loadHistory } from '@src/store/modules/mathQuill';
 import { changeFontColor } from '@src/store/modules/fontColorDropdown';
 import { changeFontSize } from '@src/store/modules/fontSizeDropdown';
 import { changeFontAlign } from '@src/store/modules/fontAlign';
-import { changeDecline } from '@src/store/modules/fontDecline';
+import { loadDeline } from '@src/store/modules/fontDecline';
 import useInterval from '@src/hooks/useInterval';
 import TabList from './TabList';
 import PlusTab from './PlusTab';
@@ -16,7 +16,6 @@ const Tab = () => {
   const { lastId, selectedTabId, tabList } = useSelector(
     (state: RootState) => state.tabReducer
   );
-  const { latex } = useSelector((state: RootState) => state.mathQuillReducer);
   const { fontColor } = useSelector(
     (state: RootState) => state.fontColorDropdownReducer
   );
@@ -29,7 +28,7 @@ const Tab = () => {
   const { fontDecline } = useSelector(
     (state: RootState) => state.fontDeclineReducer
   );
-  const { history, historyIdx } = useSelector(
+  const { latex, preLaTex, nextLaTex } = useSelector(
     (state: RootState) => state.mathQuillReducer
   );
   const dispatch = useDispatch();
@@ -138,7 +137,7 @@ const Tab = () => {
     dispatch(changeFontSize(selectedTabData.fontSize));
     dispatch(change(selectedTabData.latex));
     dispatch(changeFontAlign(selectedTabData.fontAlign));
-    dispatch(changeDecline(selectedTabData.fontDecline));
+    dispatch(loadDeline(selectedTabData.fontDecline));
     dispatch(updateTab(newStoreData));
     dispatch(
       loadHistory({
@@ -159,9 +158,7 @@ const Tab = () => {
       fontColor: 'black',
       fontSize: 15,
       fontAlign: 'center',
-      fontDecline: true,
-      history: ['blank'],
-      historyIdx: 0,
+      fontDecline: false,
     });
 
     window.localStorage.setItem('tab', JSON.stringify(newStoreData));
@@ -210,7 +207,7 @@ const Tab = () => {
           dispatch(changeFontSize(nextTabInfo.fontSize));
           dispatch(change(nextTabInfo.latex));
           dispatch(changeFontAlign(nextTabInfo.fontAlign));
-          dispatch(changeDecline(nextTabInfo.fontDecline));
+          dispatch(loadDeline(nextTabInfo.fontDecline));
           dispatch(
             loadHistory({
               history: nextTabInfo.history,
@@ -250,7 +247,7 @@ const Tab = () => {
       dispatch(changeFontColor(storedData[0].fontColor));
       dispatch(changeFontSize(storedData[0].fontSize));
       dispatch(changeFontAlign(storedData[0].fontAlign));
-      dispatch(changeDecline(storedData[0].fontDecline));
+      dispatch(loadDeline(storedData[0].fontDecline));
       dispatch(change(storedData[0].latex));
       dispatch(
         loadHistory({
