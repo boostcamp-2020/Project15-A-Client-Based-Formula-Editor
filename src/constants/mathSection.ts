@@ -41,32 +41,32 @@ export const combi: InputMath[] = [
   {
     name: 'combi1',
     svg: SVG.combi.COMBI,
-    latex: '^{ }',
+    latex: 'x^{ }',
     isPossible: true,
   },
   {
     name: 'combi2',
     svg: SVG.combi.COMBI_DOWN,
-    latex: '{ }_{ }',
+    latex: 'x_{ }',
     isPossible: true,
   },
   {
     name: 'combi4',
     svg: SVG.combi.COMBI_LEFT,
-    latex: '_{  }^{  }{  }',
+    latex: '_{  }^{  }x',
     isPossible: true,
   },
   {
     name: 'combi5',
     svg: SVG.combi.COMBI_DOWN_BOTH,
-    latex: '{ _{  }{\\  }_{  } }',
-    isPossible: true,
+    latex: '{ _{  }x_{  } }',
+    isPossible: false,
   },
   {
     name: 'combi6',
     svg: SVG.combi.COMBI_ALL,
-    latex: '_{ }^{ }{\\ }_{ }^{ }',
-    isPossible: true,
+    latex: '_{ }^{ }\\overline{ }_{ }^{ }',
+    isPossible: false,
   },
 ];
 
