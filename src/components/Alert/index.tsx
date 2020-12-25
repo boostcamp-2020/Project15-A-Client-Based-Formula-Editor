@@ -4,6 +4,7 @@ import { RootState } from '@src/store/modules';
 import * as StyleComponent from './style';
 import magicNumber from './magicNumber';
 import AlertComponent from './AlertComponent';
+import masicNumber from './magicNumber';
 
 const Alert = () => {
   const { mode, toggle } = useSelector(
@@ -12,7 +13,7 @@ const Alert = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (mode !== 0) {
+    if (mode !== masicNumber.INFO) {
       setVisible(true);
 
       setTimeout(() => {
