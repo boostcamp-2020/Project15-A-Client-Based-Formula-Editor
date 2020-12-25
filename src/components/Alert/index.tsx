@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import * as StyleComponent from './style';
+import magicNumber from './magicNumber';
 
 const Alert = () => {
   const { mode, toggle } = useSelector(
@@ -33,7 +34,7 @@ const Alert = () => {
     <>
       <StyleComponent.MiddleHolder visible={visible}>
         {(function () {
-          if (mode === 0) {
+          if (mode === magicNumber.INFO) {
             return (
               <div className="alert alert-info">
                 <strong>
@@ -46,7 +47,7 @@ const Alert = () => {
               </div>
             );
           }
-          if (mode === 1) {
+          if (mode === magicNumber.ERROR) {
             return (
               <div className="alert alert-error">
                 <strong>
@@ -59,7 +60,7 @@ const Alert = () => {
               </div>
             );
           }
-          if (mode === 2) {
+          if (mode === magicNumber.SUCCESS) {
             return (
               <div className="alert alert-success">
                 <strong>
