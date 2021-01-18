@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import * as StyleComponent from './style';
+import magicNumber from './magicNumber';
+import AlertComponent from './AlertComponent';
+import masicNumber from './magicNumber';
 
 const Alert = () => {
   const { mode, toggle } = useSelector(
@@ -10,7 +13,7 @@ const Alert = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (mode !== 0) {
+    if (mode !== masicNumber.INFO) {
       setVisible(true);
 
       setTimeout(() => {
@@ -33,41 +36,26 @@ const Alert = () => {
     <>
       <StyleComponent.MiddleHolder visible={visible}>
         {(function () {
-          if (mode === 0) {
+          if (mode === magicNumber.INFO) {
             return (
               <div className="alert alert-info">
-                <strong>
-                  Info
-                  <span role="img" aria-label="bulb">
-                    💡
-                  </span>
-                </strong>
+                <AlertComponent messageType="Info" label="bulb" />
                 Try drag and drop here!
               </div>
             );
           }
-          if (mode === 1) {
+          if (mode === magicNumber.ERROR) {
             return (
               <div className="alert alert-error">
-                <strong>
-                  sorry
-                  <span role="img" aria-label="hands">
-                    🙏
-                  </span>
-                </strong>
+                <AlertComponent messageType="sorry" label="hands" />
                 This feature is still being prepared.
               </div>
             );
           }
-          if (mode === 2) {
+          if (mode === magicNumber.SUCCESS) {
             return (
               <div className="alert alert-success">
-                <strong>
-                  Well done!
-                  <span role="img" aria-label="hansUp">
-                    👐
-                  </span>
-                </strong>
+                <AlertComponent messageType="Well done!" label="hansUp" />
                 You have successfully saved.
               </div>
             );
