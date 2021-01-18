@@ -9,7 +9,7 @@ import * as StyleComponent from './style';
 interface Props {
   latex: string;
   name: string;
-  svg: any;
+  svg: string;
   width: string;
   height: string;
   onClick?: () => void;
