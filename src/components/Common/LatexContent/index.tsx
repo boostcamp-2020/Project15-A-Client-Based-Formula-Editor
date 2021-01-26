@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import { useDrag } from 'react-dnd';
 import Svg from '@src/components/Common/Svg';
