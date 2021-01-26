@@ -30,6 +30,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': ['off', 'never'],
+    'func-names': ['off', 'always'],
   },
 
   settings: {
