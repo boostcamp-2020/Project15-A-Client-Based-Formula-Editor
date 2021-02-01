@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
 import * as StyleComponent from './style';
-import magicNumber from './magicNumber';
 import AlertComponent from './AlertComponent';
-import masicNumber from './magicNumber';
+import magicNumber from './magicNumber';
 
 const Alert = () => {
   const { mode, toggle } = useSelector(
@@ -13,7 +12,7 @@ const Alert = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (mode !== masicNumber.INFO) {
+    if (mode !== magicNumber.INFO) {
       setVisible(true);
 
       setTimeout(() => {
@@ -29,7 +28,7 @@ const Alert = () => {
 
     setTimeout(() => {
       setVisible(false);
-    }, 7000);
+    }, 3000);
   }, []);
 
   return (
