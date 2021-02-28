@@ -1,5 +1,5 @@
 import rainImageData from '@src/utils/svg/background/비배경화면.jpg';
-import { rainProps } from '@src/@types/animation';
+import { RainProps } from '@src/@types/animation';
 import colors from '@src/utils/colors';
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
@@ -9,7 +9,7 @@ let height: number;
 let context: CanvasRenderingContext2D;
 let animationId: number;
 
-let rainArr: Array<rainProps> = [];
+let rainArr: Array<RainProps> = [];
 
 const makeLine = (x: number, y: number, length: number) => {
   context.beginPath();
@@ -39,7 +39,7 @@ const makeImage = () => {
   return rainImage;
 };
 
-const calculateRain = (rain: rainProps) => {
+const calculateRain = (rain: RainProps) => {
   rain.y += rain.distance;
   if (rain.y > height) {
     rain.y = 0;
