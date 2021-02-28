@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import snowImageData from '@src/utils/svg/background/눈배경화면.jpg';
-import { snowProps } from '@src/@types/animation';
+import { SnowProps } from '@src/@types/animation';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-plusplus */
 const SNOW_NUM = 100;
@@ -9,7 +9,7 @@ let height: number;
 let context: CanvasRenderingContext2D;
 let animationId: number;
 
-let snowArr: Array<snowProps> = [];
+let snowArr: Array<SnowProps> = [];
 const initSnow = () => {
   const x = Math.floor(Math.random() * width);
   const y = Math.floor(Math.random() * height);
@@ -45,7 +45,7 @@ const makeImage = () => {
   snowImage.src = snowImageData;
   return snowImage;
 };
-const calculateSnow = (snow: snowProps) => {
+const calculateSnow = (snow: SnowProps) => {
   snow.t = snow.t >= Math.PI * 2 ? 0 : snow.t;
   snow.x += Math.sin(snow.t) * snow.distance * 0.8;
   snow.y += snow.distance;
@@ -61,6 +61,7 @@ const calculateSnow = (snow: snowProps) => {
 };
 export const fallingSnow = () => {
   const snowImage = makeImage();
+
   animationId = requestAnimationFrame(fallingSnow);
   context.clearRect(0, 0, width, height);
 

@@ -1,6 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { MutableRefObject, useEffect, useRef } from 'react';
 
-const useInterval = (callback: any, delay: any) => {
+const useInterval = (
+  callback: MutableRefObject<HTMLDivElement>,
+  delay: number
+) => {
   const savedCallback: any = useRef();
 
   // Remember the latest callback.
