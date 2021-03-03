@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@src/store/modules';
+import magicNumber from '@src/constants/magicNumber';
 import * as StyleComponent from './style';
 import AlertComponent from './AlertComponent';
-import magicNumber from './magicNumber';
 
 const Alert = () => {
   const { mode, toggle } = useSelector(
