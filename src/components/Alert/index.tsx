@@ -59,7 +59,7 @@ const Alert = () => {
               </div>
             );
           }
-          return undefined;
+          return '';
         })()}
       </StyleComponent.MiddleHolder>
     </>
