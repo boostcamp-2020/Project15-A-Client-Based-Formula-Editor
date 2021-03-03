@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
 
-interface canvasProps {
+interface CanvasProps {
   show: string;
 }
-export const CanvasContainer = styled.canvas<canvasProps>`
+export const CanvasContainer = styled.canvas<CanvasProps>`
   position: absolute;
   left: 0;
   top: 0;
