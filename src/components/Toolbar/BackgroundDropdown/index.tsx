@@ -44,13 +44,18 @@ const Background = () => {
     deleteWinterAnimation();
     deleteSummerAnimation();
   };
-
+  const canvasInit = (
+    canvas: HTMLCanvasElement,
+    context: CanvasRenderingContext2D
+  ) => {
+    context.canvas.width = window.innerWidth;
+    context.canvas.height = window.innerHeight;
+  };
   const onClickSummerHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
     dispatch(showWinter(false));
-    context.canvas.width = window.innerWidth;
-    context.canvas.height = window.innerHeight;
+    canvasInit(canvas, context);
     if (summerBackground) {
       deleteSummerAnimation();
       drawingRain(context, canvas.width, canvas.height);
@@ -65,8 +70,7 @@ const Background = () => {
   const onClickWinterHandler = () => {
     const canvas = backgroundCanvas.current;
     const context = canvas.getContext('2d');
-    context.canvas.width = window.innerWidth;
-    context.canvas.height = window.innerHeight;
+    canvasInit(canvas, context);
     dispatch(showSummer(false));
     if (winterBackground) {
       deleteWinterAnimation();
