@@ -8,7 +8,10 @@ import AlignContent from './AlignContent';
 import * as StyledComponent from './style';
 
 const AlignButton = () => {
-  const { fontAlignDropdown, fontAlign } = useSelector(
+  const { fontAlignDropdown } = useSelector(
+    (state: RootState) => state.fontAlignReducer
+  );
+  const { fontAlign } = useSelector(
     (state: RootState) => state.fontAlignReducer
   );
   const dispatch = useDispatch();
