@@ -1,31 +1,12 @@
 import React from 'react';
-import DropDown from '@src/components/Common/DropDown';
-import AlignLeft from '@src/utils/svg/toolbar/align-left.svg';
-import AlignCenter from '@src/utils/svg/toolbar/align-center.svg';
-import AlignRight from '@src/utils/svg/toolbar/align-right.svg';
+import aligns from '@src/constants/align';
 import SvgSection from '@src/components/Common/Svg';
 import * as StyleComponent from './style';
 
 interface AlignContentProps {
   changeAlign: (align: string) => void;
 }
-const aligns = [
-  {
-    position: 'left',
-    id: 0,
-    Svg: AlignLeft,
-  },
-  {
-    position: 'center',
-    id: 1,
-    Svg: AlignCenter,
-  },
-  {
-    position: 'right',
-    id: 2,
-    Svg: AlignRight,
-  },
-];
+
 const AlignContent = ({ changeAlign }: AlignContentProps) => {
   return (
     <StyleComponent.DropdownContainer>

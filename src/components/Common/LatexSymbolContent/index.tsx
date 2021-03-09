@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { useDrag } from 'react-dnd';
 import * as StyleComponent from './style';
