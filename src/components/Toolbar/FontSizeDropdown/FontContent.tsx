@@ -26,4 +26,4 @@ const FontContent = ({ fontSize, changeFontSize, selectedFontSize }: Props) => {
   );
 };
 
-export default FontContent;
+export default React.memo(FontContent);

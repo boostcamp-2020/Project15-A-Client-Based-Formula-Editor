@@ -6,7 +6,7 @@ import {
   InputLatexMathTopContent,
   InputCalculation,
 } from '@src/constants/InputSection';
-import { LatexContent } from '@src/components/Common/LatexContent';
+import LatexContent from '@src/components/Common/LatexContent';
 import { changeFomula } from '@src/store/modules/leftSection';
 import { insert } from '@src/store/modules/mathQuill';
 import * as StyledComponent from './style';

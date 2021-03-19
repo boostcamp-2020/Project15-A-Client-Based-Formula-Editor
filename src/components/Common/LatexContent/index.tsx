@@ -16,7 +16,7 @@ interface Props {
   isPossible?: boolean;
 }
 
-export const LatexContent = ({
+const LatexContent = ({
   latex,
   name,
   svg,
@@ -57,3 +57,5 @@ export const LatexContent = ({
     </>
   );
 };
+
+export default React.memo(LatexContent);

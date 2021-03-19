@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import colors from '@src/utils/colors';
+import React from 'react';
 
 interface LatexProps {
   width: string;
   height: string;
   opacity: number;
 }
-export const InputLatexContent = styled.div<LatexProps>`
+export const InputLatexContent = React.memo(styled.div<LatexProps>`
   flex: auto;
   display: flex;
   width: ${(props) => props.width}px;
@@ -20,4 +21,4 @@ export const InputLatexContent = styled.div<LatexProps>`
   &:hover {
     background-color: ${colors.lightGrey};
   }
-`;
+`);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputLatexTopContent } from '@src/constants/InputSection';
-import { LatexContent } from '@src/components/Common/LatexContent';
+import LatexContent from '@src/components/Common/LatexContent';
 import { useDispatch } from 'react-redux';
 import { changeFomula } from '@src/store/modules/leftSection';
 import { changeAlertMode } from '@src/store/modules/alert';
