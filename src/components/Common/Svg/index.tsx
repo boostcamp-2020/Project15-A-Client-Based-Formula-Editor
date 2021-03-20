@@ -7,4 +7,4 @@ const SvgSection = ({ Svg }: SvgProps) => {
   return <Svg />;
 };
 
-export default SvgSection;
+export default React.memo(SvgSection);
